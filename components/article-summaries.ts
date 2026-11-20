@@ -8,6 +8,22 @@ export type ArticleSummary = {
 
 export const articleSummaries: readonly ArticleSummary[] = [
   {
+    "slug": "moyandi-scents-ecommerce-website-durban",
+    "title": "Building an online shop for a Durban candle brand: Moyandi Scents",
+    "seoTitle": "E-commerce Website for a Durban Candle Brand | Moyandi",
+    "description": "How we built the Moyandi Scents e-commerce website in Durban: shopping by scent, a gift box builder, two-step guest checkout, courier delivery and a private store dashboard.",
+    "category": "E-commerce",
+    "summary": "Moyandi Scents sells candles, reed diffusers, linen sprays and car diffusers from Durban. Here’s what went into its online shop, and what other small product brands can take from it.",
+    "datePublished": "2026-11-20",
+    "author": "Ntombii Tech",
+    "image": "/images/work-new/moyandi-scents-detail.webp",
+    "imageAlt": "Moyandi Scents gift box builder with gift combinations, prices and scent choices",
+    "imageProjectID": "moyandi-scents",
+    "imageWidth": 1440,
+    "imageHeight": 1000,
+    "readingMinutes": 4
+  },
+  {
     "slug": "website-design-newcastle-business-guide",
     "title": "Website design in Newcastle, KZN: pages, features and quotes",
     "description": "Website design for Newcastle, Osizweni and Madadeni businesses in KZN. See useful pages, WhatsApp enquiries, mobile features and what to ask in a quote.",

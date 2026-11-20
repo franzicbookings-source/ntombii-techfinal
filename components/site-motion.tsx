@@ -21,12 +21,14 @@ export function SiteMotion() {
     const belowFold = (element: Element) => element.getBoundingClientRect().top > window.innerHeight * 0.92;
 
     // Reveal once, when an element enters the viewport.
-    const revealer = new IntersectionObserver(entries => entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add("motion-in");
-      entry.target.classList.remove("motion-pending");
-      revealer.unobserve(entry.target);
-    }), { threshold: 0.2, rootMargin: "0px 0px -40px 0px" });
+    const pending = new Set<Element>();
+    function reveal(element: Element) {
+      element.classList.add("motion-in");
+      element.classList.remove("motion-pending");
+      pending.delete(element);
+      revealer.unobserve(element);
+    }
+    const revealer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) reveal(entry.target); }), { threshold: 0.2, rootMargin: "0px 0px -40px 0px" });
     cleanups.push(() => revealer.disconnect());
 
     // Headings: wrap each word so it can rise out of its own line.
@@ -53,6 +55,7 @@ export function SiteMotion() {
         node.replaceWith(fragment);
       }
       heading.classList.add("is-split", "motion-pending");
+      pending.add(heading);
       revealer.observe(heading);
     });
 
@@ -67,6 +70,7 @@ export function SiteMotion() {
         shape.style.setProperty("--i", String(index));
       });
       icon.classList.add("motion-pending");
+      pending.add(icon);
       revealer.observe(icon);
     });
 
@@ -82,6 +86,8 @@ export function SiteMotion() {
     function update() {
       frame = 0;
       const viewport = window.innerHeight;
+      // Safety net: anything scrolled past (a fast scroll or a jump link) is revealed at once.
+      for (const element of pending) if (element.getBoundingClientRect().top < viewport) reveal(element);
       for (const element of landing) {
         const top = element.getBoundingClientRect().top;
         const progress = Math.min(1, Math.max(0, (viewport - top) / (viewport * 0.65)));

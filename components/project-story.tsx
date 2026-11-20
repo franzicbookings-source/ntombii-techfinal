@@ -8,6 +8,25 @@ import { businessId, pageMetadata, projectSchema, siteUrl } from "./site-seo";
 import { StructuredData } from "./structured-data";
 
 const stories = {
+  "moyandi-scents": {
+    title: "Moyandi Scents E-commerce Website",
+    detailLabel: "Gift boxes", detailSize: [1440, 1000],
+    description: "See the Moyandi Scents e-commerce website built by Ntombii Tech: candles, diffusers and linen sprays by scent, a gift box builder, two-step guest checkout and a private store dashboard.",
+    heading: "Moyandi Scents.",
+    introduction: "A home-fragrance brand from Durban, founded by Nokwanda Cele. We built an online shop for its candles, reed diffusers, linen sprays, car diffusers and gift boxes, with a dashboard for running the store.",
+    purpose: "Make choosing a scent feel as easy as smelling one.",
+    paragraphs: [
+      "Moyandi takes its name from Umoya Omnandi, Nokwanda’s great-grandfather, whose name means “pleasant air”. The website leads with that idea: warm product photography, a short line, and a direct route into the collection. Each product card shows the price and how many scents it comes in, so shoppers know what to expect before they click.",
+      "Gifts have their own page. Shoppers choose a combination, pick a scent for each item and see the total update before adding the whole gift box to the cart. Checkout takes two steps and needs no account. Behind the shop, the owner manages products, prices, stock for every scent, orders, discount codes and delivery from a private dashboard.",
+    ],
+    features: ["Shop by product type, with price and scent count on every card", "Product pages with a scent selector", "Gift box builder with live totals", "Two-step guest checkout", "Delivery with The Courier Guy, calculated at checkout", "Private dashboard for products, stock, orders, discounts and delivery"],
+    steps: [
+      { title: "Lead with the feeling, then the products", body: "The homepage opens on a full-width photograph of the collection and one line: “The art of pleasant air.” The collection follows straight away, with prices and the number of scents on each card." },
+      { title: "Build a gift in one place", body: "The gift page lets shoppers choose a combination, then a scent for each item. The gift box total updates as they choose, and delivery is added at checkout." },
+      { title: "Keep shopping comfortable on a phone", body: "On a phone, the photography stays front and centre, with the menu, search and cart in the header. A WhatsApp button stays within reach for questions about scents, orders or gifts." },
+    ],
+    summary: "Shoppers can find a scent, build a gift box and check out without an account, while the owner runs the shop from her own dashboard.",
+  },
   "legend-black-jesus": {
     title: "Legend Black Jesus E-commerce Website",
     detailLabel: "Product page", detailSize: [1440,1000],
@@ -243,7 +262,7 @@ export function ProjectStory({ id }: { id: ProjectStoryId }) {
     <section className="depth-section wrap"><div className="depth-intro"><h2>{story.purpose}</h2></div><div className="depth-prose">{story.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div></section>
     <section className="detail-body wrap"><div className="detail-body-title"><h2>The pages and features.</h2></div><div className="detail-offering">{story.features.map((feature) => <div key={feature}><ContentIllustration kind={illustrationFor(feature)} /><h3>{feature}</h3></div>)}</div></section>
     <ProjectScreens projectId={id} screens={screens} />
-    <section className="work-summary wrap"><h2>See the work for yourself.</h2><p>{story.summary}</p><div className="website-context-links"><Link href="/services/websites">Website design and development <span aria-hidden="true">↗</span></Link><Link href="/pricing">View website prices <span aria-hidden="true">↗</span></Link><Link href="/work">Explore our other projects <span aria-hidden="true">↗</span></Link><Link href="/articles/website-design-newcastle-business-guide">What your business website needs <span aria-hidden="true">↗</span></Link></div></section>
+    <section className="work-summary wrap"><h2>See the work for yourself.</h2><p>{story.summary}</p><div className="website-context-links"><Link href="/services/websites">Website design and development <span aria-hidden="true">↗</span></Link><Link href="/pricing">View website prices <span aria-hidden="true">↗</span></Link><Link href="/work">Explore our other projects <span aria-hidden="true">↗</span></Link>{id === "moyandi-scents" ? <Link href="/articles/moyandi-scents-ecommerce-website-durban">How we built the Moyandi Scents shop <span aria-hidden="true">↗</span></Link> : <Link href="/articles/website-design-newcastle-business-guide">What your business website needs <span aria-hidden="true">↗</span></Link>}</div></section>
     <section className="inner-next"><div className="wrap"><h2>Need a website for your business?</h2><Link className="button button-white" href="/contact">Tell us what you need <span aria-hidden="true">↗</span></Link></div></section>
   </div></InnerPage>;
 }

@@ -13,4 +13,4 @@ This captures the live site on desktop and phone, renders `scene.html` frame by 
 
 Requirements: Playwright with Chromium and `ffmpeg` with `libx264` and `libwebp`. These are not site dependencies; the site build never runs this script.
 
-Fractions used for the current clips: friday-consulting 0.62, penny-ntuli 0.72, fezile-security 0.55 (stops before the branch map), legend-black-jesus 0.7, snesenzo-security 0.7, khuzani-blue-nation 0.72.
+Fractions used for the current clips: friday-consulting 0.62, penny-ntuli 0.72, fezile-security 0.55 (stops before the branch map), legend-black-jesus 0.7, snesenzo-security 0.7, khuzani-blue-nation 0.72, moyandi-scents 0.7.
