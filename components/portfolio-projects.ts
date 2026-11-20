@@ -24,6 +24,21 @@ export function projectMotion(id: string) {
 
 export const portfolioProjects: readonly PortfolioProject[] = [
   {
+    id: "moyandi-scents",
+    caseStudyUrl: "/work/moyandi-scents",
+    name: "Moyandi Scents",
+    previewName: "Moyandi Scents",
+    kind: "E-commerce website",
+    category: "Home fragrance · Durban, South Africa",
+    description: "Moyandi Scents is a Durban home-fragrance brand founded by Nokwanda Cele. We built an e-commerce website where shoppers browse candles, reed diffusers, linen sprays and car diffusers, build a gift box and check out without creating an account. A private store dashboard lets the owner manage products, stock, orders, discounts and delivery.",
+    tags: ["Online shop", "Gift box builder", "Store dashboard"],
+    tagDescriptions: ["Shop by product and scent.", "Put together a gift in one place.", "Run the shop without a developer."],
+    url: "https://moyandiscents.co.za/",
+    desktop: { src: "/images/work-new/moyandi-scents-desktop.webp", alt: "Moyandi Scents homepage with candles, a reed diffuser and linen spray under the line ‘The art of pleasant air’", label: "moyandiscents.co.za" },
+    detail: { src: "/images/work-new/moyandi-scents-detail.webp", alt: "Moyandi Scents gift box builder with gift combinations, prices and scent choices", label: "A closer look / Gift boxes" },
+    mobile: { src: "/images/work-new/moyandi-scents-mobile.webp", alt: "Moyandi Scents homepage on a phone" },
+  },
+  {
     "id": "friday-consulting",
     "caseStudyUrl": "/work/friday-consulting",
     "name": "Friday Consulting",

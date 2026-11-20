@@ -34,7 +34,7 @@ async function capture(browser, mode) {
   const page = await context.newPage();
   await page.goto(url, { waitUntil: "networkidle", timeout: 60000 }).catch(error => console.warn(`${mode}: ${error.message.split("\n")[0]}`));
   await page.waitForTimeout(1500);
-  for (const name of ["Accept", "Accept all", "Allow all", "Got it", "I agree", "OK"]) {
+  for (const name of ["Reject optional", "Reject all", "Essential only", "Accept", "Accept all", "Allow all", "Got it", "I agree", "OK"]) {
     const button = page.getByRole("button", { name, exact: true });
     if (await button.count().catch(() => 0)) await button.first().click({ timeout: 1000 }).catch(() => {});
   }

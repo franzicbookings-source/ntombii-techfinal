@@ -8,6 +8,115 @@ export type Article = ArticleSummary & {
 };
 export const articles: readonly Article[] = [
   {
+    "slug": "moyandi-scents-ecommerce-website-durban",
+    "title": "Building an online shop for a Durban candle brand: Moyandi Scents",
+    "seoTitle": "E-commerce Website for a Durban Candle Brand | Moyandi",
+    "description": "How we built the Moyandi Scents e-commerce website in Durban: shopping by scent, a gift box builder, two-step guest checkout, courier delivery and a private store dashboard.",
+    "category": "E-commerce",
+    "summary": "Moyandi Scents sells candles, reed diffusers, linen sprays and car diffusers from Durban. Here’s what went into its online shop, and what other small product brands can take from it.",
+    "datePublished": "2026-11-20",
+    "author": "Ntombii Tech",
+    "image": "/images/work-new/moyandi-scents-detail.webp",
+    "imageAlt": "Moyandi Scents gift box builder with gift combinations, prices and scent choices",
+    "imageProjectID": "moyandi-scents",
+    "imageWidth": 1440,
+    "imageHeight": 1000,
+    "readingMinutes": 4,
+    "sections": [
+      {
+        "id": "the-brand",
+        "heading": "A brand built on a family name",
+        "paragraphs": [
+          "Moyandi Scents is a home-fragrance brand from Durban, founded by Nokwanda Cele. The name comes from her great-grandfather, Umoya Omnandi, whose name means “pleasant air”. The range covers soy wax candles, reed diffusers, linen sprays, car diffusers and gift sets.",
+          "Smell doesn’t travel through a screen, so the website has to do the next best thing: show the products well, make each scent easy to choose, and make buying simple. We built the site around those three jobs."
+        ]
+      },
+      {
+        "id": "shop-by-scent",
+        "heading": "Make every scent easy to find",
+        "paragraphs": [
+          "The shop groups the range by product type: candles, reed diffusers, car diffusers, linen sprays and gift sets. Every product card shows the price and how many scents it comes in, so shoppers know what to expect before they open a page. Shoppers can also sort by price.",
+          "On a product page, the scents sit beside the price as simple buttons. The reed diffuser also lets shoppers choose a bottle style. Stock is tracked for every scent separately, so the shop knows exactly which option is available."
+        ]
+      },
+      {
+        "id": "gift-box",
+        "heading": "A gift box builder instead of a long list",
+        "paragraphs": [
+          "Gifts are a big part of a fragrance business, so they have their own page. Shoppers choose one of three combinations, then pick a scent for each item. The gift box total updates as they choose, and the whole box goes into the cart as one item.",
+          "This saves people from adding three products separately and hoping they go together. It also gives the brand a clear way to sell its red gift box."
+        ],
+        "bullets": [
+          "Candle and linen spray gift set: R350",
+          "Diffuser and linen spray gift set: R300",
+          "Candle, diffuser and linen spray gift set: R450"
+        ]
+      },
+      {
+        "id": "checkout",
+        "heading": "A short checkout, with no account needed",
+        "paragraphs": [
+          "The checkout has two steps: your details, then delivery and payment. Shoppers don’t need to create an account to place an order. Delivery is calculated at checkout based on where the order is going.",
+          "Orders are delivered across South Africa with The Courier Guy. The shipping page explains that handmade candles take one to three business days to prepare, and that tracking details are sent once an order has been dispatched. Clear delivery information answers questions before a customer has to ask them.",
+          "The checkout is built for Paystack, a South African payment provider. Card details are handled by Paystack rather than stored on the website, and an order is only marked as paid once the payment is confirmed with Paystack."
+        ]
+      },
+      {
+        "id": "store-dashboard",
+        "heading": "A dashboard the owner can run herself",
+        "paragraphs": [
+          "Behind the shop is a private dashboard. From there, the owner can add and edit products, change prices, update stock for each scent, follow orders, add tracking details, create discount codes and set delivery options. She doesn’t need a developer to make everyday changes.",
+          "A custom dashboard like this is more than most small businesses need on day one. If you sell a handful of products, our Shopify e-commerce package is often a better start: it uses Shopify’s own dashboard for products, stock and orders. Custom dashboards are quoted separately."
+        ]
+      },
+      {
+        "id": "real-work-examples",
+        "heading": "See the finished website",
+        "paragraphs": [
+          "The project page shows the homepage, the gift box builder and the phone layout, with a short video of the live site. You can also visit the shop yourself."
+        ]
+      },
+      {
+        "id": "for-your-shop",
+        "heading": "What other product brands can take from it",
+        "paragraphs": [
+          "If you’re planning an online shop, these choices from the Moyandi build are worth borrowing:"
+        ],
+        "bullets": [
+          "Show the price and the number of options on every product card.",
+          "Let people choose options, like scent or size, with buttons instead of drop-down menus.",
+          "If you sell gifts, let shoppers build the gift in one place.",
+          "Let people check out without making an account.",
+          "Explain delivery times and costs before checkout, not after.",
+          "Make sure you can update products and stock yourself."
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "Moyandi Scents: shop",
+        "url": "https://moyandiscents.co.za/shop"
+      },
+      {
+        "label": "Moyandi Scents: shipping and delivery",
+        "url": "https://moyandiscents.co.za/policies/shipping"
+      },
+      {
+        "label": "Paystack: accept payments in South Africa",
+        "url": "https://paystack.com/za"
+      },
+      {
+        "label": "The Courier Guy",
+        "url": "https://www.thecourierguy.co.za/"
+      }
+    ],
+    "relatedprojectIDs": [
+      "moyandi-scents",
+      "legend-black-jesus"
+    ],
+    "relatedArticleSlug": "website-design-newcastle-business-guide"
+  },
+  {
     "slug": "website-design-newcastle-business-guide",
     "title": "Website design in Newcastle, KZN: pages, features and quotes",
     "description": "Website design for Newcastle, Osizweni and Madadeni businesses in KZN. See useful pages, WhatsApp enquiries, mobile features and what to ask in a quote.",
