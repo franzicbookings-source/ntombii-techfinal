@@ -1,0 +1,57 @@
+/* Sitewide motion, driven by components/site-motion.tsx. Motion only: reduced-motion visitors get the static page. */
+.inner-header{position:sticky;top:0}
+html{scroll-padding-top:110px}
+@media(max-width:767px){html{scroll-padding-top:90px}}
+
+@media(prefers-reduced-motion:no-preference){
+  /* Smart header: hides on scroll down, returns on scroll up. */
+  .inner-header{transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+  .inner-header.is-scrolled{box-shadow:0 12px 32px #0b141b47}
+  .inner-header.is-hidden{transform:translateY(-100%)}
+
+  /* Hero entrance: each line rises out of a mask, then the rest settles in. */
+  .hero-line{display:inline-block;animation:mask-rise 1.05s cubic-bezier(.16,1,.3,1) .1s backwards}
+  .hero-line.hero-accent{animation-delay:.24s}
+  .hero-description{animation:soft-rise .9s cubic-bezier(.16,1,.3,1) .45s backwards}
+  .hero-actions{animation:soft-rise .9s cubic-bezier(.16,1,.3,1) .55s backwards}
+  .hero-credentials{animation:soft-rise .9s cubic-bezier(.16,1,.3,1) .65s backwards}
+  .hero-form{animation:card-land 1.25s cubic-bezier(.16,1,.3,1) .3s backwards}
+  .hero-shell{background-position:center calc(50% + var(--hero-shift,0px))}
+  .detail-hero h1,.inner-hero-split h1,.editorial-heading h1,.inner-contact-hero h1,.local-service-hero h1,.article-heading h1,.about-team-hero h1{animation:soft-rise 1s cubic-bezier(.16,1,.3,1) .05s backwards}
+  .detail-hero-grid>.project-motion,.inner-hero-split>.project-motion{animation:card-land 1.3s cubic-bezier(.16,1,.3,1) .2s backwards}
+
+  /* Headings below the fold: word by word. */
+  .split-word{display:inline-block}
+  h2.is-split{animation:none!important}
+  .is-split.motion-pending .split-word{clip-path:inset(0 0 100% 0);transform:translateY(100%)}
+  .is-split.motion-in .split-word{animation:mask-rise .95s cubic-bezier(.16,1,.3,1) calc(var(--i)*55ms) backwards}
+
+  /* Illustrations draw their own lines. */
+  .content-illustration :is(path,rect,circle){transform-box:fill-box;transform-origin:center}
+  .content-illustration.motion-pending :is(path:not(.illustration-wash),rect,circle){stroke-dasharray:var(--length);stroke-dashoffset:var(--length)}
+  .content-illustration.motion-pending .illustration-wash{opacity:0}
+  .content-illustration.motion-in :is(path:not(.illustration-wash),rect,circle){stroke-dasharray:var(--length);animation:draw-line 1.1s cubic-bezier(.65,0,.35,1) calc(var(--i)*110ms) backwards}
+  .content-illustration.motion-in .illustration-wash{animation:wash-in .9s cubic-bezier(.16,1,.3,1) .35s backwards}
+
+  /* Process: cards rise in turn, and a line fills across each one as you scroll through. */
+  .process-steps li{position:relative;overflow:hidden}
+  .process-steps li::before{content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:var(--blue);transform-origin:left;transform:scaleX(clamp(0,calc(var(--progress,0)*3 - var(--i,0)),1))}
+  .process-steps.visible li{animation:soft-rise .9s cubic-bezier(.16,1,.3,1) calc(var(--i,0)*120ms) backwards}
+
+  /* Work: the carousel lands in 3D as it scrolls in; clips tilt toward the pointer with a sheen. */
+  #work .wrap{perspective:1800px}
+  #work .work-carousel{transform-origin:50% 0;transform:translateY(calc(var(--carousel-land,0)*70px)) rotateX(calc(var(--carousel-land,0)*16deg)) scale(calc(1 - var(--carousel-land,0)*.07));opacity:calc(1 - var(--carousel-land,0)*.6)}
+  .project-motion{transform:perspective(1400px) translateY(calc(var(--land,0)*60px)) rotateX(calc(var(--land,0)*14deg + var(--tilt-x,0deg))) rotateY(var(--tilt-y,0deg)) scale(calc(1 - var(--land,0)*.06));transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+  .project-motion::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(440px circle at var(--sheen-x,50%) var(--sheen-y,50%),#ffffff1c,transparent 60%);opacity:0;transition:opacity .35s}
+  .project-motion.is-pointer::after{opacity:1}
+
+  /* Magnetic buttons (fine pointers): the element's translate follows the pointer. */
+  .button{transition:background-color .2s,color .2s,border-color .2s,transform .2s cubic-bezier(.2,.7,.2,1),box-shadow .2s,translate .35s cubic-bezier(.2,.7,.2,1)}
+  .project-motion-toggle,#work .work-slider-controls button{transition:background-color .2s,border-color .2s,transform .2s,translate .35s cubic-bezier(.2,.7,.2,1)}
+}
+
+@keyframes mask-rise{from{clip-path:inset(0 0 100% 0);transform:translateY(100%)}to{clip-path:inset(-25% -10% -25% -10%);transform:translateY(0)}}
+@keyframes soft-rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@keyframes card-land{from{opacity:0;transform:perspective(1400px) translateY(48px) rotateX(12deg) scale(.97)}to{opacity:1;transform:perspective(1400px) translateY(0) rotateX(0) scale(1)}}
+@keyframes draw-line{from{stroke-dashoffset:var(--length)}to{stroke-dashoffset:0}}
+@keyframes wash-in{from{opacity:0;transform:scale(.6)}}

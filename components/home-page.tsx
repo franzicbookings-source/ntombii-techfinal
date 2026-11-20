@@ -11,7 +11,7 @@ import { AdditionalServices } from "./service-chapters";
 import { WorkShowcase } from "./work-showcase";
 import { ContentIllustration, type IllustrationKind } from "./content-illustration";
 import { CookieSettingsLink } from "./cookie-consent";
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useState, type CSSProperties, type FormEvent } from "react";
 const wa = (message = "Hi Ntombii Tech, I'd like to discuss a website project.") => `https://wa.me/27812360230?text=${encodeURIComponent(message)}`;
 const faqs = [
   ["How much does a website cost?", `${packagePriceSummary} You pay these once, for the design and setup. Your final quote depends on how many pages you need, your content and any extra features. Ongoing costs, such as hosting or a Shopify subscription, are separate and we confirm them in your quote.`],
@@ -71,7 +71,7 @@ function ProcessSection() {
       <h2 id="process-title">We build websites.</h2>
       <div className="process-intro"><p>Business websites, e-commerce websites (online shops) and ongoing website maintenance.</p><a className="text-link" href="/pricing">Websites from {portfolioPackage.price} <Arrow diagonal /></a></div>
     </div>
-    <ol className="process-steps" data-reveal>{processSteps.map(step => <li key={step.title}>
+    <ol className="process-steps" data-reveal>{processSteps.map((step, index) => <li key={step.title} style={{ "--i": index } as CSSProperties}>
       <ContentIllustration kind={step.icon} />
       <h3>{step.title}</h3>
       <p>{step.body}</p>
@@ -141,7 +141,7 @@ export function HomePage() {
     <a className="skip-link" href="#main">Skip to content</a>
     <InnerNavigation />
     <main id="main"><div className="hero-shell">
-      <section className="hero wrap" aria-labelledby="hero-title"><div className="hero-copy"><h1 id="hero-title">Websites that work.<br /><span className="hero-accent">Built for your business.</span></h1><p className="hero-description">{studioIntroduction}</p><div className="hero-actions"><a className="button button-white" href={wa()} target="_blank" rel="noreferrer">Discuss your website <Arrow diagonal /></a><a className="button button-glass" href="/work">See our work <Arrow /></a></div><div className="hero-credentials" role="group" aria-label="Business credentials"><img src="/images/cipc.webp" width="1536" height="1152" alt="CIPC registered" /><img src="/images/sars.webp" width="1536" height="1152" alt="SARS tax compliant" /><img src="/images/bbbee.webp" width="1536" height="1152" alt="B-BBEE compliant" /></div></div><div className="hero-form"><QuoteForm /></div></section>
+      <section className="hero wrap" aria-labelledby="hero-title"><div className="hero-copy"><h1 id="hero-title"><span className="hero-line">Websites that work.</span><br /><span className="hero-line hero-accent">Built for your business.</span></h1><p className="hero-description">{studioIntroduction}</p><div className="hero-actions"><a className="button button-white" href={wa()} target="_blank" rel="noreferrer">Discuss your website <Arrow diagonal /></a><a className="button button-glass" href="/work">See our work <Arrow /></a></div><div className="hero-credentials" role="group" aria-label="Business credentials"><img src="/images/cipc.webp" width="1536" height="1152" alt="CIPC registered" /><img src="/images/sars.webp" width="1536" height="1152" alt="SARS tax compliant" /><img src="/images/bbbee.webp" width="1536" height="1152" alt="B-BBEE compliant" /></div></div><div className="hero-form"><QuoteForm /></div></section>
     </div>
       <ToolMarquee />
       <ProcessSection />
