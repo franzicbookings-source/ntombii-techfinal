@@ -30,7 +30,8 @@ function run(command, args, input) {
 
 async function capture(browser, mode) {
   const viewport = mode === "desktop" ? { width: 1440, height: 900 } : { width: 390, height: 844 };
-  const context = await browser.newContext({ viewport, deviceScaleFactor: mode === "desktop" ? 1 : 520 / 390, isMobile: mode === "mobile", hasTouch: mode === "mobile" });
+  // Reduced motion makes most sites show their content fully instead of mid fade-in or slide-in.
+  const context = await browser.newContext({ viewport, deviceScaleFactor: mode === "desktop" ? 1 : 520 / 390, isMobile: mode === "mobile", hasTouch: mode === "mobile", reducedMotion: "reduce" });
   const page = await context.newPage();
   await page.goto(url, { waitUntil: "networkidle", timeout: 60000 }).catch(error => console.warn(`${mode}: ${error.message.split("\n")[0]}`));
   await page.waitForTimeout(1500);
@@ -38,10 +39,18 @@ async function capture(browser, mode) {
     const button = page.getByRole("button", { name, exact: true });
     if (await button.count().catch(() => 0)) await button.first().click({ timeout: 1000 }).catch(() => {});
   }
-  // Scroll through once so lazy images and reveal animations have loaded before the full-page capture.
+  // Keyboard-only "Skip to content" links must never show in a clip.
+  await page.addStyleTag({ content: '.skip-link,.skip-to-content,[class*="skip-link" i],[class*="skip-to" i],[class*="skiplink" i],a[href="#main"],a[href="#main-content"],a[href="#content"],a[href="#maincontent"]{display:none!important}' });
+  // Scroll through slowly so lazy images, reveal effects and videos have loaded before the full-page capture.
   const height = await page.evaluate(async () => {
-    for (let y = 0; y < document.documentElement.scrollHeight; y += window.innerHeight * 0.6) { window.scrollTo(0, y); await new Promise(r => setTimeout(r, 250)); }
-    window.scrollTo(0, 0); await new Promise(r => setTimeout(r, 800));
+    for (let y = 0; y < document.documentElement.scrollHeight; y += window.innerHeight * 0.5) {
+      window.scrollTo(0, y);
+      for (const video of document.querySelectorAll("video")) { video.muted = true; video.play().catch(() => {}); }
+      await new Promise(r => setTimeout(r, 450));
+    }
+    await Promise.all([...document.querySelectorAll("video")].map(video => video.readyState >= 2 ? null : new Promise(r => { video.addEventListener("loadeddata", r, { once: true }); setTimeout(r, 5000); })));
+    window.scrollTo(0, 0); await new Promise(r => setTimeout(r, 1200));
+    if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
     return document.documentElement.scrollHeight;
   });
   await page.waitForLoadState("networkidle").catch(() => {});
