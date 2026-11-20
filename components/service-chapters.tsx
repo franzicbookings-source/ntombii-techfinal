@@ -1,7 +1,6 @@
 import { portfolioPackage } from "./website-packages";
 import { ContentIllustration, illustrationFor } from "./content-illustration";
 import "./additional-service-icons.css";
-import { WebDevelopmentShowcase } from "./web-development-showcase";
 
 export const universities = [
   "Cape Peninsula University of Technology", "Central University of Technology", "Durban University of Technology",
@@ -83,10 +82,6 @@ const chapters = [
   },
 ];
 
-export function ServiceChapters() {
-  return <WebDevelopmentShowcase />;
-}
-
 const summaries: Record<string, string> = {
   "business-setup": "Company registration, CSD supplier profiles and business administration.",
   tenders: "Tender searches and help preparing submission documents.",
@@ -98,9 +93,8 @@ const summaries: Record<string, string> = {
 export function AdditionalServices() {
   return <section id="additional-services" className="additional-services-section wrap" aria-labelledby="additional-services-title">
     <div className="additional-services-heading">
-      <p className="eyebrow">On request</p>
       <h2 id="additional-services-title">Additional services</h2>
-      <p>We mainly build websites. We also offer the services below on request. Ask us about availability.</p>
+      <p>Websites are our main work. We also offer these services on request, so ask us about availability first.</p>
     </div>
     <div className="additional-services-grid">{chapters.slice(1).map(chapter => <a id={chapter.id} key={chapter.id} href={`/services/${chapter.id === "applications" ? "opportunities-applications" : chapter.id === "branding" ? "branding-print" : chapter.id === "ai-services" ? "ai-digital-tools" : chapter.id}`}>
       <div><h3 className="additional-service-title"><ContentIllustration kind={illustrationFor(chapter.details)} /><span>{chapter.label}</span></h3><p>{summaries[chapter.id]}</p></div><span aria-hidden="true">↗</span>

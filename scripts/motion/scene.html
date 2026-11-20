@@ -1,0 +1,95 @@
+<!doctype html>
+<!-- 3D scene for project clips. Driven frame by frame by make-video.cjs; see README.md. -->
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Aeonik;src:url(../../public/fonts/aeonik-regular.woff) format("woff")}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1200px;height:960px;overflow:hidden;background:#1b252d}
+#stage{position:relative;width:1200px;height:960px;overflow:hidden;perspective:2600px;perspective-origin:50% 38%;
+  background:radial-gradient(120% 90% at 46% 30%,#34495a 0%,#253744 38%,#1b262f 72%,#161f26 100%)}
+#atmos{position:absolute;inset:-6%;background:url(../../public/images/hero-atmosphere.webp) center/cover;opacity:.32;mix-blend-mode:screen;filter:saturate(.8)}
+#vignette{position:absolute;inset:0;background:radial-gradient(90% 80% at 50% 45%,transparent 55%,rgba(10,15,19,.55) 100%);pointer-events:none}
+#world{position:absolute;left:calc(50% + 42px);top:50%;width:0;height:0;transform-style:preserve-3d}
+.obj{position:absolute;transform-style:preserve-3d}
+#shadow{position:absolute;left:170px;top:700px;width:880px;height:150px;border-radius:50%;background:radial-gradient(50% 50% at 50% 50%,rgba(6,10,13,.55),rgba(6,10,13,0) 70%);filter:blur(10px)}
+/* floor shadow */
+#floor{position:absolute;left:-560px;top:300px;width:1120px;height:520px;transform:rotateX(90deg);transform-origin:50% 0;
+  background:radial-gradient(48% 34% at 46% 40%,rgba(5,9,12,.62),rgba(5,9,12,.28) 55%,transparent 75%);filter:blur(6px)}
+/* browser */
+#browser{left:-520px;top:-330px;width:880px;height:590px}
+.slab{position:absolute;inset:0;border-radius:16px;background:#121a20}
+#browser .face{position:absolute;inset:0;border-radius:16px;overflow:hidden;background:#1c2730;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.09)}
+.chrome{height:40px;display:flex;align-items:center;padding:0 16px;gap:8px;background:#1f2b34;border-bottom:1px solid rgba(255,255,255,.06)}
+.chrome i{width:11px;height:11px;border-radius:50%;background:#3b4b57;display:block}
+.url{margin:0 auto;transform:translateX(-26px);display:flex;align-items:center;gap:8px;height:24px;padding:0 16px;border-radius:12px;background:#151e25;
+  color:#aebdc8;font:13px/1 Aeonik,system-ui,sans-serif;letter-spacing:.01em}
+.url svg{width:11px;height:11px}
+.screen{position:absolute;left:0;right:0;bottom:0;top:40px;overflow:hidden;background:#fff}
+.screen img{position:absolute;left:0;top:0;width:100%;display:block;will-change:transform}
+.glare{position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(115deg,rgba(255,255,255,0) 30%,rgba(255,255,255,.10) 42%,rgba(255,255,255,0) 54%);background-size:260% 100%}
+/* phone */
+#phone{left:150px;top:-150px;width:256px;height:530px}
+#phone .slab{border-radius:46px;background:#0b1014}
+#phone .face{position:absolute;inset:0;border-radius:46px;background:#0d1317;padding:9px;
+  box-shadow:inset 0 0 0 1.5px #44535e,inset 0 0 0 3px #0d1317,inset 0 0 0 4px rgba(255,255,255,.05)}
+#phone .screen{position:absolute;inset:9px;border-radius:37px;top:9px}
+.island{position:absolute;left:50%;top:19px;width:78px;height:23px;margin-left:-39px;border-radius:12px;background:#05080a;z-index:2}
+.side{position:absolute;width:3px;border-radius:2px;background:#33414b}
+</style></head>
+<body>
+<div id="stage">
+  <div id="atmos"></div>
+  <div id="shadow"></div>
+  <div id="world">
+        <div id="browser" class="obj">
+      <div class="face">
+        <div class="chrome"><i></i><i></i><i></i><div class="url"><svg viewBox="0 0 12 12" fill="none"><rect x="2" y="5.2" width="8" height="5.6" rx="1.4" fill="#8ea1ae"/><path d="M3.9 5.3V3.9a2.1 2.1 0 0 1 4.2 0v1.4" stroke="#8ea1ae" stroke-width="1.2"/></svg><span id="domain"></span></div></div>
+        <div class="screen"><img id="desk"></div>
+        <div class="glare" id="g1"></div>
+      </div>
+    </div>
+    <div id="phone" class="obj">
+      <div class="face">
+        <div class="screen"><img id="mob"></div>
+        <div class="island"></div>
+        <div class="glare" id="g2" style="border-radius:46px"></div>
+      </div>
+    </div>
+  </div>
+  <div id="vignette"></div>
+</div>
+<script>
+const q=new URLSearchParams(location.search);
+const id=q.get('id');
+document.getElementById('domain').textContent=q.get('domain');
+const desk=document.getElementById('desk'),mob=document.getElementById('mob');
+desk.src=`.work/${id}-desktop.png`;mob.src=`.work/${id}-mobile.png`;
+// thickness: stacked slabs behind each face
+function thicken(el,depth,color){for(let z=1;z<=depth;z++){const s=document.createElement('div');s.className='slab';s.style.transform=`translateZ(${-z}px)`;s.style.background=color;el.prepend(s);}el.querySelector('.face').style.transform='translateZ(0.5px)';}
+thicken(document.getElementById('browser'),10,'#10171c');
+thicken(document.getElementById('phone'),12,'#2a353d');
+const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+// scroll timeline: [start,end,from,to] in normalised time
+const segs=[[0,.07,0,0],[.07,.25,0,1/3],[.25,.32,1/3,1/3],[.32,.50,1/3,2/3],[.50,.57,2/3,2/3],[.57,.75,2/3,1],[.75,.82,1,1],[.82,.97,1,0],[.97,1.0001,0,0]];
+function scrollAt(u){u=((u%1)+1)%1;for(const [a,b,f,t] of segs){if(u>=a&&u<b){return f+(t-f)*ease((u-a)/(b-a));}}return 0;}
+window.ready=Promise.all([desk.decode(),mob.decode(),document.fonts.ready]);
+window.renderAt=function(u){
+  const P=Math.PI*2;
+  const ry=-17+8*Math.sin(P*u), rx=10+2.5*Math.cos(P*u), tz=10+30*Math.sin(P*u+1);
+  document.getElementById('world').style.transform=`translateZ(${tz}px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(${6*Math.sin(P*u)}px)`;
+  const bob=7*Math.sin(P*2*u+.6);
+  document.getElementById('phone').style.transform=`translate3d(0,${bob}px,150px) rotateY(${-6+3*Math.sin(P*u+.8)}deg) rotateZ(${1.5*Math.sin(P*u)}deg)`;
+  document.getElementById('browser').style.transform=`translate3d(0,${-3*Math.sin(P*u)}px,0)`;
+  const dH=desk.getBoundingClientRect?desk.offsetHeight:0, sH=desk.parentElement.offsetHeight;
+  desk.style.transform=`translate3d(0,${-scrollAt(u)*(desk.offsetHeight-sH)}px,0)`;
+  const mS=mob.parentElement.offsetHeight;
+  mob.style.transform=`translate3d(0,${-scrollAt(u-.03)*(mob.offsetHeight-mS)}px,0)`;
+  const gp=`${50+40*Math.sin(P*u)}% 0`;
+  document.getElementById('g1').style.backgroundPosition=gp;document.getElementById('g2').style.backgroundPosition=`${50+40*Math.sin(P*u+.5)}% 0`;
+  document.getElementById('shadow').style.transform=`translateX(${-25*Math.sin(P*u)}px) scaleX(${1+.04*Math.sin(P*u)})`;
+  document.getElementById('atmos').style.transform=`scale(${1.04+.03*Math.sin(P*u)}) translateX(${10*Math.cos(P*u)}px)`;
+};
+</script>
+</body></html>

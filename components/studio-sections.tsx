@@ -1,5 +1,7 @@
 "use client";
 
+import { projectById } from "./portfolio-projects";
+
 const whatsapp = (message: string) => `https://wa.me/27812360230?text=${encodeURIComponent(message)}`;
 
 export function SocialLinks() {
@@ -16,16 +18,18 @@ export function SocialLinks() {
 }
 
 export function NewsletterSection() {
+  const screens = [
+    { project: projectById("friday-consulting"), className: "newsletter-screen-left" },
+    { project: projectById("legend-black-jesus"), className: "newsletter-screen-middle" },
+    { project: projectById("khuzani-blue-nation"), className: "newsletter-screen-right" },
+  ] as const;
   return <section className="newsletter-section section" id="tips">
     <div className="newsletter-layout wrap">
-      <div className="newsletter-copy" data-reveal><h2>Have a website question?</h2><p>Not sure which pages you need or what to change on your current site? Ask us on WhatsApp.</p>
+      <div className="newsletter-copy" data-reveal><h2>Have a website question?</h2><p>Not sure which pages you need, or what to change on your current site? Ask us on WhatsApp.</p>
         <div className="newsletter-form"><a className="button button-blue" href={whatsapp("Hi Ntombii Tech, I have a question about my website.")} target="_blank" rel="noreferrer">Ask on WhatsApp <span aria-hidden="true">↗</span></a></div>
       </div>
-      <div className="newsletter-art" role="img" aria-label="A layered view of websites designed and built by Ntombii Tech">
-        <div className="newsletter-screen newsletter-screen-left"><span className="newsletter-screen-bar"><i /><i /><i /><b>ntombii.tech / design</b></span><img src="/images/web-demo-shop.jpg" alt="" loading="lazy" /></div>
-        <div className="newsletter-screen newsletter-screen-middle"><span className="newsletter-screen-bar"><i /><i /><i /><b>ntombii.tech / work</b></span><img src="/images/web-demo-home.jpg" alt="" loading="lazy" /></div>
-        <div className="newsletter-screen newsletter-screen-right"><span className="newsletter-screen-bar"><i /><i /><i /><b>ntombii.tech / product</b></span><img src="/images/web-demo-product.jpg" alt="" loading="lazy" /></div>
-
+      <div className="newsletter-art" aria-hidden="true">
+        {screens.map(({ project, className }) => <div className={`newsletter-screen ${className}`} key={project.id}><span className="newsletter-screen-bar"><i /><i /><i /><b>{project.desktop.label}</b></span><img src={project.desktop.src} alt="" loading="lazy" width="1440" height="1000" /></div>)}
       </div>
     </div>
   </section>;

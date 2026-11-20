@@ -3,7 +3,7 @@ import Link from "next/link";
 import { InnerPage } from "./inner-pages";
 import { portfolioProjects } from "./portfolio-projects";
 import { ProjectScreens, type ProjectScreen } from "./project-screens";
-import { ProjectPreview } from "./project-preview";
+import { ProjectMotion } from "./project-motion";
 import { businessId, pageMetadata, projectSchema, siteUrl } from "./site-seo";
 import { StructuredData } from "./structured-data";
 
@@ -236,8 +236,8 @@ export function ProjectStory({ id }: { id: ProjectStoryId }) {
     <StructuredData data={schema} />
     <nav className="project-breadcrumbs wrap" aria-label="Breadcrumb"><Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/work">Our work</Link><span aria-hidden="true">/</span><span aria-current="page">{project.previewName}</span></nav>
     <section className="detail-hero"><div className="wrap detail-hero-grid">
-      <div><p className="eyebrow">{project.kind} · Built by Ntombii Tech</p><h1>{story.heading}</h1><p className="detail-intro">{story.introduction}</p><a className="button button-white" href={project.url} target="_blank" rel="noreferrer">Visit the live website <span aria-hidden="true">↗</span></a></div>
-      <ProjectPreview project={project} compact showHints={false} />
+      <div><h1>{story.heading}</h1><p className="detail-intro">{story.introduction}</p><a className="button button-white" href={project.url} target="_blank" rel="noreferrer">Visit the live website <span aria-hidden="true">↗</span></a></div>
+      <ProjectMotion project={project} />
     </div></section>
     <dl className="project-facts wrap"><div><dt>Client</dt><dd>{project.previewName}</dd></div><div><dt>Sector</dt><dd>{project.category}</dd></div><div><dt>What we built</dt><dd>{project.kind}</dd></div></dl>
     <section className="depth-section wrap"><div className="depth-intro"><h2>{story.purpose}</h2></div><div className="depth-prose">{story.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div></section>

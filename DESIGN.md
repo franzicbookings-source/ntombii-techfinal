@@ -1,9 +1,18 @@
 # Current website design
 
-Restored to the full original website from Sites version71 (source b5fb00beed4dde6271e9c7b6cb87fc858ace7226), at the owner’s explicit request. The later studio redesign and mobile restyling are superseded. Existing global styles, original homepage sections, navigation, process showcase, form and contact presentation are restored.
+November 2026 refresh of the restored original site. The palette, Aeonik type, logo and page layouts are unchanged; the refresh removes decoration and makes every control respond.
 
-The only retained feature addition is the three new portfolio projects: Penny Ntuli, Khuzani Mpungose and Fezile Security Services, including authentic screenshots and live URLs. Original projects remain first. Both homepage and /work include all five projects. All six projects now have detail pages using the existing project-story layout, with an overview, features, homepage/detail/phone screenshots and live-site links. The four newer pages describe observed site features without invented outcomes. Case-study URLs also feed the sitemap from the shared portfolio data.
+## What changed
 
-The design/ directory contains historical references and checks from superseded designs; it does not describe the current visual source of truth.
+- **No eyebrow labels.** The small pill labels above headings are gone sitewide. Where a label carried a real condition (for example "available on request" or "based in Newcastle"), that wording now sits in the page text.
+- **3D motion clips of real work.** Each project in `components/portfolio-projects.ts` has a clip of its live site scrolling on a laptop and phone (`public/videos/work/`). `components/project-motion.tsx` shows it on the homepage carousel, `/work`, every project page, and the services, pricing and regional page heroes. Clips load only when on screen, stay paused for reduced-motion and data-saver visitors, and always have a pause/play button. To add or refresh a clip, see `scripts/motion/README.md`.
+- **Homepage.** Same order and format. The fake design/code editor showcase is replaced by three plain steps (with `ContentIllustration` icons), the spinning "Let's build something" badge and the heading's selection-box decoration are removed, the articles preview is removed (articles remain at `/articles`), and the "Have a website question?" band is light so it no longer merges with the dark contact section. The homepage now uses the shared `InnerNavigation` header.
+- **Copy.** Plainer wording for non-technical readers, keeping professional terms with short explanations (for example "Content management system (CMS): an editor to change…"). Prices, conditions, approved headings and client quotes are unchanged.
 
-Friday Consulting is also included, bringing the portfolio to six projects. The original Additional services cards now include the same ContentIllustration icons requested by the owner; only their heading icon alignment is styled, without restoring the newer section layout.
+## Where styles live
+
+- `app/globals.css` ends with the **November 2026 refresh** block: the source of truth for button, link and focus states and for the redesigned homepage sections. Earlier blocks in the file are older layers that still style the inner pages.
+- Unused rules (from removed sections) were deleted from the stylesheets, so a class that appears in CSS should be in use.
+- Component styles: `components/project-motion.css`, `components/pricing-comparison.css`, `components/project-screens.css` and others next to their components.
+
+The `design/` directory contains historical references from earlier designs; it does not describe the current site.

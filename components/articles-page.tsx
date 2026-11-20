@@ -28,7 +28,7 @@ export function ArticlePage({ article }: { article: Article }) {
   return <InnerPage><StructuredData data={schema} />
     <nav className="project-breadcrumbs wrap" aria-label="Breadcrumb"><Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/articles">Articles</Link><span aria-hidden="true">/</span><span aria-current="page">{article.category}</span></nav>
     <article className="reading-page">
-      <header className="article-heading wrap"><p className="eyebrow">{article.category}</p><h1>{article.title}</h1><p className="article-summary">{article.summary}</p><div className="article-byline"><Link href="/about">By {article.author}</Link><time dateTime={article.datePublished}>{publishedDate(article.datePublished)}</time><span>{article.readingMinutes} min read</span></div></header>
+      <header className="article-heading wrap"><h1>{article.title}</h1><p className="article-summary">{article.summary}</p><div className="article-byline"><Link href="/about">By {article.author}</Link><time dateTime={article.datePublished}>{publishedDate(article.datePublished)}</time><span>{article.readingMinutes} min read</span></div></header>
       <div className="reading-layout wrap">
         <aside className="article-contents"><details><summary>In this article</summary><nav aria-label="In this article"><ol>{article.sections.map(section => <li key={section.id}><a href={`#${section.id}`}>{section.heading}</a></li>)}</ol></nav></details><Link href={servicePath}>{serviceLabel} <span aria-hidden="true">↗</span></Link></aside>
         <div className="article-body">

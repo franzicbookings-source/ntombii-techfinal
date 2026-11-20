@@ -3,7 +3,8 @@ import Link from "next/link";
 import { ContentIllustration } from "@/components/content-illustration";
 import { InnerPage } from "@/components/inner-pages";
 import { meetingInformation, pretoriaAreas } from "@/components/locations";
-import { ProjectPreview } from "@/components/project-preview";
+import { ProjectMotion } from "@/components/project-motion";
+import { projectById } from "@/components/portfolio-projects";
 import { businessId, pageMetadata, siteUrl } from "@/components/site-seo";
 import { StructuredData } from "@/components/structured-data";
 
@@ -35,7 +36,7 @@ export default function PretoriaWebsiteDesignPage() {
         <p className="detail-intro">We build business and e-commerce websites for Pretoria and Centurion. Show your services, share your work and let customers request a quote or place an order from their phones.</p>
         <a className="button button-white" href={quote} target="_blank" rel="noreferrer">Discuss your website <span aria-hidden="true">↗</span></a>
       </div>
-      <ProjectPreview compact />
+      <ProjectMotion project={projectById("legend-black-jesus")} />
     </div></section>
 
     <section className="depth-section wrap"><div className="depth-intro"><h2>Work directly with our team.</h2></div><div className="depth-prose">

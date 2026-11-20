@@ -2,7 +2,8 @@ import { packagePriceSummary } from "@/components/website-packages";
 import { ContentIllustration } from "@/components/content-illustration";
 import { pageMetadata } from "@/components/site-seo";
 import Link from "next/link";
-import { ProjectPreview } from "@/components/project-preview";
+import { ProjectMotion } from "@/components/project-motion";
+import { projectById } from "@/components/portfolio-projects";
 import { InnerPage } from "@/components/inner-pages";
 
 export const metadata = pageMetadata({
@@ -18,12 +19,11 @@ export default function KznWebsiteDesignPage() {
     <section className="detail-hero"><div className="wrap detail-hero-grid">
       <div>
         <Link className="inner-back" href="/services/websites">← Website services</Link>
-        <p className="eyebrow">Based in Newcastle · Working across KZN</p>
         <h1>Website design for businesses across KwaZulu-Natal.</h1>
-        <p className="detail-intro">We build business and e-commerce websites for Newcastle, Osizweni, Madadeni and the rest of KZN. Show your services or products and give customers a way to enquire or order from their phones.</p>
+        <p className="detail-intro">We’re based in Newcastle and build business and e-commerce websites for Newcastle, Osizweni, Madadeni and the rest of KZN. Show your services or products, and let customers enquire or order from their phones.</p>
         <a className="button button-white" href={quote} target="_blank" rel="noreferrer">Ask for a website quote <span aria-hidden="true">↗</span></a>
       </div>
-      <ProjectPreview compact />
+      <ProjectMotion project={projectById("snesenzo-security")} />
     </div></section>
 
     <section className="depth-section wrap"><div className="depth-intro"><h2>Plan and review your website with us.</h2></div><div className="depth-prose"><p>We work from Newcastle, KZN, and Pretoria, Gauteng, and handle projects across KwaZulu-Natal over WhatsApp and online calls. Meetings near Newcastle are by appointment.</p><p>Whether it’s your first site, a redesign or an e-commerce website, we agree on the pages, features, price and timeline before starting. You review the site with us on phones and desktops before launch.</p></div></section>
