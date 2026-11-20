@@ -1,0 +1,28 @@
+.pricing-comparison{border-top:1px solid #cbd5dc}
+.pricing-comparison-row{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) auto;gap:38px;align-items:center;padding:36px 28px;border-bottom:1px solid #cbd5dc}
+.pricing-comparison-summary h2,.pricing-comparison-summary h3{font-size:28px;line-height:1.2;margin:0}
+.pricing-comparison-price{display:flex;align-items:baseline;gap:9px;margin-top:12px;color:#253744}
+.pricing-comparison-price span{font-size:12px;color:#526573}
+.pricing-comparison-price strong{font-size:38px;line-height:1.15;font-weight:400;letter-spacing:-.04em}
+.pricing-comparison-description, .pricing-comparison-example{font-size:14px;line-height:1.7;max-width:340px;margin-top:14px;color:#526573}
+.pricing-comparison-row ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.pricing-comparison-row li{position:relative;padding-left:17px;color:#526573;font-size:14px;line-height:1.6}
+.pricing-comparison-row li::before{content:"";position:absolute;left:0;top:.65em;width:4px;height:4px;background:currentColor;border-radius:50%}
+.pricing-comparison-row>.button{min-width:175px;justify-content:space-between}
+.pricing-comparison-featured{background:#506c7f;color:#fff;border-bottom-color:#506c7f}
+.pricing-comparison-featured .pricing-comparison-price,.pricing-comparison-featured .pricing-comparison-price span,.pricing-comparison-featured .pricing-comparison-description,.pricing-comparison-featured .pricing-comparison-example,.pricing-comparison-featured li{color:#fff}
+@media(max-width:1000px){.pricing-comparison-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;padding:30px 24px}.pricing-comparison-row>.button{grid-column:1/-1;justify-self:start;min-width:190px}}
+@media(max-width:600px){.pricing-comparison-row{grid-template-columns:minmax(0,1fr);gap:22px;padding:28px 20px}.pricing-comparison-summary h2,.pricing-comparison-summary h3{font-size:27px}.pricing-comparison-price strong{font-size:36px}.pricing-comparison-row>.button{width:100%;min-width:0}.pricing-comparison-description, .pricing-comparison-example{max-width:none}}
+
+.pricing-setup-note{font-size:14px;line-height:1.7;margin-bottom:22px;max-width:680px}
+.pricing-comparison-summary .pricing-comparison-example{font-size:13px;margin-top:12px}
+.pricing-comparison-details{min-width:0}
+.pricing-shopify-costs{font-size:13px;line-height:1.7;margin-top:22px;color:#526573}
+.pricing-shopify-costs a{display:inline;text-decoration:underline;text-underline-offset:3px}
+.pricing-custom{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:32px 28px;border-bottom:1px solid #cbd5dc}
+.pricing-custom h2,.pricing-custom h3{font-size:27px;line-height:1.2}
+.pricing-custom p{font-size:14px;line-height:1.7;margin-top:12px;max-width:540px}
+.pricing-custom>.text-link{flex-shrink:0;min-height:44px}
+.pricing-package-terms{margin-top:24px;max-width:850px;display:grid;gap:10px}
+.pricing-package-terms p{font-size:13px;line-height:1.8}
+@media(max-width:600px){.pricing-custom{padding:28px 20px;align-items:start;flex-direction:column;gap:18px}.pricing-setup-note{font-size:13px}.pricing-comparison-summary .pricing-comparison-example{max-width:none}}

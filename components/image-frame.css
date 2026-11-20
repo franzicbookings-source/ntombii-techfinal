@@ -1,0 +1,11 @@
+/* Keep existing image wrappers and dimensions; feedback occupies their reserved space. */
+.portfolio-case-image,.work-slide-image,.graphics-viewer-image,.story-screen-original{position:relative}
+.image-frame[data-image-state="error"]>img{opacity:0}
+.image-load-feedback{position:absolute;inset:0;z-index:2;display:grid;align-content:center;justify-items:center;gap:8px;padding:16px;background:#edf0f3;color:#354f61;font-size:13px;line-height:1.5;text-align:center;pointer-events:none}
+.image-loading{animation:image-feedback-in .15s .15s both}
+.image-retry-label{text-decoration:underline;text-underline-offset:4px}
+.image-retry{position:absolute;left:50%;top:calc(50% + 22px);transform:translateX(-50%);z-index:3;min-height:44px;padding:8px 18px;border:1px solid #506f81;border-radius:24px;background:white;color:#354f61;font-size:13px;white-space:nowrap}
+.image-retry:focus-visible{outline:2px solid #506f81;outline-offset:4px}
+.project-preview .image-load-feedback{font-size:11px;padding:8px}
+@keyframes image-feedback-in{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.image-loading{animation:none}}

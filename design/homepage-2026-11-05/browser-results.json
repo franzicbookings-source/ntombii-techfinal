@@ -1,0 +1,767 @@
+{
+  "base": "http://127.0.0.1:5183",
+  "checks": [
+    {
+      "name": "1440x900: no horizontal overflow",
+      "passed": true,
+      "detail": "{'clientWidth': 1440, 'scrollWidth': 1440, 'height': 11460}"
+    },
+    {
+      "name": "1440x900: one H1, eight FAQs, nine genuine reviews",
+      "passed": true,
+      "detail": "H1=['Websites and\\nonline stores.'], FAQs=8, reviews=9"
+    },
+    {
+      "name": "1440x900: loaded real images",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "name": "1440x900: no page/console/HTTP errors",
+      "passed": true,
+      "detail": "{\"pageerrors\": [], \"console\": [], \"badResponses\": [], \"failedRequests\": []}"
+    },
+    {
+      "name": "1280x800: no horizontal overflow",
+      "passed": true,
+      "detail": "{'clientWidth': 1280, 'scrollWidth': 1280, 'height': 11072}"
+    },
+    {
+      "name": "1280x800: one H1, eight FAQs, nine genuine reviews",
+      "passed": true,
+      "detail": "H1=['Websites and\\nonline stores.'], FAQs=8, reviews=9"
+    },
+    {
+      "name": "1280x800: loaded real images",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "name": "1280x800: no page/console/HTTP errors",
+      "passed": true,
+      "detail": "{\"pageerrors\": [], \"console\": [], \"badResponses\": [], \"failedRequests\": []}"
+    },
+    {
+      "name": "390x844: no horizontal overflow",
+      "passed": true,
+      "detail": "{'clientWidth': 390, 'scrollWidth': 390, 'height': 12812}"
+    },
+    {
+      "name": "390x844: one H1, eight FAQs, nine genuine reviews",
+      "passed": true,
+      "detail": "H1=['Websites and\\nonline stores.'], FAQs=8, reviews=9"
+    },
+    {
+      "name": "390x844: loaded real images",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "name": "390x844: no page/console/HTTP errors",
+      "passed": true,
+      "detail": "{\"pageerrors\": [], \"console\": [], \"badResponses\": [], \"failedRequests\": []}"
+    },
+    {
+      "name": "390x844: mobile menu keyboard behavior",
+      "passed": true,
+      "detail": "menu links, scroll lock, forward/reverse focus loop and Escape passed"
+    },
+    {
+      "name": "390x844: floating WhatsApp does not cover form",
+      "passed": true,
+      "detail": "floating contact hidden while form is in view"
+    },
+    {
+      "name": "320x740: no horizontal overflow",
+      "passed": true,
+      "detail": "{'clientWidth': 320, 'scrollWidth': 320, 'height': 13220}"
+    },
+    {
+      "name": "320x740: one H1, eight FAQs, nine genuine reviews",
+      "passed": true,
+      "detail": "H1=['Websites and\\nonline stores.'], FAQs=8, reviews=9"
+    },
+    {
+      "name": "320x740: loaded real images",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "name": "320x740: no page/console/HTTP errors",
+      "passed": true,
+      "detail": "{\"pageerrors\": [], \"console\": [], \"badResponses\": [], \"failedRequests\": []}"
+    },
+    {
+      "name": "320x740: mobile menu keyboard behavior",
+      "passed": true,
+      "detail": "menu links, scroll lock, forward/reverse focus loop and Escape passed"
+    },
+    {
+      "name": "320x740: floating WhatsApp does not cover form",
+      "passed": true,
+      "detail": "floating contact hidden while form is in view"
+    },
+    {
+      "name": "Desktop navigation dropdowns",
+      "passed": true,
+      "detail": "Services and Work open, dismiss and return focus; correct destination groups"
+    },
+    {
+      "name": "Quote required-field validation",
+      "passed": true,
+      "detail": "required name, service and message block invalid submit"
+    },
+    {
+      "name": "Quote encoding and blocked-popup fallback",
+      "passed": true,
+      "detail": "intercepted two valid encoded handoffs; popup blocked safely; accurate review/send status and fallback"
+    },
+    {
+      "name": "Work carousel controls and resize",
+      "passed": true,
+      "detail": "buttons wrap; keyboard Home/End/arrows; resize alignment; inactive slides inert"
+    },
+    {
+      "name": "Process tabs keyboard and responsive panels",
+      "passed": true,
+      "detail": "all three panels, keyboard selection/focus, wrap and hidden inactive panels passed"
+    },
+    {
+      "name": "FAQ expand/collapse",
+      "passed": true,
+      "detail": "eight questions; first/last buttons and controlled visibility passed"
+    },
+    {
+      "name": "Preserved factual content",
+      "passed": true,
+      "detail": "prices, conditions, contacts, whole founder story, preserved sections and important links present"
+    },
+    {
+      "name": "Cookie consent persistence and settings",
+      "passed": true,
+      "detail": "initial choice, persistence, reopen, panel focus and Escape focus return passed"
+    },
+    {
+      "name": "1440: reduced motion content and tabs",
+      "passed": true,
+      "detail": "all reveal content visible, no tool animation, tabs work"
+    },
+    {
+      "name": "390: reduced motion content and tabs",
+      "passed": true,
+      "detail": "all reveal content visible, no tool animation, tabs work"
+    },
+    {
+      "name": "pricing: preserved supporting-page headings and width",
+      "passed": true,
+      "detail": "H1=['Website packages.'], H2=['Website packages', 'Starter', 'Business', 'Premium', 'A package gives us a place to begin.', 'Let\u2019s build your website.'], dimensions={'clientWidth': 1280, 'scrollWidth': 1280, 'height': 3032}"
+    },
+    {
+      "name": "pricing: no supporting-page runtime/asset failures",
+      "passed": true,
+      "detail": "{\"pageerrors\": [], \"console\": [], \"badResponses\": [], \"failedRequests\": []}"
+    },
+    {
+      "name": "contact: preserved supporting-page headings and width",
+      "passed": true,
+      "detail": "H1=['Tell us about\\nyour website.'], H2=['WhatsApp is the quickest way to reach us.', \"You don't need a perfect brief.\"], dimensions={'clientWidth': 1280, 'scrollWidth': 1280, 'height': 2282}"
+    },
+    {
+      "name": "contact: no supporting-page runtime/asset failures",
+      "passed": true,
+      "detail": "{\"pageerrors\": [], \"console\": [], \"badResponses\": [], \"failedRequests\": []}"
+    },
+    {
+      "name": "website-services: preserved supporting-page headings and width",
+      "passed": true,
+      "detail": "H1=['Website design in Newcastle, KZN.'], H2=['What we can\\nhelp with.', 'Tell us what your website needs to do.', 'A website people can actually use.', 'A few practical answers.', 'From your first message.', 'Websites from R2,500. Online stores from R5,500. Custom work is quoted by scope.', 'Let\u2019s build your website.'], dimensions={'clientWidth': 1280, 'scrollWidth': 1280, 'height': 4903}"
+    },
+    {
+      "name": "website-services: no supporting-page runtime/asset failures",
+      "passed": true,
+      "detail": "{\"pageerrors\": [], \"console\": [], \"badResponses\": [], \"failedRequests\": []}"
+    }
+  ],
+  "layouts": [
+    {
+      "tag": "1440x900",
+      "metrics": {
+        "url": "http://127.0.0.1:5183/",
+        "title": "Website Design in Newcastle, KZN | Ntombii Tech",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "dimensions": {
+          "clientWidth": 1440,
+          "scrollWidth": 1440,
+          "height": 11460
+        },
+        "h1": [
+          "Websites and\nonline stores."
+        ],
+        "h2": [
+          "Our toolkit",
+          "Design. Build. Launch.",
+          "Hi, I\u2019m Sabelo.",
+          "Our work",
+          "Website packages",
+          "Reviews",
+          "Questions",
+          "Additional services",
+          "Latest articles",
+          "Business tips on WhatsApp.",
+          "Let\u2019s build\nyour website."
+        ],
+        "faqCount": 8,
+        "reviewNames": [
+          "Thandeka Nkosi",
+          "Saneliswe Sibiya",
+          "Sizwe Khumalo",
+          "Sunday Nkabinde",
+          "Anele Mbatha",
+          "Zama Zulu",
+          "Zanele Buthelezi",
+          "Gugu Mthombeni",
+          "Sibusiso Blose"
+        ],
+        "font": "Aeonik, Arial, sans-serif",
+        "h1Style": {
+          "fontSize": "79.2px",
+          "lineHeight": "83.952px",
+          "width": 604
+        },
+        "formFields": [
+          {
+            "name": "name",
+            "required": true,
+            "fontSize": "16px",
+            "width": 263,
+            "height": 49.1875
+          },
+          {
+            "name": "business",
+            "required": false,
+            "fontSize": "16px",
+            "width": 263,
+            "height": 49.1875
+          },
+          {
+            "name": "service",
+            "required": true,
+            "fontSize": "16px",
+            "width": 542,
+            "height": 48
+          },
+          {
+            "name": "message",
+            "required": true,
+            "fontSize": "16px",
+            "width": 542,
+            "height": 122
+          }
+        ],
+        "brokenImages": [],
+        "mainText": "Websites and\nonline stores.\n\nBuilt in Newcastle for businesses across South Africa.\n\nGet a quote\nOur work\nYour name\nBusiness name (if any)\nWhat can we help with?\nSelect your project\nNew website\nWebsite redesign\nOnline store\nWebsite updates & support\nWebsite SEO\nAdditional service enquiry\nTell us a little more\nContinue in WhatsApp\n\u2197\nOur toolkit\n\nTools in our toolkit: Codex, Paper, Figma, Framer, Canva, Cursor, Vercel, Grokbot, Notion AI, Slack, Wispr Flow, Claude, Make, Perplexity.\n\nCodex\nPaper\nFigma\nFramer\nCursor\nVercel\nCodex\nPaper\nFigma\nFramer\nCursor\nVercel\nGrokbot\nNotion AI\nSlack\nWispr Flow\nClaude\nMake\nPerplexity\nGrokbot\nNotion AI\nSlack\nWispr Flow\nClaude\nMake\nPerplexity\nDesign. Build. Launch.\nWebsite services\n\u2197\nDesign\nBuild\nLaunch\n\nWe plan the layout, images and content so people can see what your business does.\n\nThe page design.\n\nWe handle the design, build and launch. You review the work with us.\n\nSabelo Ndlovu\nFounder & Digital Product Developer\nNewcastle, KZN\nHi, I\u2019m Sabelo.\n\nI'm a self-taught digital product developer and the founder of Ntombii Tech, based in Newcastle, KwaZulu-Natal.\n\nBefore tech, I worked in the music industry as an artist manager and bookings manager. Discovering AI changed what I believed I could build. I saw it as a way for people like me to access opportunities that once felt out of reach. That curiosity led me to teach myself and start building.\n\nToday, my focus is building websites and online stores that help businesses show what they do and connect with customers. I stay close to every project, from the first conversation to launch.\n\nGet in touch\nOur work\nView all work\n\u2197\nLegend Black Jesus\n\nClothing collections, product choices and orders on WhatsApp.\n\nView project\nLive website\n\u2197\nSnesenzo Security Group\n\nSecurity services and a clear way for customers to request a quote.\n\nView project\nLive website\n\u2197\n\u2190\n\u2192\n\nShowing Legend Black Jesus\n\nWebsite packages\nStarter\n\nFrom\nR2,500\n\nA focused website that introduces your business and makes getting in touch easy.\n\n1\u20133 pages\nMobile-friendly design\nWhatsApp button & contact form\nBasic search engine setup\nGet a quote\n\u2197\nBusiness\n\nFrom\nR3,500\n\nSpace to explain your services, tell your story and help customers choose you.\n\nUp to 6 pages\nRefined design & page layouts\nGoogle Maps integration\nPerformance & SEO optimisation\nGet a quote\n\u2197\nPremium\n\nFrom\nR7,500\n\nA more detailed build for businesses with more to share and more to do.\n\nUp to 10 pages\nCustom interface & interactions\nCustomer journey planning\nPriority support\nGet a quote\n\u2197\n\nEvery package includes two rounds of revisions per stage and 14 days of support after launch. Hosting and domain arrangements are confirmed in your quote.\n\nOnline stores from R5,500\nReviews\nView all\nThandeka Nkosi\nAI tools for business\n\nI was paying for ChatGPT Plus, but I didn't know how much more I could do with tools like Codex and automation. Sabelo walked me through practical ways to use them for my work. We're creating better content, scheduling posts and getting much more value from the tools we pay for.\n\nSaneliswe Sibiya\nSalon registration & business support\n\nWhen Sabelo first suggested registering our salon, I thought it would be expensive and complicated. He explained every step and every cost, from the CIPC fee to the bank account, and helped us get it done. He still helps us prepare proposals and look for funding opportunities.\n\nSizwe Khumalo\nUNISA application\n\nWe thought we'd left my sister's UNISA application too late. Sabelo kept working on it right up to the deadline and helped her submit it. She's now in her second year, and we're grateful he didn't give up on the process.\n\nSunday Nkabinde\nTender opportunities\n\nI've been tendering for years, but I don't always have time to search for new opportunities. Ntombii Tech keeps an eye on relevant tenders, shares what I can apply for and helps me prepare the applications.\n\nAnele Mbatha\nEnquiry workflow\n\nPeople were interested in our bricklaying services, but their messages were getting lost. Sabelo helped us organise enquiries so we can follow up properly when someone contacts us.\n\nThandeka Nkosi\nAI tools for business\n\nI was paying for ChatGPT Plus, but I didn't know how much more I could do with tools like Codex and automation. Sabelo walked me through practical ways to use them for my work. We're creating better content, scheduling posts and getting much more value from the tools we pay for.\n\nSaneliswe Sibiya\nSalon registration & business support\n\nWhen Sabelo first suggested registering our salon, I thought it would be expensive and complicated. He explained every step and every cost, from the CIPC fee to the bank account, and helped us get it done. He still helps us prepare proposals and look for funding opportunities.\n\nSizwe Khumalo\nUNISA application\n\nWe thought we'd left my sister's UNISA application too late. Sabelo kept working on it right up to the deadline and helped her submit it. She's now in her second year, and we're grateful he didn't give up on the process.\n\nSunday Nkabinde\nTender opportunities\n\nI've been tendering for years, but I don't always have time to search for new opportunities. Ntombii Tech keeps an eye on relevant tenders, shares what I can apply for and helps me prepare the applications.\n\nAnele Mbatha\nEnquiry workflow\n\nPeople were interested in our bricklaying services, but their messages were getting lost. Sabelo helped us organise enquiries so we can follow up properly when someone contacts us.\n\nZama Zulu\nUniversity & NSFAS applications\n\nI'd tried to handle my UJ and NSFAS applications myself, but I wasn't sure where things stood. Ntombii Tech helped me pick up the process and followed up with both UJ and NSFAS until I received my acceptance. Having someone stay on top of it made a real difference.\n\nZanele Buthelezi\nCatering business registration\n\nNtombii Tech helped me register my catering business and get my documents in order. Sabelo was upfront about the process and costs, and he continues to help me with the admin side of running the business.\n\nGugu Mthombeni\nUniversity applications\n\nI had asked Ntombii Tech to help with two university applications. Sabelo suggested applying more widely and helped me submit over ten. I didn't get into the places I'd first hoped for, but another application worked out and I got to study.\n\nSibusiso Blose\nCSD profile support\n\nMy CSD profile had been sitting unfinished for weeks. Ntombii Tech helped me work through the missing details and get my profile in order. It was a relief to finally move forward.\n\nZama Zulu\nUniversity & NSFAS applications\n\nI'd tried to handle my UJ and NSFAS applications myself, but I wasn't sure where things stood. Ntombii Tech helped me pick up the process and followed up with both UJ and NSFAS until I received my acceptance. Having someone stay on top of it made a real difference.\n\nZanele Buthelezi\nCatering business registration\n\nNtombii Tech helped me register my catering business and get my documents in order. Sabelo was upfront about the process and costs, and he continues to help me with the admin side of running the business.\n\nGugu Mthombeni\nUniversity applications\n\nI had asked Ntombii Tech to help with two university applications. Sabelo suggested applying more widely and helped me submit over ten. I didn't get into the places I'd first hoped for, but another application worked out and I got to study.\n\nSibusiso Blose\nCSD profile support\n\nMy CSD profile had been sitting unfinished for weeks. Ntombii Tech helped me work through the missing details and get my profile in order. It was a relief to finally move forward.\n\nRequest a quote\n\u2197\nQuestions\nAsk on WhatsApp\nHow much will my website cost?\n\u2212\n\nOur website packages start at R2,500, R3,500 and R7,500. The final quote depends on the pages, content and features you need. Online stores start at R5,500. Hosting and domain arrangements are confirmed in your quote.\n\nWhat do you need from me to get started?\n+\nHow long does a website take?\n+\nCan you redesign my existing website?\n+\nDo you build online stores?\n+\nI'm not based in Newcastle. Can we still work together?\n+\nWill my website work on phones and show up on Google?\n+\nWhat happens after my website launches?\n+\nAdditional services\n\nOur main focus is web development. For other business or digital support, ask us about availability. We\u2019ll confirm what we can help with before agreeing on any work.\n\nBusiness setup\n\nCompany registration, CSD profiles and business paperwork.\n\n\u2197\nTender support\n\nTender searches and help preparing submission documents.\n\n\u2197\nOpportunities & Applications\n\nUniversity and NSFAS application assistance.\n\n\u2197\nBranding & print\n\nPrinting, signage, ink and toner. Logos and business graphics.\n\n\u2197\nAI & digital tools\n\nPractical introductions to AI and digital tools.\n\n\u2197\nPrinting, signage or toner in KZN? Start here\n\u2197\nLatest articles\nAll articles\n\nInk & toner \u00b7 3 min read\n\nToner and ink in Newcastle, KZN: printer cartridges and orders\nRead article\n\u2197\n\nPrinting \u00b7 3 min read\n\nPrinting in Newcastle, KZN: business cards, flyers and T-shirts\nRead article\n\u2197\n\nSignage & branding \u00b7 3 min read\n\nSignage in Newcastle, KZN: shop signs, artwork and quotes\nRead article\n\u2197\nBusiness tips on WhatsApp.\n\nAsk us about websites, getting found on Google and choosing print for your business.\n\nGet tips on WhatsApp\nLet\u2019s build\nyour website.\nGet a quote\nWhatsApp\n081 236 0230\nEmail\nhello@ntombii.tech\n\nNewcastle, KZN\n\nWorking across South Africa.\n\nMonday\u2013Friday \u00b7 09:00\u201317:00 SAST",
+        "allFormLabels": [
+          "Your name",
+          "Business name (if any)",
+          "What can we help with?\nSelect your project\nNew website\nWebsite redesign\nOnline store\nWebsite updates & support\nWebsite SEO\nAdditional service enquiry",
+          "Tell us a little more"
+        ]
+      },
+      "diagnostics": {
+        "pageerrors": [],
+        "console": [],
+        "badResponses": [],
+        "failedRequests": []
+      }
+    },
+    {
+      "tag": "1280x800",
+      "metrics": {
+        "url": "http://127.0.0.1:5183/",
+        "title": "Website Design in Newcastle, KZN | Ntombii Tech",
+        "viewport": {
+          "width": 1280,
+          "height": 800
+        },
+        "dimensions": {
+          "clientWidth": 1280,
+          "scrollWidth": 1280,
+          "height": 11072
+        },
+        "h1": [
+          "Websites and\nonline stores."
+        ],
+        "h2": [
+          "Our toolkit",
+          "Design. Build. Launch.",
+          "Hi, I\u2019m Sabelo.",
+          "Our work",
+          "Website packages",
+          "Reviews",
+          "Questions",
+          "Additional services",
+          "Latest articles",
+          "Business tips on WhatsApp.",
+          "Let\u2019s build\nyour website."
+        ],
+        "faqCount": 8,
+        "reviewNames": [
+          "Thandeka Nkosi",
+          "Saneliswe Sibiya",
+          "Sizwe Khumalo",
+          "Sunday Nkabinde",
+          "Anele Mbatha",
+          "Zama Zulu",
+          "Zanele Buthelezi",
+          "Gugu Mthombeni",
+          "Sibusiso Blose"
+        ],
+        "font": "Aeonik, Arial, sans-serif",
+        "h1Style": {
+          "fontSize": "70.4px",
+          "lineHeight": "74.624px",
+          "width": 548
+        },
+        "formFields": [
+          {
+            "name": "name",
+            "required": true,
+            "fontSize": "16px",
+            "width": 235,
+            "height": 49.1875
+          },
+          {
+            "name": "business",
+            "required": false,
+            "fontSize": "16px",
+            "width": 235,
+            "height": 49.1875
+          },
+          {
+            "name": "service",
+            "required": true,
+            "fontSize": "16px",
+            "width": 486,
+            "height": 48
+          },
+          {
+            "name": "message",
+            "required": true,
+            "fontSize": "16px",
+            "width": 486,
+            "height": 122
+          }
+        ],
+        "brokenImages": [],
+        "mainText": "Websites and\nonline stores.\n\nBuilt in Newcastle for businesses across South Africa.\n\nGet a quote\nOur work\nYour name\nBusiness name (if any)\nWhat can we help with?\nSelect your project\nNew website\nWebsite redesign\nOnline store\nWebsite updates & support\nWebsite SEO\nAdditional service enquiry\nTell us a little more\nContinue in WhatsApp\n\u2197\nOur toolkit\n\nTools in our toolkit: Codex, Paper, Figma, Framer, Canva, Cursor, Vercel, Grokbot, Notion AI, Slack, Wispr Flow, Claude, Make, Perplexity.\n\nCodex\nPaper\nFigma\nFramer\nCursor\nVercel\nCodex\nPaper\nFigma\nFramer\nCursor\nVercel\nGrokbot\nNotion AI\nSlack\nWispr Flow\nClaude\nMake\nPerplexity\nGrokbot\nNotion AI\nSlack\nWispr Flow\nClaude\nMake\nPerplexity\nDesign. Build. Launch.\nWebsite services\n\u2197\nDesign\nBuild\nLaunch\n\nWe plan the layout, images and content so people can see what your business does.\n\nThe page design.\n\nWe handle the design, build and launch. You review the work with us.\n\nSabelo Ndlovu\nFounder & Digital Product Developer\nNewcastle, KZN\nHi, I\u2019m Sabelo.\n\nI'm a self-taught digital product developer and the founder of Ntombii Tech, based in Newcastle, KwaZulu-Natal.\n\nBefore tech, I worked in the music industry as an artist manager and bookings manager. Discovering AI changed what I believed I could build. I saw it as a way for people like me to access opportunities that once felt out of reach. That curiosity led me to teach myself and start building.\n\nToday, my focus is building websites and online stores that help businesses show what they do and connect with customers. I stay close to every project, from the first conversation to launch.\n\nGet in touch\nOur work\nView all work\n\u2197\nLegend Black Jesus\n\nClothing collections, product choices and orders on WhatsApp.\n\nView project\nLive website\n\u2197\nSnesenzo Security Group\n\nSecurity services and a clear way for customers to request a quote.\n\nView project\nLive website\n\u2197\n\u2190\n\u2192\n\nShowing Legend Black Jesus\n\nWebsite packages\nStarter\n\nFrom\nR2,500\n\nA focused website that introduces your business and makes getting in touch easy.\n\n1\u20133 pages\nMobile-friendly design\nWhatsApp button & contact form\nBasic search engine setup\nGet a quote\n\u2197\nBusiness\n\nFrom\nR3,500\n\nSpace to explain your services, tell your story and help customers choose you.\n\nUp to 6 pages\nRefined design & page layouts\nGoogle Maps integration\nPerformance & SEO optimisation\nGet a quote\n\u2197\nPremium\n\nFrom\nR7,500\n\nA more detailed build for businesses with more to share and more to do.\n\nUp to 10 pages\nCustom interface & interactions\nCustomer journey planning\nPriority support\nGet a quote\n\u2197\n\nEvery package includes two rounds of revisions per stage and 14 days of support after launch. Hosting and domain arrangements are confirmed in your quote.\n\nOnline stores from R5,500\nReviews\nView all\nThandeka Nkosi\nAI tools for business\n\nI was paying for ChatGPT Plus, but I didn't know how much more I could do with tools like Codex and automation. Sabelo walked me through practical ways to use them for my work. We're creating better content, scheduling posts and getting much more value from the tools we pay for.\n\nSaneliswe Sibiya\nSalon registration & business support\n\nWhen Sabelo first suggested registering our salon, I thought it would be expensive and complicated. He explained every step and every cost, from the CIPC fee to the bank account, and helped us get it done. He still helps us prepare proposals and look for funding opportunities.\n\nSizwe Khumalo\nUNISA application\n\nWe thought we'd left my sister's UNISA application too late. Sabelo kept working on it right up to the deadline and helped her submit it. She's now in her second year, and we're grateful he didn't give up on the process.\n\nSunday Nkabinde\nTender opportunities\n\nI've been tendering for years, but I don't always have time to search for new opportunities. Ntombii Tech keeps an eye on relevant tenders, shares what I can apply for and helps me prepare the applications.\n\nAnele Mbatha\nEnquiry workflow\n\nPeople were interested in our bricklaying services, but their messages were getting lost. Sabelo helped us organise enquiries so we can follow up properly when someone contacts us.\n\nThandeka Nkosi\nAI tools for business\n\nI was paying for ChatGPT Plus, but I didn't know how much more I could do with tools like Codex and automation. Sabelo walked me through practical ways to use them for my work. We're creating better content, scheduling posts and getting much more value from the tools we pay for.\n\nSaneliswe Sibiya\nSalon registration & business support\n\nWhen Sabelo first suggested registering our salon, I thought it would be expensive and complicated. He explained every step and every cost, from the CIPC fee to the bank account, and helped us get it done. He still helps us prepare proposals and look for funding opportunities.\n\nSizwe Khumalo\nUNISA application\n\nWe thought we'd left my sister's UNISA application too late. Sabelo kept working on it right up to the deadline and helped her submit it. She's now in her second year, and we're grateful he didn't give up on the process.\n\nSunday Nkabinde\nTender opportunities\n\nI've been tendering for years, but I don't always have time to search for new opportunities. Ntombii Tech keeps an eye on relevant tenders, shares what I can apply for and helps me prepare the applications.\n\nAnele Mbatha\nEnquiry workflow\n\nPeople were interested in our bricklaying services, but their messages were getting lost. Sabelo helped us organise enquiries so we can follow up properly when someone contacts us.\n\nZama Zulu\nUniversity & NSFAS applications\n\nI'd tried to handle my UJ and NSFAS applications myself, but I wasn't sure where things stood. Ntombii Tech helped me pick up the process and followed up with both UJ and NSFAS until I received my acceptance. Having someone stay on top of it made a real difference.\n\nZanele Buthelezi\nCatering business registration\n\nNtombii Tech helped me register my catering business and get my documents in order. Sabelo was upfront about the process and costs, and he continues to help me with the admin side of running the business.\n\nGugu Mthombeni\nUniversity applications\n\nI had asked Ntombii Tech to help with two university applications. Sabelo suggested applying more widely and helped me submit over ten. I didn't get into the places I'd first hoped for, but another application worked out and I got to study.\n\nSibusiso Blose\nCSD profile support\n\nMy CSD profile had been sitting unfinished for weeks. Ntombii Tech helped me work through the missing details and get my profile in order. It was a relief to finally move forward.\n\nZama Zulu\nUniversity & NSFAS applications\n\nI'd tried to handle my UJ and NSFAS applications myself, but I wasn't sure where things stood. Ntombii Tech helped me pick up the process and followed up with both UJ and NSFAS until I received my acceptance. Having someone stay on top of it made a real difference.\n\nZanele Buthelezi\nCatering business registration\n\nNtombii Tech helped me register my catering business and get my documents in order. Sabelo was upfront about the process and costs, and he continues to help me with the admin side of running the business.\n\nGugu Mthombeni\nUniversity applications\n\nI had asked Ntombii Tech to help with two university applications. Sabelo suggested applying more widely and helped me submit over ten. I didn't get into the places I'd first hoped for, but another application worked out and I got to study.\n\nSibusiso Blose\nCSD profile support\n\nMy CSD profile had been sitting unfinished for weeks. Ntombii Tech helped me work through the missing details and get my profile in order. It was a relief to finally move forward.\n\nRequest a quote\n\u2197\nQuestions\nAsk on WhatsApp\nHow much will my website cost?\n\u2212\n\nOur website packages start at R2,500, R3,500 and R7,500. The final quote depends on the pages, content and features you need. Online stores start at R5,500. Hosting and domain arrangements are confirmed in your quote.\n\nWhat do you need from me to get started?\n+\nHow long does a website take?\n+\nCan you redesign my existing website?\n+\nDo you build online stores?\n+\nI'm not based in Newcastle. Can we still work together?\n+\nWill my website work on phones and show up on Google?\n+\nWhat happens after my website launches?\n+\nAdditional services\n\nOur main focus is web development. For other business or digital support, ask us about availability. We\u2019ll confirm what we can help with before agreeing on any work.\n\nBusiness setup\n\nCompany registration, CSD profiles and business paperwork.\n\n\u2197\nTender support\n\nTender searches and help preparing submission documents.\n\n\u2197\nOpportunities & Applications\n\nUniversity and NSFAS application assistance.\n\n\u2197\nBranding & print\n\nPrinting, signage, ink and toner. Logos and business graphics.\n\n\u2197\nAI & digital tools\n\nPractical introductions to AI and digital tools.\n\n\u2197\nPrinting, signage or toner in KZN? Start here\n\u2197\nLatest articles\nAll articles\n\nInk & toner \u00b7 3 min read\n\nToner and ink in Newcastle, KZN: printer cartridges and orders\nRead article\n\u2197\n\nPrinting \u00b7 3 min read\n\nPrinting in Newcastle, KZN: business cards, flyers and T-shirts\nRead article\n\u2197\n\nSignage & branding \u00b7 3 min read\n\nSignage in Newcastle, KZN: shop signs, artwork and quotes\nRead article\n\u2197\nBusiness tips on WhatsApp.\n\nAsk us about websites, getting found on Google and choosing print for your business.\n\nGet tips on WhatsApp\nLet\u2019s build\nyour website.\nGet a quote\nWhatsApp\n081 236 0230\nEmail\nhello@ntombii.tech\n\nNewcastle, KZN\n\nWorking across South Africa.\n\nMonday\u2013Friday \u00b7 09:00\u201317:00 SAST",
+        "allFormLabels": [
+          "Your name",
+          "Business name (if any)",
+          "What can we help with?\nSelect your project\nNew website\nWebsite redesign\nOnline store\nWebsite updates & support\nWebsite SEO\nAdditional service enquiry",
+          "Tell us a little more"
+        ]
+      },
+      "diagnostics": {
+        "pageerrors": [],
+        "console": [],
+        "badResponses": [],
+        "failedRequests": []
+      }
+    },
+    {
+      "tag": "390x844",
+      "metrics": {
+        "url": "http://127.0.0.1:5183/",
+        "title": "Website Design in Newcastle, KZN | Ntombii Tech",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "dimensions": {
+          "clientWidth": 390,
+          "scrollWidth": 390,
+          "height": 12812
+        },
+        "h1": [
+          "Websites and\nonline stores."
+        ],
+        "h2": [
+          "Our toolkit",
+          "Design. Build. Launch.",
+          "Hi, I\u2019m Sabelo.",
+          "Our work",
+          "Website packages",
+          "Reviews",
+          "Questions",
+          "Additional services",
+          "Latest articles",
+          "Business tips on WhatsApp.",
+          "Let\u2019s build\nyour website."
+        ],
+        "faqCount": 8,
+        "reviewNames": [
+          "Thandeka Nkosi",
+          "Saneliswe Sibiya",
+          "Sizwe Khumalo",
+          "Sunday Nkabinde",
+          "Anele Mbatha",
+          "Zama Zulu",
+          "Zanele Buthelezi",
+          "Gugu Mthombeni",
+          "Sibusiso Blose"
+        ],
+        "font": "Aeonik, Arial, sans-serif",
+        "h1Style": {
+          "fontSize": "41.73px",
+          "lineHeight": "44.2338px",
+          "width": 350
+        },
+        "formFields": [
+          {
+            "name": "name",
+            "required": true,
+            "fontSize": "16px",
+            "width": 308,
+            "height": 49.1875
+          },
+          {
+            "name": "business",
+            "required": false,
+            "fontSize": "16px",
+            "width": 308,
+            "height": 49.1875
+          },
+          {
+            "name": "service",
+            "required": true,
+            "fontSize": "16px",
+            "width": 308,
+            "height": 49
+          },
+          {
+            "name": "message",
+            "required": true,
+            "fontSize": "16px",
+            "width": 308,
+            "height": 126
+          }
+        ],
+        "brokenImages": [],
+        "mainText": "Websites and\nonline stores.\n\nBuilt in Newcastle for businesses across South Africa.\n\nGet a quote\nOur work\nYour name\nBusiness name (if any)\nWhat can we help with?\nSelect your project\nNew website\nWebsite redesign\nOnline store\nWebsite updates & support\nWebsite SEO\nAdditional service enquiry\nTell us a little more\nContinue in WhatsApp\n\u2197\nOur toolkit\n\nTools in our toolkit: Codex, Paper, Figma, Framer, Canva, Cursor, Vercel, Grokbot, Notion AI, Slack, Wispr Flow, Claude, Make, Perplexity.\n\nCodex\nPaper\nFigma\nFramer\nCursor\nVercel\nCodex\nPaper\nFigma\nFramer\nCursor\nVercel\nGrokbot\nNotion AI\nSlack\nWispr Flow\nClaude\nMake\nPerplexity\nGrokbot\nNotion AI\nSlack\nWispr Flow\nClaude\nMake\nPerplexity\nDesign. Build. Launch.\nWebsite services\n\u2197\nDesign\nBuild\nLaunch\n\nWe plan the layout, images and content so people can see what your business does.\n\nThe page design.\n\nWe handle the design, build and launch. You review the work with us.\n\nSabelo Ndlovu\nFounder & Digital Product Developer\nNewcastle, KZN\nHi, I\u2019m Sabelo.\n\nI'm a self-taught digital product developer and the founder of Ntombii Tech, based in Newcastle, KwaZulu-Natal.\n\nBefore tech, I worked in the music industry as an artist manager and bookings manager. Discovering AI changed what I believed I could build. I saw it as a way for people like me to access opportunities that once felt out of reach. That curiosity led me to teach myself and start building.\n\nToday, my focus is building websites and online stores that help businesses show what they do and connect with customers. I stay close to every project, from the first conversation to launch.\n\nGet in touch\nOur work\nView all work\n\u2197\nLegend Black Jesus\n\nClothing collections, product choices and orders on WhatsApp.\n\nView project\nLive website\n\u2197\nSnesenzo Security Group\n\nSecurity services and a clear way for customers to request a quote.\n\nView project\nLive website\n\u2197\n\u2190\n\u2192\n\nShowing Legend Black Jesus\n\nWebsite packages\nStarter\n\nFrom\nR2,500\n\nA focused website that introduces your business and makes getting in touch easy.\n\n1\u20133 pages\nMobile-friendly design\nWhatsApp button & contact form\nBasic search engine setup\nGet a quote\n\u2197\nBusiness\n\nFrom\nR3,500\n\nSpace to explain your services, tell your story and help customers choose you.\n\nUp to 6 pages\nRefined design & page layouts\nGoogle Maps integration\nPerformance & SEO optimisation\nGet a quote\n\u2197\nPremium\n\nFrom\nR7,500\n\nA more detailed build for businesses with more to share and more to do.\n\nUp to 10 pages\nCustom interface & interactions\nCustomer journey planning\nPriority support\nGet a quote\n\u2197\n\nEvery package includes two rounds of revisions per stage and 14 days of support after launch. Hosting and domain arrangements are confirmed in your quote.\n\nOnline stores from R5,500\nReviews\nView all\nThandeka Nkosi\nAI tools for business\n\nI was paying for ChatGPT Plus, but I didn't know how much more I could do with tools like Codex and automation. Sabelo walked me through practical ways to use them for my work. We're creating better content, scheduling posts and getting much more value from the tools we pay for.\n\nSaneliswe Sibiya\nSalon registration & business support\n\nWhen Sabelo first suggested registering our salon, I thought it would be expensive and complicated. He explained every step and every cost, from the CIPC fee to the bank account, and helped us get it done. He still helps us prepare proposals and look for funding opportunities.\n\nSizwe Khumalo\nUNISA application\n\nWe thought we'd left my sister's UNISA application too late. Sabelo kept working on it right up to the deadline and helped her submit it. She's now in her second year, and we're grateful he didn't give up on the process.\n\nSunday Nkabinde\nTender opportunities\n\nI've been tendering for years, but I don't always have time to search for new opportunities. Ntombii Tech keeps an eye on relevant tenders, shares what I can apply for and helps me prepare the applications.\n\nAnele Mbatha\nEnquiry workflow\n\nPeople were interested in our bricklaying services, but their messages were getting lost. Sabelo helped us organise enquiries so we can follow up properly when someone contacts us.\n\nThandeka Nkosi\nAI tools for business\n\nI was paying for ChatGPT Plus, but I didn't know how much more I could do with tools like Codex and automation. Sabelo walked me through practical ways to use them for my work. We're creating better content, scheduling posts and getting much more value from the tools we pay for.\n\nSaneliswe Sibiya\nSalon registration & business support\n\nWhen Sabelo first suggested registering our salon, I thought it would be expensive and complicated. He explained every step and every cost, from the CIPC fee to the bank account, and helped us get it done. He still helps us prepare proposals and look for funding opportunities.\n\nSizwe Khumalo\nUNISA application\n\nWe thought we'd left my sister's UNISA application too late. Sabelo kept working on it right up to the deadline and helped her submit it. She's now in her second year, and we're grateful he didn't give up on the process.\n\nSunday Nkabinde\nTender opportunities\n\nI've been tendering for years, but I don't always have time to search for new opportunities. Ntombii Tech keeps an eye on relevant tenders, shares what I can apply for and helps me prepare the applications.\n\nAnele Mbatha\nEnquiry workflow\n\nPeople were interested in our bricklaying services, but their messages were getting lost. Sabelo helped us organise enquiries so we can follow up properly when someone contacts us.\n\nZama Zulu\nUniversity & NSFAS applications\n\nI'd tried to handle my UJ and NSFAS applications myself, but I wasn't sure where things stood. Ntombii Tech helped me pick up the process and followed up with both UJ and NSFAS until I received my acceptance. Having someone stay on top of it made a real difference.\n\nZanele Buthelezi\nCatering business registration\n\nNtombii Tech helped me register my catering business and get my documents in order. Sabelo was upfront about the process and costs, and he continues to help me with the admin side of running the business.\n\nGugu Mthombeni\nUniversity applications\n\nI had asked Ntombii Tech to help with two university applications. Sabelo suggested applying more widely and helped me submit over ten. I didn't get into the places I'd first hoped for, but another application worked out and I got to study.\n\nSibusiso Blose\nCSD profile support\n\nMy CSD profile had been sitting unfinished for weeks. Ntombii Tech helped me work through the missing details and get my profile in order. It was a relief to finally move forward.\n\nZama Zulu\nUniversity & NSFAS applications\n\nI'd tried to handle my UJ and NSFAS applications myself, but I wasn't sure where things stood. Ntombii Tech helped me pick up the process and followed up with both UJ and NSFAS until I received my acceptance. Having someone stay on top of it made a real difference.\n\nZanele Buthelezi\nCatering business registration\n\nNtombii Tech helped me register my catering business and get my documents in order. Sabelo was upfront about the process and costs, and he continues to help me with the admin side of running the business.\n\nGugu Mthombeni\nUniversity applications\n\nI had asked Ntombii Tech to help with two university applications. Sabelo suggested applying more widely and helped me submit over ten. I didn't get into the places I'd first hoped for, but another application worked out and I got to study.\n\nSibusiso Blose\nCSD profile support\n\nMy CSD profile had been sitting unfinished for weeks. Ntombii Tech helped me work through the missing details and get my profile in order. It was a relief to finally move forward.\n\nRequest a quote\n\u2197\nQuestions\nAsk on WhatsApp\nHow much will my website cost?\n\u2212\n\nOur website packages start at R2,500, R3,500 and R7,500. The final quote depends on the pages, content and features you need. Online stores start at R5,500. Hosting and domain arrangements are confirmed in your quote.\n\nWhat do you need from me to get started?\n+\nHow long does a website take?\n+\nCan you redesign my existing website?\n+\nDo you build online stores?\n+\nI'm not based in Newcastle. Can we still work together?\n+\nWill my website work on phones and show up on Google?\n+\nWhat happens after my website launches?\n+\nAdditional services\n\nOur main focus is web development. For other business or digital support, ask us about availability. We\u2019ll confirm what we can help with before agreeing on any work.\n\nBusiness setup\n\nCompany registration, CSD profiles and business paperwork.\n\n\u2197\nTender support\n\nTender searches and help preparing submission documents.\n\n\u2197\nOpportunities & Applications\n\nUniversity and NSFAS application assistance.\n\n\u2197\nBranding & print\n\nPrinting, signage, ink and toner. Logos and business graphics.\n\n\u2197\nAI & digital tools\n\nPractical introductions to AI and digital tools.\n\n\u2197\nPrinting, signage or toner in KZN? Start here\n\u2197\nLatest articles\nAll articles\n\nInk & toner \u00b7 3 min read\n\nToner and ink in Newcastle, KZN: printer cartridges and orders\nRead article\n\u2197\n\nPrinting \u00b7 3 min read\n\nPrinting in Newcastle, KZN: business cards, flyers and T-shirts\nRead article\n\u2197\n\nSignage & branding \u00b7 3 min read\n\nSignage in Newcastle, KZN: shop signs, artwork and quotes\nRead article\n\u2197\nBusiness tips on WhatsApp.\n\nAsk us about websites, getting found on Google and choosing print for your business.\n\nGet tips on WhatsApp\nLet\u2019s build\nyour website.\nGet a quote\nWhatsApp\n081 236 0230\nEmail\nhello@ntombii.tech\n\nNewcastle, KZN\n\nWorking across South Africa.\n\nMonday\u2013Friday \u00b7 09:00\u201317:00 SAST",
+        "allFormLabels": [
+          "Your name",
+          "Business name (if any)",
+          "What can we help with?\nSelect your project\nNew website\nWebsite redesign\nOnline store\nWebsite updates & support\nWebsite SEO\nAdditional service enquiry",
+          "Tell us a little more"
+        ]
+      },
+      "diagnostics": {
+        "pageerrors": [],
+        "console": [],
+        "badResponses": [],
+        "failedRequests": []
+      }
+    },
+    {
+      "tag": "320x740",
+      "metrics": {
+        "url": "http://127.0.0.1:5183/",
+        "title": "Website Design in Newcastle, KZN | Ntombii Tech",
+        "viewport": {
+          "width": 320,
+          "height": 740
+        },
+        "dimensions": {
+          "clientWidth": 320,
+          "scrollWidth": 320,
+          "height": 13220
+        },
+        "h1": [
+          "Websites and\nonline stores."
+        ],
+        "h2": [
+          "Our toolkit",
+          "Design. Build. Launch.",
+          "Hi, I\u2019m Sabelo.",
+          "Our work",
+          "Website packages",
+          "Reviews",
+          "Questions",
+          "Additional services",
+          "Latest articles",
+          "Business tips on WhatsApp.",
+          "Let\u2019s build\nyour website."
+        ],
+        "faqCount": 8,
+        "reviewNames": [
+          "Thandeka Nkosi",
+          "Saneliswe Sibiya",
+          "Sizwe Khumalo",
+          "Sunday Nkabinde",
+          "Anele Mbatha",
+          "Zama Zulu",
+          "Zanele Buthelezi",
+          "Gugu Mthombeni",
+          "Sibusiso Blose"
+        ],
+        "font": "Aeonik, Arial, sans-serif",
+        "h1Style": {
+          "fontSize": "38px",
+          "lineHeight": "40.28px",
+          "width": 288
+        },
+        "formFields": [
+          {
+            "name": "name",
+            "required": true,
+            "fontSize": "16px",
+            "width": 250,
+            "height": 49.1875
+          },
+          {
+            "name": "business",
+            "required": false,
+            "fontSize": "16px",
+            "width": 250,
+            "height": 49.1875
+          },
+          {
+            "name": "service",
+            "required": true,
+            "fontSize": "16px",
+            "width": 250,
+            "height": 49
+          },
+          {
+            "name": "message",
+            "required": true,
+            "fontSize": "16px",
+            "width": 250,
+            "height": 126
+          }
+        ],
+        "brokenImages": [],
+        "mainText": "Websites and\nonline stores.\n\nBuilt in Newcastle for businesses across South Africa.\n\nGet a quote\nOur work\nYour name\nBusiness name (if any)\nWhat can we help with?\nSelect your project\nNew website\nWebsite redesign\nOnline store\nWebsite updates & support\nWebsite SEO\nAdditional service enquiry\nTell us a little more\nContinue in WhatsApp\n\u2197\nOur toolkit\n\nTools in our toolkit: Codex, Paper, Figma, Framer, Canva, Cursor, Vercel, Grokbot, Notion AI, Slack, Wispr Flow, Claude, Make, Perplexity.\n\nCodex\nPaper\nFigma\nFramer\nCursor\nVercel\nCodex\nPaper\nFigma\nFramer\nCursor\nVercel\nGrokbot\nNotion AI\nSlack\nWispr Flow\nClaude\nMake\nPerplexity\nGrokbot\nNotion AI\nSlack\nWispr Flow\nClaude\nMake\nPerplexity\nDesign. Build. Launch.\nWebsite services\n\u2197\nDesign\nBuild\nLaunch\n\nWe plan the layout, images and content so people can see what your business does.\n\nThe page design.\n\nWe handle the design, build and launch. You review the work with us.\n\nSabelo Ndlovu\nFounder & Digital Product Developer\nNewcastle, KZN\nHi, I\u2019m Sabelo.\n\nI'm a self-taught digital product developer and the founder of Ntombii Tech, based in Newcastle, KwaZulu-Natal.\n\nBefore tech, I worked in the music industry as an artist manager and bookings manager. Discovering AI changed what I believed I could build. I saw it as a way for people like me to access opportunities that once felt out of reach. That curiosity led me to teach myself and start building.\n\nToday, my focus is building websites and online stores that help businesses show what they do and connect with customers. I stay close to every project, from the first conversation to launch.\n\nGet in touch\nOur work\nView all work\n\u2197\nLegend Black Jesus\n\nClothing collections, product choices and orders on WhatsApp.\n\nView project\nLive website\n\u2197\nSnesenzo Security Group\n\nSecurity services and a clear way for customers to request a quote.\n\nView project\nLive website\n\u2197\n\u2190\n\u2192\n\nShowing Legend Black Jesus\n\nWebsite packages\nStarter\n\nFrom\nR2,500\n\nA focused website that introduces your business and makes getting in touch easy.\n\n1\u20133 pages\nMobile-friendly design\nWhatsApp button & contact form\nBasic search engine setup\nGet a quote\n\u2197\nBusiness\n\nFrom\nR3,500\n\nSpace to explain your services, tell your story and help customers choose you.\n\nUp to 6 pages\nRefined design & page layouts\nGoogle Maps integration\nPerformance & SEO optimisation\nGet a quote\n\u2197\nPremium\n\nFrom\nR7,500\n\nA more detailed build for businesses with more to share and more to do.\n\nUp to 10 pages\nCustom interface & interactions\nCustomer journey planning\nPriority support\nGet a quote\n\u2197\n\nEvery package includes two rounds of revisions per stage and 14 days of support after launch. Hosting and domain arrangements are confirmed in your quote.\n\nOnline stores from R5,500\nReviews\nView all\nThandeka Nkosi\nAI tools for business\n\nI was paying for ChatGPT Plus, but I didn't know how much more I could do with tools like Codex and automation. Sabelo walked me through practical ways to use them for my work. We're creating better content, scheduling posts and getting much more value from the tools we pay for.\n\nSaneliswe Sibiya\nSalon registration & business support\n\nWhen Sabelo first suggested registering our salon, I thought it would be expensive and complicated. He explained every step and every cost, from the CIPC fee to the bank account, and helped us get it done. He still helps us prepare proposals and look for funding opportunities.\n\nSizwe Khumalo\nUNISA application\n\nWe thought we'd left my sister's UNISA application too late. Sabelo kept working on it right up to the deadline and helped her submit it. She's now in her second year, and we're grateful he didn't give up on the process.\n\nSunday Nkabinde\nTender opportunities\n\nI've been tendering for years, but I don't always have time to search for new opportunities. Ntombii Tech keeps an eye on relevant tenders, shares what I can apply for and helps me prepare the applications.\n\nAnele Mbatha\nEnquiry workflow\n\nPeople were interested in our bricklaying services, but their messages were getting lost. Sabelo helped us organise enquiries so we can follow up properly when someone contacts us.\n\nThandeka Nkosi\nAI tools for business\n\nI was paying for ChatGPT Plus, but I didn't know how much more I could do with tools like Codex and automation. Sabelo walked me through practical ways to use them for my work. We're creating better content, scheduling posts and getting much more value from the tools we pay for.\n\nSaneliswe Sibiya\nSalon registration & business support\n\nWhen Sabelo first suggested registering our salon, I thought it would be expensive and complicated. He explained every step and every cost, from the CIPC fee to the bank account, and helped us get it done. He still helps us prepare proposals and look for funding opportunities.\n\nSizwe Khumalo\nUNISA application\n\nWe thought we'd left my sister's UNISA application too late. Sabelo kept working on it right up to the deadline and helped her submit it. She's now in her second year, and we're grateful he didn't give up on the process.\n\nSunday Nkabinde\nTender opportunities\n\nI've been tendering for years, but I don't always have time to search for new opportunities. Ntombii Tech keeps an eye on relevant tenders, shares what I can apply for and helps me prepare the applications.\n\nAnele Mbatha\nEnquiry workflow\n\nPeople were interested in our bricklaying services, but their messages were getting lost. Sabelo helped us organise enquiries so we can follow up properly when someone contacts us.\n\nZama Zulu\nUniversity & NSFAS applications\n\nI'd tried to handle my UJ and NSFAS applications myself, but I wasn't sure where things stood. Ntombii Tech helped me pick up the process and followed up with both UJ and NSFAS until I received my acceptance. Having someone stay on top of it made a real difference.\n\nZanele Buthelezi\nCatering business registration\n\nNtombii Tech helped me register my catering business and get my documents in order. Sabelo was upfront about the process and costs, and he continues to help me with the admin side of running the business.\n\nGugu Mthombeni\nUniversity applications\n\nI had asked Ntombii Tech to help with two university applications. Sabelo suggested applying more widely and helped me submit over ten. I didn't get into the places I'd first hoped for, but another application worked out and I got to study.\n\nSibusiso Blose\nCSD profile support\n\nMy CSD profile had been sitting unfinished for weeks. Ntombii Tech helped me work through the missing details and get my profile in order. It was a relief to finally move forward.\n\nZama Zulu\nUniversity & NSFAS applications\n\nI'd tried to handle my UJ and NSFAS applications myself, but I wasn't sure where things stood. Ntombii Tech helped me pick up the process and followed up with both UJ and NSFAS until I received my acceptance. Having someone stay on top of it made a real difference.\n\nZanele Buthelezi\nCatering business registration\n\nNtombii Tech helped me register my catering business and get my documents in order. Sabelo was upfront about the process and costs, and he continues to help me with the admin side of running the business.\n\nGugu Mthombeni\nUniversity applications\n\nI had asked Ntombii Tech to help with two university applications. Sabelo suggested applying more widely and helped me submit over ten. I didn't get into the places I'd first hoped for, but another application worked out and I got to study.\n\nSibusiso Blose\nCSD profile support\n\nMy CSD profile had been sitting unfinished for weeks. Ntombii Tech helped me work through the missing details and get my profile in order. It was a relief to finally move forward.\n\nRequest a quote\n\u2197\nQuestions\nAsk on WhatsApp\nHow much will my website cost?\n\u2212\n\nOur website packages start at R2,500, R3,500 and R7,500. The final quote depends on the pages, content and features you need. Online stores start at R5,500. Hosting and domain arrangements are confirmed in your quote.\n\nWhat do you need from me to get started?\n+\nHow long does a website take?\n+\nCan you redesign my existing website?\n+\nDo you build online stores?\n+\nI'm not based in Newcastle. Can we still work together?\n+\nWill my website work on phones and show up on Google?\n+\nWhat happens after my website launches?\n+\nAdditional services\n\nOur main focus is web development. For other business or digital support, ask us about availability. We\u2019ll confirm what we can help with before agreeing on any work.\n\nBusiness setup\n\nCompany registration, CSD profiles and business paperwork.\n\n\u2197\nTender support\n\nTender searches and help preparing submission documents.\n\n\u2197\nOpportunities & Applications\n\nUniversity and NSFAS application assistance.\n\n\u2197\nBranding & print\n\nPrinting, signage, ink and toner. Logos and business graphics.\n\n\u2197\nAI & digital tools\n\nPractical introductions to AI and digital tools.\n\n\u2197\nPrinting, signage or toner in KZN? Start here\n\u2197\nLatest articles\nAll articles\n\nInk & toner \u00b7 3 min read\n\nToner and ink in Newcastle, KZN: printer cartridges and orders\nRead article\n\u2197\n\nPrinting \u00b7 3 min read\n\nPrinting in Newcastle, KZN: business cards, flyers and T-shirts\nRead article\n\u2197\n\nSignage & branding \u00b7 3 min read\n\nSignage in Newcastle, KZN: shop signs, artwork and quotes\nRead article\n\u2197\nBusiness tips on WhatsApp.\n\nAsk us about websites, getting found on Google and choosing print for your business.\n\nGet tips on WhatsApp\nLet\u2019s build\nyour website.\nGet a quote\nWhatsApp\n081 236 0230\nEmail\nhello@ntombii.tech\n\nNewcastle, KZN\n\nWorking across South Africa.\n\nMonday\u2013Friday \u00b7 09:00\u201317:00 SAST",
+        "allFormLabels": [
+          "Your name",
+          "Business name (if any)",
+          "What can we help with?\nSelect your project\nNew website\nWebsite redesign\nOnline store\nWebsite updates & support\nWebsite SEO\nAdditional service enquiry",
+          "Tell us a little more"
+        ]
+      },
+      "diagnostics": {
+        "pageerrors": [],
+        "console": [],
+        "badResponses": [],
+        "failedRequests": []
+      }
+    }
+  ],
+  "supporting": [
+    {
+      "slug": "pricing",
+      "metrics": {
+        "url": "http://127.0.0.1:5183/pricing",
+        "title": "Website Prices in South Africa | From R2,500 | Ntombii Tech",
+        "viewport": {
+          "width": 1280,
+          "height": 800
+        },
+        "dimensions": {
+          "clientWidth": 1280,
+          "scrollWidth": 1280,
+          "height": 3032
+        },
+        "h1": [
+          "Website packages."
+        ],
+        "h2": [
+          "Website packages",
+          "Starter",
+          "Business",
+          "Premium",
+          "A package gives us a place to begin.",
+          "Let\u2019s build your website."
+        ],
+        "faqCount": 0,
+        "reviewNames": [],
+        "font": "Aeonik, Arial, sans-serif",
+        "h1Style": {
+          "fontSize": "64px",
+          "lineHeight": "70.4px",
+          "width": 563.03125
+        },
+        "formFields": [],
+        "brokenImages": [],
+        "mainText": "Website packages.\n\nThese are starting points. We\u2019ll confirm the pages, content and features you need before sending a final quote.\n\nExplore packages\n\u2197\nLegend Black Jesus / Online store\nlegendblackjesus.co.za\n\u2197\nA closer look / Signature Tee\n\u2197\nWebsite packages\nStarter\n\nFrom\nR2,500\n\nA focused website that introduces your business and makes getting in touch easy.\n\n1\u20133 pages\nMobile-friendly design\nWhatsApp button & contact form\nBasic search engine setup\nLet's talk starter\n\u2197\nBusiness\n\nFrom\nR3,500\n\nSpace to explain your services, tell your story and help customers choose you.\n\nUp to 6 pages\nRefined design & page layouts\nGoogle Maps integration\nPerformance & SEO optimisation\nLet's talk business\n\u2197\nPremium\n\nFrom\nR7,500\n\nA more detailed build for businesses with more to share and more to do.\n\nUp to 10 pages\nCustom interface & interactions\nCustomer journey planning\nPriority support\nLet's talk premium\n\u2197\n\nEvery package includes two rounds of revisions per stage and 14 days of support after launch. Hosting and domain arrangements are confirmed in your quote.\n\nNeed an online store or custom build? Let's talk\n\u2197\n\nNeed something alongside your website? Ask about additional services and availability \u2197\n\nA package gives us a place to begin.\n\nWe still need to understand your business before setting a final price. The number of pages is one part of the work; content, product setup, special features and integrations can change the scope.\n\nIncluded in the conversation\n\nWe discuss your goals, page structure, content, mobile design, contact path and launch requirements. We confirm the work and timeline in a quote.\n\nCosts to plan for\n\nDomain, hosting, paid services, photography and any ongoing maintenance are discussed separately where they apply. We will not quietly add them after you agree to a package.\n\nSomething outside the packages?\n\nOnline stores start at R5,500. Larger stores, custom website features and ongoing support are quoted for the actual work involved.\n\nLet\u2019s build your website.\nChat on WhatsApp\n\u2197",
+        "allFormLabels": []
+      },
+      "baselineH1": [
+        "Website packages."
+      ],
+      "baselineH2": [
+        "Website packages",
+        "Starter",
+        "Business",
+        "Premium",
+        "A package gives us a place to begin.",
+        "Let\u2019s build your website."
+      ],
+      "diagnostics": {
+        "pageerrors": [],
+        "console": [],
+        "badResponses": [],
+        "failedRequests": []
+      }
+    },
+    {
+      "slug": "contact",
+      "metrics": {
+        "url": "http://127.0.0.1:5183/contact",
+        "title": "Contact Us for a Website Quote | Ntombii Tech",
+        "viewport": {
+          "width": 1280,
+          "height": 800
+        },
+        "dimensions": {
+          "clientWidth": 1280,
+          "scrollWidth": 1280,
+          "height": 2282
+        },
+        "h1": [
+          "Tell us about\nyour website."
+        ],
+        "h2": [
+          "WhatsApp is the quickest way to reach us.",
+          "You don't need a perfect brief."
+        ],
+        "faqCount": 0,
+        "reviewNames": [],
+        "font": "Aeonik, Arial, sans-serif",
+        "h1Style": {
+          "fontSize": "70.4px",
+          "lineHeight": "76.032px",
+          "width": 590.5625
+        },
+        "formFields": [
+          {
+            "name": "name",
+            "required": true,
+            "fontSize": "14px",
+            "width": 180.3125,
+            "height": 53.09375
+          },
+          {
+            "name": "business",
+            "required": false,
+            "fontSize": "14px",
+            "width": 180.3125,
+            "height": 53.09375
+          },
+          {
+            "name": "service",
+            "required": true,
+            "fontSize": "14px",
+            "width": 372.625,
+            "height": 49
+          },
+          {
+            "name": "message",
+            "required": true,
+            "fontSize": "14px",
+            "width": 372.625,
+            "height": 135
+          }
+        ],
+        "brokenImages": [],
+        "mainText": "Contact\n\nTell us about\nyour website.\n\nA new website, a redesign or an online store. Share what your business needs and we'll plan the build with you. For additional services, ask us about availability.\n\nStart on WhatsApp\n\u2197\nYour name\nBusiness name (if any)\nWhat can we help with?\nSelect your project\nNew website\nWebsite redesign\nOnline store\nWebsite updates & support\nWebsite SEO\nAdditional service enquiry\nTell us a little more\nContinue in WhatsApp\n\u2197\nWhatsApp is the quickest way to reach us.\n\nTell us what you\u2019re working on, where you are and what you need help with. If you're asking for a website, share any pages or examples you like.\n\nChat on WhatsApp\n\u2197\nWhatsApp\n081 236 0230\n\u2197\nEmail\nhello@ntombii.tech\n\u2197\nBased in\nNewcastle, KwaZulu-Natal\n\nWorking with people across South Africa.\n\nHours\nMonday\u2013Friday \u00b7 09:00\u201317:00 SAST\nYou don't need a perfect brief.\n\nA sentence about what you're trying to do is enough to begin. You can share your current website, examples you like, or the pages and features you have in mind.\n\nWhat happens next\nWe ask a few questions to understand the work.\nWe explain what we can help with and what we need from you.\nWe agree on price and the next steps before starting.\n\nWe work with people across South Africa online. If you are near Newcastle, ask us about meeting in person.",
+        "allFormLabels": [
+          "Your name",
+          "Business name (if any)",
+          "What can we help with?\nSelect your project\nNew website\nWebsite redesign\nOnline store\nWebsite updates & support\nWebsite SEO\nAdditional service enquiry",
+          "Tell us a little more"
+        ]
+      },
+      "baselineH1": [
+        "Tell us about\nyour website."
+      ],
+      "baselineH2": [
+        "WhatsApp is the quickest way to reach us.",
+        "You don't need a perfect brief."
+      ],
+      "diagnostics": {
+        "pageerrors": [],
+        "console": [],
+        "badResponses": [],
+        "failedRequests": []
+      }
+    },
+    {
+      "slug": "website-services",
+      "metrics": {
+        "url": "http://127.0.0.1:5183/services/websites",
+        "title": "Website Design in Newcastle, KZN | Ntombii Tech",
+        "viewport": {
+          "width": 1280,
+          "height": 800
+        },
+        "dimensions": {
+          "clientWidth": 1280,
+          "scrollWidth": 1280,
+          "height": 4903
+        },
+        "h1": [
+          "Website design in Newcastle, KZN."
+        ],
+        "h2": [
+          "What we can\nhelp with.",
+          "Tell us what your website needs to do.",
+          "A website people can actually use.",
+          "A few practical answers.",
+          "From your first message.",
+          "Websites from R2,500. Online stores from R5,500. Custom work is quoted by scope.",
+          "Let\u2019s build your website."
+        ],
+        "faqCount": 0,
+        "reviewNames": [],
+        "font": "Aeonik, Arial, sans-serif",
+        "h1Style": {
+          "fontSize": "55.04px",
+          "lineHeight": "56.6912px",
+          "width": 545.59375
+        },
+        "formFields": [],
+        "brokenImages": [],
+        "mainText": "\u2190 All services\n\nWeb development\n\nWebsite design in Newcastle, KZN.\n\nWe build business websites and online stores that explain your services, show your work and bring customer enquiries to your phone. Based in Newcastle, we work with businesses in Osizweni, Madadeni and across KZN, with online support available throughout South Africa.\n\nAsk us about it\n\u2197\nLegend Black Jesus / Online store\nlegendblackjesus.co.za\n\u2197\nA closer look / Signature Tee\n\u2197\nWhat we can\nhelp with.\nBusiness websites and redesigns\nOnline stores and product pages\nMobile-friendly layouts\nSearch engine setup and local SEO\nUpdates and ongoing support\n\nNewcastle and KZN enquiries\n\nTell us what your website needs to do.\n\nShare your business name, services, town and any existing website. Tell us whether you need customers to request quotes, make bookings or browse products. That helps us plan the pages and quote the actual work.\n\nCan you build a website for a business in Osizweni or Madadeni?\n+\nA website people can actually use.\n\nWe start with the question a visitor needs answered: what does this business offer, and how can I contact them? Then we plan the pages, copy, images and enquiry path around that answer. A local service business may need a clear introduction and WhatsApp quote request. A shop may need product pages that make browsing and ordering easy.\n\nFor Legend Black Jesus, that meant a shop organised by clothing category, product pages with photographs, colour and size choices, and a bag that leads to a WhatsApp order. The brand's story and a gallery of people wearing the clothes each have their own place. Our work also includes the Snesenzo Security Group business website. Explore the live sites and project stories in our portfolio.\n\nExplore our website projects \u2197\nWebsite design across KwaZulu-Natal \u2197\nBusiness websites\n\nA clear place to explain your offer, show your work and make contacting you straightforward.\n\nOnline stores\n\nProduct browsing, useful product information and a buying or enquiry path suited to how you actually sell.\n\nAfter launch\n\nWe can help with updates, new pages, technical fixes and improving the site as your business changes.\n\nA few practical answers.\nDo I need to have all the words and photos ready?\n+\nWill you buy the domain and hosting for me?\n+\nCan you help with local SEO too?\n+\nFrom your first message.\n\nTell us what your business does and what the site needs to do.\n\nWe agree on pages, content, features, price and timing.\n\nWe design, build and review the site with you before launch.\n\nWebsites from R2,500. Online stores from R5,500. Custom work is quoted by scope.\n\nDomain, hosting and any third-party subscriptions are confirmed in your quote.\n\nGet a quote\n\u2197\n\nLooking for additional services? Explore support available on request \u2197\n\nLet\u2019s build your website.\nChat on WhatsApp\n\u2197",
+        "allFormLabels": []
+      },
+      "baselineH1": [
+        "Website design in Newcastle, KZN."
+      ],
+      "baselineH2": [
+        "What we can\nhelp with.",
+        "Tell us what your website needs to do.",
+        "A website people can actually use.",
+        "A few practical answers.",
+        "From your first message.",
+        "Websites from R2,500. Online stores from R5,500. Custom work is quoted by scope.",
+        "Let\u2019s build your website."
+      ],
+      "diagnostics": {
+        "pageerrors": [],
+        "console": [],
+        "badResponses": [],
+        "failedRequests": []
+      }
+    }
+  ],
+  "functionalDiagnostics": {
+    "pageerrors": [],
+    "console": [],
+    "badResponses": [],
+    "failedRequests": []
+  }
+}

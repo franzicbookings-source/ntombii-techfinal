@@ -1,0 +1,175 @@
+[
+  {
+    "slug": "a-good-introduction",
+    "source": "/workspace/marketing/creative-45/final/11.png",
+    "campaign": "creative-45",
+    "poster_id": 11,
+    "asset_provenance": "/workspace/marketing/creative-45/asset-provenance.json"
+  },
+  {
+    "slug": "business-browsable",
+    "source": "/workspace/marketing/creative-45/final/02.png",
+    "campaign": "creative-45",
+    "poster_id": 2,
+    "asset_provenance": "/workspace/marketing/creative-45/asset-provenance.json"
+  },
+  {
+    "slug": "colour-has-work",
+    "source": "/workspace/marketing/creative-45/final/07.png",
+    "campaign": "creative-45",
+    "poster_id": 7,
+    "asset_provenance": "/workspace/marketing/creative-45/asset-provenance.json"
+  },
+  {
+    "slug": "take-your-brand-along",
+    "source": "/workspace/marketing/creative-45/final/12.png",
+    "campaign": "creative-45",
+    "poster_id": 12,
+    "asset_provenance": "/workspace/marketing/creative-45/asset-provenance.json"
+  },
+  {
+    "slug": "can-i-see",
+    "source": "/workspace/marketing/creative-45/final/01.png",
+    "campaign": "creative-45",
+    "poster_id": 1,
+    "asset_provenance": "/workspace/marketing/creative-45/asset-provenance.json"
+  },
+  {
+    "slug": "make-a-team",
+    "source": "/workspace/marketing/creative-45/final/15.png",
+    "campaign": "creative-45",
+    "poster_id": 15,
+    "asset_provenance": "/workspace/marketing/creative-45/asset-provenance.json"
+  },
+  {
+    "slug": "ink-on-the-list",
+    "source": "/workspace/marketing/creative-45/final/10.png",
+    "campaign": "creative-45",
+    "poster_id": 10,
+    "asset_provenance": "/workspace/marketing/creative-45/asset-provenance.json"
+  },
+  {
+    "slug": "counter-talking",
+    "source": "/workspace/marketing/creative-45/final/13.png",
+    "campaign": "creative-45",
+    "poster_id": 13,
+    "asset_provenance": "/workspace/marketing/creative-45/asset-provenance.json"
+  },
+  {
+    "slug": "place-for-details",
+    "source": "/workspace/marketing/creative-45/final/03.png",
+    "campaign": "creative-45",
+    "poster_id": 3,
+    "asset_provenance": "/workspace/marketing/creative-45/asset-provenance.json"
+  },
+  {
+    "slug": "idea-in-that-offer",
+    "source": "/workspace/marketing/creative-45/final/14.png",
+    "campaign": "creative-45",
+    "poster_id": 14,
+    "asset_provenance": "/workspace/marketing/creative-45/asset-provenance.json"
+  },
+  {
+    "slug": "small-part-working-day",
+    "source": "/workspace/marketing/creative-45/final/08.png",
+    "campaign": "creative-45",
+    "poster_id": 8,
+    "asset_provenance": "/workspace/marketing/creative-45/asset-provenance.json"
+  },
+  {
+    "slug": "old-link-useful",
+    "source": "/workspace/marketing/creative-45/final/05.png",
+    "campaign": "creative-45",
+    "poster_id": 5,
+    "asset_provenance": "/workspace/marketing/creative-45/asset-provenance.json"
+  },
+  {
+    "slug": "page-yield-small-print",
+    "source": "/workspace/marketing/creative-45/final/32.png",
+    "campaign": "creative-45",
+    "poster_id": 32,
+    "asset_provenance": "/workspace/marketing/creative-45/asset-provenance.json"
+  },
+  {
+    "slug": "surface-then-finish",
+    "source": "/workspace/marketing/creative-45/final/37.png",
+    "campaign": "creative-45",
+    "poster_id": 37,
+    "asset_provenance": "/workspace/marketing/creative-45/asset-provenance.json"
+  },
+  {
+    "slug": "toner-code",
+    "source": "/workspace/marketing/campaign-05-rework/final/04-poster.png",
+    "campaign": "campaign-05-rework"
+  },
+  {
+    "slug": "let-them-choose",
+    "source": "/workspace/marketing/campaign-02/final/01-Let-them-choose.png",
+    "campaign": "campaign-02"
+  },
+  {
+    "slug": "coffee-and-ink",
+    "source": "/workspace/marketing/five-day-campaign/final/03-Coffee-for-you-ink-for-the-printer.png",
+    "campaign": "five-day-campaign"
+  },
+  {
+    "slug": "look-up",
+    "source": "/workspace/marketing/campaign-03/final/05-Look-up.png",
+    "campaign": "campaign-03"
+  },
+  {
+    "slug": "four-colours",
+    "source": "/workspace/marketing/campaign-05-rework/final/12-poster.png",
+    "campaign": "campaign-05-rework"
+  },
+  {
+    "slug": "built-for-the-thumb",
+    "source": "/workspace/marketing/campaign-03/final/01-Built-for-the-thumb.png",
+    "campaign": "campaign-03"
+  },
+  {
+    "slug": "counter-to-browser",
+    "source": "/workspace/marketing/five-day-campaign/final/05-From-the-counter-to-the-browser.png",
+    "campaign": "five-day-campaign"
+  },
+  {
+    "slug": "school-day",
+    "source": "/workspace/marketing/campaign-04/final/06-Behind-every-school-day.png",
+    "campaign": "campaign-04"
+  },
+  {
+    "slug": "work-introduction",
+    "source": "/workspace/marketing/campaign-04/final/08-Let-your-work-introduce-you.png",
+    "campaign": "campaign-04"
+  },
+  {
+    "slug": "different-printers",
+    "source": "/workspace/marketing/campaign-02/final/02-Same-job-different-printers.png",
+    "campaign": "campaign-02"
+  },
+  {
+    "slug": "built-around-work",
+    "source": "/workspace/marketing/campaign-05-rework/final/14-poster.png",
+    "campaign": "campaign-05-rework"
+  },
+  {
+    "slug": "snesenzo-team",
+    "source": "/workspace/snesenzo/final/01-team.png",
+    "campaign": "Snesenzo Security Group"
+  },
+  {
+    "slug": "snesenzo-business",
+    "source": "/workspace/snesenzo/final/02-business.png",
+    "campaign": "Snesenzo Security Group"
+  },
+  {
+    "slug": "snesenzo-events",
+    "source": "/workspace/snesenzo/final/03-events.png",
+    "campaign": "Snesenzo Security Group"
+  },
+  {
+    "slug": "snesenzo-vip",
+    "source": "/workspace/snesenzo/final/04-vip.png",
+    "campaign": "Snesenzo Security Group"
+  }
+]

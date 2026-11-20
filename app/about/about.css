@@ -1,0 +1,36 @@
+.about-team-hero{background:#202c36 url('/images/hero-atmosphere.webp') center/cover no-repeat;color:#f5f7f8}
+.about-team-hero-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.85fr);gap:72px;align-items:center;padding-block:76px}
+.about-team-hero h1{color:#f5f7f8;font-size:clamp(42px,4.1vw,59px);line-height:1.12;letter-spacing:-.04em;font-weight:500}
+.about-team-hero h1 span{color:#b8cbd7}
+.about-team-intro>p{font-size:18px;line-height:1.75;color:#d8e2e9}
+.about-team-actions{display:flex;align-items:center;flex-wrap:wrap;gap:18px 24px;margin-top:27px}
+.about-team-jump{display:inline-flex;align-items:center;gap:12px;min-height:44px;color:#edf4f8;font-size:14px;text-decoration:underline;text-underline-offset:5px}
+.about-team-jump:focus-visible{outline:2px solid #d8e6ef;outline-offset:5px}
+.about-team-members{padding-block:64px 72px;scroll-margin-top:28px}
+.about-team-members>h2{font-size:40px;line-height:1.15;font-weight:500;letter-spacing:-.03em;margin-bottom:35px}
+.about-team-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:44px}
+.team-person{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1fr);gap:25px;align-items:start;min-width:0;scroll-margin-top:28px}
+.team-portrait{overflow:hidden;border-radius:12px;background:#e4e9eb;aspect-ratio:3/4}
+.team-portrait img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+.team-person-sthembile-ndlovu .team-portrait img{transform:scale(2.15);transform-origin:50% 14%;object-position:50% 10%}
+.team-person-copy{padding-top:7px;min-width:0}
+.team-person h3{font-size:27px;line-height:1.2;letter-spacing:-.025em;font-weight:500}
+.team-person .team-role{font-size:14px;line-height:1.5;font-weight:700;color:#3c5a6f;margin:10px 0 18px}
+.team-person-copy>p:last-child{font-size:15px;line-height:1.75;color:#4d6371;margin:0}
+.about-team-page .about-depth{padding-block:64px}
+.about-team-page .about-depth>.wrap{grid-template-columns:repeat(2,minmax(0,1fr));gap:64px}
+.about-team-page .about-depth h2{font-size:38px;line-height:1.18;margin:0;letter-spacing:-.025em}
+.about-team-page .about-depth p:not(.eyebrow){font-size:17px;line-height:1.75;margin-bottom:18px}
+.about-team-page .about-depth p:last-child{margin-bottom:0}
+.about-team-page .testimonials-section{padding-block:64px}
+@media(min-width:1600px){.about-team-hero-grid{padding-block:84px}.about-team-grid{gap:60px}.team-person{gap:30px}.team-person-copy>p:last-child{font-size:16px}}
+@media(max-width:1100px){.about-team-hero-grid{gap:40px;grid-template-columns:1.1fr 1fr}.about-team-hero h1{font-size:44px}.about-team-grid{gap:36px}.team-person{grid-template-columns:1fr;gap:22px}.team-portrait{aspect-ratio:4/3}.team-person-sthembile-ndlovu .team-portrait img{transform:scale(1.3);transform-origin:50% 0%}.team-person-copy{padding-top:0}.team-person h3{font-size:29px}.team-person-copy>p:last-child{font-size:16px}.about-team-page .about-depth>.wrap{gap:40px}}
+@media(max-width:760px){.about-team-hero-grid{grid-template-columns:1fr;gap:24px;padding-block:40px 44px}.about-team-hero h1{font-size:clamp(33px,7vw,45px);max-width:610px}.about-team-intro>p{font-size:16px;line-height:1.7}.about-team-actions{margin-top:23px}.about-team-members{padding-block:40px 44px}.about-team-members>h2{font-size:31px;margin-bottom:27px}.about-team-grid{grid-template-columns:1fr;gap:36px}.team-person{grid-template-columns:minmax(0,.7fr) minmax(0,1fr);gap:23px}.team-portrait{aspect-ratio:3/4}.team-person-sthembile-ndlovu .team-portrait img{transform:scale(2.15);transform-origin:50% 14%}.team-person h3{font-size:25px}.team-person .team-role{font-size:13px;margin:9px 0 14px}.team-person-copy>p:last-child{font-size:14px;line-height:1.7}.about-team-page .about-depth{padding-block:42px}.about-team-page .about-depth>.wrap{display:block}.about-team-page .about-depth h2{font-size:30px;margin-bottom:24px}.about-team-page .about-depth p:not(.eyebrow){font-size:15px}.about-team-page .testimonials-section{padding-block:44px}}
+@media(max-width:480px){.team-person{grid-template-columns:1fr;gap:20px}.team-portrait{aspect-ratio:5/4;max-height:300px}.team-person-sthembile-ndlovu .team-portrait img{transform:scale(1.25);transform-origin:50% 0%}.team-person h3{font-size:27px}.team-person .team-role{font-size:14px}.team-person-copy>p:last-child{font-size:15px}.about-team-hero h1{font-size:34px}.about-team-hero-grid{gap:23px}.about-team-actions{gap:12px 20px}}
+
+.about-team-page .about-shared-story>article{display:block}
+.about-team-page .about-shared-story h2{margin-bottom:28px}
+.about-shared-story{scroll-margin-top:28px}
+.about-shared-story-copy{columns:2;column-gap:64px}
+.about-shared-story-copy>p{break-inside:avoid}
+@media(max-width:760px){.about-shared-story-copy{columns:1}.about-team-page .about-shared-story h2{margin-bottom:22px}}

@@ -1,0 +1,2350 @@
+{
+  "headings": [
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "headings": [
+        {
+          "text": "Websites andonline stores.",
+          "tag": "H1",
+          "fontWeight": "400",
+          "clientWidth": 604,
+          "scrollWidth": 604,
+          "rect": {
+            "x": 80,
+            "y": 184.40625,
+            "width": 604,
+            "height": 167.90625,
+            "top": 184.40625,
+            "right": 684,
+            "bottom": 352.3125,
+            "left": 80
+          }
+        },
+        {
+          "text": "Our toolkit",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 1280,
+          "scrollWidth": 1280,
+          "rect": {
+            "x": 80,
+            "y": 767.46875,
+            "width": 1280,
+            "height": 44.796875,
+            "top": 767.46875,
+            "right": 1360,
+            "bottom": 812.265625,
+            "left": 80
+          }
+        },
+        {
+          "text": "Design. Build. Launch.",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 518,
+          "scrollWidth": 518,
+          "rect": {
+            "x": 80,
+            "y": 1183.265625,
+            "width": 518.34375,
+            "height": 67.1875,
+            "top": 1183.265625,
+            "right": 598.34375,
+            "bottom": 1250.453125,
+            "left": 80
+          }
+        },
+        {
+          "text": "Hi, I\u2019m Sabelo.",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 669,
+          "scrollWidth": 669,
+          "rect": {
+            "x": 691.1875,
+            "y": 2107.34375,
+            "width": 668.8125,
+            "height": 72.5625,
+            "top": 2107.34375,
+            "right": 1360,
+            "bottom": 2179.90625,
+            "left": 691.1875
+          }
+        },
+        {
+          "text": "Our work",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 224,
+          "scrollWidth": 224,
+          "rect": {
+            "x": 80,
+            "y": 3095.921875,
+            "width": 224.34375,
+            "height": 67.1875,
+            "top": 3095.921875,
+            "right": 304.34375,
+            "bottom": 3163.109375,
+            "left": 80
+          }
+        },
+        {
+          "text": "Legend Black Jesus",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 1088,
+          "scrollWidth": 1088,
+          "rect": {
+            "x": 80,
+            "y": 3860.21875,
+            "width": 1088,
+            "height": 42,
+            "top": 3860.21875,
+            "right": 1168,
+            "bottom": 3902.21875,
+            "left": 80
+          }
+        },
+        {
+          "text": "Website packages",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 455,
+          "scrollWidth": 455,
+          "rect": {
+            "x": 80,
+            "y": 4188.71875,
+            "width": 454.984375,
+            "height": 67.1875,
+            "top": 4188.71875,
+            "right": 534.984375,
+            "bottom": 4255.90625,
+            "left": 80
+          }
+        },
+        {
+          "text": "Starter",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 292,
+          "scrollWidth": 292,
+          "rect": {
+            "x": 96,
+            "y": 4345.953125,
+            "width": 292.375,
+            "height": 41.390625,
+            "top": 4345.953125,
+            "right": 388.375,
+            "bottom": 4387.34375,
+            "left": 96
+          }
+        },
+        {
+          "text": "Business",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 292,
+          "scrollWidth": 292,
+          "rect": {
+            "x": 96,
+            "y": 4527.953125,
+            "width": 292.375,
+            "height": 41.390625,
+            "top": 4527.953125,
+            "right": 388.375,
+            "bottom": 4569.34375,
+            "left": 96
+          }
+        },
+        {
+          "text": "Premium",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 292,
+          "scrollWidth": 292,
+          "rect": {
+            "x": 96,
+            "y": 4709.953125,
+            "width": 292.375,
+            "height": 41.390625,
+            "top": 4709.953125,
+            "right": 388.375,
+            "bottom": 4751.34375,
+            "left": 96
+          }
+        },
+        {
+          "text": "Reviews",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 206,
+          "scrollWidth": 206,
+          "rect": {
+            "x": 80,
+            "y": 5115.09375,
+            "width": 205.8125,
+            "height": 69,
+            "top": 5115.09375,
+            "right": 285.8125,
+            "bottom": 5184.09375,
+            "left": 80
+          }
+        },
+        {
+          "text": "Questions",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 247,
+          "scrollWidth": 247,
+          "rect": {
+            "x": 80,
+            "y": 6278.09375,
+            "width": 246.84375,
+            "height": 67.1875,
+            "top": 6278.09375,
+            "right": 326.84375,
+            "bottom": 6345.28125,
+            "left": 80
+          }
+        },
+        {
+          "text": "How much will my website cost?\u2212",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 1280,
+          "scrollWidth": 1280,
+          "rect": {
+            "x": 80,
+            "y": 6378.28125,
+            "width": 1280,
+            "height": 82,
+            "top": 6378.28125,
+            "right": 1360,
+            "bottom": 6460.28125,
+            "left": 80
+          }
+        },
+        {
+          "text": "What do you need from me to get started?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 1280,
+          "scrollWidth": 1280,
+          "rect": {
+            "x": 80,
+            "y": 6586.65625,
+            "width": 1280,
+            "height": 82,
+            "top": 6586.65625,
+            "right": 1360,
+            "bottom": 6668.65625,
+            "left": 80
+          }
+        },
+        {
+          "text": "How long does a website take?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 1280,
+          "scrollWidth": 1280,
+          "rect": {
+            "x": 80,
+            "y": 6669.65625,
+            "width": 1280,
+            "height": 82,
+            "top": 6669.65625,
+            "right": 1360,
+            "bottom": 6751.65625,
+            "left": 80
+          }
+        },
+        {
+          "text": "Can you redesign my existing website?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 1280,
+          "scrollWidth": 1280,
+          "rect": {
+            "x": 80,
+            "y": 6752.65625,
+            "width": 1280,
+            "height": 82,
+            "top": 6752.65625,
+            "right": 1360,
+            "bottom": 6834.65625,
+            "left": 80
+          }
+        },
+        {
+          "text": "Do you build online stores?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 1280,
+          "scrollWidth": 1280,
+          "rect": {
+            "x": 80,
+            "y": 6835.65625,
+            "width": 1280,
+            "height": 82,
+            "top": 6835.65625,
+            "right": 1360,
+            "bottom": 6917.65625,
+            "left": 80
+          }
+        },
+        {
+          "text": "I'm not based in Newcastle. Can we still work together?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 1280,
+          "scrollWidth": 1280,
+          "rect": {
+            "x": 80,
+            "y": 6918.65625,
+            "width": 1280,
+            "height": 82,
+            "top": 6918.65625,
+            "right": 1360,
+            "bottom": 7000.65625,
+            "left": 80
+          }
+        },
+        {
+          "text": "Will my website work on phones and show up on Google?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 1280,
+          "scrollWidth": 1280,
+          "rect": {
+            "x": 80,
+            "y": 7001.65625,
+            "width": 1280,
+            "height": 82,
+            "top": 7001.65625,
+            "right": 1360,
+            "bottom": 7083.65625,
+            "left": 80
+          }
+        },
+        {
+          "text": "What happens after my website launches?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 1280,
+          "scrollWidth": 1280,
+          "rect": {
+            "x": 80,
+            "y": 7084.65625,
+            "width": 1280,
+            "height": 82,
+            "top": 7084.65625,
+            "right": 1360,
+            "bottom": 7166.65625,
+            "left": 80
+          }
+        },
+        {
+          "text": "Additional services",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 1280,
+          "scrollWidth": 1280,
+          "rect": {
+            "x": 80,
+            "y": 7351.65625,
+            "width": 1280,
+            "height": 67.1875,
+            "top": 7351.65625,
+            "right": 1360,
+            "bottom": 7418.84375,
+            "left": 80
+          }
+        },
+        {
+          "text": "Business setup",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 1132,
+          "scrollWidth": 1132,
+          "rect": {
+            "x": 172,
+            "y": 7550.4375,
+            "width": 1132,
+            "height": 33.75,
+            "top": 7550.4375,
+            "right": 1304,
+            "bottom": 7584.1875,
+            "left": 172
+          }
+        },
+        {
+          "text": "Tender support",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 1132,
+          "scrollWidth": 1132,
+          "rect": {
+            "x": 172,
+            "y": 7666.1875,
+            "width": 1132,
+            "height": 33.75,
+            "top": 7666.1875,
+            "right": 1304,
+            "bottom": 7699.9375,
+            "left": 172
+          }
+        },
+        {
+          "text": "Opportunities & Applications",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 1132,
+          "scrollWidth": 1132,
+          "rect": {
+            "x": 172,
+            "y": 7781.9375,
+            "width": 1132,
+            "height": 33.75,
+            "top": 7781.9375,
+            "right": 1304,
+            "bottom": 7815.6875,
+            "left": 172
+          }
+        },
+        {
+          "text": "Branding & print",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 1132,
+          "scrollWidth": 1132,
+          "rect": {
+            "x": 172,
+            "y": 7897.6875,
+            "width": 1132,
+            "height": 33.75,
+            "top": 7897.6875,
+            "right": 1304,
+            "bottom": 7931.4375,
+            "left": 172
+          }
+        },
+        {
+          "text": "AI & digital tools",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 1132,
+          "scrollWidth": 1132,
+          "rect": {
+            "x": 172,
+            "y": 8013.4375,
+            "width": 1132,
+            "height": 33.75,
+            "top": 8013.4375,
+            "right": 1304,
+            "bottom": 8047.1875,
+            "left": 172
+          }
+        },
+        {
+          "text": "Latest articles",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 330,
+          "scrollWidth": 330,
+          "rect": {
+            "x": 80,
+            "y": 8357.1875,
+            "width": 329.953125,
+            "height": 67.1875,
+            "top": 8357.1875,
+            "right": 409.953125,
+            "bottom": 8424.375,
+            "left": 80
+          }
+        },
+        {
+          "text": "Toner and ink in Newcastle, KZN: printer cartridges and orders",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 409,
+          "scrollWidth": 409,
+          "rect": {
+            "x": 80,
+            "y": 8770.65625,
+            "width": 409.328125,
+            "height": 70.75,
+            "top": 8770.65625,
+            "right": 489.328125,
+            "bottom": 8841.40625,
+            "left": 80
+          }
+        },
+        {
+          "text": "Printing in Newcastle, KZN: business cards, flyers and T-shirts",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 409,
+          "scrollWidth": 409,
+          "rect": {
+            "x": 515.328125,
+            "y": 8770.65625,
+            "width": 409.328125,
+            "height": 70.75,
+            "top": 8770.65625,
+            "right": 924.65625,
+            "bottom": 8841.40625,
+            "left": 515.328125
+          }
+        },
+        {
+          "text": "Signage in Newcastle, KZN: shop signs, artwork and quotes",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 409,
+          "scrollWidth": 409,
+          "rect": {
+            "x": 950.65625,
+            "y": 8770.671875,
+            "width": 409.34375,
+            "height": 70.75,
+            "top": 8770.671875,
+            "right": 1360,
+            "bottom": 8841.421875,
+            "left": 950.65625
+          }
+        },
+        {
+          "text": "Business tips on WhatsApp.",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 500,
+          "scrollWidth": 500,
+          "rect": {
+            "x": 80,
+            "y": 9212.15625,
+            "width": 500,
+            "height": 134.375,
+            "top": 9212.15625,
+            "right": 580,
+            "bottom": 9346.53125,
+            "left": 80
+          }
+        },
+        {
+          "text": "Let\u2019s buildyour website.",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 708,
+          "scrollWidth": 708,
+          "rect": {
+            "x": 80,
+            "y": 9860.078125,
+            "width": 708,
+            "height": 172.78125,
+            "top": 9860.078125,
+            "right": 788,
+            "bottom": 10032.859375,
+            "left": 80
+          }
+        }
+      ],
+      "badBounds": [],
+      "weightsCorrect": true
+    },
+    {
+      "width": 1280,
+      "scrollWidth": 1280,
+      "headings": [
+        {
+          "text": "Websites andonline stores.",
+          "tag": "H1",
+          "fontWeight": "400",
+          "clientWidth": 548,
+          "scrollWidth": 548,
+          "rect": {
+            "x": 56,
+            "y": 193.734375,
+            "width": 548,
+            "height": 149.25,
+            "top": 193.734375,
+            "right": 604,
+            "bottom": 342.984375,
+            "left": 56
+          }
+        },
+        {
+          "text": "Our toolkit",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 1168,
+          "scrollWidth": 1168,
+          "rect": {
+            "x": 56,
+            "y": 767.46875,
+            "width": 1168,
+            "height": 44.796875,
+            "top": 767.46875,
+            "right": 1224,
+            "bottom": 812.265625,
+            "left": 56
+          }
+        },
+        {
+          "text": "Design. Build. Launch.",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 464,
+          "scrollWidth": 464,
+          "rect": {
+            "x": 56,
+            "y": 1183.265625,
+            "width": 464.34375,
+            "height": 60.203125,
+            "top": 1183.265625,
+            "right": 520.34375,
+            "bottom": 1243.46875,
+            "left": 56
+          }
+        },
+        {
+          "text": "Hi, I\u2019m Sabelo.",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 607,
+          "scrollWidth": 607,
+          "rect": {
+            "x": 616.796875,
+            "y": 2052.1875,
+            "width": 607.203125,
+            "height": 64.5,
+            "top": 2052.1875,
+            "right": 1224,
+            "bottom": 2116.6875,
+            "left": 616.796875
+          }
+        },
+        {
+          "text": "Our work",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 201,
+          "scrollWidth": 201,
+          "rect": {
+            "x": 56,
+            "y": 2977.765625,
+            "width": 200.96875,
+            "height": 60.203125,
+            "top": 2977.765625,
+            "right": 256.96875,
+            "bottom": 3037.96875,
+            "left": 56
+          }
+        },
+        {
+          "text": "Legend Black Jesus",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 993,
+          "scrollWidth": 993,
+          "rect": {
+            "x": 56,
+            "y": 3681.59375,
+            "width": 992.796875,
+            "height": 42,
+            "top": 3681.59375,
+            "right": 1048.796875,
+            "bottom": 3723.59375,
+            "left": 56
+          }
+        },
+        {
+          "text": "Website packages",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 408,
+          "scrollWidth": 408,
+          "rect": {
+            "x": 56,
+            "y": 4010.09375,
+            "width": 407.59375,
+            "height": 60.203125,
+            "top": 4010.09375,
+            "right": 463.59375,
+            "bottom": 4070.296875,
+            "left": 56
+          }
+        },
+        {
+          "text": "Starter",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 259,
+          "scrollWidth": 259,
+          "rect": {
+            "x": 72,
+            "y": 4160.34375,
+            "width": 258.796875,
+            "height": 41.390625,
+            "top": 4160.34375,
+            "right": 330.796875,
+            "bottom": 4201.734375,
+            "left": 72
+          }
+        },
+        {
+          "text": "Business",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 259,
+          "scrollWidth": 259,
+          "rect": {
+            "x": 72,
+            "y": 4342.34375,
+            "width": 258.796875,
+            "height": 41.390625,
+            "top": 4342.34375,
+            "right": 330.796875,
+            "bottom": 4383.734375,
+            "left": 72
+          }
+        },
+        {
+          "text": "Premium",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 259,
+          "scrollWidth": 259,
+          "rect": {
+            "x": 72,
+            "y": 4524.34375,
+            "width": 258.796875,
+            "height": 41.390625,
+            "top": 4524.34375,
+            "right": 330.796875,
+            "bottom": 4565.734375,
+            "left": 72
+          }
+        },
+        {
+          "text": "Reviews",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 184,
+          "scrollWidth": 184,
+          "rect": {
+            "x": 56,
+            "y": 4929.484375,
+            "width": 184.375,
+            "height": 61.828125,
+            "top": 4929.484375,
+            "right": 240.375,
+            "bottom": 4991.3125,
+            "left": 56
+          }
+        },
+        {
+          "text": "Questions",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 221,
+          "scrollWidth": 221,
+          "rect": {
+            "x": 56,
+            "y": 6085.3125,
+            "width": 221.125,
+            "height": 60.203125,
+            "top": 6085.3125,
+            "right": 277.125,
+            "bottom": 6145.515625,
+            "left": 56
+          }
+        },
+        {
+          "text": "How much will my website cost?\u2212",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 1168,
+          "scrollWidth": 1168,
+          "rect": {
+            "x": 56,
+            "y": 6178.515625,
+            "width": 1168,
+            "height": 82,
+            "top": 6178.515625,
+            "right": 1224,
+            "bottom": 6260.515625,
+            "left": 56
+          }
+        },
+        {
+          "text": "What do you need from me to get started?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 1168,
+          "scrollWidth": 1168,
+          "rect": {
+            "x": 56,
+            "y": 6386.890625,
+            "width": 1168,
+            "height": 82,
+            "top": 6386.890625,
+            "right": 1224,
+            "bottom": 6468.890625,
+            "left": 56
+          }
+        },
+        {
+          "text": "How long does a website take?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 1168,
+          "scrollWidth": 1168,
+          "rect": {
+            "x": 56,
+            "y": 6469.890625,
+            "width": 1168,
+            "height": 82,
+            "top": 6469.890625,
+            "right": 1224,
+            "bottom": 6551.890625,
+            "left": 56
+          }
+        },
+        {
+          "text": "Can you redesign my existing website?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 1168,
+          "scrollWidth": 1168,
+          "rect": {
+            "x": 56,
+            "y": 6552.890625,
+            "width": 1168,
+            "height": 82,
+            "top": 6552.890625,
+            "right": 1224,
+            "bottom": 6634.890625,
+            "left": 56
+          }
+        },
+        {
+          "text": "Do you build online stores?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 1168,
+          "scrollWidth": 1168,
+          "rect": {
+            "x": 56,
+            "y": 6635.890625,
+            "width": 1168,
+            "height": 82,
+            "top": 6635.890625,
+            "right": 1224,
+            "bottom": 6717.890625,
+            "left": 56
+          }
+        },
+        {
+          "text": "I'm not based in Newcastle. Can we still work together?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 1168,
+          "scrollWidth": 1168,
+          "rect": {
+            "x": 56,
+            "y": 6718.890625,
+            "width": 1168,
+            "height": 82,
+            "top": 6718.890625,
+            "right": 1224,
+            "bottom": 6800.890625,
+            "left": 56
+          }
+        },
+        {
+          "text": "Will my website work on phones and show up on Google?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 1168,
+          "scrollWidth": 1168,
+          "rect": {
+            "x": 56,
+            "y": 6801.890625,
+            "width": 1168,
+            "height": 82,
+            "top": 6801.890625,
+            "right": 1224,
+            "bottom": 6883.890625,
+            "left": 56
+          }
+        },
+        {
+          "text": "What happens after my website launches?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 1168,
+          "scrollWidth": 1168,
+          "rect": {
+            "x": 56,
+            "y": 6884.890625,
+            "width": 1168,
+            "height": 82,
+            "top": 6884.890625,
+            "right": 1224,
+            "bottom": 6966.890625,
+            "left": 56
+          }
+        },
+        {
+          "text": "Additional services",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 1168,
+          "scrollWidth": 1168,
+          "rect": {
+            "x": 56,
+            "y": 7151.890625,
+            "width": 1168,
+            "height": 60.203125,
+            "top": 7151.890625,
+            "right": 1224,
+            "bottom": 7212.09375,
+            "left": 56
+          }
+        },
+        {
+          "text": "Business setup",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 1020,
+          "scrollWidth": 1020,
+          "rect": {
+            "x": 148,
+            "y": 7343.6875,
+            "width": 1020,
+            "height": 33.75,
+            "top": 7343.6875,
+            "right": 1168,
+            "bottom": 7377.4375,
+            "left": 148
+          }
+        },
+        {
+          "text": "Tender support",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 1020,
+          "scrollWidth": 1020,
+          "rect": {
+            "x": 148,
+            "y": 7459.4375,
+            "width": 1020,
+            "height": 33.75,
+            "top": 7459.4375,
+            "right": 1168,
+            "bottom": 7493.1875,
+            "left": 148
+          }
+        },
+        {
+          "text": "Opportunities & Applications",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 1020,
+          "scrollWidth": 1020,
+          "rect": {
+            "x": 148,
+            "y": 7575.1875,
+            "width": 1020,
+            "height": 33.75,
+            "top": 7575.1875,
+            "right": 1168,
+            "bottom": 7608.9375,
+            "left": 148
+          }
+        },
+        {
+          "text": "Branding & print",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 1020,
+          "scrollWidth": 1020,
+          "rect": {
+            "x": 148,
+            "y": 7690.9375,
+            "width": 1020,
+            "height": 33.75,
+            "top": 7690.9375,
+            "right": 1168,
+            "bottom": 7724.6875,
+            "left": 148
+          }
+        },
+        {
+          "text": "AI & digital tools",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 1020,
+          "scrollWidth": 1020,
+          "rect": {
+            "x": 148,
+            "y": 7806.6875,
+            "width": 1020,
+            "height": 33.75,
+            "top": 7806.6875,
+            "right": 1168,
+            "bottom": 7840.4375,
+            "left": 148
+          }
+        },
+        {
+          "text": "Latest articles",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 296,
+          "scrollWidth": 296,
+          "rect": {
+            "x": 56,
+            "y": 8150.4375,
+            "width": 295.578125,
+            "height": 60.203125,
+            "top": 8150.4375,
+            "right": 351.578125,
+            "bottom": 8210.640625,
+            "left": 56
+          }
+        },
+        {
+          "text": "Toner and ink in Newcastle, KZN: printer cartridges and orders",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 372,
+          "scrollWidth": 372,
+          "rect": {
+            "x": 56,
+            "y": 8531.1875,
+            "width": 372,
+            "height": 106.125,
+            "top": 8531.1875,
+            "right": 428,
+            "bottom": 8637.3125,
+            "left": 56
+          }
+        },
+        {
+          "text": "Printing in Newcastle, KZN: business cards, flyers and T-shirts",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 372,
+          "scrollWidth": 372,
+          "rect": {
+            "x": 454,
+            "y": 8531.1875,
+            "width": 372,
+            "height": 106.125,
+            "top": 8531.1875,
+            "right": 826,
+            "bottom": 8637.3125,
+            "left": 454
+          }
+        },
+        {
+          "text": "Signage in Newcastle, KZN: shop signs, artwork and quotes",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 372,
+          "scrollWidth": 372,
+          "rect": {
+            "x": 852,
+            "y": 8531.1875,
+            "width": 372,
+            "height": 70.75,
+            "top": 8531.1875,
+            "right": 1224,
+            "bottom": 8601.9375,
+            "left": 852
+          }
+        },
+        {
+          "text": "Business tips on WhatsApp.",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 497,
+          "scrollWidth": 497,
+          "rect": {
+            "x": 56,
+            "y": 8993.78125,
+            "width": 496.796875,
+            "height": 120.40625,
+            "top": 8993.78125,
+            "right": 552.796875,
+            "bottom": 9114.1875,
+            "left": 56
+          }
+        },
+        {
+          "text": "Let\u2019s buildyour website.",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 641,
+          "scrollWidth": 641,
+          "rect": {
+            "x": 56,
+            "y": 9622.4375,
+            "width": 640.796875,
+            "height": 154.84375,
+            "top": 9622.4375,
+            "right": 696.796875,
+            "bottom": 9777.28125,
+            "left": 56
+          }
+        }
+      ],
+      "badBounds": [],
+      "weightsCorrect": true
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "headings": [
+        {
+          "text": "Websites andonline stores.",
+          "tag": "H1",
+          "fontWeight": "400",
+          "clientWidth": 350,
+          "scrollWidth": 350,
+          "rect": {
+            "x": 20,
+            "y": 118,
+            "width": 350,
+            "height": 88.46875,
+            "top": 118,
+            "right": 370,
+            "bottom": 206.46875,
+            "left": 20
+          }
+        },
+        {
+          "text": "Our toolkit",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 350,
+          "scrollWidth": 350,
+          "rect": {
+            "x": 20,
+            "y": 1142.734375,
+            "width": 350,
+            "height": 38.40625,
+            "top": 1142.734375,
+            "right": 370,
+            "bottom": 1181.140625,
+            "left": 20
+          }
+        },
+        {
+          "text": "Design. Build. Launch.",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 350,
+          "scrollWidth": 350,
+          "rect": {
+            "x": 20,
+            "y": 1870.140625,
+            "width": 350,
+            "height": 42.9375,
+            "top": 1870.140625,
+            "right": 370,
+            "bottom": 1913.078125,
+            "left": 20
+          }
+        },
+        {
+          "text": "Hi, I\u2019m Sabelo.",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 350,
+          "scrollWidth": 350,
+          "rect": {
+            "x": 20,
+            "y": 2688.15625,
+            "width": 350,
+            "height": 45.1875,
+            "top": 2688.15625,
+            "right": 370,
+            "bottom": 2733.34375,
+            "left": 20
+          }
+        },
+        {
+          "text": "Our work",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 144,
+          "scrollWidth": 144,
+          "rect": {
+            "x": 20,
+            "y": 4032.765625,
+            "width": 143.609375,
+            "height": 42.9375,
+            "top": 4032.765625,
+            "right": 163.609375,
+            "bottom": 4075.703125,
+            "left": 20
+          }
+        },
+        {
+          "text": "Legend Black Jesus",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 350,
+          "scrollWidth": 350,
+          "rect": {
+            "x": 20,
+            "y": 4429.625,
+            "width": 350,
+            "height": 34.796875,
+            "top": 4429.625,
+            "right": 370,
+            "bottom": 4464.421875,
+            "left": 20
+          }
+        },
+        {
+          "text": "Website packages",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 276,
+          "scrollWidth": 276,
+          "rect": {
+            "x": 20,
+            "y": 4785.421875,
+            "width": 275.875,
+            "height": 40.671875,
+            "top": 4785.421875,
+            "right": 295.875,
+            "bottom": 4826.09375,
+            "left": 20
+          }
+        },
+        {
+          "text": "Starter",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 326,
+          "scrollWidth": 326,
+          "rect": {
+            "x": 32,
+            "y": 4874.09375,
+            "width": 326,
+            "height": 35.640625,
+            "top": 4874.09375,
+            "right": 358,
+            "bottom": 4909.734375,
+            "left": 32
+          }
+        },
+        {
+          "text": "Business",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 326,
+          "scrollWidth": 326,
+          "rect": {
+            "x": 32,
+            "y": 5306.796875,
+            "width": 326,
+            "height": 35.640625,
+            "top": 5306.796875,
+            "right": 358,
+            "bottom": 5342.4375,
+            "left": 32
+          }
+        },
+        {
+          "text": "Premium",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 326,
+          "scrollWidth": 326,
+          "rect": {
+            "x": 32,
+            "y": 5739.5,
+            "width": 326,
+            "height": 35.640625,
+            "top": 5739.5,
+            "right": 358,
+            "bottom": 5775.140625,
+            "left": 32
+          }
+        },
+        {
+          "text": "Reviews",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 131,
+          "scrollWidth": 131,
+          "rect": {
+            "x": 20,
+            "y": 6453.578125,
+            "width": 131.140625,
+            "height": 45.59375,
+            "top": 6453.578125,
+            "right": 151.140625,
+            "bottom": 6499.171875,
+            "left": 20
+          }
+        },
+        {
+          "text": "Questions",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 158,
+          "scrollWidth": 158,
+          "rect": {
+            "x": 20,
+            "y": 7513.84375,
+            "width": 158.046875,
+            "height": 42.9375,
+            "top": 7513.84375,
+            "right": 178.046875,
+            "bottom": 7556.78125,
+            "left": 20
+          }
+        },
+        {
+          "text": "How much will my website cost?\u2212",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 350,
+          "scrollWidth": 350,
+          "rect": {
+            "x": 20,
+            "y": 7582.3125,
+            "width": 350,
+            "height": 76,
+            "top": 7582.3125,
+            "right": 370,
+            "bottom": 7658.3125,
+            "left": 20
+          }
+        },
+        {
+          "text": "What do you need from me to get started?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 350,
+          "scrollWidth": 350,
+          "rect": {
+            "x": 20,
+            "y": 7875.65625,
+            "width": 350,
+            "height": 93.1875,
+            "top": 7875.65625,
+            "right": 370,
+            "bottom": 7968.84375,
+            "left": 20
+          }
+        },
+        {
+          "text": "How long does a website take?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 350,
+          "scrollWidth": 350,
+          "rect": {
+            "x": 20,
+            "y": 7969.84375,
+            "width": 350,
+            "height": 76,
+            "top": 7969.84375,
+            "right": 370,
+            "bottom": 8045.84375,
+            "left": 20
+          }
+        },
+        {
+          "text": "Can you redesign my existing website?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 350,
+          "scrollWidth": 350,
+          "rect": {
+            "x": 20,
+            "y": 8046.84375,
+            "width": 350,
+            "height": 93.1875,
+            "top": 8046.84375,
+            "right": 370,
+            "bottom": 8140.03125,
+            "left": 20
+          }
+        },
+        {
+          "text": "Do you build online stores?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 350,
+          "scrollWidth": 350,
+          "rect": {
+            "x": 20,
+            "y": 8141.03125,
+            "width": 350,
+            "height": 76,
+            "top": 8141.03125,
+            "right": 370,
+            "bottom": 8217.03125,
+            "left": 20
+          }
+        },
+        {
+          "text": "I'm not based in Newcastle. Can we still work together?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 350,
+          "scrollWidth": 350,
+          "rect": {
+            "x": 20,
+            "y": 8218.03125,
+            "width": 350,
+            "height": 93.1875,
+            "top": 8218.03125,
+            "right": 370,
+            "bottom": 8311.21875,
+            "left": 20
+          }
+        },
+        {
+          "text": "Will my website work on phones and show up on Google?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 350,
+          "scrollWidth": 350,
+          "rect": {
+            "x": 20,
+            "y": 8312.21875,
+            "width": 350,
+            "height": 93.1875,
+            "top": 8312.21875,
+            "right": 370,
+            "bottom": 8405.40625,
+            "left": 20
+          }
+        },
+        {
+          "text": "What happens after my website launches?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 350,
+          "scrollWidth": 350,
+          "rect": {
+            "x": 20,
+            "y": 8406.40625,
+            "width": 350,
+            "height": 93.1875,
+            "top": 8406.40625,
+            "right": 370,
+            "bottom": 8499.59375,
+            "left": 20
+          }
+        },
+        {
+          "text": "Additional services",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 350,
+          "scrollWidth": 350,
+          "rect": {
+            "x": 20,
+            "y": 8618.59375,
+            "width": 350,
+            "height": 40.3125,
+            "top": 8618.59375,
+            "right": 370,
+            "bottom": 8658.90625,
+            "left": 20
+          }
+        },
+        {
+          "text": "Business setup",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 260,
+          "scrollWidth": 260,
+          "rect": {
+            "x": 76,
+            "y": 8830.65625,
+            "width": 260,
+            "height": 28.59375,
+            "top": 8830.65625,
+            "right": 336,
+            "bottom": 8859.25,
+            "left": 76
+          }
+        },
+        {
+          "text": "Tender support",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 260,
+          "scrollWidth": 260,
+          "rect": {
+            "x": 76,
+            "y": 8965.4375,
+            "width": 260,
+            "height": 28.59375,
+            "top": 8965.4375,
+            "right": 336,
+            "bottom": 8994.03125,
+            "left": 76
+          }
+        },
+        {
+          "text": "Opportunities & Applications",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 260,
+          "scrollWidth": 260,
+          "rect": {
+            "x": 76,
+            "y": 9100.21875,
+            "width": 260,
+            "height": 28.59375,
+            "top": 9100.21875,
+            "right": 336,
+            "bottom": 9128.8125,
+            "left": 76
+          }
+        },
+        {
+          "text": "Branding & print",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 260,
+          "scrollWidth": 260,
+          "rect": {
+            "x": 76,
+            "y": 9235,
+            "width": 260,
+            "height": 28.59375,
+            "top": 9235,
+            "right": 336,
+            "bottom": 9263.59375,
+            "left": 76
+          }
+        },
+        {
+          "text": "AI & digital tools",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 260,
+          "scrollWidth": 260,
+          "rect": {
+            "x": 76,
+            "y": 9369.78125,
+            "width": 260,
+            "height": 28.59375,
+            "top": 9369.78125,
+            "right": 336,
+            "bottom": 9398.375,
+            "left": 76
+          }
+        },
+        {
+          "text": "Latest articles",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 201,
+          "scrollWidth": 201,
+          "rect": {
+            "x": 20,
+            "y": 9669.21875,
+            "width": 200.671875,
+            "height": 40.671875,
+            "top": 9669.21875,
+            "right": 220.671875,
+            "bottom": 9709.890625,
+            "left": 20
+          }
+        },
+        {
+          "text": "Toner and ink in Newcastle, KZN: printer cartridges and orders",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 350,
+          "scrollWidth": 350,
+          "rect": {
+            "x": 20,
+            "y": 9992.890625,
+            "width": 350,
+            "height": 105,
+            "top": 9992.890625,
+            "right": 370,
+            "bottom": 10097.890625,
+            "left": 20
+          }
+        },
+        {
+          "text": "Printing in Newcastle, KZN: business cards, flyers and T-shirts",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 350,
+          "scrollWidth": 350,
+          "rect": {
+            "x": 20,
+            "y": 10480.21875,
+            "width": 350,
+            "height": 105,
+            "top": 10480.21875,
+            "right": 370,
+            "bottom": 10585.21875,
+            "left": 20
+          }
+        },
+        {
+          "text": "Signage in Newcastle, KZN: shop signs, artwork and quotes",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 350,
+          "scrollWidth": 350,
+          "rect": {
+            "x": 20,
+            "y": 10967.546875,
+            "width": 350,
+            "height": 105,
+            "top": 10967.546875,
+            "right": 370,
+            "bottom": 11072.546875,
+            "left": 20
+          }
+        },
+        {
+          "text": "Business tips on WhatsApp.",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 350,
+          "scrollWidth": 350,
+          "rect": {
+            "x": 20,
+            "y": 11285.546875,
+            "width": 350,
+            "height": 90.375,
+            "top": 11285.546875,
+            "right": 370,
+            "bottom": 11375.921875,
+            "left": 20
+          }
+        },
+        {
+          "text": "Let\u2019s buildyour website.",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 350,
+          "scrollWidth": 350,
+          "rect": {
+            "x": 20,
+            "y": 11995.703125,
+            "width": 350,
+            "height": 105.59375,
+            "top": 11995.703125,
+            "right": 370,
+            "bottom": 12101.296875,
+            "left": 20
+          }
+        }
+      ],
+      "badBounds": [],
+      "weightsCorrect": true
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "headings": [
+        {
+          "text": "Websites andonline stores.",
+          "tag": "H1",
+          "fontWeight": "400",
+          "clientWidth": 288,
+          "scrollWidth": 288,
+          "rect": {
+            "x": 16,
+            "y": 118,
+            "width": 288,
+            "height": 80.53125,
+            "top": 118,
+            "right": 304,
+            "bottom": 198.53125,
+            "left": 16
+          }
+        },
+        {
+          "text": "Our toolkit",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 288,
+          "scrollWidth": 288,
+          "rect": {
+            "x": 16,
+            "y": 1134.40625,
+            "width": 288,
+            "height": 38.40625,
+            "top": 1134.40625,
+            "right": 304,
+            "bottom": 1172.8125,
+            "left": 16
+          }
+        },
+        {
+          "text": "Design. Build. Launch.",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 288,
+          "scrollWidth": 288,
+          "rect": {
+            "x": 16,
+            "y": 2269.8125,
+            "width": 288,
+            "height": 85.875,
+            "top": 2269.8125,
+            "right": 304,
+            "bottom": 2355.6875,
+            "left": 16
+          }
+        },
+        {
+          "text": "Hi, I\u2019m Sabelo.",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 288,
+          "scrollWidth": 288,
+          "rect": {
+            "x": 16,
+            "y": 3083.078125,
+            "width": 288,
+            "height": 45.1875,
+            "top": 3083.078125,
+            "right": 304,
+            "bottom": 3128.265625,
+            "left": 16
+          }
+        },
+        {
+          "text": "Our work",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 144,
+          "scrollWidth": 144,
+          "rect": {
+            "x": 16,
+            "y": 4438.96875,
+            "width": 143.609375,
+            "height": 42.9375,
+            "top": 4438.96875,
+            "right": 159.609375,
+            "bottom": 4481.90625,
+            "left": 16
+          }
+        },
+        {
+          "text": "Legend Black Jesus",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 288,
+          "scrollWidth": 288,
+          "rect": {
+            "x": 16,
+            "y": 4786.234375,
+            "width": 288,
+            "height": 34.796875,
+            "top": 4786.234375,
+            "right": 304,
+            "bottom": 4821.03125,
+            "left": 16
+          }
+        },
+        {
+          "text": "Website packages",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 276,
+          "scrollWidth": 276,
+          "rect": {
+            "x": 16,
+            "y": 5176.828125,
+            "width": 275.875,
+            "height": 40.671875,
+            "top": 5176.828125,
+            "right": 291.875,
+            "bottom": 5217.5,
+            "left": 16
+          }
+        },
+        {
+          "text": "Starter",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 264,
+          "scrollWidth": 264,
+          "rect": {
+            "x": 28,
+            "y": 5265.5,
+            "width": 264,
+            "height": 35.640625,
+            "top": 5265.5,
+            "right": 292,
+            "bottom": 5301.140625,
+            "left": 28
+          }
+        },
+        {
+          "text": "Business",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 264,
+          "scrollWidth": 264,
+          "rect": {
+            "x": 28,
+            "y": 5724.546875,
+            "width": 264,
+            "height": 35.640625,
+            "top": 5724.546875,
+            "right": 292,
+            "bottom": 5760.1875,
+            "left": 28
+          }
+        },
+        {
+          "text": "Premium",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 264,
+          "scrollWidth": 264,
+          "rect": {
+            "x": 28,
+            "y": 6183.59375,
+            "width": 264,
+            "height": 35.640625,
+            "top": 6183.59375,
+            "right": 292,
+            "bottom": 6219.234375,
+            "left": 28
+          }
+        },
+        {
+          "text": "Reviews",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 131,
+          "scrollWidth": 131,
+          "rect": {
+            "x": 16,
+            "y": 6949.609375,
+            "width": 131.140625,
+            "height": 45.59375,
+            "top": 6949.609375,
+            "right": 147.140625,
+            "bottom": 6995.203125,
+            "left": 16
+          }
+        },
+        {
+          "text": "Questions",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 288,
+          "scrollWidth": 288,
+          "rect": {
+            "x": 16,
+            "y": 8158.90625,
+            "width": 288,
+            "height": 42.9375,
+            "top": 8158.90625,
+            "right": 304,
+            "bottom": 8201.84375,
+            "left": 16
+          }
+        },
+        {
+          "text": "How much will my website cost?\u2212",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 288,
+          "scrollWidth": 288,
+          "rect": {
+            "x": 16,
+            "y": 8284.84375,
+            "width": 288,
+            "height": 93.1875,
+            "top": 8284.84375,
+            "right": 304,
+            "bottom": 8378.03125,
+            "left": 16
+          }
+        },
+        {
+          "text": "What do you need from me to get started?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 288,
+          "scrollWidth": 288,
+          "rect": {
+            "x": 16,
+            "y": 8621.765625,
+            "width": 288,
+            "height": 93.1875,
+            "top": 8621.765625,
+            "right": 304,
+            "bottom": 8714.953125,
+            "left": 16
+          }
+        },
+        {
+          "text": "How long does a website take?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 288,
+          "scrollWidth": 288,
+          "rect": {
+            "x": 16,
+            "y": 8715.953125,
+            "width": 288,
+            "height": 93.1875,
+            "top": 8715.953125,
+            "right": 304,
+            "bottom": 8809.140625,
+            "left": 16
+          }
+        },
+        {
+          "text": "Can you redesign my existing website?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 288,
+          "scrollWidth": 288,
+          "rect": {
+            "x": 16,
+            "y": 8810.140625,
+            "width": 288,
+            "height": 93.1875,
+            "top": 8810.140625,
+            "right": 304,
+            "bottom": 8903.328125,
+            "left": 16
+          }
+        },
+        {
+          "text": "Do you build online stores?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 288,
+          "scrollWidth": 288,
+          "rect": {
+            "x": 16,
+            "y": 8904.328125,
+            "width": 288,
+            "height": 76,
+            "top": 8904.328125,
+            "right": 304,
+            "bottom": 8980.328125,
+            "left": 16
+          }
+        },
+        {
+          "text": "I'm not based in Newcastle. Can we still work together?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 288,
+          "scrollWidth": 288,
+          "rect": {
+            "x": 16,
+            "y": 8981.328125,
+            "width": 288,
+            "height": 93.1875,
+            "top": 8981.328125,
+            "right": 304,
+            "bottom": 9074.515625,
+            "left": 16
+          }
+        },
+        {
+          "text": "Will my website work on phones and show up on Google?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 288,
+          "scrollWidth": 288,
+          "rect": {
+            "x": 16,
+            "y": 9075.515625,
+            "width": 288,
+            "height": 119.78125,
+            "top": 9075.515625,
+            "right": 304,
+            "bottom": 9195.296875,
+            "left": 16
+          }
+        },
+        {
+          "text": "What happens after my website launches?+",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 288,
+          "scrollWidth": 288,
+          "rect": {
+            "x": 16,
+            "y": 9196.296875,
+            "width": 288,
+            "height": 93.1875,
+            "top": 9196.296875,
+            "right": 304,
+            "bottom": 9289.484375,
+            "left": 16
+          }
+        },
+        {
+          "text": "Additional services",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 288,
+          "scrollWidth": 288,
+          "rect": {
+            "x": 16,
+            "y": 9408.484375,
+            "width": 288,
+            "height": 40.3125,
+            "top": 9408.484375,
+            "right": 304,
+            "bottom": 9448.796875,
+            "left": 16
+          }
+        },
+        {
+          "text": "Business setup",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 198,
+          "scrollWidth": 198,
+          "rect": {
+            "x": 72,
+            "y": 9647.734375,
+            "width": 198,
+            "height": 28.59375,
+            "top": 9647.734375,
+            "right": 270,
+            "bottom": 9676.328125,
+            "left": 72
+          }
+        },
+        {
+          "text": "Tender support",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 198,
+          "scrollWidth": 198,
+          "rect": {
+            "x": 72,
+            "y": 9808.109375,
+            "width": 198,
+            "height": 28.59375,
+            "top": 9808.109375,
+            "right": 270,
+            "bottom": 9836.703125,
+            "left": 72
+          }
+        },
+        {
+          "text": "Opportunities & Applications",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 198,
+          "scrollWidth": 198,
+          "rect": {
+            "x": 72,
+            "y": 9968.484375,
+            "width": 198,
+            "height": 57.1875,
+            "top": 9968.484375,
+            "right": 270,
+            "bottom": 10025.671875,
+            "left": 72
+          }
+        },
+        {
+          "text": "Branding & print",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 198,
+          "scrollWidth": 198,
+          "rect": {
+            "x": 72,
+            "y": 10131.859375,
+            "width": 198,
+            "height": 28.59375,
+            "top": 10131.859375,
+            "right": 270,
+            "bottom": 10160.453125,
+            "left": 72
+          }
+        },
+        {
+          "text": "AI & digital tools",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 198,
+          "scrollWidth": 198,
+          "rect": {
+            "x": 72,
+            "y": 10292.234375,
+            "width": 198,
+            "height": 28.59375,
+            "top": 10292.234375,
+            "right": 270,
+            "bottom": 10320.828125,
+            "left": 72
+          }
+        },
+        {
+          "text": "Latest articles",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 288,
+          "scrollWidth": 288,
+          "rect": {
+            "x": 16,
+            "y": 10607.390625,
+            "width": 288,
+            "height": 40.671875,
+            "top": 10607.390625,
+            "right": 304,
+            "bottom": 10648.0625,
+            "left": 16
+          }
+        },
+        {
+          "text": "Toner and ink in Newcastle, KZN: printer cartridges and orders",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 288,
+          "scrollWidth": 288,
+          "rect": {
+            "x": 16,
+            "y": 10946.0625,
+            "width": 288,
+            "height": 105,
+            "top": 10946.0625,
+            "right": 304,
+            "bottom": 11051.0625,
+            "left": 16
+          }
+        },
+        {
+          "text": "Printing in Newcastle, KZN: business cards, flyers and T-shirts",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 288,
+          "scrollWidth": 288,
+          "rect": {
+            "x": 16,
+            "y": 11392.0625,
+            "width": 288,
+            "height": 105,
+            "top": 11392.0625,
+            "right": 304,
+            "bottom": 11497.0625,
+            "left": 16
+          }
+        },
+        {
+          "text": "Signage in Newcastle, KZN: shop signs, artwork and quotes",
+          "tag": "H3",
+          "fontWeight": "600",
+          "clientWidth": 288,
+          "scrollWidth": 288,
+          "rect": {
+            "x": 16,
+            "y": 11838.0625,
+            "width": 288,
+            "height": 105,
+            "top": 11838.0625,
+            "right": 304,
+            "bottom": 11943.0625,
+            "left": 16
+          }
+        },
+        {
+          "text": "Business tips on WhatsApp.",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 288,
+          "scrollWidth": 288,
+          "rect": {
+            "x": 16,
+            "y": 12156.0625,
+            "width": 288,
+            "height": 90.375,
+            "top": 12156.0625,
+            "right": 304,
+            "bottom": 12246.4375,
+            "left": 16
+          }
+        },
+        {
+          "text": "Let\u2019s buildyour website.",
+          "tag": "H2",
+          "fontWeight": "600",
+          "clientWidth": 288,
+          "scrollWidth": 288,
+          "rect": {
+            "x": 16,
+            "y": 12816.609375,
+            "width": 288,
+            "height": 105.59375,
+            "top": 12816.609375,
+            "right": 304,
+            "bottom": 12922.203125,
+            "left": 16
+          }
+        }
+      ],
+      "badBounds": [],
+      "weightsCorrect": true
+    }
+  ],
+  "workControls": [
+    {
+      "width": 1440,
+      "floatingHidden": true,
+      "buttons": [
+        {
+          "label": "Previous project",
+          "clickable": true,
+          "hit": "SPAN"
+        },
+        {
+          "label": "Next project",
+          "clickable": true,
+          "hit": "SPAN"
+        }
+      ]
+    },
+    {
+      "width": 1150,
+      "floatingHidden": true,
+      "buttons": [
+        {
+          "label": "Previous project",
+          "clickable": true,
+          "hit": "SPAN"
+        },
+        {
+          "label": "Next project",
+          "clickable": true,
+          "hit": "SPAN"
+        }
+      ]
+    },
+    {
+      "width": 1100,
+      "floatingHidden": true,
+      "buttons": [
+        {
+          "label": "Previous project",
+          "clickable": true,
+          "hit": "SPAN"
+        },
+        {
+          "label": "Next project",
+          "clickable": true,
+          "hit": "SPAN"
+        }
+      ]
+    },
+    {
+      "width": 1050,
+      "floatingHidden": true,
+      "buttons": [
+        {
+          "label": "Previous project",
+          "clickable": true,
+          "hit": "SPAN"
+        },
+        {
+          "label": "Next project",
+          "clickable": true,
+          "hit": "SPAN"
+        }
+      ]
+    },
+    {
+      "width": 950,
+      "floatingHidden": true,
+      "buttons": [
+        {
+          "label": "Previous project",
+          "clickable": true,
+          "hit": "SPAN"
+        },
+        {
+          "label": "Next project",
+          "clickable": true,
+          "hit": "SPAN"
+        }
+      ]
+    },
+    {
+      "width": 901,
+      "floatingHidden": true,
+      "buttons": [
+        {
+          "label": "Previous project",
+          "clickable": true,
+          "hit": "SPAN"
+        },
+        {
+          "label": "Next project",
+          "clickable": true,
+          "hit": "SPAN"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "floatingHidden": true,
+      "buttons": [
+        {
+          "label": "Previous project",
+          "clickable": true,
+          "hit": "SPAN"
+        },
+        {
+          "label": "Next project",
+          "clickable": true,
+          "hit": "SPAN"
+        }
+      ]
+    }
+  ],
+  "tabletMenu": {
+    "visible": true,
+    "closeVisible": true,
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 1100,
+      "height": 800
+    },
+    "maxHeight": "none",
+    "bodyLocked": true,
+    "tabLoops": true,
+    "shiftTabLoops": true,
+    "escapeCloses": true,
+    "focusReturns": true,
+    "homeClickCloses": true
+  },
+  "widgetContrast": {
+    "hidden": false,
+    "background": "rgb(27, 36, 43)",
+    "label": "rgb(255, 255, 255)",
+    "hoverBackground": "rgb(53, 79, 97)"
+  },
+  "passed": true
+}

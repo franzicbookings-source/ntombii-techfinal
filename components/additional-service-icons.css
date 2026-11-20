@@ -1,0 +1,4 @@
+/* Restore only the illustrated icons; preserve the original service cards. */
+.additional-services-grid .additional-service-title{display:flex;align-items:center;gap:12px}
+.additional-services-grid .additional-service-title .content-illustration{width:32px;height:32px;flex:0 0 32px;margin:0;color:#506f82}
+.additional-services-grid .additional-service-title>span{min-width:0}
