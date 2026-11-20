@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { SiteAnalytics } from "../components/site-analytics";
 import { CookieConsent } from "../components/cookie-consent";
+import { SiteMotion } from "../components/site-motion";
 import { businessSchema, pageMetadata } from "../components/site-seo";
 import { StructuredData } from "../components/structured-data";
 export const metadata: Metadata = {
@@ -19,5 +20,5 @@ export const metadata: Metadata = {
 };
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#253744" };
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en-ZA"><head><link rel="preload" href="/fonts/aeonik-regular.woff" as="font" type="font/woff" crossOrigin="anonymous" /></head><body><StructuredData data={businessSchema} />{children}<SiteAnalytics /><CookieConsent /></body></html>;
+  return <html lang="en-ZA"><head><link rel="preload" href="/fonts/aeonik-regular.woff" as="font" type="font/woff" crossOrigin="anonymous" /></head><body><StructuredData data={businessSchema} />{children}<SiteAnalytics /><CookieConsent /><SiteMotion /></body></html>;
 }
