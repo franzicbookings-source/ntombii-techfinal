@@ -37,7 +37,7 @@ const serviceDetail: Record<string, ServiceDetail> = {
     points: [
       { title: "Company registration", body: "Help with the application details and documents needed to register a company." },
       { title: "CSD supplier registration", body: "CSD profile assistance and a check of the information you need for supplier applications." },
-      { title: "Business administration", body: "Administrative help with relevant certificates, tax information and changes to business details." },
+      { title: "Business administration", body: "Help with certificates, tax information and changes to your business details." },
     ],
     questions: [
       { question: "Are government fees included?", answer: "No. Our listed price is for assistance. We explain any official fees separately before you decide to proceed." },
@@ -52,7 +52,7 @@ const serviceDetail: Record<string, ServiceDetail> = {
     ],
     points: [
       { title: "Search", body: "Find notices relevant to the goods or services you provide and the areas you can serve." },
-      { title: "Prepare", body: "Make sense of mandatory documents, declarations, forms and submission instructions." },
+      { title: "Prepare", body: "Understand the required documents, declarations, forms and how to submit them." },
       { title: "Review", body: "Check the assembled response and the closing time before it is submitted." },
     ],
     questions: [
@@ -85,7 +85,7 @@ const serviceDetail: Record<string, ServiceDetail> = {
     points: [
       { title: "Brand identity design", body: "Logo options and a consistent approach to colour, type and everyday graphics." },
       { title: "Business materials", body: "Flyers, cards, social graphics, signage and branded corporate gifts." },
-      { title: "Print production and supplies", body: "Artwork prepared for the chosen material; ink and toner sourced against your printer details." },
+      { title: "Print production and supplies", body: "Artwork prepared for the material you choose, and ink or toner that fits your printer." },
     ],
     questions: [
       { question: "Can you work with my existing logo?", answer: "Yes. Send us the files you have and show us where the logo needs to appear. We will let you know if a cleaner source file or redraw is needed." },
@@ -102,7 +102,7 @@ const serviceDetail: Record<string, ServiceDetail> = {
     points: [
       { title: "AI consultation", body: "A hands-on or online session based on the tasks your business handles." },
       { title: "Workflow setup", body: "A simple workflow, prompts or automation that your team can test on real work." },
-      { title: "Team training", body: "Clear guidance on reviewing outputs, protecting information and knowing when to step in." },
+      { title: "Team training", body: "Clear guidance on checking the results, keeping information safe and knowing when a person should step in." },
     ],
     questions: [
       { question: "Do I need to subscribe to lots of tools?", answer: "No. We start with your needs and budget. Any tool subscription or usage cost is explained separately before setup." },

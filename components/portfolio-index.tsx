@@ -1,7 +1,7 @@
-import { ImageFrame } from "./image-frame";
 import Link from "next/link";
 import { WorkCategories } from "./work-categories";
 import { portfolioProjects } from "./portfolio-projects";
+import { ProjectMotion } from "./project-motion";
 
 export function PortfolioIndex() {
   return <>
@@ -9,17 +9,17 @@ export function PortfolioIndex() {
     <section className="editorial-heading wrap">
 
       <h1>Website projects.</h1>
-      <p>Explore the websites we’ve built, with screenshots and project details.</p>
+      <p>Real websites we’ve built for South African businesses. Open any project to see how it works.</p>
     </section>
     <section className="portfolio-list wrap" aria-label="Websites built by Ntombii Tech">
       {portfolioProjects.map(project => <article className="portfolio-case" key={project.id} id={project.id}>
-        <ImageFrame as="link" href={project.caseStudyUrl ?? project.url} className="portfolio-case-image" label={`Explore ${project.name}`} image={{ src: project.desktop.src, alt: project.desktop.alt, width: 1440, height: 1000, loading: "lazy" }} />
+        <ProjectMotion project={project} />
         <div className="portfolio-case-copy">
           <p className="editorial-category">{project.category} · {project.kind}</p>
           <h2><Link href={(project.caseStudyUrl ?? project.url)}>{project.previewName}</Link></h2>
           <p>{project.description}</p>
           <ul className="portfolio-scope" aria-label="Project scope">{project.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
-          <div className="editorial-actions">{project.caseStudyUrl && <Link className="button button-blue" href={project.caseStudyUrl}>Read the project story <span aria-hidden="true">↗</span></Link>}<a className="text-link" href={project.url} target="_blank" rel="noreferrer">Visit website</a></div>
+          <div className="editorial-actions">{project.caseStudyUrl && <Link className="button button-blue" href={project.caseStudyUrl}>View project <span aria-hidden="true">↗</span></Link>}<a className="text-link" href={project.url} target="_blank" rel="noreferrer">Visit the live site</a></div>
         </div>
       </article>)}
     </section>

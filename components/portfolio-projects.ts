@@ -14,6 +14,14 @@ export type PortfolioProject = {
   mobile: { src: string; alt: string };
 };
 
+/**
+ * 3D motion clip of a project's live site scrolling on a laptop and a phone.
+ * Rendered from real captures by scripts/motion (see its README to add a project).
+ */
+export function projectMotion(id: string) {
+  return { src: `/videos/work/${id}.mp4`, poster: `/videos/work/${id}-poster.webp`, width: 1200, height: 960 } as const;
+}
+
 export const portfolioProjects: readonly PortfolioProject[] = [
   {
     "id": "friday-consulting",
@@ -182,3 +190,9 @@ export const portfolioProjects: readonly PortfolioProject[] = [
     }
   },
 ];
+
+export function projectById(id: string): PortfolioProject {
+  const project = portfolioProjects.find(item => item.id === id);
+  if (!project) throw new Error(`Unknown portfolio project: ${id}`);
+  return project;
+}
