@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // The brand film is a separate Remotion project with its own tooling.
+    "film/**",
   ]),
 ]);
 

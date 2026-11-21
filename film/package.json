@@ -1,0 +1,22 @@
+{
+  "name": "ntombii-brand-film",
+  "private": true,
+  "description": "Ntombii Tech 60-second brand film: Two Lights. Remotion source.",
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "music": "python3 audio/make_audio.py",
+    "render": "remotion render src/index.ts TwoLights out/ntombii-two-lights-master.mp4 --codec h264 --crf 12 --audio-codec aac --audio-bitrate 320k",
+    "poster": "remotion still src/index.ts TwoLights out/poster.png --frame 420"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.535",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "remotion": "4.0.535"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.14",
+    "typescript": "5.9.3"
+  }
+}

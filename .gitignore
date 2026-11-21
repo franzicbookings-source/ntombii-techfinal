@@ -44,3 +44,7 @@ next-env.d.ts
 # Motion clip captures and masters (see scripts/motion/README.md)
 scripts/motion/.work/
 tsconfig.tsbuildinfo
+
+# Brand film (Remotion): dependencies and renders stay local; see film/README.md
+film/node_modules/
+film/out/
