@@ -42,3 +42,12 @@ To reuse a Chrome that is already installed (for example in a locked-down contai
 ```
 
 The film has no narration; every story beat is on-screen copy, so no captions file is needed. If it autoplays, keep it muted and give visitors a pause control.
+
+## Verified (21 November 2026)
+
+- Master: 1920×1080, 30 fps, 1800 frames (60.000 s), H.264 High CRF 12 (about 9.8 Mbps) with AAC 320k, 72 MB. Not committed; it's large and can be rerendered.
+- Website version: `public/videos/brand-film/ntombii-two-lights-1080p.mp4`, 1080p H.264 CRF 23 with fast start, AAC 128k, 8.1 MB.
+- Sound: −15.8 LUFS integrated, −1.5 dBTP before encoding. Every hit lands within 10 ms of its picture cue. True silence for the final second.
+- Picture: no black frames. The brightest frame (the reveal at 0:38) averages 162/255; the reveal is a single flash, not repeated flashing.
+- Legibility: checked at 1080p and at phone width (390 px). The main lines are 76–124 px at 1080p.
+- Not checked: listening on speakers. The build environment has no audio playback, so the mix was checked by loudness measurements and spectrograms. Give it one listen on a phone and on headphones before publishing.
