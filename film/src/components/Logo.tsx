@@ -50,6 +50,6 @@ export const Label: React.FC<{ frame: number; start: number; end: number; name: 
   return <div style={{ position: "absolute", left: 100, top: 792, fontFamily: FONT, opacity: inn * (1 - out), transform: `translateY(${(1 - inn) * 20}px)` }}>
     <div style={{ width: 48, height: 3, background: `linear-gradient(90deg, ${C.warm}, ${C.cool})`, marginBottom: 22, borderRadius: 2 }} />
     <div style={{ fontSize: 64, color: C.white, letterSpacing: "-0.03em", lineHeight: 1.05 }}>{name}</div>
-    <div style={{ fontSize: 40, color: C.pale, letterSpacing: "-0.01em", marginTop: 10 }}>{detail}</div>
+    <div style={{ fontSize: 46, color: C.pale, letterSpacing: "-0.01em", marginTop: 10 }}>{detail}</div>
   </div>;
 };

@@ -71,7 +71,7 @@ export const BuildCanvas: React.FC<{ frame: number; fps: number; locks: number[]
           return <g key={i} opacity={Math.min(1, s * 1.4)} style={{ transformOrigin: `${cx}px ${cy}px`, transform: `scale(${0.94 + 0.06 * s})` }}>{part.draw(1)}</g>;
         })}
       </svg>
-      <div style={{ position: "absolute", inset: 0, background: "#ffffff", opacity: flash * 0.85, mixBlendMode: "screen" }} />
+      <div style={{ position: "absolute", inset: 0, background: "#ffffff", opacity: flash * 0.42, mixBlendMode: "screen" }} />
     </div>
   </div>;
 };

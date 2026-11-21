@@ -119,9 +119,9 @@ export const Film: React.FC = () => {
 
         {/* Scene 2: an uncle, his niece, and a laptop. */}
         <Words text="An uncle," frame={f} start={Q.uncle + 4} end={Q.laptop - 8} size={104} color={C.warmText} x={560} y={392} align="center" width={900} />
-        <Words text="Sabelo" frame={f} start={Q.uncle + 14} end={Q.laptop - 8} size={46} color={C.pale} x={560} y={530} align="center" width={600} letterSpacing="0em" />
+        <Words text="Sabelo" frame={f} start={Q.uncle + 14} end={Q.laptop - 8} size={62} color={C.white} x={560} y={520} align="center" width={600} letterSpacing="0em" />
         <Words text="his niece," frame={f} start={Q.niece + 6} end={Q.laptop - 8} size={104} color={C.coolText} x={1360} y={392} align="center" width={900} />
-        <Words text="Sthembile" frame={f} start={Q.niece + 16} end={Q.laptop - 8} size={46} color={C.pale} x={1360} y={530} align="center" width={600} letterSpacing="0em" />
+        <Words text="Sthembile" frame={f} start={Q.niece + 16} end={Q.laptop - 8} size={62} color={C.white} x={1360} y={520} align="center" width={600} letterSpacing="0em" />
         <Words text="An uncle, his niece, and a laptop." frame={f} start={Q.laptop + 4} end={Q.storyStart - 8} size={92} color={C.white} x={960} y={118} align="center" width={1700} stagger={4} />
         <Words text="Newcastle, KwaZulu-Natal" frame={f} start={Q.screenOn + 16} end={Q.storyStart - 8} size={42} color={C.pale} x={960} y={900} align="center" width={900} letterSpacing="0em" />
       </AbsoluteFill>
@@ -149,7 +149,7 @@ export const Film: React.FC = () => {
       <WorkClip file="friday-consulting.mp4" from={Q.clip2 - 4} duration={1640 - Q.clip2} opacity={clip2} />
       {wipe >= 0 && <div style={{ position: "absolute", top: 0, bottom: 0, left: mix(500, 1900, wipe) - 170, width: 340, background: `linear-gradient(90deg, rgba(255,207,150,0), rgba(255,236,210,0.95), rgba(156,203,242,0.6), rgba(156,203,242,0))`, filter: "blur(28px)", mixBlendMode: "screen", opacity: Math.sin(Math.PI * wipe) }} />}
       <Words text="Today," frame={f} start={Q.todayLine} end={1622} size={124} color={C.white} x={100} y={210} width={520} />
-      <Words text="they build websites for businesses across South Africa." frame={f} start={Q.todayLine + 8} end={1622} size={54} color={C.pale} x={100} y={372} width={500} lineHeight={1.2} />
+      <Words text="they build websites for businesses across South Africa." frame={f} start={Q.todayLine + 8} end={1622} size={62} color={C.pale} x={100} y={372} width={520} lineHeight={1.18} />
       <Label frame={f} start={Q.clip1 + 20} end={Q.clip2 - 12} name="Moyandi Scents" detail="Online shop · Durban" />
       <Label frame={f} start={Q.clip2 + 14} end={1620} name="Friday Consulting" detail="Business website" />
 
@@ -157,7 +157,7 @@ export const Film: React.FC = () => {
       {f >= 940 && <Lights frame={f} lights={lightsAt(f, fps)} />}
       {f >= Q.logo - 4 && <LogoGlow f={f} />}
       <Logo frame={f} fps={fps} start={Q.logo} />
-      <Words text="ntombii.tech" frame={f} start={Q.logo + 38} size={42} color={C.pale} x={960} y={612} align="center" width={600} letterSpacing="0.01em" />
+      <Words text="ntombii.tech" frame={f} start={Q.logo + 38} size={50} color={C.pale} x={960} y={612} align="center" width={600} letterSpacing="0.01em" />
     </Stage>
     <Finish frame={f} />
   </AbsoluteFill>;
@@ -167,7 +167,7 @@ const LogoGlow: React.FC<{ f: number }> = ({ f }) => {
   const burst = interpolate(f, [Q.logo - 4, Q.logo, Q.logo + 22], [0, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const ambient = progress(f, Q.logo, 30) * (1 - 0.5 * progress(f, Q.finalNote, 40));
   return <>
-    <div style={{ position: "absolute", left: LOGO.dot.x - 400, top: LOGO.dot.y - 400, width: 800, height: 800, borderRadius: "50%", background: "radial-gradient(closest-side, rgba(255,255,255,1), rgba(255,255,255,0) 70%)", opacity: burst, mixBlendMode: "screen" }} />
+    <div style={{ position: "absolute", left: LOGO.dot.x - 280, top: LOGO.dot.y - 280, width: 560, height: 560, borderRadius: "50%", background: "radial-gradient(closest-side, rgba(255,255,255,0.9), rgba(255,255,255,0) 70%)", opacity: burst * 0.85, mixBlendMode: "screen" }} />
     <div style={{ position: "absolute", left: 260, top: 260, width: 700, height: 460, background: `radial-gradient(closest-side, ${C.warm}, transparent)`, opacity: 0.1 * ambient, mixBlendMode: "screen" }} />
     <div style={{ position: "absolute", left: 960, top: 260, width: 700, height: 460, background: `radial-gradient(closest-side, ${C.cool}, transparent)`, opacity: 0.1 * ambient, mixBlendMode: "screen" }} />
   </>;

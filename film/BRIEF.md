@@ -26,7 +26,7 @@ Why Two Lights: light is physical, cinematic and faceless. Two lights can have p
 | 0:55–1:00 | 6 One light | Resolve | The lights cross one last time; the crossing point becomes the dot of the Ntombii Tech logo; clean hold. | Breakdown, logo chord, one last note from both voices together, then silence. |
 
 ## Style frames
-Rendered from the build: `out/style-1-open.png` (0:01), `out/style-2-poster.png` (0:14), `out/style-3-build.png` (0:35).
+Rendered from the build: `style-frames/style-1-open.webp` (0:01, the opening), `style-frames/style-2-poster.webp` (0:14.7, the poster and About-page thumbnail), `style-frames/style-3-build.webp` (0:35, building together).
 
 ## Format decisions
 - No narration. The film must work as a silent preview on the website, and a synthetic voice telling a personal family story would feel less personal than the founders' own documented words set as type. All story beats are on-screen copy, so no captions file is needed.
