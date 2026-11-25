@@ -150,11 +150,13 @@ export function HomePage() {
             <a className="button button-glass" href="/work">See our work <Arrow /></a>
           </div>
           <div className="hero-badges" role="group" aria-label="Design badges">
-            <img src="/images/badges/web-guru-awards.svg" width="186" height="100" alt="Web Guru Awards" />
+            <span className="hero-badge-medallion">
+              <img src="/images/badges/web-guru-awards.svg" width="186" height="100" alt="Web Guru Awards" />
+            </span>
             <img src="/images/badges/guru-of-the-year.webp" width="442" height="418" alt="Web Guru Awards – Guru of the Year" />
-            <a href="https://www.web-design.co.za/web-design-awards.php">
+            <span className="hero-badge-medallion">
               <img src="/images/badges/web-design-nominee.png" width="314" height="138" alt="Web-Design.co.za award nominee" />
-            </a>
+            </span>
           </div>
         </div>
         <div className="hero-form"><QuoteForm /></div>
