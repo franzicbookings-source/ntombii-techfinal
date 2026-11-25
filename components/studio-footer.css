@@ -1,0 +1,104 @@
+.studio-footer {
+  background: #eaf0f3;
+  color: #233743;
+}
+.studio-footer-enquiry {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas: "portrait title action";
+  align-items: center;
+  gap: clamp(20px, 3.6vw, 56px);
+  padding-block: clamp(40px, 5vw, 80px);
+  border-bottom: 1px solid #c6d2d9;
+}
+.studio-footer-portrait {
+  grid-area: portrait;
+  width: clamp(88px, 9vw, 136px);
+  aspect-ratio: 4 / 5;
+  height: auto;
+  object-fit: cover;
+  object-position: 50% 32%;
+  border-radius: 12px 38% 12px 12px;
+}
+.studio-footer-enquiry h2 {
+  grid-area: title;
+  max-width: 17ch;
+  font-size: clamp(2rem, 4.6vw, 4.5rem);
+  line-height: 1.03;
+  letter-spacing: -.052em;
+  text-wrap: balance;
+}
+.studio-footer-action {
+  grid-area: action;
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 22px;
+  border-radius: 99px;
+  background: #294454;
+  color: white;
+  font-size: .97rem;
+  line-height: 1.35;
+  text-align: center;
+  transition: background .2s;
+}
+.studio-footer-action:hover { background: #193341; }
+.studio-footer-directory {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.9fr);
+  gap: clamp(32px, 6vw, 90px);
+  padding-block: clamp(36px, 4.5vw, 68px);
+}
+.studio-footer-logo { display: block; width: min(100%, 172px); }
+.studio-footer-logo img { width: 100%; }
+.studio-footer-identity address { display: grid; justify-items: start; margin-top: 17px; font-style: normal; }
+.studio-footer-identity address a, .studio-footer-nav a {
+  display: flex;
+  align-items: center;
+  min-height: 35px;
+  color: #405765;
+  font-size: .96rem;
+  line-height: 1.4;
+}
+.studio-footer-identity p { margin-top: 9px; color: #4c616c; font-size: .875rem; line-height: 1.55; }
+.studio-footer-nav { display: grid; grid-template-columns: 1fr 1.15fr 1.2fr; gap: clamp(18px, 3.6vw, 60px); }
+.studio-footer-nav > div { display: flex; flex-direction: column; align-items: flex-start; }
+.studio-footer-nav h2 { font-size: 1rem; font-weight: 600; letter-spacing: -.02em; margin: 0 0 10px; }
+.studio-footer-base {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 24px;
+  border-top: 1px solid #c6d2d9;
+  padding-block: 16px max(20px, env(safe-area-inset-bottom));
+  color: #4c616c;
+  font-size: .875rem;
+}
+.studio-footer-base small { font: inherit; margin-right: auto; }
+.studio-footer-base :is(a, button) { display: inline-flex; align-items: center; min-height: 36px; text-decoration: none; }
+.studio-footer :is(nav, address, .studio-footer-base) :is(a, button):hover { color: #182f3b; text-decoration: underline; text-underline-offset: .22em; }
+.studio-footer :is(a, button):focus-visible { outline: 2px solid #275b75; outline-offset: 3px; }
+@media (max-width: 760px) {
+  .studio-footer-enquiry {
+    grid-template-columns: minmax(0, 1fr) clamp(68px, 22vw, 116px);
+    grid-template-areas: "title portrait" "action portrait";
+    gap: 16px clamp(14px, 4vw, 28px);
+    padding-block: 36px;
+  }
+  .studio-footer-enquiry h2 { align-self: end; font-size: clamp(1.95rem, 7.7vw, 2.85rem); }
+  .studio-footer-portrait { width: 100%; }
+  .studio-footer-action { align-self: start; min-height: 44px; font-size: .875rem; padding: 10px 16px; }
+  .studio-footer-directory { grid-template-columns: 1fr; gap: 26px; padding-block: 30px; }
+  .studio-footer-logo { width: 154px; }
+  .studio-footer-identity address { display: flex; flex-wrap: wrap; gap: 0 22px; margin-top: 10px; }
+  .studio-footer-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 18px; }
+  .studio-footer-nav h2 { margin-bottom: 3px; }
+  .studio-footer-areas { grid-column: 1 / -1; }
+  .studio-footer-nav > .studio-footer-areas { display: grid; grid-template-columns: max-content minmax(0,1fr); gap: 0 20px; justify-items: start; }
+  .studio-footer-areas h2 { grid-column: 1 / -1; }
+  .studio-footer-nav a, .studio-footer-identity address a, .studio-footer-base :is(a, button) { min-height: 44px; }
+  .studio-footer-base { gap: 0 18px; padding-block: 12px max(18px, env(safe-area-inset-bottom)); }
+  .studio-footer-base small { flex-basis: 100%; }
+}

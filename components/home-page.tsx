@@ -1,6 +1,6 @@
 "use client";
 import { packagePriceSummary, shopifyPackage, shopifyCosts, portfolioPackage } from "./website-packages";
-import { studioLocation, studioIntroduction, meetingInformation, regionalWebsiteLinks } from "./locations";
+import { studioIntroduction, meetingInformation } from "./locations";
 import { trackQuoteHandoff } from "./analytics";
 import { testimonials } from "./testimonials";
 import { FloatingContact } from "./floating-contact";
@@ -10,7 +10,7 @@ import { NewsletterSection, SocialLinks } from "./studio-sections";
 import { AdditionalServices } from "./service-chapters";
 import { WorkShowcase } from "./work-showcase";
 import { ContentIllustration, type IllustrationKind } from "./content-illustration";
-import { CookieSettingsLink } from "./cookie-consent";
+import { StudioFooter } from "./studio-footer";
 import { useEffect, useState, type CSSProperties, type FormEvent } from "react";
 const wa = (message = "Hi Ntombii Tech, I'd like to discuss a website project.") => `https://wa.me/27812360230?text=${encodeURIComponent(message)}`;
 const faqs = [
@@ -171,9 +171,8 @@ export function HomePage() {
       <section id="faq" className="faq-section section"><div className="wrap faq-layout"><div data-reveal><h2>Frequently asked questions.</h2><a className="button button-blue" href={wa("Hi Ntombii Tech, I have a question about working with you.")} target="_blank" rel="noreferrer">Ask on WhatsApp <Arrow diagonal /></a></div><div className="faq-list" data-reveal>{faqs.map(([question, answer], index) => <div className={`faq-item ${activeFaq === index ? "faq-open" : ""}`} key={question}><h3><button type="button" aria-expanded={activeFaq === index} aria-controls={`faq-answer-${index}`} onClick={() => setActiveFaq(activeFaq === index ? null : index)}>{question}<span className="faq-icon" aria-hidden="true" /></button></h3><div id={`faq-answer-${index}`} hidden={activeFaq !== index}><p>{answer}</p></div></div>)}</div></div></section>
       <AdditionalServices />
       <NewsletterSection />
-      <section id="contact" className="contact-section"><div className="wrap contact-layout"><div data-reveal><h2>Let’s build<br />your website.</h2><p>A new website, a redesign or an online shop? Send us a message and tell us what you need.</p><a className="button button-white" href={wa()} target="_blank" rel="noreferrer">Chat on WhatsApp <Arrow diagonal /></a></div><div className="contact-details" data-reveal><a href="https://wa.me/27812360230" target="_blank" rel="noreferrer"><span>WhatsApp</span>081 236 0230<Arrow diagonal /></a><a href="mailto:hello@ntombii.tech"><span>Email</span>hello@ntombii.tech<Arrow diagonal /></a><div><span>{studioLocation}</span><p>Meetings by appointment. We work with clients across South Africa.<br />Monday–Friday · 09:00–17:00 SAST</p></div></div></div></section>
     </main>
-    <footer className="site-footer wrap"><div className="footer-top"><a className="brand" href="/" aria-label="Ntombii Tech home"><img src="/brand/ntombii-logo-dark.svg" width="1200" height="200" alt="Ntombii Tech" /></a><nav aria-label="Footer navigation"><a href="/about">About</a><a href="/services">Services</a><a href="/work">Our work</a><a href="/graphics">Graphic design</a><a href="/articles">Articles</a><a href="/pricing">Pricing</a><a href="/services#additional-services">Additional services</a><a href="/#faq">FAQs</a>{regionalWebsiteLinks.map(link => <a key={link.href} href={link.href}>{link.label}</a>)}</nav><a className="back-top" href="#top">Back to top <Arrow diagonal /></a></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Ntombii Tech</span><span>{studioLocation}</span><a href="mailto:hello@ntombii.tech">hello@ntombii.tech</a><a href="/privacy">Privacy</a><CookieSettingsLink /></div></footer>
+    <StudioFooter enquiry={{ title: "Let’s talk websites.", whatsappHref: wa() }} showHours />
     <FloatingContact href={wa()} />
   </div>;
 }

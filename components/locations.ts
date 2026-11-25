@@ -4,6 +4,6 @@ export const studioIntroduction = "We design and develop business and e-commerce
 export const meetingInformation = "Meetings in Newcastle, Pretoria and Centurion are by appointment. We also work over WhatsApp and online calls across South Africa.";
 export const pretoriaAreas = ["Pretoria", "Pretoria East", "Pretoria North", "Hatfield", "Brooklyn", "Lynnwood", "Menlyn", "Centurion", "Irene", "Lyttelton"] as const;
 export const regionalWebsiteLinks = [
-  { href: "/website-design-kzn", label: "Website design in KZN" },
-  { href: "/website-design-pretoria", label: "Website design in Pretoria & Centurion" },
+  { href: "/website-design-kzn", label: "Website design in KZN", area: "Newcastle, KZN" },
+  { href: "/website-design-pretoria", label: "Website design in Pretoria & Centurion", area: "Pretoria & Centurion" },
 ] as const;

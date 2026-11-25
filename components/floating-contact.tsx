@@ -10,7 +10,7 @@ export function FloatingContact({ href = defaultHref }: { href?: string }) {
 
   useEffect(() => {
     if (!("IntersectionObserver" in window)) return;
-    const targets = document.querySelectorAll("main form, main .pricing-comparison, main .graphics-grid, main .reviews-grid, main a.button[href*='wa.me']");
+    const targets = document.querySelectorAll(".studio-footer, main form, main .pricing-comparison, main .graphics-grid, main .reviews-grid, main a.button[href*='wa.me']");
     const visible = new Set<Element>();
     const observer = new IntersectionObserver(entries => {
       for (const entry of entries) {

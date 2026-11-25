@@ -270,7 +270,7 @@ export function ProjectStory({ id }: { id: ProjectStoryId }) {
     { id: "detail", label: story.detailLabel, image: { ...project.detail, width: story.detailSize[0], height: story.detailSize[1] }, title: story.steps[1].title, description: story.steps[1].body },
     { id: "mobile", label: "On a phone", image: { ...project.mobile, width: 390, height: 844 }, title: story.steps[2].title, description: story.steps[2].body },
   ];
-  return <InnerPage><div className="project-story-page">
+  return <InnerPage enquiry={{ title: "Want a site like this?" }}><div className="project-story-page">
     <StructuredData data={schema} />
     <nav className="project-breadcrumbs wrap" aria-label="Breadcrumb"><Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/work">Our work</Link><span aria-hidden="true">/</span><span aria-current="page">{project.previewName}</span></nav>
     <section className="detail-hero"><div className="wrap detail-hero-grid">
@@ -282,6 +282,5 @@ export function ProjectStory({ id }: { id: ProjectStoryId }) {
     <section className="detail-body wrap"><div className="detail-body-title"><h2>The pages and features.</h2></div><div className="detail-offering">{story.features.map((feature) => <div key={feature}><ContentIllustration kind={illustrationFor(feature)} /><h3>{feature}</h3></div>)}</div></section>
     <ProjectScreens projectId={id} screens={screens} />
     <section className="work-summary wrap"><h2>See the work for yourself.</h2><p>{story.summary}</p><div className="website-context-links"><Link href="/services/websites">Website design and development <span aria-hidden="true">↗</span></Link><Link href="/pricing">View website prices <span aria-hidden="true">↗</span></Link><Link href="/work">Explore our other projects <span aria-hidden="true">↗</span></Link>{id === "la-raza" ? <Link href="/articles/la-raza-restaurant-website-in-phases">How we&rsquo;re building La Raza in phases <span aria-hidden="true">↗</span></Link> : id === "moyandi-scents" ? <Link href="/articles/moyandi-scents-ecommerce-website-durban">How we built the Moyandi Scents shop <span aria-hidden="true">↗</span></Link> : <Link href="/articles/website-design-newcastle-business-guide">What your business website needs <span aria-hidden="true">↗</span></Link>}</div></section>
-    <section className="inner-next"><div className="wrap"><h2>Need a website for your business?</h2><Link className="button button-white" href="/contact">Tell us what you need <span aria-hidden="true">↗</span></Link></div></section>
   </div></InnerPage>;
 }

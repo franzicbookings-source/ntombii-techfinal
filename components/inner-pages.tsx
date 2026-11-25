@@ -6,7 +6,7 @@ import Link from "next/link";
 import { PricingComparison } from "./pricing-comparison";
 import { AboutTeam } from "./about-team";
 import type { ReactNode } from "react";
-import { CookieSettingsLink } from "./cookie-consent";
+import { StudioFooter, type FooterEnquiry } from "./studio-footer";
 import { AdditionalServices, universities } from "./service-chapters";
 import { AboutDepth, ContactDepth, PricingDepth, ServiceDepth, ServicesDepth } from "./page-depth";
 import { InnerNavigation } from "./inner-navigation";
@@ -18,7 +18,7 @@ import { serviceSchema } from "./site-seo";
 import { StructuredData } from "./structured-data";
 import { QuoteForm, Testimonials } from "./home-page";
 
-const whatsapp = (message: string) => `https://wa.me/27812360230?text=${encodeURIComponent(message)}`;
+const whatsapp = (message = "Hi Ntombii Tech, I'd like to discuss a website project.") => `https://wa.me/27812360230?text=${encodeURIComponent(message)}`;
 
 export const services = [
   {
@@ -145,41 +145,37 @@ function ApplicationPackages() {
 
 function Arrow() { return <span aria-hidden="true">↗</span>; }
 
-export function InnerPage({ children }: { children: ReactNode }) {
+export function InnerPage({ children, enquiry }: { children: ReactNode; enquiry?: FooterEnquiry }) {
   return <div className="inner-site" id="top">
     <a className="skip-link" href="#main">Skip to content</a>
     <InnerNavigation />
     <main id="main">{children}</main>
-    <footer className="inner-footer"><div className="wrap"><div className="inner-footer-top"><Link href="/" className="brand brand-light" aria-label="Ntombii Tech home"><img src="/brand/ntombii-logo-light.svg" width="1200" height="200" alt="Ntombii Tech" /></Link><nav aria-label="Footer navigation"><Link href="/services">Services</Link><Link href="/about">About</Link><Link href="/work">Our work</Link><Link href="/graphics">Graphic design</Link><Link href="/articles">Articles</Link><Link href="/pricing">Pricing</Link><Link href="/contact">Contact</Link>{regionalWebsiteLinks.map(link => <Link key={link.href} href={link.href}>{link.label}</Link>)}</nav></div><div className="inner-footer-bottom"><span>© {new Date().getFullYear()} Ntombii Tech · {studioLocation}</span><a href="mailto:hello@ntombii.tech">hello@ntombii.tech</a><Link href="/privacy">Privacy</Link><CookieSettingsLink /></div></div></footer>
+    <StudioFooter enquiry={enquiry} />
     <FloatingContact />
   </div>;
 }
 
-function NextStep({ title = "Let’s build your website.", message = "Hi Ntombii Tech, I'd like to discuss a website project." }: { title?: string; message?: string }) {
-  return <section className="inner-next"><div className="wrap"><h2>{title}</h2><a className="button button-white" href={whatsapp(message)} target="_blank" rel="noreferrer">Chat on WhatsApp <Arrow /></a></div></section>;
-}
-
 export function ServicesPage() {
   const website = services[0];
-  return <InnerPage>
+  return <InnerPage enquiry={{ title: "Let’s talk websites.", whatsappHref: whatsapp() }}>
     <section className="inner-hero-band"><div className="wrap inner-hero-split"><div>
       <h1>Website design<br />in Newcastle and Pretoria.</h1>
       <p>Business and e-commerce websites, redesigns and website maintenance. We work from Newcastle, KZN, and Pretoria, Gauteng, with clients in Centurion and across South Africa.</p>
       <a className="button button-white" href="/services/websites">Explore web development <Arrow /></a>
     </div><ProjectMotion project={projectById("legend-black-jesus")} /></div></section>
     <section id="all-services" className="inner-service-list wrap" aria-label="Web development"><Link className="inner-service-link" href="/services/websites"><ContentIllustration kind="browser" className="service-illustration" /><div><h2>{website.name}</h2><p>{website.intro}</p></div><img src={website.image} alt="" loading="lazy" /><span className="inner-service-arrow" aria-hidden="true">↗</span></Link></section>
-    <ServicesDepth /><AdditionalServices /><NextStep />
+    <ServicesDepth /><AdditionalServices />
   </InnerPage>;
 }
 
 export function ServiceDetailPage({ service }: { service: Service }) {
   const schema = <StructuredData data={serviceSchema(service)} />;
   const related=services.filter(item=>item.slug!==service.slug).slice(0,3);
-  return <InnerPage>{schema}<div className="detail-hero"><div className="wrap detail-hero-grid"><div><Link className="inner-back" href="/services">← All services</Link><h1>{service.title}</h1><p className="detail-intro">{service.intro}</p>{service.slug !== "websites" && <p className="additional-availability">Available on request. We confirm availability and the work involved before you book.</p>}<a className="button button-white" href={whatsapp(service.message)} target="_blank" rel="noreferrer">Ask for a quote <Arrow /></a></div>{service.slug === "websites" ? <ProjectMotion project={projectById("legend-black-jesus")} /> : <img src={service.image} alt={`${service.name} at Ntombii Tech`} />}</div></div><section className="detail-body wrap"><div className="detail-body-title"><h2>What we can<br />help with.</h2></div><div className="detail-offering">{service.offering.map((item)=><div key={item}><ContentIllustration kind={illustrationFor(item)} /><h3>{item}</h3></div>)}</div></section><LocalServiceHelp service={service} /><ServiceDepth slug={service.slug} />{service.slug === "branding-print" && <PrintServiceLinks />}<section className="detail-method"><div className="wrap"><h2>From your first message.</h2><div className="detail-method-grid">{service.steps.map((step)=><div key={step}><ContentIllustration kind={illustrationFor(step)} /><p>{step}</p></div>)}</div></div></section>{service.slug === "opportunities-applications" && <section className="detail-extra wrap"><div><h2>Choose an institution, then check the requirements.</h2><p>Tell us the institution and programme you want to apply for. We’ll check the steps, requirements and deadline with you. The list below does not show which institutions currently have applications open.</p></div><details><summary>See universities <span aria-hidden="true">+</span></summary><ul>{universities.map(name=><li key={name}>{name}</li>)}</ul></details></section>}{service.slug === "ai-digital-tools" && <section className="detail-extra wrap"><div><h2>See the tool doing real work.</h2><p>We demonstrate a task from your business and explain what the tool does, what you need to provide and what your team must check.</p></div><div className="detail-tool-list"><p><strong>ChatGPT</strong><br />Draft a reply to a customer enquiry, turn your notes into website text or organise product information. Your team reviews the facts and tone before using it.</p><p><strong>AI agents</strong><br />Plan a multi-step research or admin task and test it with your team. We check the chosen platform's capabilities, access and permission limits before agreeing on setup.</p><p><strong>Make or Zapier</strong><br />Connect supported business tools for an agreed workflow, such as sending a contact form enquiry into your records. We confirm subscriptions, access and any approval steps first.</p></div></section>}{service.slug === "opportunities-applications" && <ApplicationPackages />}<section className="detail-price wrap"><div><h2>{service.price}</h2><p>{service.note}</p></div><a className="button button-blue" href={whatsapp(service.message)} target="_blank" rel="noreferrer">Get a quote <Arrow /></a></section>{service.slug === "websites" ? <p className="website-secondary-note wrap"><Link href="/services#additional-services">View additional services available on request <Arrow /></Link></p> : <section className="inner-related wrap"><h2>Other services.</h2><div>{related.map(item=><Link href={`/services/${item.slug}`} key={item.slug}>{item.name}<Arrow /></Link>)}</div></section>}<NextStep title={service.slug === "websites" ? "Let’s build your website." : "Ask about availability."} message={service.message} /></InnerPage>;
+  return <InnerPage enquiry={{ title: service.slug === "websites" ? "Let’s talk websites." : "Ask about availability.", whatsappHref: whatsapp(service.message) }}>{schema}<div className="detail-hero"><div className="wrap detail-hero-grid"><div><Link className="inner-back" href="/services">← All services</Link><h1>{service.title}</h1><p className="detail-intro">{service.intro}</p>{service.slug !== "websites" && <p className="additional-availability">Available on request. We confirm availability and the work involved before you book.</p>}<a className="button button-white" href={whatsapp(service.message)} target="_blank" rel="noreferrer">Ask for a quote <Arrow /></a></div>{service.slug === "websites" ? <ProjectMotion project={projectById("legend-black-jesus")} /> : <img src={service.image} alt={`${service.name} at Ntombii Tech`} />}</div></div><section className="detail-body wrap"><div className="detail-body-title"><h2>What we can<br />help with.</h2></div><div className="detail-offering">{service.offering.map((item)=><div key={item}><ContentIllustration kind={illustrationFor(item)} /><h3>{item}</h3></div>)}</div></section><LocalServiceHelp service={service} /><ServiceDepth slug={service.slug} />{service.slug === "branding-print" && <PrintServiceLinks />}<section className="detail-method"><div className="wrap"><h2>From your first message.</h2><div className="detail-method-grid">{service.steps.map((step)=><div key={step}><ContentIllustration kind={illustrationFor(step)} /><p>{step}</p></div>)}</div></div></section>{service.slug === "opportunities-applications" && <section className="detail-extra wrap"><div><h2>Choose an institution, then check the requirements.</h2><p>Tell us the institution and programme you want to apply for. We’ll check the steps, requirements and deadline with you. The list below does not show which institutions currently have applications open.</p></div><details><summary>See universities <span aria-hidden="true">+</span></summary><ul>{universities.map(name=><li key={name}>{name}</li>)}</ul></details></section>}{service.slug === "ai-digital-tools" && <section className="detail-extra wrap"><div><h2>See the tool doing real work.</h2><p>We demonstrate a task from your business and explain what the tool does, what you need to provide and what your team must check.</p></div><div className="detail-tool-list"><p><strong>ChatGPT</strong><br />Draft a reply to a customer enquiry, turn your notes into website text or organise product information. Your team reviews the facts and tone before using it.</p><p><strong>AI agents</strong><br />Plan a multi-step research or admin task and test it with your team. We check the chosen platform's capabilities, access and permission limits before agreeing on setup.</p><p><strong>Make or Zapier</strong><br />Connect supported business tools for an agreed workflow, such as sending a contact form enquiry into your records. We confirm subscriptions, access and any approval steps first.</p></div></section>}{service.slug === "opportunities-applications" && <ApplicationPackages />}<section className="detail-price wrap"><div><h2>{service.price}</h2><p>{service.note}</p></div><a className="button button-blue" href={whatsapp(service.message)} target="_blank" rel="noreferrer">Get a quote <Arrow /></a></section>{service.slug === "websites" ? <p className="website-secondary-note wrap"><Link href="/services#additional-services">View additional services available on request <Arrow /></Link></p> : <section className="inner-related wrap"><h2>Other services.</h2><div>{related.map(item=><Link href={`/services/${item.slug}`} key={item.slug}>{item.name}<Arrow /></Link>)}</div></section>}</InnerPage>;
 }
 
 export function AboutPage() {
-  return <InnerPage><div className="about-team-page">
+  return <InnerPage enquiry={{ title: "Let’s talk about your project.", whatsappHref: whatsapp() }}><div className="about-team-page">
     <section className="about-team-hero"><div className="wrap about-team-hero-grid">
       <h1>An uncle, his niece,<br /><span>and a laptop.</span></h1>
       <div className="about-team-intro"><p>We’re a web and design studio serving businesses in Newcastle, Pretoria and across South Africa. Sabelo builds the websites; Sthembile designs the layouts and graphics.</p>
@@ -189,16 +185,15 @@ export function AboutPage() {
     <AboutTeam />
     <AboutDepth />
     <Testimonials />
-    <NextStep />
   </div></InnerPage>;
 }
 
 export function WorkPage() {
-  return <InnerPage><PortfolioIndex /><NextStep title="Have a site in mind?" message="Hi Ntombii Tech, I'd like to discuss a website like one of your projects." /></InnerPage>;
+  return <InnerPage enquiry={{ title: "What do you have in mind?", whatsappHref: whatsapp("Hi Ntombii Tech, I'd like to discuss a website like one of your projects.") }}><PortfolioIndex /></InnerPage>;
 }
 
 export function PricingPage() {
-  return <InnerPage><section className="inner-hero-band"><div className="wrap inner-hero-split"><div><h1>Website packages.</h1><p>Compare what each package includes. We confirm what your website needs and send a final quote before any work starts.</p><a className="button button-white" href="#packages">Explore packages <Arrow /></a></div><ProjectMotion project={projectById("friday-consulting")} /></div></section><section id="packages" className="inner-pricing wrap"><h2 className="sr-only">Website packages</h2><PricingComparison headingLevel={2} /></section><p className="website-secondary-note wrap">Need another service? <Link href="/services#additional-services">View additional services <Arrow /></Link></p><PricingDepth /><NextStep /></InnerPage>;
+  return <InnerPage enquiry={{ title: "Have a pricing question?", whatsappHref: whatsapp("Hi Ntombii Tech, I'd like help choosing a website package.") }}><section className="inner-hero-band"><div className="wrap inner-hero-split"><div><h1>Website packages.</h1><p>Compare what each package includes. We confirm what your website needs and send a final quote before any work starts.</p><a className="button button-white" href="#packages">Explore packages <Arrow /></a></div><ProjectMotion project={projectById("friday-consulting")} /></div></section><section id="packages" className="inner-pricing wrap"><h2 className="sr-only">Website packages</h2><PricingComparison headingLevel={2} /></section><p className="website-secondary-note wrap">Need another service? <Link href="/services#additional-services">View additional services <Arrow /></Link></p><PricingDepth /></InnerPage>;
 }
 
 export function ContactPage() {
