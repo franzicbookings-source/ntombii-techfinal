@@ -141,7 +141,24 @@ export function HomePage() {
     <a className="skip-link" href="#main">Skip to content</a>
     <InnerNavigation />
     <main id="main"><div className="hero-shell">
-      <section className="hero wrap" aria-labelledby="hero-title"><div className="hero-copy"><h1 id="hero-title"><span className="hero-line">Websites that work.</span><br /><span className="hero-line hero-accent">Built for your business.</span></h1><p className="hero-description">{studioIntroduction}</p><div className="hero-actions"><a className="button button-white" href={wa()} target="_blank" rel="noreferrer">Discuss your website <Arrow diagonal /></a><a className="button button-glass" href="/work">See our work <Arrow /></a></div><div className="hero-credentials" role="group" aria-label="Business credentials"><img src="/images/cipc.webp" width="1536" height="1152" alt="CIPC registered" /><img src="/images/sars.webp" width="1536" height="1152" alt="SARS tax compliant" /><img src="/images/bbbee.webp" width="1536" height="1152" alt="B-BBEE compliant" /></div></div><div className="hero-form"><QuoteForm /></div></section>
+      <section className="hero wrap" aria-labelledby="hero-title">
+        <div className="hero-copy">
+          <h1 id="hero-title"><span className="hero-line">Websites that work.</span><br /><span className="hero-line hero-accent">Built for your business.</span></h1>
+          <p className="hero-description">{studioIntroduction}</p>
+          <div className="hero-actions">
+            <a className="button button-white" href={wa()} target="_blank" rel="noreferrer">Discuss your website <Arrow diagonal /></a>
+            <a className="button button-glass" href="/work">See our work <Arrow /></a>
+          </div>
+          <div className="hero-badges" role="group" aria-label="Design badges">
+            <img src="/images/badges/web-guru-awards.svg" width="186" height="100" alt="Web Guru Awards" />
+            <img src="/images/badges/guru-of-the-year.webp" width="442" height="418" alt="Web Guru Awards – Guru of the Year" />
+            <a href="https://www.web-design.co.za/web-design-awards.php">
+              <img src="/images/badges/web-design-nominee.png" width="314" height="138" alt="Web-Design.co.za award nominee" />
+            </a>
+          </div>
+        </div>
+        <div className="hero-form"><QuoteForm /></div>
+      </section>
     </div>
       <ToolMarquee />
       <ProcessSection />
