@@ -20,33 +20,42 @@ export const articles: readonly Article[] = [
     sections: [
       {
         id: "the-award",
-        heading: "What the award recognises",
+        heading: "How the award is judged",
         paragraphs: [
-          "Ntombii Tech is a web design studio working from Newcastle, KwaZulu-Natal, and Pretoria, Gauteng. We build business and e-commerce websites. This award was for ntombii.tech, the website where people come to see our work and decide whether to hire us.",
-          "Web-Design.co.za judges the look of a website, how quickly it loads and how easy it is to get around. To verify the award, open the organiser’s checker and enter www.ntombii.tech.",
+          "Web-Design.co.za is a South African web design directory that runs its own awards. Its judges look at one page, the homepage on a site’s own domain, and score it in three areas. A site needs a total of 90% or more to win.",
+        ],
+        bullets: [
+          "Design (55%): colour, spacing, sharp images and the overall impression.",
+          "Ease of use (30%): whether buttons are easy to find, the layout makes sense and the pages feel connected.",
+          "Speed (15%): how quickly the site loads, including for people on slower connections.",
         ],
       },
       {
-        id: "on-a-phone",
-        heading: "What we wanted our website to make easier",
+        id: "what-it-took",
+        heading: "What it took to qualify",
         paragraphs: [
-          "Think about a business owner looking for a web designer between meetings. They want to see an example that feels close to their business, get an idea of the cost and know how to reach us. We put “See our work” and “Discuss your website” at the top of the homepage so they can choose where to start.",
-          "On the pricing page, you can compare a portfolio site, a business website and a Shopify e-commerce website. If you’re ready to ask for a quote, the form turns your answers into a WhatsApp draft. You can check the details before sending it.",
+          "A site isn’t scored at all unless it clears two hurdles first. Its code has to pass the W3C Markup Validator, the web’s official HTML checker, without a single error. And the design has to be original, so sites built on a bought template or theme don’t qualify. We built ntombii.tech from scratch.",
+          "Design carries most of the mark, so we kept the same colours, typeface and spacing on every page. Someone moving from our work to our prices should never feel they’ve landed on a different site.",
+          "For ease of use, the homepage opens with two buttons, “Discuss your website” and “See our work”, because most visitors come for one or the other. Our prices have a page of their own, where you can compare the three packages side by side. When you’re ready to ask for a quote, the form writes a WhatsApp message for you to check and send.",
+          "Speed counts for the least, but the judges make a fair point: not everyone has a fast connection. Plenty of South Africans browse on prepaid mobile data, so the project videos on our site only load when you scroll to them, and they stay paused if your phone is set to save data.",
+          "To confirm the award, open the Web-Design.co.za awards checker and enter www.ntombii.tech.",
         ],
       },
       {
         id: "real-work-examples",
-        heading: "How that carries over to client websites",
+        heading: "The same standard on client work",
         paragraphs: [
-          "When we built the launch page for La Raza restaurant in Newcastle, the team needed to fill vacancies before opening. We put the roles and the application form together so someone could find a job and upload a CV on their phone.",
-          "For Moyandi Scents, the job was to help people choose a gift online. Shoppers can pick the scents for a gift box and order as a guest. Both projects started with a specific thing someone needed to do.",
+          "The award was for our own website, but the same three questions shape our client work: does it look right, is it easy to use and does it load quickly? Each project also starts with the main thing a visitor has come to do.",
+          "La Raza, a new restaurant and cocktail lounge in Newcastle, needed to hire staff before opening. On its launch page, the open roles sit beside the application form, so someone can read about a job and upload a CV from their phone.",
+          "Moyandi Scents, a home-fragrance brand in Durban, wanted gift-buying to be simple. Shoppers choose the scents for a gift box and check out as a guest, with no account to create.",
         ],
       },
       {
         id: "phone-check",
-        heading: "A quick way to check your own website",
+        heading: "Check your own website on a phone",
         paragraphs: [
-          "Pick the one thing you most want a customer to do, such as getting a quote or finding out if you deliver to their suburb. Hand your phone to someone who hasn’t used your website and ask them to show you how they’d do it. Where they pause tells you which page, link or button to look at first.",
+          "You don’t need to enter an award to use its criteria. Open your homepage on your phone, on mobile data rather than Wi-Fi. Does it load quickly enough that you’d wait for it? Does it still look tidy on a small screen?",
+          "Then test ease of use, the part business owners find hardest to judge because they already know where everything is. Pick the one thing you most want a customer to do, such as asking for a quote or checking whether you deliver to their area. Hand your phone to someone who has never used your website and ask them to do it, without helping. Wherever they hesitate is the page, link or button to fix first.",
         ],
       },
     ],
