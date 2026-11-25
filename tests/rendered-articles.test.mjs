@@ -46,7 +46,7 @@ test("articles and all project stories have crawlable paths from the Site", asyn
   const portfolio = await fetchPage("/work");
   assert.equal(portfolio.status, 200);
   const portfolioHtml = await portfolio.text();
-  for (const id of ["moyandi-scents", "legend-black-jesus", "snesenzo-security", "penny-ntuli", "khuzani-blue-nation", "fezile-security", "friday-consulting"]) {
+  for (const id of ["la-raza", "moyandi-scents", "legend-black-jesus", "snesenzo-security", "penny-ntuli", "khuzani-blue-nation", "fezile-security", "friday-consulting"]) {
     assert.ok(portfolioHtml.includes(`href="/work/${id}"`));
     const story = await fetchPage(`/work/${id}`);
     assert.equal(story.status, 200);
@@ -64,8 +64,8 @@ test("an unknown article returns 404 rather than an indexable empty article", as
 });
 
 
-test("all seven project stories pair design decisions with real desktop, detail and phone screenshots", async () => {
-  for (const id of ["moyandi-scents", "legend-black-jesus", "snesenzo-security", "penny-ntuli", "khuzani-blue-nation", "fezile-security", "friday-consulting"]) {
+test("all eight project stories pair design decisions with real desktop, detail and phone screenshots", async () => {
+  for (const id of ["la-raza", "moyandi-scents", "legend-black-jesus", "snesenzo-security", "penny-ntuli", "khuzani-blue-nation", "fezile-security", "friday-consulting"]) {
     const response = await fetchPage(`/work/${id}`);
     assert.equal(response.status, 200);
     const html = await response.text();

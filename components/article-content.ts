@@ -8,6 +8,104 @@ export type Article = ArticleSummary & {
 };
 export const articles: readonly Article[] = [
   {
+    "slug": "la-raza-restaurant-website-in-phases",
+    "title": "Building a restaurant website in phases: La Raza in Newcastle",
+    "seoTitle": "Restaurant Website in Phases | La Raza, Newcastle KZN",
+    "description": "How we're building La Raza's website in Newcastle, KZN: a launch page with a countdown, email and WhatsApp sign-ups and CV applications now, and online ordering next.",
+    "category": "Web development",
+    "summary": "La Raza is a new restaurant and cocktail lounge in Newcastle. Instead of waiting for a full website, we're building it in phases. Here's what's live now, what comes next, and why phases suit a new business.",
+    "datePublished": "2026-11-25",
+    "author": "Ntombii Tech",
+    "image": "/images/work-new/la-raza-desktop.webp",
+    "imageAlt": "La Raza launch page with its gold logo, the line ‘Something extraordinary is coming to Newcastle’ and a countdown",
+    "imageProjectID": "la-raza",
+    "imageWidth": 1440,
+    "imageHeight": 1000,
+    "readingMinutes": 4,
+    "sections": [
+      {
+        "id": "why-phases",
+        "heading": "Why build a website in phases",
+        "paragraphs": [
+          "A new restaurant needs attention before it needs a full website. People want to know what's coming and when, and the owners need to hire a team before the doors open.",
+          "So we're building La Raza's website in two phases. Phase one went live quickly with just what the business needs before opening. Phase two, the full website with online ordering, is being built properly behind it, without holding up the launch."
+        ]
+      },
+      {
+        "id": "phase-one",
+        "heading": "Phase one: the launch page (live now)",
+        "paragraphs": [
+          "The launch page at laraza.co.za does a few jobs, and nothing else:"
+        ],
+        "bullets": [
+          "A countdown to La Raza's big announcement.",
+          "One sign-up box for news and specials, by email or WhatsApp.",
+          "A hiring page for four roles: Manager, Barman, Hostess and General Workers.",
+          "A job application form with a CV upload and optional references.",
+          "Links to La Raza on Instagram and Facebook."
+        ]
+      },
+      {
+        "id": "email-or-whatsapp",
+        "heading": "Email or WhatsApp: let people choose",
+        "paragraphs": [
+          "Many people in Newcastle would rather hear from a business on WhatsApp than by email. So the sign-up has a single box that takes either an email address or a WhatsApp number. Visitors don't have to think about which one to use, and La Raza builds one list of people who want news and specials."
+        ]
+      },
+      {
+        "id": "hiring",
+        "heading": "Hiring through the website",
+        "paragraphs": [
+          "Opening a restaurant means hiring a whole team. Instead of collecting CVs by hand, the launch page invites applications. The vacancies appear on an invitation card rising out of an envelope, in keeping with La Raza's look.",
+          "Applicants choose a role, add their name, email and WhatsApp number, and attach a CV as a PDF, a Word document or a photo, up to 4 MB. Accepting a photo matters: someone with a printed CV can apply straight from their phone. The form also tells applicants that their details are only used for hiring at La Raza."
+        ]
+      },
+      {
+        "id": "phase-two",
+        "heading": "Phase two: the full website (next)",
+        "paragraphs": [
+          "Next, we're building La Raza's full website from the plan we agreed in our proposal. Guests will be able to order online and see their orders.",
+          "The launch page keeps working while we build. When phase two is ready, it replaces the launch page at the same address, so nobody loses the link."
+        ]
+      },
+      {
+        "id": "real-work-examples",
+        "heading": "See the work",
+        "paragraphs": [
+          "The project page shows the launch page on a computer and a phone, with a short video of the live site. For an online shop we've already built, see Moyandi Scents."
+        ]
+      },
+      {
+        "id": "for-your-business",
+        "heading": "Should your business launch in phases?",
+        "paragraphs": [
+          "A phased website can make sense if:"
+        ],
+        "bullets": [
+          "You're opening soon and want to start collecting interest now.",
+          "You need to hire before you open.",
+          "Your full list of features will take time to build properly.",
+          "You want to start simply and add online orders, bookings or a shop later."
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "La Raza launch page",
+        "url": "https://laraza.co.za/"
+      },
+      {
+        "label": "Ntombii Tech website packages",
+        "url": "https://ntombii.tech/pricing"
+      }
+    ],
+    "relatedprojectIDs": [
+      "la-raza",
+      "moyandi-scents"
+    ],
+    "relatedArticleSlug": "moyandi-scents-ecommerce-website-durban"
+  },
+  {
     "slug": "moyandi-scents-ecommerce-website-durban",
     "title": "Building an online shop for a Durban candle brand: Moyandi Scents",
     "seoTitle": "E-commerce Website for a Durban Candle Brand | Moyandi",

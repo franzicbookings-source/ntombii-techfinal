@@ -24,6 +24,21 @@ export function projectMotion(id: string) {
 
 export const portfolioProjects: readonly PortfolioProject[] = [
   {
+    id: "la-raza",
+    caseStudyUrl: "/work/la-raza",
+    name: "La Raza",
+    previewName: "La Raza",
+    kind: "Launch page (phase one)",
+    category: "Restaurant & cocktail lounge · Newcastle, KZN",
+    description: "La Raza is a new restaurant and cocktail lounge in Newcastle, KZN. We're building its website in two phases. Phase one is live: a launch page with a countdown to the big announcement, a sign-up for news and specials by email or WhatsApp, and a hiring page where people apply with their CV. Phase two will be the full website, where guests can order online and see their orders.",
+    tags: ["Launch countdown", "Email & WhatsApp sign-ups", "CV applications"],
+    tagDescriptions: ["Build excitement before opening.", "Let guests choose how to hear from you.", "Hire the team from one page."],
+    url: "https://laraza.co.za/",
+    desktop: { src: "/images/work-new/la-raza-desktop.webp", alt: "La Raza launch page with its gold logo, the line ‘Something extraordinary is coming to Newcastle’ and a countdown", label: "laraza.co.za" },
+    detail: { src: "/images/work-new/la-raza-detail.webp", alt: "La Raza hiring section: an invitation card listing four roles beside a job application form", label: "A closer look / Hiring" },
+    mobile: { src: "/images/work-new/la-raza-mobile.webp", alt: "La Raza launch page on a phone" },
+  },
+  {
     id: "moyandi-scents",
     caseStudyUrl: "/work/moyandi-scents",
     name: "Moyandi Scents",

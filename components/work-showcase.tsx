@@ -5,6 +5,7 @@ import { portfolioProjects } from "./portfolio-projects";
 import { ProjectMotion } from "./project-motion";
 
 const projectSummaries: Record<string, string> = {
+  "la-raza": "A launch page for a new Newcastle restaurant: a countdown, news by email or WhatsApp and CV applications. Online ordering comes next.",
   "moyandi-scents": "Shoppers pick a scent, build a gift box and check out in two steps, with no account needed.",
   "friday-consulting": "Visitors pick the help they need, see past projects and send a project brief.",
   "penny-ntuli": "Brands can see Penny’s radio and TV work, then get in touch about working together.",

@@ -8,6 +8,25 @@ import { businessId, pageMetadata, projectSchema, siteUrl } from "./site-seo";
 import { StructuredData } from "./structured-data";
 
 const stories = {
+  "la-raza": {
+    title: "La Raza Restaurant Launch Website",
+    detailLabel: "Hiring", detailSize: [1440, 1000],
+    description: "See the La Raza launch page built by Ntombii Tech for a new Newcastle restaurant and cocktail lounge: a countdown, email and WhatsApp sign-ups and CV applications, with online ordering planned for phase two.",
+    heading: "La Raza.",
+    introduction: "A new restaurant and cocktail lounge in Newcastle, KZN. We're building its website in phases: a launch page first, then the full website with online ordering.",
+    purpose: "Start the guest list before the doors open.",
+    paragraphs: [
+      "A new restaurant doesn't need its full website on day one, but it does need a way to gather interest before opening. The launch page counts down to La Raza's big announcement, invites visitors to get news and specials by email or WhatsApp, and links to La Raza on Instagram and Facebook.",
+      "La Raza is also hiring. We presented the vacancies as an invitation card rising out of an envelope, listing four roles: Manager, Barman, Hostess and General Workers. Applicants choose a role, add their details and attach a CV as a PDF, a Word document or a photo. Phase two, the full website where guests can order online and see their orders, is next.",
+    ],
+    features: ["Countdown to the big announcement", "Email or WhatsApp sign-up for news and specials", "Hiring invitation for four roles", "CV upload: PDF, Word or a photo, up to 4 MB", "Instagram and Facebook links", "Phase two (planned): online ordering and order history"],
+    steps: [
+      { title: "Lead with the countdown", body: "The logo, one line and a countdown to the big announcement open the page. The sign-up sits right below, so guests can leave an email address or a WhatsApp number in one step." },
+      { title: "Make hiring feel like an invitation", body: "The vacancies appear on an invitation card rising from an envelope, beside a short form: the role, name, email, WhatsApp number, CV and optional references." },
+      { title: "Apply from a phone", body: "On a phone, the countdown, sign-up and invitation stack in order. Applicants can choose a role with one tap and attach their CV straight from the phone, even as a photo of a printed copy." },
+    ],
+    summary: "Guests can follow the countdown and sign up for news by email or WhatsApp, and job seekers can apply with their CV. Phase two will add online ordering.",
+  },
   "moyandi-scents": {
     title: "Moyandi Scents E-commerce Website",
     detailLabel: "Gift boxes", detailSize: [1440, 1000],
@@ -262,7 +281,7 @@ export function ProjectStory({ id }: { id: ProjectStoryId }) {
     <section className="depth-section wrap"><div className="depth-intro"><h2>{story.purpose}</h2></div><div className="depth-prose">{story.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div></section>
     <section className="detail-body wrap"><div className="detail-body-title"><h2>The pages and features.</h2></div><div className="detail-offering">{story.features.map((feature) => <div key={feature}><ContentIllustration kind={illustrationFor(feature)} /><h3>{feature}</h3></div>)}</div></section>
     <ProjectScreens projectId={id} screens={screens} />
-    <section className="work-summary wrap"><h2>See the work for yourself.</h2><p>{story.summary}</p><div className="website-context-links"><Link href="/services/websites">Website design and development <span aria-hidden="true">↗</span></Link><Link href="/pricing">View website prices <span aria-hidden="true">↗</span></Link><Link href="/work">Explore our other projects <span aria-hidden="true">↗</span></Link>{id === "moyandi-scents" ? <Link href="/articles/moyandi-scents-ecommerce-website-durban">How we built the Moyandi Scents shop <span aria-hidden="true">↗</span></Link> : <Link href="/articles/website-design-newcastle-business-guide">What your business website needs <span aria-hidden="true">↗</span></Link>}</div></section>
+    <section className="work-summary wrap"><h2>See the work for yourself.</h2><p>{story.summary}</p><div className="website-context-links"><Link href="/services/websites">Website design and development <span aria-hidden="true">↗</span></Link><Link href="/pricing">View website prices <span aria-hidden="true">↗</span></Link><Link href="/work">Explore our other projects <span aria-hidden="true">↗</span></Link>{id === "la-raza" ? <Link href="/articles/la-raza-restaurant-website-in-phases">How we&rsquo;re building La Raza in phases <span aria-hidden="true">↗</span></Link> : id === "moyandi-scents" ? <Link href="/articles/moyandi-scents-ecommerce-website-durban">How we built the Moyandi Scents shop <span aria-hidden="true">↗</span></Link> : <Link href="/articles/website-design-newcastle-business-guide">What your business website needs <span aria-hidden="true">↗</span></Link>}</div></section>
     <section className="inner-next"><div className="wrap"><h2>Need a website for your business?</h2><Link className="button button-white" href="/contact">Tell us what you need <span aria-hidden="true">↗</span></Link></div></section>
   </div></InnerPage>;
 }
