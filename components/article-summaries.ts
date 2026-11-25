@@ -11,10 +11,10 @@ export type ArticleSummary = {
 export const awardStory: ArticleSummary = {
   slug: awardArticleSlug,
   title: "Ntombii Tech wins a 2026 Web Design Award",
-  seoTitle: "Our 2026 Web Design Award and a 30-second website check",
-  description: "Our Newcastle and Pretoria studio won a 2026 Web Design Award for ntombii.tech. See what went into the site and try a 30-second check on your own business website.",
+  seoTitle: "Ntombii Tech Wins a 2026 Web Design Award",
+  description: "Web-Design.co.za awarded Ntombii Tech a 2026 Web Design Award for its own website. See how our Newcastle and Pretoria studio helps visitors find prices, work and contact details.",
   category: "Studio notes",
-  summary: "Our own website won a 2026 Web Design Award. If you run a business, there’s a part of the design you can borrow today. All you need is a phone and someone who hasn’t used your site before.",
+  summary: "Web-Design.co.za gave us a 2026 Web Design Award for this website. Here’s what we built to help business owners see our work, compare prices and get in touch.",
   datePublished: "2026-11-25",
   author: "Ntombii Tech",
   readingMinutes: 2,
@@ -27,11 +27,11 @@ export const awardStory: ArticleSummary = {
 
 export const laRazaStory: ArticleSummary = {
   "slug": "la-raza-restaurant-website-in-phases",
-  "title": "How we’re building La Raza’s website in phases",
+  "title": "How we’re building the La Raza restaurant website",
   "seoTitle": "La Raza Restaurant Website in Newcastle, KZN",
   "description": "How we're building La Raza's website in Newcastle, KZN: a launch page with a countdown, email and WhatsApp sign-ups and CV applications now, and online ordering next.",
   "category": "Web development",
-  "summary": "La Raza is a restaurant and cocktail lounge in Newcastle, KwaZulu-Natal. We started with a launch page where guests can sign up for news and job seekers can apply. Online ordering comes in phase two.",
+  "summary": "La Raza restaurant and cocktail lounge is in Newcastle, KwaZulu-Natal. We started with a launch page where guests can sign up for news and job seekers can apply. Online ordering comes in phase two.",
   "datePublished": "2026-11-25",
   "author": "Ntombii Tech",
   "image": "/images/work-new/la-raza-desktop.webp",

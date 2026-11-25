@@ -6,7 +6,6 @@ export type Article = ArticleSummary & {
     heading: string;
     paragraphs: readonly string[];
     bullets?: readonly string[];
-    checks?: readonly { label: string; prompt: string; advice: string }[];
   }[];
   sources: readonly { label: string; url: string }[];
   relatedprojectIDs: readonly string[];
@@ -21,49 +20,33 @@ export const articles: readonly Article[] = [
     sections: [
       {
         id: "the-award",
-        heading: "What the award covers",
+        heading: "What the award recognises",
         paragraphs: [
-          "We build websites from Newcastle, KwaZulu-Natal, and Pretoria, Gauteng. This time the project was our own. Web-Design.co.za awarded ntombii.tech a 2026 Web Design Award. To see the result, enter www.ntombii.tech in the organiser’s award checker.",
-          "The organiser publishes three judging criteria. Visual design carries 55%, navigation and ease of use 30%, and speed 15%.",
+          "Ntombii Tech is a web design studio working from Newcastle, KwaZulu-Natal, and Pretoria, Gauteng. We build business and e-commerce websites. This award was for ntombii.tech, the website where people come to see our work and decide whether to hire us.",
+          "Web-Design.co.za judges the look of a website, how quickly it loads and how easy it is to get around. To verify the award, open the organiser’s checker and enter www.ntombii.tech.",
         ],
       },
       {
         id: "on-a-phone",
-        heading: "Why we made the badges smaller",
+        heading: "What we wanted our website to make easier",
         paragraphs: [
-          "When we first put the badges on the homepage, they took up 110 pixels of height on a typical phone. That was a lot of space for someone who came to ask about a website. Today all four fit in a row 46 pixels high. The first choices you see are still “Discuss your website” and “See our work”.",
-          "Follow the enquiry route and you’ll find another small decision. The quote form prepares a WhatsApp message with your project details. You can read it, change it and send it yourself.",
-        ],
-      },
-      {
-        id: "phone-check",
-        heading: "Try the 30-second website check",
-        paragraphs: [
-          "Open your homepage on a phone and hand it to someone who hasn’t seen it before. Pick one job below. Give them 30 seconds and let them talk you through what they’re looking for. The first place they hesitate is the place to start.",
-        ],
-        checks: [
-          {
-            label: "Ask for a quote",
-            prompt: "Ask them, “How would you get a price for the service you need?”",
-            advice: "Watch which words they look for. If they open the menu twice or scroll past your contact details, put a “Request a quote” link beside the service they were reading about.",
-          },
-          {
-            label: "Check the service area",
-            prompt: "Give them a real suburb you serve. Ask, “Would this business come to my address?”",
-            advice: "See where they expect the answer. If all they can find is your office address, name the towns or suburbs you cover on the service page itself.",
-          },
-          {
-            label: "Choose a product",
-            prompt: "Ask them to pick something they’d buy, tell you its price and show you how they’d place the order. Stop before they send anything.",
-            advice: "If they lose the price after picking a size or scent, keep the selected option, its price and the order button together on the product page.",
-          },
+          "Think about a business owner looking for a web designer between meetings. They want to see an example that feels close to their business, get an idea of the cost and know how to reach us. We put “See our work” and “Discuss your website” at the top of the homepage so they can choose where to start.",
+          "On the pricing page, you can compare a portfolio site, a business website and a Shopify e-commerce website. If you’re ready to ask for a quote, the form turns your answers into a WhatsApp draft. You can check the details before sending it.",
         ],
       },
       {
         id: "real-work-examples",
-        heading: "One question we ask on client projects",
+        heading: "How that carries over to client websites",
         paragraphs: [
-          "What has someone come here to do? At La Raza in Newcastle, a job applicant can go straight to the vacancies and send a CV from a phone. At Moyandi Scents, a shopper can put together a gift box and check out as a guest. You can follow both journeys in our project notes.",
+          "When we built the launch page for La Raza restaurant in Newcastle, the team needed to fill vacancies before opening. We put the roles and the application form together so someone could find a job and upload a CV on their phone.",
+          "For Moyandi Scents, the job was to help people choose a gift online. Shoppers can pick the scents for a gift box and order as a guest. Both projects started with a specific thing someone needed to do.",
+        ],
+      },
+      {
+        id: "phone-check",
+        heading: "A quick way to check your own website",
+        paragraphs: [
+          "Pick the one thing you most want a customer to do, such as getting a quote or finding out if you deliver to their suburb. Hand your phone to someone who hasn’t used your website and ask them to show you how they’d do it. Where they pause tells you which page, link or button to look at first.",
         ],
       },
     ],

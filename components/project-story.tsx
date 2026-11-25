@@ -12,7 +12,7 @@ const stories = {
     title: "La Raza Restaurant and Cocktail Lounge Website",
     detailLabel: "Hiring", detailSize: [1440, 1000],
     description: "See the La Raza launch page built by Ntombii Tech for a new Newcastle restaurant and cocktail lounge: a countdown, email and WhatsApp sign-ups and CV applications, with online ordering planned for phase two.",
-    heading: "La Raza",
+    heading: "La Raza restaurant",
     introduction: "A restaurant and cocktail lounge in Newcastle, KwaZulu-Natal. We built the launch page for sign-ups and job applications. The full website will add online ordering.",
     purpose: "Start the guest list before the doors open.",
     paragraphs: [
@@ -203,6 +203,6 @@ export function ProjectStory({ id }: { id: ProjectStoryId }) {
     <section className="depth-section wrap"><div className="depth-intro"><h2>{story.purpose}</h2></div><div className="depth-prose">{story.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div></section>
     <section className="detail-body wrap"><div className="detail-body-title"><h2>The pages and features.</h2></div><div className="detail-offering">{story.features.map((feature) => <div key={feature}><ContentIllustration kind={illustrationFor(feature)} /><h3>{feature}</h3></div>)}</div></section>
     <ProjectScreens projectId={id} screens={screens} />
-    <section className="work-summary wrap"><h2>See the work for yourself.</h2><p>{story.summary}</p><div className="website-context-links"><Link href="/services/websites">Website design and development <span aria-hidden="true">↗</span></Link><Link href="/pricing">View website prices <span aria-hidden="true">↗</span></Link><Link href="/work">Explore our other projects <span aria-hidden="true">↗</span></Link>{id === "la-raza" ? <Link href="/articles/la-raza-restaurant-website-in-phases">How we&rsquo;re building La Raza in phases <span aria-hidden="true">↗</span></Link> : id === "moyandi-scents" ? <Link href="/articles/moyandi-scents-ecommerce-website-durban">How we built the Moyandi Scents shop <span aria-hidden="true">↗</span></Link> : <Link href="/articles/website-design-newcastle-business-guide">What your business website needs <span aria-hidden="true">↗</span></Link>}</div></section>
+    <section className="work-summary wrap"><h2>See the work for yourself.</h2><p>{story.summary}</p><div className="website-context-links"><Link href="/services/websites">Website design and development <span aria-hidden="true">↗</span></Link><Link href="/pricing">View website prices <span aria-hidden="true">↗</span></Link><Link href="/work">Explore our other projects <span aria-hidden="true">↗</span></Link>{id === "la-raza" ? <Link href="/articles/la-raza-restaurant-website-in-phases">How we&rsquo;re building the La Raza restaurant website <span aria-hidden="true">↗</span></Link> : id === "moyandi-scents" ? <Link href="/articles/moyandi-scents-ecommerce-website-durban">How we built the Moyandi Scents shop <span aria-hidden="true">↗</span></Link> : <Link href="/articles/website-design-newcastle-business-guide">What your business website needs <span aria-hidden="true">↗</span></Link>}</div></section>
   </div></InnerPage>;
 }

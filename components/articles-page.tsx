@@ -37,12 +37,6 @@ export function ArticlePage({ article }: { article: Article }) {
             <h2>{section.heading}</h2>
             {section.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
             {section.bullets && <ul>{section.bullets.map(item => <li key={item}>{item}</li>)}</ul>}
-            {section.checks && <div className="article-phone-checks">{section.checks.map(check =>
-              <details key={check.label}>
-                <summary>{check.label}<span aria-hidden="true" /></summary>
-                <p><strong>{check.prompt}</strong></p><p>{check.advice}</p>
-              </details>
-            )}</div>}
             {(section.id === "real-work-examples" || section.id === "real-proof") && <div className="reading-project-links">{article.relatedprojectIDs.map(id => {
               const item = portfolioProjects.find(project => project.id === id)!;
               return <Link key={id} href={item.caseStudyUrl!}>{item.previewName} website story <span aria-hidden="true">↗</span></Link>;

@@ -1076,17 +1076,3 @@ button:disabled{opacity:.5;cursor:not-allowed}
 @media(max-width:767px){.newsletter-section{padding-block:56px 0}.process-intro{margin-top:14px}}
 
 .award-story-link { text-decoration: underline; text-underline-offset: .18em; }
-.article-phone-checks { display: grid; gap: 8px; margin-top: 20px; }
-.article-phone-checks details { border: 1px solid var(--line); border-radius: 10px; overflow: clip; }
-.article-phone-checks details[open] { background: #f0f5f7; }
-.article-phone-checks summary {
-  display: flex; justify-content: space-between; align-items: center; gap: 16px;
-  padding: 13px 18px; min-height: 48px; color: #263f50;
-  font-weight: 500; cursor: pointer; list-style: none;
-}
-.article-phone-checks summary::-webkit-details-marker { display: none; }
-.article-phone-checks summary span { width: 8px; height: 8px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: rotate(45deg); }
-.article-phone-checks details[open] summary span { transform: rotate(225deg); }
-.article-phone-checks summary:focus-visible { outline: 2px solid #275b75; outline-offset: -3px; }
-.article-phone-checks p { padding-inline: 18px; }
-.article-phone-checks p:last-child { padding-bottom: 16px; }

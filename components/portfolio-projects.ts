@@ -27,7 +27,7 @@ export const portfolioProjects: readonly PortfolioProject[] = [
     id: "la-raza",
     caseStudyUrl: "/work/la-raza",
     name: "La Raza",
-    previewName: "La Raza",
+    previewName: "La Raza restaurant",
     kind: "Launch page (phase one)",
     category: "Restaurant & cocktail lounge · Newcastle, KZN",
     description: "La Raza is a new restaurant and cocktail lounge in Newcastle, KZN. We're building its website in two phases. Phase one is live: a launch page with a countdown to the big announcement, a sign-up for news and specials by email or WhatsApp, and a hiring page where people apply with their CV. Phase two will be the full website, where guests can order online and see their orders.",
