@@ -1,4 +1,4 @@
-import { awardStory, type ArticleSummary } from "./article-summaries";
+import { awardStory, laRazaStory, type ArticleSummary } from "./article-summaries";
 import { awardVerificationUrl } from "./web-design-award";
 export type Article = ArticleSummary & {
   sections: readonly {
@@ -72,20 +72,7 @@ export const articles: readonly Article[] = [
     relatedArticleSlug: "website-design-newcastle-business-guide",
   },
   {
-    "slug": "la-raza-restaurant-website-in-phases",
-    "title": "Building a restaurant website in phases: La Raza in Newcastle",
-    "seoTitle": "Restaurant Website in Phases | La Raza, Newcastle KZN",
-    "description": "How we're building La Raza's website in Newcastle, KZN: a launch page with a countdown, email and WhatsApp sign-ups and CV applications now, and online ordering next.",
-    "category": "Web development",
-    "summary": "La Raza is a new restaurant and cocktail lounge in Newcastle. Instead of waiting for a full website, we're building it in phases. Here's what's live now, what comes next, and why phases suit a new business.",
-    "datePublished": "2026-11-25",
-    "author": "Ntombii Tech",
-    "image": "/images/work-new/la-raza-desktop.webp",
-    "imageAlt": "La Raza launch page with its gold logo, the line ‘Something extraordinary is coming to Newcastle’ and a countdown",
-    "imageProjectID": "la-raza",
-    "imageWidth": 1440,
-    "imageHeight": 1000,
-    "readingMinutes": 4,
+    ...laRazaStory,
     "sections": [
       {
         "id": "why-phases",

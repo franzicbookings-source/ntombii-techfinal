@@ -9,11 +9,11 @@ import { StructuredData } from "./structured-data";
 
 const stories = {
   "la-raza": {
-    title: "La Raza Restaurant Launch Website",
+    title: "La Raza Restaurant and Cocktail Lounge Website",
     detailLabel: "Hiring", detailSize: [1440, 1000],
     description: "See the La Raza launch page built by Ntombii Tech for a new Newcastle restaurant and cocktail lounge: a countdown, email and WhatsApp sign-ups and CV applications, with online ordering planned for phase two.",
-    heading: "La Raza.",
-    introduction: "A new restaurant and cocktail lounge in Newcastle, KZN. We're building its website in phases: a launch page first, then the full website with online ordering.",
+    heading: "La Raza",
+    introduction: "A restaurant and cocktail lounge in Newcastle, KwaZulu-Natal. We built the launch page for sign-ups and job applications. The full website will add online ordering.",
     purpose: "Start the guest list before the doors open.",
     paragraphs: [
       "A new restaurant doesn't need its full website on day one, but it does need a way to gather interest before opening. The launch page counts down to La Raza's big announcement, invites visitors to get news and specials by email or WhatsApp, and links to La Raza on Instagram and Facebook.",
