@@ -10,7 +10,7 @@ async function page(path) {
 test("all sitemap pages have unique titles and descriptions after the metadata cleanup", async () => {
   const { html: sitemap } = await page("/sitemap.xml");
   const paths = [...sitemap.matchAll(/<loc>https:\/\/ntombii.tech([^<]*)<\/loc>/g)].map(match => match[1] || "/");
-  assert.equal(paths.length, 35);
+  assert.equal(paths.length, 36);
   const titles = new Set(); const descriptions = new Set();
   for (const path of paths) {
     const { status, html } = await page(path); assert.equal(status, 200, path);

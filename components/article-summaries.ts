@@ -1,3 +1,5 @@
+import { awardArticleSlug } from "./web-design-award";
+
 export type ArticleSummary = {
   slug: string; title: string; seoTitle: string; description: string; category: string;
   summary: string; datePublished: string; author: string; readingMinutes: number;
@@ -6,7 +8,25 @@ export type ArticleSummary = {
   imagePresentation?: "product";
 };
 
+export const awardStory: ArticleSummary = {
+  slug: awardArticleSlug,
+  title: "Ntombii Tech wins a 2026 Web Design Award",
+  seoTitle: "Our 2026 Web Design Award and a 30-second website check",
+  description: "Our Newcastle and Pretoria studio won a 2026 Web Design Award for ntombii.tech. See what went into the site and try a 30-second check on your own business website.",
+  category: "Studio notes",
+  summary: "Our own website won a 2026 Web Design Award. If you run a business, there’s a part of the design you can borrow today. All you need is a phone and someone who hasn’t used your site before.",
+  datePublished: "2026-11-25",
+  author: "Ntombii Tech",
+  readingMinutes: 2,
+  image: "/images/ntombii-2026-web-design-award.jpg",
+  imageAlt: "The 2026 Web Design Award winner badge beside Ntombii Tech’s homepage on a phone",
+  imageCaption: "The award is for ntombii.tech, our studio’s own website.",
+  imageWidth: 1200,
+  imageHeight: 630,
+};
+
 export const articleSummaries: readonly ArticleSummary[] = [
+  awardStory,
   {
     "slug": "la-raza-restaurant-website-in-phases",
     "title": "Building a restaurant website in phases: La Raza in Newcastle",

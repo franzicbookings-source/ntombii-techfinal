@@ -1,3 +1,4 @@
+import { awardArticlePath } from "./web-design-award";
 import { pretoriaAreas } from "./locations";
 import type { Metadata } from "next";
 import { portfolioProjects, type PortfolioProject } from "./portfolio-projects";
@@ -50,6 +51,8 @@ export const businessSchema = {
     },
     {
       "@type": "WebSite", "@id": `${siteUrl}/#website`, name: "Ntombii Tech", url: `${siteUrl}/`,
+      award: "2026 Web Design Award from Web-Design.co.za",
+      subjectOf: { "@id": `${siteUrl}${awardArticlePath}#article` },
       inLanguage: "en-ZA", publisher: { "@id": businessId },
     },
   ],

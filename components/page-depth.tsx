@@ -1,3 +1,4 @@
+import { awardArticlePath } from "./web-design-award";
 import { shopifyCosts } from "./website-packages";
 import { meetingInformation } from "./locations";
 import { ContentIllustration, illustrationFor } from "./content-illustration";
@@ -137,7 +138,7 @@ export function AboutDepth() {
       <p>Sabelo Ndlovu worked in the music industry, managing artists and booking their shows. After discovering AI tools, he began experimenting with web development and learning through projects for businesses.</p>
       <p>His niece, Sthembile, joined him on the design side.</p>
       <p>Sthembile is 15 and in Grade 9. Sabelo introduced her to computers and AI, and she took an interest in page layouts and graphics. She now leads web and graphic design for the studio.</p>
-      <p>They work together on business and e-commerce websites, reviewing the design and build as each project develops.</p>
+      <p>They work together on business and e-commerce websites, reviewing the design and build as each project develops. In 2026 their own website won a <Link className="award-story-link" href={awardArticlePath}>Web Design Award from Web-Design.co.za</Link>.</p>
     </div>
   </article></section>;
 }

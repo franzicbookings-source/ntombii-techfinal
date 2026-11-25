@@ -79,3 +79,16 @@ test("all project stories pair design decisions with real desktop, detail and ph
     assert.doesNotMatch(html, /class="work-flow-grid"/);
   }
 });
+
+test("the award story connects the issuer, the website and the mobile check", async () => {
+  const path = "/articles/ntombii-tech-2026-web-design-award";
+  const [article, home, sitemap] = await Promise.all([path, "/", "/sitemap.xml"].map(fetchPage));
+  assert.equal(article.status, 200);
+  const html = await article.text();
+  const post = linkedData(html).find(node => node["@type"] === "BlogPosting");
+  const site = linkedData(await home.text()).find(node => node["@type"] === "WebSite" && node["@id"] === "https://ntombii.tech/#website");
+  assert.equal(site.subjectOf["@id"], post["@id"]);
+  assert.match(html, /id="phone-check"/);
+  assert.match(html, /web-design\.co\.za\/web-design-awards\.php/);
+  assert.ok((await sitemap.text()).includes(post.url));
+});

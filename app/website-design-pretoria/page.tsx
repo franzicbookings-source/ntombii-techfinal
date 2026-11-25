@@ -1,3 +1,4 @@
+import { awardArticlePath } from "@/components/web-design-award";
 import { packagePriceSummary } from "@/components/website-packages";
 import Link from "next/link";
 import { ContentIllustration } from "@/components/content-illustration";
@@ -62,6 +63,7 @@ export default function PretoriaWebsiteDesignPage() {
         <Link href="/work/snesenzo-security">Snesenzo Security Group <span aria-hidden="true">↗</span></Link>
         <Link href="/work/legend-black-jesus">Legend Black Jesus <span aria-hidden="true">↗</span></Link>
         <Link href="/work/friday-consulting">Friday Consulting <span aria-hidden="true">↗</span></Link>
+        <Link href={`${awardArticlePath}#phone-check`}>Check your own website on a phone</Link>
       </div>
     </div></section>
 

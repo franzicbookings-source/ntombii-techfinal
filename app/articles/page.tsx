@@ -1,4 +1,4 @@
 import { ArticlesPage } from "@/components/articles-page";
 import { pageMetadata } from "@/components/site-seo";
-export const metadata = pageMetadata({ title: "Business Guides | Websites, Local SEO & KZN Print", description: "Practical website and SEO advice from Ntombii Tech in Newcastle and Pretoria, plus guides to printing, signage and toner for businesses in KZN.", path: "/articles" });
+export const metadata = pageMetadata({ title: "Business Guides and Studio Notes", description: "Website design guides, project stories and studio news from Ntombii Tech in Newcastle and Pretoria, plus local SEO advice and print guides for KZN businesses.", path: "/articles" });
 export default function Page() { return <ArticlesPage />; }

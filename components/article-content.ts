@@ -1,12 +1,76 @@
-import type { ArticleSummary } from "./article-summaries";
+import { awardStory, type ArticleSummary } from "./article-summaries";
+import { awardVerificationUrl } from "./web-design-award";
 export type Article = ArticleSummary & {
-  sections: readonly { id: string; heading: string; paragraphs: readonly string[]; bullets?: readonly string[] }[];
+  sections: readonly {
+    id: string;
+    heading: string;
+    paragraphs: readonly string[];
+    bullets?: readonly string[];
+    checks?: readonly { label: string; prompt: string; advice: string }[];
+  }[];
   sources: readonly { label: string; url: string }[];
   relatedprojectIDs: readonly string[];
+  proofLink?: { href: string; label: string };
   relatedServicePath?: string; serviceLinkLabel?: string;
   inquiryMessage?: string; relatedArticleSlug?: string;
 };
 export const articles: readonly Article[] = [
+  {
+    ...awardStory,
+    proofLink: { href: awardVerificationUrl, label: "Verify the award" },
+    sections: [
+      {
+        id: "the-award",
+        heading: "What the award covers",
+        paragraphs: [
+          "We build websites from Newcastle, KwaZulu-Natal, and Pretoria, Gauteng. This time the project was our own. Web-Design.co.za awarded ntombii.tech a 2026 Web Design Award. To see the result, enter www.ntombii.tech in the organiser’s award checker.",
+          "The organiser publishes three judging criteria. Visual design carries 55%, navigation and ease of use 30%, and speed 15%.",
+        ],
+      },
+      {
+        id: "on-a-phone",
+        heading: "Why we made the badges smaller",
+        paragraphs: [
+          "When we first put the badges on the homepage, they took up 110 pixels of height on a typical phone. That was a lot of space for someone who came to ask about a website. Today all four fit in a row 46 pixels high. The first choices you see are still “Discuss your website” and “See our work”.",
+          "Follow the enquiry route and you’ll find another small decision. The quote form prepares a WhatsApp message with your project details. You can read it, change it and send it yourself.",
+        ],
+      },
+      {
+        id: "phone-check",
+        heading: "Try the 30-second website check",
+        paragraphs: [
+          "Open your homepage on a phone and hand it to someone who hasn’t seen it before. Pick one job below. Give them 30 seconds and let them talk you through what they’re looking for. The first place they hesitate is the place to start.",
+        ],
+        checks: [
+          {
+            label: "Ask for a quote",
+            prompt: "Ask them, “How would you get a price for the service you need?”",
+            advice: "Watch which words they look for. If they open the menu twice or scroll past your contact details, put a “Request a quote” link beside the service they were reading about.",
+          },
+          {
+            label: "Check the service area",
+            prompt: "Give them a real suburb you serve. Ask, “Would this business come to my address?”",
+            advice: "See where they expect the answer. If all they can find is your office address, name the towns or suburbs you cover on the service page itself.",
+          },
+          {
+            label: "Choose a product",
+            prompt: "Ask them to pick something they’d buy, tell you its price and show you how they’d place the order. Stop before they send anything.",
+            advice: "If they lose the price after picking a size or scent, keep the selected option, its price and the order button together on the product page.",
+          },
+        ],
+      },
+      {
+        id: "real-work-examples",
+        heading: "One question we ask on client projects",
+        paragraphs: [
+          "What has someone come here to do? At La Raza in Newcastle, a job applicant can go straight to the vacancies and send a CV from a phone. At Moyandi Scents, a shopper can put together a gift box and check out as a guest. You can follow both journeys in our project notes.",
+        ],
+      },
+    ],
+    sources: [{ label: "Web-Design.co.za judging criteria and award checker", url: awardVerificationUrl }],
+    relatedprojectIDs: ["la-raza", "moyandi-scents"],
+    relatedArticleSlug: "website-design-newcastle-business-guide",
+  },
   {
     "slug": "la-raza-restaurant-website-in-phases",
     "title": "Building a restaurant website in phases: La Raza in Newcastle",
