@@ -8,7 +8,7 @@ type Choice = "play" | "pause" | null;
 
 /**
  * A project's 3D motion clip. It loads nothing until it is on screen, plays only while visible,
- * stays paused for reduced-motion and data-saver visitors, and always offers a pause/play button.
+ * stays paused for reduced-motion and data-saver visitors, and supports tap, click and keyboard playback control without an on-screen icon.
  */
 export function ProjectMotion({ project, className = "" }: { project: PortfolioProject; className?: string }) {
   const motion = projectMotion(project.id);
@@ -65,10 +65,6 @@ export function ProjectMotion({ project, className = "" }: { project: PortfolioP
     <video ref={video} className="project-motion-video" muted loop playsInline preload="none" width={motion.width} height={motion.height} aria-label={`The ${project.name} website scrolling on a laptop and a phone`}>
       <source src={motion.src} type="video/mp4" />
     </video>
-    <button type="button" className="project-motion-toggle" onClick={toggle} aria-label={`${playing ? "Pause" : "Play"} the ${project.name} video`}>
-      {playing
-        ? <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6.5 4.5v11m7-11v11" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" /></svg>
-        : <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4.8v10.4a.6.6 0 0 0 .9.5l8.2-5.2a.6.6 0 0 0 0-1L7.9 4.3a.6.6 0 0 0-.9.5Z" fill="currentColor" /></svg>}
-    </button>
+    <button type="button" className="project-motion-control" onClick={toggle} aria-label={`${playing ? "Pause" : "Play"} the ${project.name} video`} />
   </div>;
 }

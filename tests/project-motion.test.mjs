@@ -9,7 +9,7 @@ async function page(path) {
 }
 const clips = html => [...html.matchAll(/<source src="\/videos\/work\/([a-z0-9-]+)\.mp4"/g)].map(match => match[1]);
 
-test("every portfolio project has a motion clip and poster, with a pause/play control", async () => {
+test("every portfolio project has a motion clip and poster, with accessible playback and no overlay icon", async () => {
   const { status, html } = await page("/work");
   assert.equal(status, 200);
   const ids = clips(html);
@@ -18,9 +18,10 @@ test("every portfolio project has a motion clip and poster, with a pause/play co
     await access(new URL(`../public/videos/work/${id}.mp4`, import.meta.url));
     await access(new URL(`../public/videos/work/${id}-poster.webp`, import.meta.url));
   }
-  assert.equal((html.match(/class="project-motion-toggle"/g) ?? []).length, ids.length);
+  assert.equal((html.match(/class="project-motion-control"/g) ?? []).length, ids.length);
   assert.match(html, /aria-label="Play the Friday Consulting video"/);
   assert.match(html, /preload="none"/);
+  assert.doesNotMatch(html, /project-motion-toggle/);
 });
 
 test("the homepage shows every project clip and keeps the refreshed structure", async () => {
