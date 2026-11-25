@@ -157,6 +157,9 @@ export function HomePage() {
             <span className="hero-badge-plaque">
               <img src="/images/badges/web-design-nominee.png" width="314" height="138" alt="Web-Design.co.za award nominee" />
             </span>
+            <a className="hero-badge-plaque" href="https://www.web-design.co.za/web-design-awards.php">
+              <img src="/images/badges/web-design-winner-2026.png" width="315" height="191" alt="2026 Web Design Award winner – verify the award" />
+            </a>
           </div>
         </div>
         <div className="hero-form"><QuoteForm /></div>

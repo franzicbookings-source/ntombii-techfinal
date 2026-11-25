@@ -69,10 +69,10 @@ h2{font-size:clamp(34px,3.4vw,48px)}
 .hero-badges {
   --badge-height: 56px;
   display: grid;
-  grid-template-columns: minmax(0, 1.86fr) minmax(0, .96fr) minmax(0, 2.04fr);
+  grid-template-columns: minmax(0, 1.86fr) minmax(0, .96fr) minmax(0, 2.04fr) minmax(0, 1.68fr);
   align-items: center;
   gap: 18px;
-  width: min(100%, 306px);
+  width: min(100%, 410px);
   margin-top: clamp(20px, 2.4vw, 30px);
 }
 .hero-badges > img { width: 100%; height: auto; }
@@ -90,6 +90,7 @@ h2{font-size:clamp(34px,3.4vw,48px)}
   height: 100%;
   object-fit: contain;
 }
+.hero-badges a:hover, .hero-badges a:focus-visible { border-color: #a5c6d9; }
 .quote-form{padding:39px 36px 26px}
 .quote-form label{font-weight:400;font-size:14px}
 .form-row{gap:12px}
@@ -649,7 +650,8 @@ body:has(.menu-toggle.open) .floating-contact{opacity:0;pointer-events:none}
   .hero-copy h1{font-size:clamp(30px,8.2vw,36px);line-height:1.35;white-space:normal}
   .hero-description{font-size:15px;line-height:1.65;margin-top:20px}
   .hero-actions{margin-top:21px;gap:9px}
-  .hero-badges { --badge-height: 46px; width: min(100%, 258px); gap: 14px; }
+  .hero-badges { --badge-height: 46px; width: min(100%, 350px); gap: clamp(8px, 2.6vw, 12px); }
+  .hero-badge-plaque { padding-inline: 4px; }
   .hero-actions .button{min-height:46px;padding:12px 15px;font-size:12px}
   .quote-form,.inner-contact-form .quote-form{padding:22px 20px 19px}
   .quote-form label,.form-row label{font-size:12px;gap:7px;margin-bottom:16px}
