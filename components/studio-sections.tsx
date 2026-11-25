@@ -21,7 +21,7 @@ export function NewsletterSection() {
   const screens = [
     { project: projectById("friday-consulting"), className: "newsletter-screen-left" },
     { project: projectById("legend-black-jesus"), className: "newsletter-screen-middle" },
-    { project: projectById("khuzani-blue-nation"), className: "newsletter-screen-right" },
+    { project: projectById("la-raza"), className: "newsletter-screen-right" },
   ] as const;
   return <section className="newsletter-section section" id="tips">
     <div className="newsletter-layout wrap">

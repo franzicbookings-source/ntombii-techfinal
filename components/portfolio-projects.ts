@@ -88,40 +88,6 @@ export const portfolioProjects: readonly PortfolioProject[] = [
     }
   },
   {
-    "id": "penny-ntuli",
-    "caseStudyUrl": "/work/penny-ntuli",
-    "name": "Penny Ntuli",
-    "previewName": "Penny Ntuli",
-    "kind": "Personal brand website",
-    "category": "Radio & partnerships · South Africa",
-    "description": "Penny Ntuli works across radio, television, events and brand partnerships. Her website brings together career highlights, collaborations and press coverage so potential partners can get to know her work before making contact.",
-    "tags": [
-      "Career & partnerships",
-      "Social channels",
-      "Enquiry flow"
-    ],
-    "tagDescriptions": [
-      "Career & partnerships",
-      "Social channels",
-      "Enquiry flow"
-    ],
-    "url": "https://penny-ntuli-partnerships.vercel.app/",
-    "desktop": {
-      "src": "/images/work-new/penny-ntuli-desktop.webp",
-      "alt": "Penny Ntuli website homepage",
-      "label": "penny-ntuli-partnerships.vercel.app"
-    },
-    "detail": {
-      "src": "/images/work-new/penny-ntuli-detail.webp",
-      "alt": "Penny Ntuli website content and services",
-      "label": "A closer look"
-    },
-    "mobile": {
-      "src": "/images/work-new/penny-ntuli-mobile.webp",
-      "alt": "Penny Ntuli website on a phone"
-    }
-  },
-  {
     "id": "fezile-security",
     "caseStudyUrl": "/work/fezile-security",
     "name": "Fezile Security Services",
@@ -184,40 +150,6 @@ export const portfolioProjects: readonly PortfolioProject[] = [
     desktop: { src: "/images/work-security-desktop.jpg", alt: "Snesenzo Security Group homepage showing its team, vehicles and quote request button", label: "snesenzosecuritygroup.co.za" },
     detail: { src: "/images/work-security-detail.jpg", alt: "Snesenzo Security Group service page presenting its protection services", label: "A closer look / Security services" },
     mobile: { src: "/images/work-security-mobile.jpg", alt: "Snesenzo Security Group homepage adapted for a phone" },
-  },
-  {
-    "id": "khuzani-blue-nation",
-    "caseStudyUrl": "/work/khuzani-blue-nation",
-    "name": "Khuzani Mpungose",
-    "previewName": "Khuzani Mpungose",
-    "kind": "Artist website",
-    "category": "Music & culture · South Africa",
-    "description": "Khuzani Mpungose’s website brings together his music, story, Blue Nation community, achievements and gig guide. Fans can explore the recordings; promoters can find live information and enquire about bookings.",
-    "tags": [
-      "Artist story",
-      "Music & live dates",
-      "Bookings"
-    ],
-    "tagDescriptions": [
-      "Artist story",
-      "Music & live dates",
-      "Bookings"
-    ],
-    "url": "https://khuzani-blue-nation.vercel.app/",
-    "desktop": {
-      "src": "/images/work-new/khuzani-blue-nation-desktop.webp",
-      "alt": "Khuzani Mpungose website homepage",
-      "label": "khuzani-blue-nation.vercel.app"
-    },
-    "detail": {
-      "src": "/images/work-new/khuzani-blue-nation-detail.webp",
-      "alt": "Khuzani Mpungose website content and services",
-      "label": "A closer look"
-    },
-    "mobile": {
-      "src": "/images/work-new/khuzani-blue-nation-mobile.webp",
-      "alt": "Khuzani Mpungose website on a phone"
-    }
   },
 ];
 

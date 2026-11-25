@@ -8,8 +8,6 @@ const projectSummaries: Record<string, string> = {
   "la-raza": "A launch page for a new Newcastle restaurant: a countdown, news by email or WhatsApp and CV applications. Online ordering comes next.",
   "moyandi-scents": "Shoppers pick a scent, build a gift box and check out in two steps, with no account needed.",
   "friday-consulting": "Visitors pick the help they need, see past projects and send a project brief.",
-  "penny-ntuli": "Brands can see Penny’s radio and TV work, then get in touch about working together.",
-  "khuzani-blue-nation": "Fans find his music and upcoming shows. Promoters can ask about bookings.",
   "fezile-security": "Customers compare security services, find their nearest branch and ask for a quote.",
   "legend-black-jesus": "Shoppers browse the clothing, choose a size and colour, then order on WhatsApp.",
   "snesenzo-security": "Customers see what the company offers and where it works, then ask for a quote.",

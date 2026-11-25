@@ -10,6 +10,7 @@ async function fetchPage(path) {
   }, { waitUntil() {}, passThroughOnException() {} });
 }
 const slugs = ["website-design-newcastle-business-guide", "get-found-google-ai-search"];
+const projectIds = ["la-raza", "moyandi-scents", "friday-consulting", "fezile-security", "legend-black-jesus", "snesenzo-security"];
 function linkedData(html) {
   return [...html.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
     .flatMap(match => { const data = JSON.parse(match[1]); return data["@graph"] ?? [data]; });
@@ -46,7 +47,7 @@ test("articles and all project stories have crawlable paths from the Site", asyn
   const portfolio = await fetchPage("/work");
   assert.equal(portfolio.status, 200);
   const portfolioHtml = await portfolio.text();
-  for (const id of ["la-raza", "moyandi-scents", "legend-black-jesus", "snesenzo-security", "penny-ntuli", "khuzani-blue-nation", "fezile-security", "friday-consulting"]) {
+  for (const id of projectIds) {
     assert.ok(portfolioHtml.includes(`href="/work/${id}"`));
     const story = await fetchPage(`/work/${id}`);
     assert.equal(story.status, 200);
@@ -64,8 +65,8 @@ test("an unknown article returns 404 rather than an indexable empty article", as
 });
 
 
-test("all eight project stories pair design decisions with real desktop, detail and phone screenshots", async () => {
-  for (const id of ["la-raza", "moyandi-scents", "legend-black-jesus", "snesenzo-security", "penny-ntuli", "khuzani-blue-nation", "fezile-security", "friday-consulting"]) {
+test("all project stories pair design decisions with real desktop, detail and phone screenshots", async () => {
+  for (const id of projectIds) {
     const response = await fetchPage(`/work/${id}`);
     assert.equal(response.status, 200);
     const html = await response.text();
