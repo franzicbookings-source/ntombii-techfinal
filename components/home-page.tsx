@@ -11,7 +11,7 @@ import { NewsletterSection, SocialLinks } from "./studio-sections";
 import { AdditionalServices } from "./service-chapters";
 import { WorkShowcase } from "./work-showcase";
 import { FounderIntro } from "./founder-intro";
-import { ContentIllustration, type IllustrationKind } from "./content-illustration";
+import { ProcessScene, type ProcessSceneKind } from "./process-scenes";
 import { StudioFooter } from "./studio-footer";
 import { useEffect, useState, type CSSProperties, type FormEvent } from "react";
 const wa = (message = "Hi Ntombii Tech, I'd like to discuss a website project.") => `https://wa.me/27812360230?text=${encodeURIComponent(message)}`;
@@ -26,10 +26,10 @@ const faqs = [
   ["Will my website work on phones and show up on Google?", "Yes. Every website we build works on phones. We also set up basic search engine optimisation (SEO), which helps Google understand what your business does. We offer local SEO in Newcastle, KZN, Pretoria and Centurion too. Nobody can guarantee a top position on Google, so we don’t promise one."],
   ["What happens after my website launches?", "Every package includes 14 days of support after your website goes live. After that, updates, new pages and ongoing maintenance are quoted separately."],
 ];
-const processSteps: { icon: IllustrationKind; title: string; body: string }[] = [
-  { icon: "chat", title: "Tell us about your business", body: "Send us a WhatsApp message about what you do and what the website should help with. We agree on the pages, price and timeline before any work starts." },
-  { icon: "palette", title: "We design and build it", body: "We plan the pages, shape the words and build the site. You review the work at each stage, with two rounds of changes per stage." },
-  { icon: "phone", title: "We test it and go live", body: "We check every page, button and form on phones and computers, then publish your site. You get 14 days of support after launch." },
+const processSteps: { scene: ProcessSceneKind; title: string; body: string }[] = [
+  { scene: "talk", title: "Tell us what you need", body: "Send a WhatsApp. We agree on the pages, price and timeline before we start." },
+  { scene: "build", title: "We design and build", body: "You review each stage, with two rounds of changes per stage." },
+  { scene: "launch", title: "We test and launch", body: "Checked on phones and computers, then published. 14 days of support included." },
 ];
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
   return <svg aria-hidden="true" className={`arrow ${diagonal ? "diagonal" : ""}`} viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>;
@@ -71,10 +71,10 @@ function ProcessSection() {
   return <section className="process-section section wrap" aria-labelledby="process-title">
     <div className="section-heading" data-reveal>
       <h2 id="process-title">We build websites.</h2>
-      <div className="process-intro"><p>Business websites, e-commerce websites (online shops) and ongoing website maintenance.</p><a className="text-link" href="/pricing">Websites from {portfolioPackage.price} <Arrow diagonal /></a></div>
+      <div className="process-intro"><p>Business websites, e-commerce websites and ongoing maintenance.</p><a className="text-link" href="/pricing">Websites from {portfolioPackage.price} <Arrow diagonal /></a></div>
     </div>
-    <ol className="process-steps" data-reveal>{processSteps.map((step, index) => <li key={step.title} style={{ "--i": index } as CSSProperties}>
-      <ContentIllustration kind={step.icon} />
+    <ol className="process-steps" data-reveal>{processSteps.map((step, index) => <li key={step.title} style={{ "--i": index } as CSSProperties} data-reveal>
+      <ProcessScene kind={step.scene} />
       <h3>{step.title}</h3>
       <p>{step.body}</p>
     </li>)}</ol>
