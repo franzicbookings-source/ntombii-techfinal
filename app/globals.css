@@ -974,15 +974,6 @@ button:disabled{opacity:.5;cursor:not-allowed}
 .tools-title{font-size:15px;font-weight:400;line-height:1.5;letter-spacing:-.005em;color:#63717b;margin-bottom:28px}
 
 /* How a project runs, in three plain steps. */
-.process-section .section-heading{align-items:flex-end}
-.process-intro{max-width:430px}
-.process-intro p{font-size:16px;line-height:1.65}
-.process-intro .text-link{margin-top:14px}
-.process-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.process-steps li{min-width:0;padding:14px 14px 30px;border:1px solid var(--line);border-radius:18px;background:#f7f9fa}
-.process-steps h3{font-size:23px;line-height:1.25;letter-spacing:-.025em;margin:0 14px 10px;color:var(--ink)}
-.process-steps p{font-size:15px;line-height:1.65;margin:0 14px}
-@media(max-width:900px){.process-steps{grid-template-columns:1fr;gap:12px}.process-steps li{padding:12px 12px 22px}.process-steps h3{font-size:21px;margin:0 8px 6px}.process-steps p{margin:0 8px}}
 
 /* Project pages and service heroes show the same motion clip. */
 .detail-hero-grid>.project-motion,.inner-hero-split>.project-motion{box-shadow:0 24px 60px #0b141b55}
@@ -1003,6 +994,6 @@ button:disabled{opacity:.5;cursor:not-allowed}
 .newsletter-copy>p:not(.eyebrow){color:#52616d}
 .newsletter-screen{border-color:#ffffffcc;box-shadow:0 26px 50px #20354433}
 .back-top{white-space:nowrap}
-@media(max-width:767px){.newsletter-section{padding-block:56px 0}.process-intro{margin-top:14px}}
+@media(max-width:767px){.newsletter-section{padding-block:56px 0}}
 
 .award-story-link { text-decoration: underline; text-underline-offset: .18em; }

@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1200, height=750" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      :root {
+        --navy: #202c36;
+        --navy-2: #2a3a48;
+        --blue: #506f82;
+        --blue-2: #6f93a8;
+        --ice: #c4e1f5;
+        --ink: #1f2a33;
+        --muted: #c9d4dc;
+        --soft: #eef3f6;
+        --green: #2fb36d;
+        --wa: #d9fdd3;
+        --font-ui: "Inter", sans-serif;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1200px; height: 750px; overflow: hidden; background: var(--navy); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: var(--font-ui); background: radial-gradient(ellipse 70% 70% at 50% 50%, #283847, var(--navy)); }
+      .abs { position: absolute; }
+      /* Hidden at the first frame; the timeline brings each one in. */
+      #typing, #msg-a, #msg-b, #msg-c, #plan, #read, #browser, #phoneui, #img-tint,
+      .swatch, #cursor, .chip, #live, .spark, .ring, #cta-ripple { opacity: 0; }
+
+      /* Ground */
+      #bg { position: absolute; inset: 0; z-index: 1; }
+      #grid { position: absolute; inset: -60px; background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.2px, transparent 1.7px); background-size: 30px 30px; -webkit-mask-image: radial-gradient(ellipse 60% 62% at 50% 50%, #000 25%, transparent 100%); mask-image: radial-gradient(ellipse 60% 62% at 50% 50%, #000 25%, transparent 100%); }
+      .blob { position: absolute; width: 520px; height: 520px; border-radius: 50%; filter: blur(30px); }
+      #blob-a { left: 160px; top: 40px; background: radial-gradient(closest-side, rgba(111, 147, 168, 0.42), transparent); }
+      #blob-b { left: 560px; top: 220px; background: radial-gradient(closest-side, rgba(47, 179, 109, 0.22), transparent); }
+
+      /* Camera */
+      #stage { position: absolute; inset: 0; z-index: 2; perspective: 1700px; perspective-origin: 600px 375px; }
+      #cam, #punch { position: absolute; inset: 0; transform-style: preserve-3d; }
+
+      /* The one object that becomes chat, browser and phone */
+      #device { position: absolute; left: 150px; top: 85px; width: 900px; height: 580px; }
+      #shadow { position: absolute; left: 260px; top: 105px; width: 380px; height: 470px; border-radius: 30px; background: rgba(4, 10, 15, 0.55); filter: blur(34px); }
+      #shell { position: absolute; inset: 0; background: #fff; clip-path: inset(55px 260px 55px 260px round 30px); overflow: hidden; }
+      .layer { position: absolute; }
+
+      /* Chat */
+      #chat { left: 260px; top: 55px; width: 380px; height: 470px; background: #f2f5f7; }
+      #chat-head { position: absolute; left: 0; top: 0; width: 380px; height: 66px; background: var(--navy); }
+      #avatar { position: absolute; left: 18px; top: 13px; width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--blue-2), var(--blue)); }
+      #avatar::after { content: ""; position: absolute; right: -1px; bottom: -1px; width: 12px; height: 12px; border-radius: 50%; background: var(--green); border: 2px solid var(--navy); }
+      .bar { position: absolute; border-radius: 99px; }
+      .bubble { position: absolute; border-radius: 18px; box-shadow: 0 2px 0 rgba(15, 30, 40, 0.06); }
+      .in { background: #fff; border-bottom-left-radius: 5px; }
+      .out { background: var(--wa); border-bottom-right-radius: 5px; }
+      .dot3 { position: absolute; top: 19px; width: 9px; height: 9px; border-radius: 50%; background: #9fb2bf; }
+      #plan { position: absolute; left: 104px; top: 282px; width: 260px; height: 132px; border-radius: 16px; background: #fff; box-shadow: 0 10px 26px rgba(15, 30, 40, 0.12); }
+      .row { position: absolute; left: 14px; width: 232px; height: 32px; }
+      .ico { position: absolute; left: 0; top: 0; width: 32px; height: 32px; border-radius: 10px; background: var(--soft); }
+      .tick { position: absolute; right: 0; top: 4px; width: 24px; height: 24px; border-radius: 50%; background: var(--green); }
+      .tick svg, .chip-tick svg { position: absolute; inset: 0; }
+      #chat-input { position: absolute; left: 14px; bottom: 14px; width: 300px; height: 40px; border-radius: 20px; background: #fff; }
+      #chat-send { position: absolute; right: 14px; bottom: 14px; width: 40px; height: 40px; border-radius: 50%; background: var(--green); }
+
+      /* Browser */
+      #browser { left: 0; top: 10px; width: 900px; height: 560px; background: #fff; }
+      #chrome { position: absolute; left: 0; top: 0; width: 900px; height: 42px; background: #f2f5f7; border-bottom: 1px solid #e3e9ee; }
+      .cdot { position: absolute; top: 16px; width: 10px; height: 10px; border-radius: 50%; background: #cfd9e0; }
+      #url { position: absolute; left: 300px; top: 9px; width: 300px; height: 24px; border-radius: 12px; background: #fff; color: #6b7d89; font-size: 12px; line-height: 24px; text-align: center; }
+      .rev { position: absolute; top: 15px; width: 12px; height: 12px; border-radius: 50%; border: 2px solid #b9c7d1; }
+      .blk { position: absolute; }
+      #img { left: 470px; top: 102px; width: 390px; height: 240px; border-radius: 16px; overflow: hidden; background: linear-gradient(135deg, #cfe0ea, #9fbccd); }
+      #img-tint { position: absolute; inset: 0; background: linear-gradient(135deg, #f3c98b, #e0826d); }
+      #sun { position: absolute; right: 54px; top: 44px; width: 46px; height: 46px; border-radius: 50%; background: #fff; }
+      #hills { position: absolute; left: 0; bottom: 0; width: 390px; height: 140px; }
+      .card { position: absolute; top: 382px; width: 258px; height: 136px; border-radius: 14px; background: #f2f5f7; }
+      #cta-ripple { position: absolute; left: 110px; top: 298px; width: 20px; height: 20px; margin: -10px 0 0 -10px; border-radius: 50%; border: 3px solid var(--ice); }
+
+      /* Phone */
+      #phoneui { left: 310px; top: 10px; width: 280px; height: 560px; background: #fff; }
+      #island { position: absolute; left: 105px; top: 14px; width: 70px; height: 22px; border-radius: 11px; background: #0d1318; }
+      #scan { position: absolute; left: 0; top: 0; width: 280px; height: 70px; background: linear-gradient(180deg, rgba(47, 179, 109, 0), rgba(47, 179, 109, 0.22) 80%, rgba(47, 179, 109, 0.75)); }
+
+      /* Around the device */
+      .swatch { position: absolute; width: 34px; height: 34px; border-radius: 50%; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3); }
+      #cursor { position: absolute; left: 0; top: 0; width: 26px; height: 34px; }
+      .chip { position: absolute; width: 64px; height: 64px; border-radius: 50%; background: #fff; box-shadow: 0 10px 26px rgba(3, 8, 12, 0.35); }
+      .chip svg.icon { position: absolute; left: 18px; top: 18px; width: 28px; height: 28px; }
+      .chip-tick { position: absolute; right: -4px; top: -4px; width: 24px; height: 24px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 3px var(--navy); }
+      .ring { position: absolute; left: 600px; top: 375px; width: 300px; height: 300px; margin: -150px 0 0 -150px; border-radius: 50%; border: 3px solid var(--green); }
+      .spark { position: absolute; left: 600px; top: 375px; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; }
+      #live { position: absolute; left: 532px; top: 672px; width: 136px; height: 44px; border-radius: 22px; background: #fff; box-shadow: 0 10px 30px rgba(47, 179, 109, 0.45); color: var(--ink); font-size: 18px; font-weight: 700; line-height: 44px; letter-spacing: 0.02em; padding-left: 48px; }
+      #live-dot { position: absolute; left: 20px; top: 13px; width: 18px; height: 18px; border-radius: 50%; background: var(--green); }
+      #live-pulse { position: absolute; left: 20px; top: 13px; width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--green); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="12" data-width="1200" data-height="750">
+      <div id="bg" class="clip" data-start="0" data-duration="12" data-track-index="0" data-layout-ignore>
+        <div id="grid"></div>
+        <div id="blob-a" class="blob"></div>
+        <div id="blob-b" class="blob"></div>
+      </div>
+
+      <div id="stage" class="clip" data-start="0" data-duration="12" data-track-index="1" data-layout-ignore>
+        <div id="cam"><div id="punch">
+
+          <div id="rings"><div id="ring-a" class="ring"></div><div id="ring-b" class="ring"></div></div>
+
+          <div id="device">
+            <div id="shadow"></div>
+            <div id="shell">
+
+              <!-- Chat -->
+              <div id="chat" class="layer">
+                <div id="chat-head">
+                  <div id="avatar"></div>
+                  <div class="bar" style="left: 72px; top: 20px; width: 120px; height: 11px; background: rgba(255,255,255,.85)"></div>
+                  <div class="bar" style="left: 72px; top: 38px; width: 64px; height: 8px; background: rgba(255,255,255,.35)"></div>
+                </div>
+                <div id="typing" class="bubble in" style="left: 16px; top: 84px; width: 86px; height: 46px">
+                  <span class="dot3" style="left: 18px"></span><span class="dot3" style="left: 38px"></span><span class="dot3" style="left: 58px"></span>
+                </div>
+                <div id="msg-a" class="bubble in" style="left: 16px; top: 84px; width: 236px; height: 60px">
+                  <div class="bar" style="left: 16px; top: 17px; width: 196px; height: 10px; background: #c3d0d9"></div>
+                  <div class="bar" style="left: 16px; top: 35px; width: 128px; height: 10px; background: #c3d0d9"></div>
+                </div>
+                <div id="msg-b" class="bubble in" style="left: 16px; top: 152px; width: 160px; height: 42px">
+                  <div class="bar" style="left: 16px; top: 16px; width: 120px; height: 10px; background: #c3d0d9"></div>
+                </div>
+                <div id="msg-c" class="bubble out" style="left: 128px; top: 210px; width: 236px; height: 60px">
+                  <div class="bar" style="left: 16px; top: 17px; width: 190px; height: 10px; background: #9fcf9a"></div>
+                  <div class="bar" style="left: 16px; top: 35px; width: 110px; height: 10px; background: #9fcf9a"></div>
+                  <svg id="read" class="abs" style="left: 196px; top: 34px" width="26" height="14" viewBox="0 0 26 14"><path d="M2 7l4 4 8-9M10 11l1 0 8-9" fill="none" stroke="#53bdeb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                </div>
+                <div id="plan">
+                  <div id="row-1" class="row" style="top: 14px">
+                    <div class="ico"><svg viewBox="0 0 32 32" width="32" height="32"><rect x="10" y="8" width="12" height="16" rx="2" fill="none" stroke="#506f82" stroke-width="2" /><path d="M13 14h6M13 18h4" stroke="#506f82" stroke-width="2" stroke-linecap="round" /></svg></div>
+                    <div class="bar" style="left: 44px; top: 11px; width: 120px; height: 10px; background: #d5dee5"></div>
+                    <div id="tick-1" class="tick"><svg viewBox="0 0 24 24"><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+                  </div>
+                  <div id="row-2" class="row" style="top: 50px">
+                    <div class="ico"><svg viewBox="0 0 32 32" width="32" height="32"><path d="M9 16l7-7h7v7l-7 7z" fill="none" stroke="#506f82" stroke-width="2" stroke-linejoin="round" /><circle cx="19.5" cy="12.5" r="1.6" fill="#506f82" /></svg></div>
+                    <div class="bar" style="left: 44px; top: 11px; width: 96px; height: 10px; background: #d5dee5"></div>
+                    <div id="tick-2" class="tick"><svg viewBox="0 0 24 24"><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+                  </div>
+                  <div id="row-3" class="row" style="top: 86px">
+                    <div class="ico"><svg viewBox="0 0 32 32" width="32" height="32"><rect x="8" y="10" width="16" height="14" rx="2.5" fill="none" stroke="#506f82" stroke-width="2" /><path d="M8 15h16M12 8v4M20 8v4" stroke="#506f82" stroke-width="2" stroke-linecap="round" /></svg></div>
+                    <div class="bar" style="left: 44px; top: 11px; width: 136px; height: 10px; background: #d5dee5"></div>
+                    <div id="tick-3" class="tick"><svg viewBox="0 0 24 24"><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+                  </div>
+                </div>
+                <div id="chat-input"></div>
+                <div id="chat-send"></div>
+              </div>
+
+              <!-- Browser -->
+              <div id="browser" class="layer">
+                <div id="chrome">
+                  <span class="cdot" style="left: 18px"></span><span class="cdot" style="left: 36px"></span><span class="cdot" style="left: 54px"></span>
+                  <div id="url">yourbusiness.co.za</div>
+                  <span id="rev-1" class="rev" style="left: 842px"></span><span id="rev-2" class="rev" style="left: 862px"></span>
+                </div>
+                <div id="b-logo" class="blk" style="left: 40px; top: 62px; width: 110px; height: 16px"><div class="bar" style="left: 0; top: 0; width: 16px; height: 16px; background: var(--blue)"></div><div class="bar" style="left: 24px; top: 3px; width: 86px; height: 10px; background: var(--ink)"></div></div>
+                <div id="b-links" class="blk" style="left: 560px; top: 64px; width: 300px; height: 12px">
+                  <div class="bar" style="left: 0; top: 2px; width: 46px; height: 8px; background: #c3d0d9"></div><div class="bar" style="left: 62px; top: 2px; width: 46px; height: 8px; background: #c3d0d9"></div><div class="bar" style="left: 124px; top: 2px; width: 46px; height: 8px; background: #c3d0d9"></div>
+                  <div id="b-navbtn" class="bar" style="left: 200px; top: -6px; width: 100px; height: 24px; background: var(--ink)"></div>
+                </div>
+                <div id="b-h1" class="blk bar" style="left: 40px; top: 118px; width: 370px; height: 32px; background: var(--ink); border-radius: 8px"></div>
+                <div id="b-h2" class="blk bar" style="left: 40px; top: 160px; width: 290px; height: 32px; background: var(--ink); border-radius: 8px"></div>
+                <div id="b-p1" class="blk bar" style="left: 40px; top: 212px; width: 330px; height: 11px; background: #c3d0d9"></div>
+                <div id="b-p2" class="blk bar" style="left: 40px; top: 232px; width: 250px; height: 11px; background: #c3d0d9"></div>
+                <div id="b-cta" class="blk bar" style="left: 40px; top: 276px; width: 150px; height: 46px; background: var(--blue)"></div>
+                <div id="img" class="blk">
+                  <div id="img-tint"></div>
+                  <div id="sun"></div>
+                  <svg id="hills" viewBox="0 0 390 140" preserveAspectRatio="none"><path d="M0 140V82l70-50 64 44 60-54 92 78 50-32 54 38v34z" fill="rgba(32,44,54,.42)" /><path d="M0 140v-34l96-52 84 50 70-36 140 72z" fill="rgba(32,44,54,.62)" /></svg>
+                </div>
+                <div id="card-1" class="card blk" style="left: 40px"><div class="bar" style="left: 18px; top: 20px; width: 42px; height: 42px; border-radius: 12px; background: #dbe5ec"></div><div class="bar" style="left: 18px; top: 78px; width: 170px; height: 11px; background: #c3d0d9"></div><div class="bar" style="left: 18px; top: 98px; width: 120px; height: 9px; background: #d5dee5"></div></div>
+                <div id="card-2" class="card blk" style="left: 321px"><div class="bar" style="left: 18px; top: 20px; width: 42px; height: 42px; border-radius: 12px; background: #dbe5ec"></div><div class="bar" style="left: 18px; top: 78px; width: 150px; height: 11px; background: #c3d0d9"></div><div class="bar" style="left: 18px; top: 98px; width: 130px; height: 9px; background: #d5dee5"></div></div>
+                <div id="card-3" class="card blk" style="left: 602px"><div class="bar" style="left: 18px; top: 20px; width: 42px; height: 42px; border-radius: 12px; background: #dbe5ec"></div><div class="bar" style="left: 18px; top: 78px; width: 180px; height: 11px; background: #c3d0d9"></div><div class="bar" style="left: 18px; top: 98px; width: 100px; height: 9px; background: #d5dee5"></div></div>
+                <div id="cta-ripple"></div>
+              </div>
+
+              <!-- Phone -->
+              <div id="phoneui" class="layer">
+                <div id="m-nav" class="blk" style="left: 20px; top: 52px; width: 240px; height: 16px"><div class="bar" style="left: 0; top: 0; width: 16px; height: 16px; background: var(--blue)"></div><div class="bar" style="left: 24px; top: 3px; width: 70px; height: 10px; background: var(--ink)"></div><div class="bar" style="left: 214px; top: 2px; width: 26px; height: 3px; background: var(--ink)"></div><div class="bar" style="left: 214px; top: 10px; width: 26px; height: 3px; background: var(--ink)"></div></div>
+                <div id="m-img" class="blk" style="left: 16px; top: 86px; width: 248px; height: 150px; border-radius: 14px; overflow: hidden; background: linear-gradient(135deg, #f3c98b, #e0826d)">
+                  <svg viewBox="0 0 248 150" width="248" height="150" preserveAspectRatio="none" style="position: absolute; inset: 0"><circle cx="196" cy="40" r="18" fill="#fff" /><path d="M0 150V92l46-34 42 30 40-36 60 52 34-22 26 18v50z" fill="rgba(32,44,54,.42)" /><path d="M0 150v-26l62-34 56 34 46-24 84 50z" fill="rgba(32,44,54,.62)" /></svg>
+                </div>
+                <div id="m-h1" class="blk bar" style="left: 16px; top: 254px; width: 228px; height: 22px; background: var(--ink); border-radius: 6px"></div>
+                <div id="m-h2" class="blk bar" style="left: 16px; top: 284px; width: 170px; height: 22px; background: var(--ink); border-radius: 6px"></div>
+                <div id="m-cta" class="blk bar" style="left: 16px; top: 322px; width: 130px; height: 40px; background: var(--blue)"></div>
+                <div id="m-c1" class="blk" style="left: 16px; top: 380px; width: 248px; height: 52px; border-radius: 12px; background: #f2f5f7"></div>
+                <div id="m-c2" class="blk" style="left: 16px; top: 442px; width: 248px; height: 52px; border-radius: 12px; background: #f2f5f7"></div>
+                <div id="m-c3" class="blk" style="left: 16px; top: 504px; width: 248px; height: 52px; border-radius: 12px; background: #f2f5f7"></div>
+                <div id="scan"></div>
+                <div id="island"></div>
+              </div>
+            </div>
+          </div>
+
+          <div id="sw-1" class="swatch" style="left: 1100px; top: 150px; background: #f0b46c"></div>
+          <div id="sw-2" class="swatch" style="left: 1100px; top: 200px; background: #f0a27a"></div>
+          <div id="sw-3" class="swatch" style="left: 1100px; top: 250px; background: #e0826d"></div>
+
+          <svg id="cursor" viewBox="0 0 26 34"><path d="M2 2v26l7-6.5 5.2 11 4.6-2.1-5.1-10.7H23Z" fill="#1f2a33" stroke="#fff" stroke-width="2" stroke-linejoin="round" /></svg>
+
+          <div id="chip-1" class="chip" style="left: 330px; top: 150px"><svg class="icon" viewBox="0 0 28 28"><rect x="8" y="3" width="12" height="22" rx="3" fill="none" stroke="#506f82" stroke-width="2.2" /><path d="M12.5 21h3" stroke="#506f82" stroke-width="2.2" stroke-linecap="round" /></svg><div class="chip-tick"><svg viewBox="0 0 24 24"><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" /></svg></div></div>
+          <div id="chip-2" class="chip" style="left: 806px; top: 300px"><svg class="icon" viewBox="0 0 28 28"><rect x="4" y="6" width="20" height="13" rx="2" fill="none" stroke="#506f82" stroke-width="2.2" /><path d="M2 22h24" stroke="#506f82" stroke-width="2.2" stroke-linecap="round" /></svg><div class="chip-tick"><svg viewBox="0 0 24 24"><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" /></svg></div></div>
+          <div id="chip-3" class="chip" style="left: 350px; top: 470px"><svg class="icon" viewBox="0 0 28 28"><rect x="5" y="3" width="18" height="22" rx="3" fill="none" stroke="#506f82" stroke-width="2.2" /><circle cx="14" cy="21" r="1.4" fill="#506f82" /></svg><div class="chip-tick"><svg viewBox="0 0 24 24"><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" /></svg></div></div>
+
+          <div id="sparks">
+            <span class="spark" style="background: #2fb36d"></span><span class="spark" style="background: #c4e1f5"></span><span class="spark" style="background: #ffffff"></span><span class="spark" style="background: #f0b46c"></span>
+            <span class="spark" style="background: #2fb36d"></span><span class="spark" style="background: #c4e1f5"></span><span class="spark" style="background: #ffffff"></span><span class="spark" style="background: #e0826d"></span>
+            <span class="spark" style="background: #2fb36d"></span><span class="spark" style="background: #c4e1f5"></span><span class="spark" style="background: #ffffff"></span><span class="spark" style="background: #f0b46c"></span>
+            <span class="spark" style="background: #2fb36d"></span><span class="spark" style="background: #c4e1f5"></span><span class="spark" style="background: #ffffff"></span><span class="spark" style="background: #e0826d"></span>
+          </div>
+
+          <div id="live"><span id="live-pulse"></span><span id="live-dot"></span>Live</div>
+        </div></div>
+      </div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const T = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const CHAT = "inset(55px 260px 55px 260px round 30px 30px 30px 30px)";
+      const BROWSER = "inset(10px 0px 10px 0px round 18px 18px 18px 18px)";
+      const PHONE = "inset(10px 310px 10px 310px round 46px 46px 46px 46px)";
+
+      // ---------- Initial state (t = 0 is also the loop point) ----------
+      tl.set("#shell", { clipPath: CHAT }, 0);
+      tl.set("#shadow", { scaleX: 1, scaleY: 1, transformOrigin: "50% 50%" }, 0);
+      tl.set(["#typing", "#msg-a", "#msg-b", "#msg-c", "#plan", "#read"], { opacity: 0 }, 0);
+      tl.set(["#tick-1", "#tick-2", "#tick-3"], { scale: 0 }, 0);
+      tl.set(["#browser", "#phoneui"], { opacity: 0 }, 0);
+      tl.set(["#sw-1", "#sw-2", "#sw-3", "#cursor", "#chip-1", "#chip-2", "#chip-3", "#live", ".spark", ".ring", "#cta-ripple"], { opacity: 0 }, 0);
+      tl.set("#img-tint", { opacity: 0 }, 0);
+      tl.set(".chip-tick", { scale: 0 }, 0);
+      tl.set(["#b-logo", "#b-links", "#b-h1", "#b-h2", "#b-p1", "#b-p2", "#b-cta", "#img", "#card-1", "#card-2", "#card-3", "#m-nav", "#m-img", "#m-h1", "#m-h2", "#m-cta", "#m-c1", "#m-c2", "#m-c3"], { opacity: 0 }, 0);
+      tl.set("#scan", { y: -80, opacity: 0 }, 0);
+
+      // ---------- Continuous ground and camera: whole cycles in 12 s, so the loop has no seam ----------
+      tl.fromTo("#grid", { x: 0, y: 0 }, { x: -30, y: -30, duration: 12, ease: "none" }, 0);
+      const wave = (sel, prop, amp, period) => {
+        for (let t = 0; t < 12; t += period) {
+          const q = period / 4;
+          tl.to(sel, { [prop]: amp, duration: q, ease: "sine.out" }, t);
+          tl.to(sel, { [prop]: 0, duration: q, ease: "sine.in" }, t + q);
+          tl.to(sel, { [prop]: -amp, duration: q, ease: "sine.out" }, t + 2 * q);
+          tl.to(sel, { [prop]: 0, duration: q, ease: "sine.in" }, t + 3 * q);
+        }
+      };
+      tl.set("#cam", { rotationY: 0, rotationX: 0 }, 0);
+      wave("#cam", "rotationY", 9, 12);
+      wave("#cam", "rotationX", 4, 6);
+      tl.set(["#blob-a", "#blob-b"], { x: 0, y: 0 }, 0);
+      wave("#blob-a", "x", 160, 12);
+      wave("#blob-a", "y", 70, 6);
+      wave("#blob-b", "y", -120, 12);
+      wave("#blob-b", "x", -90, 6);
+
+      // Punch-ins on each big moment
+      const punch = (at, amount, back = 0.7) => {
+        tl.to("#punch", { scale: amount, duration: 0.3, ease: "power2.out" }, at);
+        tl.to("#punch", { scale: 1, duration: back, ease: "power2.inOut" }, at + 0.3);
+      };
+      tl.set("#punch", { scale: 1 }, 0);
+
+      // ---------- 1. Chat: 0 – 3.6 s ----------
+      T("#typing", { opacity: 0, scale: 0.6, transformOrigin: "0% 100%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 0.12);
+      tl.fromTo("#typing .dot3", { y: 0 }, { y: -6, duration: 0.16, ease: "sine.inOut", yoyo: true, repeat: 3, stagger: 0.08, immediateRender: false }, 0.2);
+      tl.to("#typing", { opacity: 0, scale: 0.8, duration: 0.12 }, 0.78);
+      T("#msg-a", { opacity: 0, scale: 0.5, x: -20, transformOrigin: "0% 100%" }, { opacity: 1, scale: 1, x: 0, duration: 0.42, ease: "back.out(1.8)" }, 0.8);
+      T("#msg-b", { opacity: 0, scale: 0.5, x: -20, transformOrigin: "0% 100%" }, { opacity: 1, scale: 1, x: 0, duration: 0.42, ease: "back.out(1.8)" }, 1.12);
+      T("#msg-c", { opacity: 0, scale: 0.5, x: 20, transformOrigin: "100% 100%" }, { opacity: 1, scale: 1, x: 0, duration: 0.42, ease: "back.out(1.8)" }, 1.55);
+      T("#plan", { opacity: 0, y: 60, scale: 0.85, transformOrigin: "100% 100%" }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "expo.out" }, 1.95);
+      ["#tick-1", "#tick-2", "#tick-3"].forEach((id, i) => T(id, { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.32, ease: "back.out(3)" }, 2.35 + i * 0.18));
+      T("#read", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(3)" }, 2.95);
+
+      // Chat becomes the browser: the plan card leads the way
+      punch(3.25, 1.045);
+      tl.to("#plan", { scale: 1.25, y: -30, opacity: 0, duration: 0.42, ease: "power3.in" }, 3.22);
+      tl.to("#chat", { opacity: 0, duration: 0.25, ease: "power1.in" }, 3.42);
+      tl.fromTo("#shell", { clipPath: CHAT }, { clipPath: BROWSER, duration: 0.62, ease: "expo.inOut", immediateRender: false }, 3.3);
+      tl.to("#shadow", { scaleX: 900 / 380, scaleY: 560 / 470, duration: 0.62, ease: "expo.inOut" }, 3.3);
+      T("#browser", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 3.62);
+
+      // ---------- 2. Design and build: 3.6 – 7.6 s ----------
+      const fly = [
+        ["#b-logo", -260, -60, -8], ["#b-links", 280, -80, 6], ["#b-h1", -380, 20, -5], ["#b-h2", -380, 60, 4],
+        ["#b-p1", -300, 120, 0], ["#b-p2", -300, 140, 0], ["#b-cta", -200, 260, -12], ["#img", 420, -40, 8],
+        ["#card-1", -120, 300, -10], ["#card-2", 0, 340, 6], ["#card-3", 160, 300, 10],
+      ];
+      fly.forEach(([id, x, y, r], i) => T(id, { opacity: 0, x, y, rotation: r, scale: 0.7 }, { opacity: 1, x: 0, y: 0, rotation: 0, scale: 1, duration: 0.55, ease: "expo.out" }, 3.75 + i * 0.065));
+
+      // Colour splash: swatches dart in and paint the picture and the button
+      [["#sw-1", 0], ["#sw-2", 1], ["#sw-3", 2]].forEach(([id, i]) => {
+        T(id, { opacity: 0, x: 120, scale: 0.4 }, { opacity: 1, x: 0, scale: 1, duration: 0.35, ease: "back.out(2)" }, 4.55 + i * 0.08);
+        tl.to(id, { x: [-330, -230, -852][i], y: [110, 70, 127][i], scale: 0.2, opacity: 0, duration: 0.42, ease: "power3.in" }, 5.0 + i * 0.1);
+      });
+      T("#img-tint", { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power2.out" }, 5.35);
+      tl.fromTo("#img", { scale: 1 }, { scale: 1.05, duration: 0.15, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, 5.35);
+      tl.to("#b-cta", { backgroundColor: "#e0826d", duration: 0.3 }, 5.6);
+
+      // Cursor zips to the button and clicks
+      T("#cursor", { opacity: 0, x: 1000, y: 640 }, { opacity: 1, x: 1000, y: 640, duration: 0.01 }, 5.55);
+      tl.to("#cursor", { x: 290, y: 395, duration: 0.5, ease: "expo.inOut" }, 5.6);
+      tl.to("#cursor", { scale: 0.82, duration: 0.08, yoyo: true, repeat: 1, ease: "power2.out", transformOrigin: "10% 10%" }, 6.12);
+      tl.to("#b-cta", { scale: 0.93, duration: 0.08, yoyo: true, repeat: 1, ease: "power2.out" }, 6.12);
+      T("#cta-ripple", { opacity: 0.9, scale: 1 }, { opacity: 0, scale: 9, duration: 0.6, ease: "power2.out" }, 6.14);
+      tl.to("#cursor", { opacity: 0, x: 420, y: 520, duration: 0.3, ease: "power2.in" }, 6.4);
+
+      // Two rounds of changes: the layout reshuffles twice
+      tl.to("#rev-1", { backgroundColor: "#2fb36d", borderColor: "#2fb36d", duration: 0.15 }, 6.45);
+      tl.to("#img", { x: -430, duration: 0.45, ease: "expo.inOut" }, 6.45);
+      tl.to(["#b-h1", "#b-h2", "#b-p1", "#b-p2", "#b-cta"], { x: 430, duration: 0.45, ease: "expo.inOut", stagger: 0.02 }, 6.45);
+      tl.to("#rev-2", { backgroundColor: "#2fb36d", borderColor: "#2fb36d", duration: 0.15 }, 6.9);
+      tl.to("#card-1", { x: 562, duration: 0.45, ease: "expo.inOut" }, 6.9);
+      tl.to(["#card-2", "#card-3"], { x: -281, duration: 0.45, ease: "expo.inOut" }, 6.9);
+
+      // Browser squeezes into a phone
+      punch(7.3, 1.05);
+      tl.fromTo("#shell", { clipPath: BROWSER }, { clipPath: PHONE, duration: 0.62, ease: "expo.inOut", immediateRender: false }, 7.32);
+      tl.to("#shadow", { scaleX: 280 / 380, scaleY: 560 / 470, duration: 0.62, ease: "expo.inOut" }, 7.32);
+      tl.to("#browser", { opacity: 0, scale: 0.8, transformOrigin: "50% 50%", duration: 0.35, ease: "power2.in" }, 7.32);
+      T("#phoneui", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 7.62);
+      ["#m-nav", "#m-img", "#m-h1", "#m-h2", "#m-cta", "#m-c1", "#m-c2", "#m-c3"].forEach((id, i) =>
+        T(id, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.45, ease: "expo.out" }, 7.66 + i * 0.05));
+
+      // ---------- 3. Test and launch: 7.6 – 11.5 s ----------
+      [["#chip-1", -90, 30], ["#chip-2", 90, -10], ["#chip-3", -80, -30]].forEach(([id, x, y], i) => {
+        T(id, { opacity: 0, x, y, scale: 0.3 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.8)" }, 8.05 + i * 0.12);
+        T(`${id} .chip-tick`, { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.3, ease: "back.out(3)" }, 8.75 + i * 0.3);
+        tl.to(id, { y: [-14, 12, -10][i], duration: 1.05, ease: "sine.inOut", yoyo: true, repeat: 1 }, 8.85);
+      });
+      T("#scan", { y: -80, opacity: 1 }, { y: 560, opacity: 1, duration: 0.7, ease: "power1.inOut" }, 8.55);
+      tl.fromTo("#scan", { y: -80 }, { y: 560, duration: 0.7, ease: "power1.inOut", immediateRender: false }, 9.3);
+      tl.to("#scan", { opacity: 0, duration: 0.1 }, 10.0);
+
+      // Launch!
+      punch(9.95, 1.07);
+      tl.fromTo("#ring-a", { opacity: 0.95, scale: 0.4 }, { opacity: 0, scale: 3.2, duration: 1.1, ease: "power2.out", immediateRender: false }, 10.0);
+      tl.fromTo("#ring-b", { opacity: 0.8, scale: 0.4 }, { opacity: 0, scale: 2.6, duration: 1.0, ease: "power2.out", immediateRender: false }, 10.18);
+      gsap.utils.toArray(".spark").forEach((el, i) => {
+        const angle = (i / 16) * Math.PI * 2 + 0.2;
+        const dist = 230 + (i % 3) * 55;
+        tl.fromTo(el, { opacity: 1, x: 0, y: 0, scale: 1.4 }, { opacity: 0, x: Math.cos(angle) * dist, y: Math.sin(angle) * dist * 0.8, scale: 0.5, duration: 1.05, ease: "expo.out", immediateRender: false }, 10.0 + (i % 4) * 0.02);
+      });
+      T("#live", { opacity: 0, y: 26, scale: 0.6 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "back.out(2.2)" }, 10.05);
+      tl.fromTo("#live-pulse", { scale: 1, opacity: 0.9 }, { scale: 2.6, opacity: 0, duration: 0.6, repeat: 1, ease: "power2.out", immediateRender: false }, 10.3);
+      tl.to(["#chip-1", "#chip-2", "#chip-3"], { scale: 0.4, opacity: 0, duration: 0.35, ease: "power2.in", stagger: 0.05 }, 10.95);
+      tl.to("#live", { opacity: 0, y: 16, duration: 0.3, ease: "power2.in" }, 11.15);
+
+      // Phone folds back into the chat: the loop point
+      punch(11.2, 1.035, 0.45);
+      tl.to("#phoneui", { opacity: 0, duration: 0.25, ease: "power1.in" }, 11.2);
+      tl.fromTo("#shell", { clipPath: PHONE }, { clipPath: CHAT, duration: 0.6, ease: "expo.inOut", immediateRender: false }, 11.3);
+      tl.to("#shadow", { scaleX: 1, scaleY: 1, duration: 0.6, ease: "expo.inOut" }, 11.3);
+      // Reset everything that was moved, out of sight, so the chat starts empty again
+      tl.set(["#typing", "#msg-a", "#msg-b", "#msg-c", "#plan", "#read"], { opacity: 0 }, 8.0);
+      tl.set("#plan", { scale: 1, y: 0 }, 8.0);
+      tl.set(["#tick-1", "#tick-2", "#tick-3"], { scale: 0 }, 8.0);
+      tl.set("#browser", { scale: 1 }, 11.0);
+      tl.set(["#img", "#b-h1", "#b-h2", "#b-p1", "#b-p2", "#b-cta", "#card-1", "#card-2", "#card-3"], { x: 0 }, 11.0);
+      tl.set("#b-cta", { backgroundColor: "#506f82" }, 11.0);
+      tl.set("#img-tint", { opacity: 0 }, 11.0);
+      tl.set(["#rev-1", "#rev-2"], { backgroundColor: "rgba(0,0,0,0)", borderColor: "#b9c7d1" }, 11.0);
+      T("#chat", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power1.out" }, 11.62);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

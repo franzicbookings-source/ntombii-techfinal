@@ -75,7 +75,6 @@ export function SiteMotion() {
     });
 
     // Scroll-linked effects share one rAF loop.
-    const steps = document.querySelector<HTMLElement>(".process-steps");
     const hero = document.querySelector<HTMLElement>(".hero-shell");
     const header = document.querySelector<HTMLElement>(".inner-header");
     let frame = 0;
@@ -85,11 +84,6 @@ export function SiteMotion() {
       const viewport = window.innerHeight;
       // Safety net: anything scrolled past (a fast scroll or a jump link) is revealed at once.
       for (const element of pending) if (element.getBoundingClientRect().top < viewport) reveal(element);
-      if (steps) {
-        const box = steps.getBoundingClientRect();
-        const progress = Math.min(1, Math.max(0, (viewport * 0.85 - box.top) / (box.height + viewport * 0.35)));
-        steps.style.setProperty("--progress", progress.toFixed(4));
-      }
       if (hero) {
         const shift = Math.min(window.scrollY, hero.offsetHeight + 200);
         hero.style.setProperty("--hero-shift", `${(shift * 0.35).toFixed(1)}px`);
