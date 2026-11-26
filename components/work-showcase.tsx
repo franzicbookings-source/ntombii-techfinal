@@ -7,6 +7,7 @@ import { ProjectMotion } from "./project-motion";
 const projectSummaries: Record<string, string> = {
   "la-raza": "A launch page for a new Newcastle restaurant: a countdown, news by email or WhatsApp and CV applications. Online ordering comes next.",
   "moyandi-scents": "Shoppers pick a scent, build a gift box and check out in two steps, with no account needed.",
+  "keep-newcastle-alive": "Newcastle residents can find out how to get help. Volunteers and donors can see where to lend a hand.",
   "friday-consulting": "Visitors pick the help they need, see past projects and send a project brief.",
   "fezile-security": "Customers compare security services, find their nearest branch and ask for a quote.",
   "legend-black-jesus": "Shoppers browse the clothing, choose a size and colour, then order on WhatsApp.",

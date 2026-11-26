@@ -13,7 +13,8 @@ test("every portfolio project has a motion clip and poster, with accessible play
   const { status, html } = await page("/work");
   assert.equal(status, 200);
   const ids = clips(html);
-  assert.equal(ids.length, 6);
+  assert.equal(ids.length, 7);
+  assert.equal(ids[2], "keep-newcastle-alive");
   for (const id of ids) {
     await access(new URL(`../public/videos/work/${id}.mp4`, import.meta.url));
     await access(new URL(`../public/videos/work/${id}-poster.webp`, import.meta.url));
@@ -26,7 +27,9 @@ test("every portfolio project has a motion clip and poster, with accessible play
 
 test("the homepage shows every project clip and keeps the refreshed structure", async () => {
   const { html } = await page("/");
-  assert.equal(clips(html).length, 6);
+  const ids = clips(html);
+  assert.equal(ids.length, 7);
+  assert.equal(ids[2], "keep-newcastle-alive");
   assert.doesNotMatch(html, /class="eyebrow"/);
   assert.doesNotMatch(html, /id="home-articles-title"/);
   assert.match(html, /aria-label="Previous project"/);

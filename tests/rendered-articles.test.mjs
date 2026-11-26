@@ -10,7 +10,7 @@ async function fetchPage(path) {
   }, { waitUntil() {}, passThroughOnException() {} });
 }
 const slugs = ["website-design-newcastle-business-guide", "get-found-google-ai-search"];
-const projectIds = ["la-raza", "moyandi-scents", "friday-consulting", "fezile-security", "legend-black-jesus", "snesenzo-security"];
+const projectIds = ["la-raza", "moyandi-scents", "keep-newcastle-alive", "friday-consulting", "fezile-security", "legend-black-jesus", "snesenzo-security"];
 function linkedData(html) {
   return [...html.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
     .flatMap(match => { const data = JSON.parse(match[1]); return data["@graph"] ?? [data]; });

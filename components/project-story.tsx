@@ -46,6 +46,32 @@ const stories = {
     ],
     summary: "Shoppers can find a scent, build a gift box and check out without an account, while the owner runs the shop from her own dashboard.",
   },
+  "keep-newcastle-alive": {
+    title: "Keep Newcastle Alive Community Website",
+    detailLabel: "Get involved",
+    detailSize: [1440, 1000],
+    description: "See the website we built for Keep Newcastle Alive With Possibilities in Newcastle, KwaZulu-Natal. Residents can ask for help, and supporters can volunteer or donate.",
+    heading: "Keep Newcastle Alive",
+    introduction: "Keep Newcastle Alive With Possibilities supports families and creates opportunities for local work in Newcastle, KwaZulu-Natal. We built a website where residents can learn about its programmes, ask for help or find a way to contribute.",
+    purpose: "Give people a clear place to start.",
+    paragraphs: [
+      "Someone looking for support needs to know who can apply and how to reach the team. We gave “Get help” its own place in the main navigation. That page explains who the initiative can help and offers an enquiry form and WhatsApp.",
+      "People deciding whether to get involved can see the work first. The homepage opens into a film about Lindelani, then introduces the programmes and shares news from Newcastle. Visitors who want to help can find volunteer, sponsorship and donation options in one place.",
+    ],
+    features: [
+      "Community programmes and stories from Newcastle",
+      "Short films from local projects",
+      "Get help page with eligibility and enquiry options",
+      "Volunteer and sponsorship forms",
+      "Bank transfer details and a WhatsApp link for proof of payment",
+    ],
+    steps: [
+      { title: "Start with the work in Newcastle", body: "The homepage introduces the initiative and gives visitors a direct link to its programmes. The main menu keeps the route to help visible." },
+      { title: "Choose a way to get involved", body: "Volunteering, sponsorship and donations have their own options so supporters can find the details and forms they need." },
+      { title: "Find the next step on a phone", body: "The same routes are available in the mobile menu. The homepage puts the introduction and the link to the work first." },
+    ],
+    summary: "The live site brings together stories from Newcastle and practical ways to take part. Visit it to see how someone can find support, volunteer or donate.",
+  },
   "legend-black-jesus": {
     title: "Legend Black Jesus E-commerce Website",
     detailLabel: "Product page", detailSize: [1440,1000],
