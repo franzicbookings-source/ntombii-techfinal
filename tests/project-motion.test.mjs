@@ -38,6 +38,11 @@ test("the homepage shows every project clip and keeps the refreshed structure", 
   // The first film plays once and hands over to the next project; the others loop when a visitor picks them.
   assert.match(html, /class="studio-progress"/);
   assert.equal((html.match(/<video[^>]*\sloop=""/g) ?? []).length, ids.length - 1);
+  // Sabelo's intro waits for a press: no download or sound before it, captions included.
+  assert.match(html, /class="founder-intro-button"[^>]*>.*?Watch my intro/);
+  assert.match(html, /<video[^>]*class="founder-intro-video"[^>]*preload="none"/);
+  assert.match(html, /<track kind="captions" src="\/videos\/sabelo-intro\.vtt"/);
+  for (const file of ["sabelo-intro.mp4", "sabelo-intro-poster.webp", "sabelo-intro.vtt"]) await access(new URL(`../public/videos/${file}`, import.meta.url));
   for (const path of ["/work/friday-consulting", "/work/legend-black-jesus", "/services/websites", "/pricing"]) {
     const { html: other } = await page(path);
     assert.ok(clips(other).length >= 1, path);
