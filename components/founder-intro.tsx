@@ -34,6 +34,7 @@ export function FounderIntro() {
   }
 
   return <figure className="founder-photo founder-intro" data-state={state} data-reveal>
+    <img className="founder-intro-portrait" src="/videos/sabelo-intro-poster.webp" width={720} height={720} alt="Cartoon portrait of Sabelo Ndlovu" loading="lazy" />
     <video
       ref={video}
       className="founder-intro-video"

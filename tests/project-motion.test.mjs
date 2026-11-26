@@ -42,7 +42,7 @@ test("the homepage shows every project clip and keeps the refreshed structure", 
   assert.match(html, /class="founder-intro-button"[^>]*aria-label="Watch my intro"/);
   assert.match(html, /<video[^>]*class="founder-intro-video"[^>]*preload="none"/);
   assert.match(html, /<track kind="captions" src="\/videos\/sabelo-intro\.vtt"/);
-  for (const file of ["sabelo-intro.mp4", "sabelo-intro.vtt"]) await access(new URL(`../public/videos/${file}`, import.meta.url));
+  for (const file of ["sabelo-intro.mp4", "sabelo-intro-poster.webp", "sabelo-intro.vtt"]) await access(new URL(`../public/videos/${file}`, import.meta.url));
   for (const path of ["/work/friday-consulting", "/work/legend-black-jesus", "/services/websites", "/pricing"]) {
     const { html: other } = await page(path);
     assert.ok(clips(other).length >= 1, path);

@@ -2,6 +2,15 @@
   aspect-ratio: 1 / 1.05;
   background: #233643;
 }
+.founder-photo.founder-intro > .founder-intro-portrait {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+  object-position: center 30%;
+}
 .founder-intro-video {
   position: absolute;
   inset: 0;
