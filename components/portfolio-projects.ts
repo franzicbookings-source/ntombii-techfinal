@@ -15,11 +15,19 @@ export type PortfolioProject = {
 };
 
 /**
- * 3D motion clip of a project's live site scrolling on a laptop and a phone.
+ * Editorial film cut from a project's desktop, mobile and detail captures.
  * Rendered from real captures by scripts/motion (see its README to add a project).
  */
 export function projectMotion(id: string) {
-  return { src: `/videos/work/${id}.mp4`, poster: `/videos/work/${id}-poster.webp`, width: 1200, height: 960 } as const;
+  const base = `/videos/work/${id}`;
+  const revision = "?cut=2";
+  return {
+    src: `${base}.mp4${revision}`,
+    poster: `${base}-poster.webp${revision}`,
+    thumbnail: `${base}-thumb.webp${revision}`,
+    width: 1200,
+    height: 960,
+  } as const;
 }
 
 export const portfolioProjects: readonly PortfolioProject[] = [

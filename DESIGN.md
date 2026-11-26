@@ -1,11 +1,12 @@
 # Current website design
 
-November 2026 refresh of the restored original site. The palette, Aeonik type, logo and page layouts are unchanged; the refresh removes decoration and makes every control respond.
+November 2026 refresh of the restored original site. The studio uses Aeonik, navy and pale blue. Real client work supplies the photography and colour in the website portfolio.
 
 ## What changed
 
 - **No eyebrow labels.** The small pill labels above headings are gone sitewide. Where a label carried a real condition (for example "available on request" or "based in Newcastle"), that wording now sits in the page text.
-- **3D motion clips of real work.** Each project in `components/portfolio-projects.ts` has a clip of its live site scrolling on a laptop and phone (`public/videos/work/`). `components/project-motion.tsx` shows it on the homepage carousel, `/work`, every project page, and the services, pricing and regional page heroes. Clips load only when on screen, stay paused for reduced-motion and data-saver visitors, and can be paused or played by tapping/clicking the clip or using its keyboard control, without an overlay icon. To add or refresh a clip, see `scripts/motion/README.md`.
+- **Website portfolio.** The homepage pairs one film with a named project index on desktop and a swipeable film on phones. On `/work` the opening project pairs a film with a detail from the same site, followed by alternating pairs of projects. Case studies open with the film and brief, and finish with a link to the next project in `components/portfolio-projects.ts` order.
+- **Project films.** `components/project-motion.tsx` plays the silent films while visible, with tap and keyboard controls. Reduced-motion and data-saver visitors see the poster until they opt in. See `scripts/motion/README.md` for rendering.
 - **Homepage.** Same order and format. The fake design/code editor showcase is replaced by three plain steps (with `ContentIllustration` icons), the spinning "Let's build something" badge and the heading's selection-box decoration are removed, the articles preview is removed (articles remain at `/articles`), and the "Have a website question?" band is light so it no longer merges with the dark contact section. The homepage now uses the shared `InnerNavigation` header.
 - **Copy.** Plainer wording for non-technical readers, keeping professional terms with short explanations (for example "Content management system (CMS): an editor to change…"). Prices, conditions, approved headings and client quotes are unchanged.
 
@@ -16,7 +17,7 @@ November 2026 refresh of the restored original site. The palette, Aeonik type, l
 - Hero: headline lines rise out of a mask, then the text, buttons, badges and quote card settle in (CSS only, so no flash before JavaScript loads). The background drifts slower than the page.
 - Headings below the fold reveal word by word (headings containing links are left alone). `ContentIllustration` icons draw their lines.
 - Process steps: a line fills across each card in turn as you scroll.
-- The work carousel and `/work` clips land from a 3D tilt as they scroll in; clips tilt toward a fine pointer with a soft sheen.
+- Portfolio frames stay level so the motion comes from the films. Elsewhere, supporting project clips tilt toward a fine pointer.
 - Buttons lean toward a fine pointer. The header is sticky, hides on scroll down and returns on scroll up or keyboard focus.
 
 ## Where styles live

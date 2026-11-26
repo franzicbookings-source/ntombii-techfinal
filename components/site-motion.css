@@ -38,16 +38,14 @@ html{scroll-padding-top:110px}
   .process-steps li::before{content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:var(--blue);transform-origin:left;transform:scaleX(clamp(0,calc(var(--progress,0)*3 - var(--i,0)),1))}
   .process-steps.visible li{animation:soft-rise .9s cubic-bezier(.16,1,.3,1) calc(var(--i,0)*120ms) backwards}
 
-  /* Work: the carousel lands in 3D as it scrolls in; clips tilt toward the pointer with a sheen. */
-  #work .wrap{perspective:1800px}
-  #work .work-carousel{transform-origin:50% 0;transform:translateY(calc(var(--carousel-land,0)*70px)) rotateX(calc(var(--carousel-land,0)*16deg)) scale(calc(1 - var(--carousel-land,0)*.07));opacity:calc(1 - var(--carousel-land,0)*.6)}
-  .project-motion{transform:perspective(1400px) translateY(calc(var(--land,0)*60px)) rotateX(calc(var(--land,0)*14deg + var(--tilt-x,0deg))) rotateY(var(--tilt-y,0deg)) scale(calc(1 - var(--land,0)*.06));transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+  /* Fine pointer feedback for supporting clips on service, region and pricing pages. */
+  .project-motion.is-pointer{transform:perspective(1400px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg))}
+  .project-motion{transition:transform .3s cubic-bezier(.2,.7,.2,1)}
   .project-motion::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(440px circle at var(--sheen-x,50%) var(--sheen-y,50%),#ffffff1c,transparent 60%);opacity:0;transition:opacity .35s}
   .project-motion.is-pointer::after{opacity:1}
 
   /* Magnetic buttons (fine pointers): the element's translate follows the pointer. */
   .button{transition:background-color .2s,color .2s,border-color .2s,transform .2s cubic-bezier(.2,.7,.2,1),box-shadow .2s,translate .35s cubic-bezier(.2,.7,.2,1)}
-  .project-motion-toggle,#work .work-slider-controls button{transition:background-color .2s,border-color .2s,transform .2s,translate .35s cubic-bezier(.2,.7,.2,1)}
 }
 
 @keyframes mask-rise{from{clip-path:inset(0 0 100% 0);transform:translateY(100%)}to{clip-path:inset(-25% -10% -25% -10%);transform:translateY(0)}}

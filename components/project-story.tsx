@@ -1,18 +1,18 @@
 import { ContentIllustration, illustrationFor } from "./content-illustration";
 import Link from "next/link";
 import { InnerPage } from "./inner-pages";
-import { portfolioProjects } from "./portfolio-projects";
+import { portfolioProjects, projectMotion } from "./portfolio-projects";
 import { ProjectScreens, type ProjectScreen } from "./project-screens";
 import { ProjectMotion } from "./project-motion";
 import { businessId, pageMetadata, projectSchema, siteUrl } from "./site-seo";
 import { StructuredData } from "./structured-data";
+import "./project-story.css";
 
 const stories = {
   "la-raza": {
     title: "La Raza Restaurant and Cocktail Lounge Website",
     detailLabel: "Hiring", detailSize: [1440, 1000],
     description: "See the La Raza launch page built by Ntombii Tech for a new Newcastle restaurant and cocktail lounge: a countdown, email and WhatsApp sign-ups and CV applications, with online ordering planned for phase two.",
-    heading: "La Raza restaurant",
     introduction: "A restaurant and cocktail lounge in Newcastle, KwaZulu-Natal. We built the launch page for sign-ups and job applications. The full website will add online ordering.",
     purpose: "Start the guest list before the doors open.",
     paragraphs: [
@@ -31,7 +31,6 @@ const stories = {
     title: "Moyandi Scents E-commerce Website",
     detailLabel: "Gift boxes", detailSize: [1440, 1000],
     description: "See the Moyandi Scents e-commerce website built by Ntombii Tech: candles, diffusers and linen sprays by scent, a gift box builder, two-step guest checkout and a private store dashboard.",
-    heading: "Moyandi Scents.",
     introduction: "A home-fragrance brand from Durban, founded by Nokwanda Cele. We built an online shop for its candles, reed diffusers, linen sprays, car diffusers and gift boxes, with a dashboard for running the store.",
     purpose: "Make choosing a scent feel as easy as smelling one.",
     paragraphs: [
@@ -51,7 +50,6 @@ const stories = {
     detailLabel: "Get involved",
     detailSize: [1440, 1000],
     description: "See the website we built for Keep Newcastle Alive With Possibilities in Newcastle, KwaZulu-Natal. Residents can ask for help, and supporters can volunteer or donate.",
-    heading: "Keep Newcastle Alive",
     introduction: "Keep Newcastle Alive With Possibilities supports families and creates opportunities for local work in Newcastle, KwaZulu-Natal. We built a website where residents can learn about its programmes, ask for help or find a way to contribute.",
     purpose: "Give people a clear place to start.",
     paragraphs: [
@@ -76,7 +74,6 @@ const stories = {
     title: "Legend Black Jesus E-commerce Website",
     detailLabel: "Product page", detailSize: [1440,1000],
     description: "See the Legend Black Jesus website built by Ntombii Tech: clothing collections, product pages, brand photographs and a WhatsApp ordering path.",
-    heading: "Legend Black Jesus.",
     introduction: "An e-commerce website for a South African clothing brand. Shoppers can browse the collections, choose a size and colour, and continue their order on WhatsApp.",
     purpose: "Let the clothes lead. Give the story room.",
     paragraphs: [
@@ -95,7 +92,6 @@ const stories = {
     title: "Snesenzo Security Group Website Project",
     detailLabel: "Service page", detailSize: [1440,1000],
     description: "Explore the Snesenzo Security Group business website built by Ntombii Tech: company information, security service pages, coverage areas and quote enquiries.",
-    heading: "Snesenzo Security Group.",
     introduction: "A security company serving KwaZulu-Natal, Mpumalanga and Gauteng. We built a website that explains its services, introduces the company and helps customers ask for a quote.",
     purpose: "Help customers understand the company and get in touch.",
     paragraphs: [
@@ -113,7 +109,6 @@ const stories = {
   "fezile-security": {
     "title": "Fezile Security Services Website Project",
     "description": "Fezile Security Services provides guarding, response, monitoring and specialist protection. We built service pages and branch information around clear contact routes, helping visitors explore their options before requesting a quote or reaching the relevant office.",
-    "heading": "Fezile Security Services.",
     "introduction": "Fezile Security Services offers guarding, response, monitoring and specialist protection. We built a website that explains those services, shows the people doing the work and separates quote enquiries, branch contacts and control-room calls.",
     "purpose": "Make the service clear. Make the right contact easy to find.",
     "paragraphs": [
@@ -152,7 +147,6 @@ const stories = {
   "friday-consulting": {
     "title": "Friday Consulting Website Project",
     "description": "Friday Consulting provides business advice and specialist project support across six service areas. We built a website that explains each area, presents project experience with the company’s role made clear, and helps visitors prepare a brief for the team.",
-    "heading": "Friday Consulting.",
     "introduction": "Friday Consulting works across business advice, project management, property, GIS, environmental management, planning and supply. We organised its services and project experience so visitors can find the right support and send a project brief.",
     "purpose": "Make a broad consulting offer easy to understand.",
     "paragraphs": [
@@ -199,13 +193,15 @@ export function projectStoryMetadata(id: ProjectStoryId) {
 }
 
 export function ProjectStory({ id }: { id: ProjectStoryId }) {
-  const project = portfolioProjects.find(project => project.id === id)!;
+  const index = portfolioProjects.findIndex(project => project.id === id);
+  const project = portfolioProjects[index];
+  const next = portfolioProjects[(index + 1) % portfolioProjects.length];
   const story = stories[id];
   const pageUrl = `${siteUrl}${project.caseStudyUrl}`;
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "WebPage", "@id": `${pageUrl}#webpage`, url: pageUrl, name: story.heading, description: story.description, inLanguage: "en-ZA", isPartOf: { "@id": `${siteUrl}/#website` }, publisher: { "@id": businessId }, mainEntity: projectSchema(project), breadcrumb: { "@id": `${pageUrl}#breadcrumbs` } },
+      { "@type": "WebPage", "@id": `${pageUrl}#webpage`, url: pageUrl, name: project.previewName, description: story.description, inLanguage: "en-ZA", isPartOf: { "@id": `${siteUrl}/#website` }, publisher: { "@id": businessId }, mainEntity: projectSchema(project), breadcrumb: { "@id": `${pageUrl}#breadcrumbs` } },
       { "@type": "BreadcrumbList", "@id": `${pageUrl}#breadcrumbs`, itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
         { "@type": "ListItem", position: 2, name: "Our work", item: `${siteUrl}/work` },
@@ -220,15 +216,48 @@ export function ProjectStory({ id }: { id: ProjectStoryId }) {
   ];
   return <InnerPage enquiry={{ title: "Want a site like this?" }}><div className="project-story-page">
     <StructuredData data={schema} />
-    <nav className="project-breadcrumbs wrap" aria-label="Breadcrumb"><Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/work">Our work</Link><span aria-hidden="true">/</span><span aria-current="page">{project.previewName}</span></nav>
-    <section className="detail-hero"><div className="wrap detail-hero-grid">
-      <div><h1>{story.heading}</h1><p className="detail-intro">{story.introduction}</p><a className="button button-white" href={project.url} target="_blank" rel="noreferrer">Visit the live website <span aria-hidden="true">↗</span></a></div>
-      <ProjectMotion project={project} />
-    </div></section>
-    <dl className="project-facts wrap"><div><dt>Client</dt><dd>{project.previewName}</dd></div><div><dt>Sector</dt><dd>{project.category}</dd></div><div><dt>What we built</dt><dd>{project.kind}</dd></div></dl>
+    <header className="case-opening">
+      <div className="wrap">
+        <Link className="case-back" href="/work">All projects</Link>
+        <h1>{project.previewName}</h1>
+        <div className="case-opening-grid">
+          <ProjectMotion key={project.id} project={project} priority />
+          <div className="case-brief">
+            <p>{story.introduction}</p>
+            <a className="case-visit" href={project.url} target="_blank" rel="noreferrer">Visit the live website</a>
+            <dl className="case-facts">
+              <div><dt>What we built</dt><dd>{project.kind}</dd></div>
+              <div><dt>Sector</dt><dd>{project.category}</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </header>
     <section className="depth-section wrap"><div className="depth-intro"><h2>{story.purpose}</h2></div><div className="depth-prose">{story.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div></section>
     <section className="detail-body wrap"><div className="detail-body-title"><h2>The pages and features.</h2></div><div className="detail-offering">{story.features.map((feature) => <div key={feature}><ContentIllustration kind={illustrationFor(feature)} /><h3>{feature}</h3></div>)}</div></section>
     <ProjectScreens projectId={id} screens={screens} />
-    <section className="work-summary wrap"><h2>See the work for yourself.</h2><p>{story.summary}</p><div className="website-context-links"><Link href="/services/websites">Website design and development <span aria-hidden="true">↗</span></Link><Link href="/pricing">View website prices <span aria-hidden="true">↗</span></Link><Link href="/work">Explore our other projects <span aria-hidden="true">↗</span></Link>{id === "la-raza" ? <Link href="/articles/la-raza-restaurant-website-in-phases">How we&rsquo;re building the La Raza restaurant website <span aria-hidden="true">↗</span></Link> : id === "moyandi-scents" ? <Link href="/articles/moyandi-scents-ecommerce-website-durban">How we built the Moyandi Scents shop <span aria-hidden="true">↗</span></Link> : <Link href="/articles/website-design-newcastle-business-guide">What your business website needs <span aria-hidden="true">↗</span></Link>}</div></section>
+    <div className="case-ending wrap">
+      <div className="case-reading">
+        <p>{story.summary}</p>
+        <nav aria-label="Related reading">
+          {id === "la-raza"
+            ? <Link href="/articles/la-raza-restaurant-website-in-phases">How we’re building the La Raza restaurant website</Link>
+            : id === "moyandi-scents"
+              ? <Link href="/articles/moyandi-scents-ecommerce-website-durban">How we built the Moyandi Scents shop</Link>
+              : <Link href="/articles/website-design-newcastle-business-guide">What your business website needs</Link>}
+          <Link href="/services/websites">Website design and development</Link>
+          <Link href="/pricing">View website prices</Link>
+        </nav>
+      </div>
+      <Link className="case-next" href={next.caseStudyUrl ?? next.url}>
+        <span className="case-next-image">
+          <img src={projectMotion(next.id).thumbnail} width={165} height={132} alt="" loading="lazy" decoding="async" />
+        </span>
+        <span className="case-next-caption">
+          <span>Next project</span>
+          <strong>{next.previewName}</strong>
+        </span>
+      </Link>
+    </div>
   </div></InnerPage>;
 }

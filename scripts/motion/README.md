@@ -1,16 +1,18 @@
-# Project motion clips
+# Portfolio films
 
-Each website in `components/portfolio-projects.ts` has a 12-second clip in `public/videos/work/`: the live site scrolling on a 3D laptop and phone, on the site's navy backdrop. `components/project-motion.tsx` plays it (only while on screen, paused for reduced-motion and data-saver visitors, with a pause button).
+The website shows silent, 12-second films at 1200 × 960. Each opens on the client's mobile site with photography from the same project, cuts to the desktop design on Ntombii's navy background, then moves in on a feature from the case study. The last shot returns to the opening frame.
 
-## Add or refresh a clip
+## Render
+
+From the repository root, with Node 22.13+, Python 3 with Pillow, and FFmpeg with libx264 installed:
 
 ```sh
-node scripts/motion/make-video.cjs <project-id> <live-url> [scroll-fraction]
-# e.g. node scripts/motion/make-video.cjs friday-consulting https://friday-consulting.vercel.app/ 0.62
+python3 scripts/motion/editorial-film.py la-raza
+python3 scripts/motion/editorial-film.py --sheet /tmp/portfolio-storyboard.jpg
 ```
 
-This captures the live site on desktop and phone, renders `scene.html` frame by frame, and writes `public/videos/work/<project-id>.mp4` (H.264, about 1–1.5 MB) and `<project-id>-poster.webp`. It takes a few minutes. Lower `scroll-fraction` (default 0.7) to stop before footers or maps. Captures and lossless masters go to `scripts/motion/.work/`, which is ignored by Git.
+Omit the project ID to render the full collection. The storyboard shows three frames per project. Rendering uses the published case-study screenshots declared in `components/portfolio-projects.ts`, the WebP artwork in `plates/`, and the framing in `film-crops.json`. The website build uses the finished films and posters in `public/videos/work/`.
 
-Requirements: Playwright with Chromium and `ffmpeg` with `libx264` and `libwebp`. These are not site dependencies; the site build never runs this script.
+For a new project, add its three screenshots to the project record, save a suitable client image as `plates/<project-id>.webp`, and record its origin in `plates/sources.json`. Add the crop settings under the same ID. The six detail values are the centre X, centre Y and crop width at the beginning and end of the shot, in pixels on the original detail screenshot. Check the storyboard and finished loop before publishing. Bump the media revision in `projectMotion()` when replacing published files.
 
-Fractions used for the current clips: friday-consulting 0.62, fezile-security 0.55 (stops before the branch map), legend-black-jesus 0.56 (stops before a video section, which records as black because the capture browser cannot play MP4), snesenzo-security 0.7, moyandi-scents 0.7, la-raza 0.6 (the whole launch page).
+The earlier laptop-and-phone scroll renderer remains available as `make-video.cjs <project-id> <live-url> [scroll-fraction]`. It writes the same output paths. The editorial command above reproduces the current portfolio.

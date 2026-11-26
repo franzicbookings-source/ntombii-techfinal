@@ -8,7 +8,7 @@ import "./site-motion.css";
  * Sitewide motion layer, progressively enhancing server-rendered pages. Nothing here hides content
  * that is already on screen, and none of it runs for visitors who prefer reduced motion.
  * - Headings below the fold reveal word by word; illustrations draw their lines.
- * - Project clips land in 3D as they scroll in and tilt toward a fine pointer.
+ * - Project clips on service and pricing pages tilt toward a fine pointer.
  * - Buttons lean toward a fine pointer; the header hides on scroll down and returns on scroll up.
  */
 export function SiteMotion() {
@@ -75,9 +75,6 @@ export function SiteMotion() {
     });
 
     // Scroll-linked effects share one rAF loop.
-    const workCarousel = document.querySelector<HTMLElement>("#work .work-carousel");
-    const landing = [...document.querySelectorAll<HTMLElement>(".portfolio-case .project-motion")];
-    if (workCarousel) landing.push(workCarousel);
     const steps = document.querySelector<HTMLElement>(".process-steps");
     const hero = document.querySelector<HTMLElement>(".hero-shell");
     const header = document.querySelector<HTMLElement>(".inner-header");
@@ -88,12 +85,6 @@ export function SiteMotion() {
       const viewport = window.innerHeight;
       // Safety net: anything scrolled past (a fast scroll or a jump link) is revealed at once.
       for (const element of pending) if (element.getBoundingClientRect().top < viewport) reveal(element);
-      for (const element of landing) {
-        const top = element.getBoundingClientRect().top;
-        const progress = Math.min(1, Math.max(0, (viewport - top) / (viewport * 0.65)));
-        const eased = 1 - Math.pow(1 - progress, 3);
-        element.style.setProperty(element === workCarousel ? "--carousel-land" : "--land", (1 - eased).toFixed(4));
-      }
       if (steps) {
         const box = steps.getBoundingClientRect();
         const progress = Math.min(1, Math.max(0, (viewport * 0.85 - box.top) / (box.height + viewport * 0.35)));
@@ -126,6 +117,7 @@ export function SiteMotion() {
     if (finePointer) {
       // Project clips tilt toward the pointer, with a soft sheen where it rests.
       document.querySelectorAll<HTMLElement>(".project-motion").forEach(clip => {
+        if (clip.closest(".studio-showcase, .case-opening, .work-edition")) return;
         const move = (event: PointerEvent) => {
           const box = clip.getBoundingClientRect();
           const x = (event.clientX - box.left) / box.width, y = (event.clientY - box.top) / box.height;
@@ -142,7 +134,7 @@ export function SiteMotion() {
       });
 
       // Buttons lean a little toward the pointer.
-      document.querySelectorAll<HTMLElement>(".button, .project-motion-toggle, .work-slider-controls button").forEach(button => {
+      document.querySelectorAll<HTMLElement>(".button").forEach(button => {
         const move = (event: PointerEvent) => {
           const box = button.getBoundingClientRect();
           const x = (event.clientX - box.left - box.width / 2) * 0.18, y = (event.clientY - box.top - box.height / 2) * 0.3;

@@ -1,27 +1,30 @@
 "use client";
 
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
-import { portfolioProjects } from "./portfolio-projects";
+import { portfolioProjects, projectMotion } from "./portfolio-projects";
 import { ProjectMotion } from "./project-motion";
+import "./work-showcase.css";
 
-const projectSummaries: Record<string, string> = {
-  "la-raza": "A launch page for a new Newcastle restaurant: a countdown, news by email or WhatsApp and CV applications. Online ordering comes next.",
-  "moyandi-scents": "Shoppers pick a scent, build a gift box and check out in two steps, with no account needed.",
-  "keep-newcastle-alive": "Newcastle residents can find out how to get help. Volunteers and donors can see where to lend a hand.",
-  "friday-consulting": "Visitors pick the help they need, see past projects and send a project brief.",
-  "fezile-security": "Customers compare security services, find their nearest branch and ask for a quote.",
-  "legend-black-jesus": "Shoppers browse the clothing, choose a size and colour, then order on WhatsApp.",
-  "snesenzo-security": "Customers see what the company offers and where it works, then ask for a quote.",
+const summaries: Record<string, string> = {
+  "la-raza": "Guests can sign up for opening news. Job seekers can apply straight from their phones.",
+  "moyandi-scents": "Pick a scent, build a gift box and check out in two steps at this Durban fragrance shop.",
+  "keep-newcastle-alive": "A place for Newcastle residents to find support, volunteer or help fund local work.",
+  "friday-consulting": "Six areas of expertise, past project work and a direct way to brief the consulting team.",
+  "fezile-security": "Compare guarding and response services, find a branch and get a quote.",
+  "legend-black-jesus": "Browse the collection, choose a size and colour, and order the piece on WhatsApp.",
+  "snesenzo-security": "Meet the team, explore its protection services and request a quote in three provinces.",
 };
 
-function Chevron({ direction }: { direction: "left" | "right" }) {
-  return <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d={direction === "left" ? "M14.5 6 8.5 12l6 6" : "m9.5 6 6 6-6 6"} stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>;
+function Chevron({ previous = false }: { previous?: boolean }) {
+  return <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true">
+    <path d={previous ? "m14 6-6 6 6 6" : "m10 6 6 6-6 6"} stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>;
 }
 
 export function WorkShowcase() {
-  const [active, setActive] = useState(0);
   const track = useRef<HTMLDivElement>(null);
-  const activeRef = useRef(0);
+  const position = useRef(0);
+  const [active, setActive] = useState(0);
   const project = portfolioProjects[active];
   const total = portfolioProjects.length;
 
@@ -29,63 +32,90 @@ export function WorkShowcase() {
     const element = track.current;
     if (!element) return;
     let frame = 0;
-    let previousWidth = element.clientWidth;
+    let width = element.clientWidth;
     function syncPosition() {
       frame = 0;
-      if (!element) return;
-      const next = Math.max(0, Math.min(total - 1, Math.round(element.scrollLeft / Math.max(1, element.clientWidth))));
-      if (next !== activeRef.current) { activeRef.current = next; setActive(next); }
+      if (!element || !width) return;
+      position.current = Math.max(0, Math.min(total - 1, Math.round(element.scrollLeft / width)));
+      setActive(position.current);
     }
-    function onScroll() { if (!frame) frame = requestAnimationFrame(syncPosition); }
+    const onScroll = () => { if (!frame) frame = requestAnimationFrame(syncPosition); };
     const observer = new ResizeObserver(() => {
-      if (element.clientWidth !== previousWidth) {
-        previousWidth = element.clientWidth;
-        element.scrollTo({ left: activeRef.current * previousWidth, behavior: "instant" });
+      if (width !== element.clientWidth) {
+        width = element.clientWidth;
+        element.scrollTo({ left: position.current * width, behavior: "instant" });
       }
     });
     observer.observe(element);
     element.addEventListener("scroll", onScroll, { passive: true });
-    return () => { cancelAnimationFrame(frame); observer.disconnect(); element.removeEventListener("scroll", onScroll); };
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+      element.removeEventListener("scroll", onScroll);
+    };
   }, [total]);
 
-  function selectProject(index: number) {
+  function select(index: number, animate = false) {
     const element = track.current;
     if (!element) return;
     const next = (index + total) % total;
-    element.scrollTo({ left: next * element.clientWidth, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
+    const smooth = animate && Math.abs(next - position.current) === 1 && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    element.scrollTo({ left: next * element.clientWidth, behavior: smooth ? "smooth" : "instant" });
   }
 
   function navigate(event: KeyboardEvent<HTMLDivElement>) {
     if (event.target !== event.currentTarget) return;
-    if (event.key === "ArrowRight") selectProject(active + 1);
-    else if (event.key === "ArrowLeft") selectProject(active - 1);
-    else if (event.key === "Home") selectProject(0);
-    else if (event.key === "End") selectProject(total - 1);
-    else return;
+    switch (event.key) {
+      case "ArrowLeft": select(active - 1, true); break;
+      case "ArrowRight": select(active + 1, true); break;
+      case "Home": select(0); break;
+      case "End": select(total - 1); break;
+      default: return;
+    }
     event.preventDefault();
   }
 
-  return <section id="work" className="work-section section" aria-labelledby="work-title"><div className="wrap">
-    <div className="section-heading" data-reveal><h2 id="work-title">Websites we’ve built.</h2><a className="button button-white" href="/work">See all projects</a></div>
-    <div className="work-carousel" role="region" aria-roledescription="carousel" aria-label="Website projects">
-      <div className="work-carousel-track" ref={track} role="group" tabIndex={0} onKeyDown={navigate} aria-label="Swipe or use the arrow keys to browse projects">
-        {portfolioProjects.map((item, index) => <div className="work-carousel-slide" key={item.id} role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${total}: ${item.name}`} aria-hidden={index !== active} inert={index !== active}>
-          <div className="work-slide-layout">
-            <ProjectMotion project={item} />
-            <div className="work-slide-copy">
-              <h3><a href={item.caseStudyUrl ?? item.url}>{item.previewName}</a></h3>
-              <p>{projectSummaries[item.id]}</p>
-              <div className="work-slide-links">{item.caseStudyUrl && <a className="button button-white" href={item.caseStudyUrl}>View project</a>}<a className="text-link" href={item.url} target="_blank" rel="noreferrer">Visit the live site <span aria-hidden="true">↗</span></a></div>
+  return <section id="work" className="studio-showcase" aria-labelledby="work-title">
+    <div className="wrap">
+      <header className="studio-showcase-heading">
+        <h2 id="work-title">Selected work.</h2>
+        <a href="/work">View portfolio</a>
+      </header>
+      <div className="studio-showcase-body" role="region" aria-roledescription="carousel" aria-label="Website projects">
+        <div className="studio-screen">
+          <div className="studio-reel-track" id="work-films" ref={track} role="group" tabIndex={0} onKeyDown={navigate} aria-label="Project films. Swipe or use the arrow keys to browse">
+            {portfolioProjects.map((item, index) =>
+              <div className="studio-reel-slide" key={item.id} role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${total}: ${item.previewName}`} aria-hidden={index !== active} inert={index !== active}>
+                <ProjectMotion project={item} active={index === active} />
+              </div>
+            )}
+          </div>
+          <div className="studio-film-caption" key={project.id}>
+            <div>
+              <h3><a href={project.caseStudyUrl ?? project.url}>{project.previewName}</a></h3>
+              <p>{summaries[project.id]}</p>
+            </div>
+            <div className="studio-film-links">
+              {project.caseStudyUrl && <a href={project.caseStudyUrl}>View project</a>}
+              <a href={project.url} target="_blank" rel="noreferrer">Live website</a>
             </div>
           </div>
-        </div>)}
+          <div className="studio-mobile-controls" role="group" aria-label="Browse website projects">
+            <button type="button" onClick={() => select(active - 1, true)} aria-label="Previous project"><Chevron previous /></button>
+            <span aria-hidden="true">{active + 1} / {total}</span>
+            <button type="button" onClick={() => select(active + 1, true)} aria-label="Next project"><Chevron /></button>
+          </div>
+        </div>
+        <div className="studio-project-index" role="group" aria-label="Choose a project">
+          {portfolioProjects.map((item, index) =>
+            <button key={item.id} type="button" aria-pressed={index === active} aria-controls="work-films" onClick={() => select(index)}>
+              <img src={projectMotion(item.id).thumbnail} width="57" height="44" loading="lazy" decoding="async" alt="" />
+              <span>{item.previewName}</span>
+            </button>
+          )}
+        </div>
+        <p className="sr-only" role="status" aria-atomic="true">Showing {project.previewName}, project {active + 1} of {total}</p>
       </div>
-      <div className="work-slider-controls" role="group" aria-label="Browse website projects">
-        <button type="button" onClick={() => selectProject(active - 1)} aria-label="Previous project"><Chevron direction="left" /></button>
-        <span aria-hidden="true">{active + 1} / {total}</span>
-        <button type="button" onClick={() => selectProject(active + 1)} aria-label="Next project"><Chevron direction="right" /></button>
-      </div>
-      <p className="sr-only" role="status" aria-atomic="true">Showing {project.name}, project {active + 1} of {total}</p>
     </div>
-  </div></section>;
+  </section>;
 }

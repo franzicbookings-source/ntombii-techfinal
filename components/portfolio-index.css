@@ -1,0 +1,202 @@
+.work-edition {
+  --edition-ink: #22313d;
+  --edition-muted: #506473;
+  padding-bottom: clamp(3.25rem, 6vw, 6rem);
+  color: var(--edition-ink);
+}
+
+.work-edition-masthead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  column-gap: 2rem;
+  row-gap: .75rem;
+  padding-block: clamp(2.5rem, 3.7vw, 3.75rem) clamp(1.5rem, 2.3vw, 2.25rem);
+}
+
+.work-edition .work-edition-masthead h1 {
+  margin: 0;
+  color: var(--edition-ink);
+  font-size: clamp(3rem, 7.5vw, 7.1rem);
+  line-height: .96;
+  letter-spacing: -.071em;
+}
+
+.work-edition-masthead .work-categories {
+  width: auto;
+  margin: 0;
+  padding: 0;
+  gap: 1.35rem;
+}
+
+.work-edition-masthead .work-categories a {
+  min-height: 44px;
+  padding: .5rem 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--edition-muted);
+  font-size: .95rem;
+}
+
+.work-edition-masthead .work-categories a[aria-current],
+.work-edition-masthead .work-categories a:hover {
+  background: transparent;
+  color: var(--edition-ink);
+  text-decoration: underline;
+  text-underline-offset: .38em;
+  text-decoration-thickness: 1px;
+}
+
+.work-edition-diptych {
+  display: grid;
+  grid-template-columns: minmax(0, 1.36fr) minmax(0, 1fr);
+  gap: clamp(.45rem, .85vw, .85rem);
+}
+
+.work-edition .project-motion,
+.work-edition-detail {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.work-edition .project-motion { transform: none; }
+.work-edition .project-motion::after { content: none; }
+
+.work-edition-detail {
+  position: relative;
+  min-width: 0;
+  background: var(--edition-ink);
+}
+
+.work-edition-detail img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* The invitation sits on the right of the original hiring screen. */
+#la-raza.work-edition-feature .work-edition-detail img {
+  inset: auto auto -4% 50%;
+  width: auto;
+  max-width: none;
+  height: 124%;
+  transform: translateX(-73%);
+}
+
+.work-edition-caption {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: .75rem;
+  padding-top: clamp(.8rem, 1.4vw, 1.3rem);
+}
+
+.work-edition-caption h2 {
+  font-size: clamp(1.5rem, 2.45vw, 2.65rem);
+  line-height: 1.08;
+  letter-spacing: -.052em;
+  text-wrap: balance;
+}
+
+.work-edition-caption h2 a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: #a1b1bc;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .15em;
+  transition: text-decoration-color .2s;
+}
+
+.work-edition-caption h2 a:hover,
+.work-edition-caption h2 a:focus-visible {
+  text-decoration-color: currentColor;
+}
+
+.work-edition-caption p {
+  margin: .35rem 0 0;
+  color: var(--edition-muted);
+  font-size: clamp(.875rem, 1.05vw, 1rem);
+  line-height: 1.5;
+}
+
+.work-edition-visit,
+.work-edition-reading a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--edition-muted);
+  font-size: .925rem;
+  text-decoration: underline;
+  text-decoration-color: #9cabb5;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .35em;
+}
+
+.work-edition-visit {
+  flex-shrink: 0;
+  margin-top: -.28rem;
+  padding-inline: .4rem 0;
+  white-space: nowrap;
+}
+
+.work-edition-visit:hover,
+.work-edition-reading a:hover {
+  color: var(--edition-ink);
+  text-decoration-color: currentColor;
+}
+
+.work-edition-feature .work-edition-caption h2 {
+  font-size: clamp(2.1rem, 4vw, 4rem);
+}
+
+.work-edition-collection {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(.875rem, 2.2vw, 2.5rem);
+  row-gap: clamp(3.5rem, 7.7vw, 7.4rem);
+  margin-top: clamp(3.75rem, 8vw, 8rem);
+}
+
+.work-edition-entry {
+  grid-column: span 5;
+  align-self: center;
+  min-width: 0;
+}
+
+.work-edition-entry:nth-child(4n + 1),
+.work-edition-entry:nth-child(4n) {
+  grid-column: span 7;
+}
+
+.work-edition-reading {
+  margin-top: clamp(2.75rem, 5.5vw, 6rem);
+}
+
+@media (max-width: 700px) {
+  .work-edition-masthead {
+    display: block;
+    padding-block: 2.25rem 1rem;
+  }
+
+  .work-edition .work-edition-masthead h1 {
+    font-size: clamp(2.65rem, 10.5vw, 4.5rem);
+  }
+
+  .work-edition-masthead .work-categories { margin-top: .5rem; }
+  .work-edition-diptych { display: block; }
+  .work-edition-detail { display: none; }
+  .work-edition-collection { grid-template-columns: minmax(0, 1fr); row-gap: 3rem; margin-top: 3rem; }
+  .work-edition-collection .work-edition-entry { grid-column: auto; }
+  .work-edition-feature .work-edition-caption h2 { font-size: clamp(1.7rem, 7.2vw, 2.4rem); }
+  .work-edition-caption h2 { font-size: clamp(1.5rem, 6.4vw, 2.15rem); }
+  .work-edition-caption h2 a { display: inline-flex; align-items: center; min-height: 44px; margin-block: -.3rem; }
+  .work-edition-visit { margin-top: -.4rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-edition-caption h2 a { transition: none; }
+}

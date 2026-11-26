@@ -1,5 +1,5 @@
 /* Keep existing image wrappers and dimensions; feedback occupies their reserved space. */
-.portfolio-case-image,.graphics-viewer-image,.story-screen-original{position:relative}
+.graphics-viewer-image,.story-screen-original{position:relative}
 .image-frame[data-image-state="error"]>img{opacity:0}
 .image-load-feedback{position:absolute;inset:0;z-index:2;display:grid;align-content:center;justify-items:center;gap:8px;padding:16px;background:#edf0f3;color:#354f61;font-size:13px;line-height:1.5;text-align:center;pointer-events:none}
 .image-loading{animation:image-feedback-in .15s .15s both}

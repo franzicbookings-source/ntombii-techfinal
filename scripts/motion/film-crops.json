@@ -1,0 +1,9 @@
+{
+  "la-raza": {"focus": 0.5, "phone_x": 0.73, "angle": -6, "desktop_bottom": 925, "detail": [720, 595, 1230, 725, 582, 1190]},
+  "moyandi-scents": {"focus": 0.83, "phone_x": 0.23, "angle": 7, "desktop_bottom": 820, "screen_angle": -2, "detail": [558, 504, 1110, 540, 505, 1075]},
+  "keep-newcastle-alive": {"focus": 0.68, "phone_x": 0.23, "angle": 6, "desktop_bottom": 850, "detail": [712, 518, 1415, 694, 505, 1380]},
+  "friday-consulting": {"focus": 0.41, "phone_x": 0.76, "angle": -6, "desktop_bottom": 920, "detail": [718, 492, 1415, 717, 492, 1378]},
+  "fezile-security": {"focus": 0.38, "phone_x": 0.73, "angle": -7, "desktop_bottom": 800, "screen_angle": -2, "detail": [719, 544, 1330, 719, 532, 1276]},
+  "legend-black-jesus": {"focus": 0.72, "phone_x": 0.22, "angle": 7, "desktop_bottom": 815, "detail": [720, 525, 1415, 727, 524, 1385]},
+  "snesenzo-security": {"focus": 0.38, "phone_x": 0.75, "angle": -5, "desktop_bottom": 815, "detail": [710, 489, 1230, 738, 479, 1190]}
+}
