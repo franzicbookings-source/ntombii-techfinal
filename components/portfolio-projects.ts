@@ -20,7 +20,7 @@ export type PortfolioProject = {
  */
 export function projectMotion(id: string) {
   const base = `/videos/work/${id}`;
-  const revision = "?cut=2";
+  const revision = "?cut=3";
   return {
     src: `${base}.mp4${revision}`,
     poster: `${base}-poster.webp${revision}`,

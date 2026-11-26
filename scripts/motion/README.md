@@ -1,18 +1,29 @@
 # Portfolio films
 
-The website shows silent, 12-second films at 1200 × 960. Each opens on the client's mobile site with photography from the same project, cuts to the desktop design on Ntombii's navy background, then moves in on a feature from the case study. The last shot returns to the opening frame.
+The website shows a silent 12-second film for each project, 1200 × 960, on the same navy as the homepage work section (`#202c36`), so the devices sit straight on the page. Every film is built from captures of the client's live website:
 
-## Render
+1. The site's sections float as 3D layers, then fold into one page and turn to face the camera as a browser window.
+2. The real page scrolls.
+3. The browser narrows into a phone and the page switches to the mobile layout, while two sections of the site hang either side.
+4. The phone page scrolls, then the phone falls back and the layers rise into the opening frame, so the film loops without a visible cut.
 
-From the repository root, with Node 22.13+, Python 3 with Pillow, and FFmpeg with libx264 installed:
+The films are a [HyperFrames](https://hyperframes.heygen.com) composition in `films/`. One composition (`films/index.html`) serves every project through variables: the website address, an accent colour for the light behind the devices, and the two captures.
+
+## Refresh or add a project
+
+Needs Node 22+, the HyperFrames CLI (`npm install -g hyperframes`), Playwright with Chromium, FFmpeg with libx264 and libwebp, and Python 3 with Pillow. From the repository root:
 
 ```sh
-python3 scripts/motion/editorial-film.py la-raza
-python3 scripts/motion/editorial-film.py --sheet /tmp/portfolio-storyboard.jpg
+node scripts/motion/films/capture.cjs la-raza     # tall desktop and phone captures of the live site
+node scripts/motion/films/render.cjs la-raza      # renders the film, then writes the MP4, poster and thumbnail to public/videos/work/
 ```
 
-Omit the project ID to render the full collection. The storyboard shows three frames per project. Rendering uses the published case-study screenshots declared in `components/portfolio-projects.ts`, the WebP artwork in `plates/`, and the framing in `film-crops.json`. The website build uses the finished films and posters in `public/videos/work/`.
+Leave out the project ID to do all of them. Add `--draft` to `render.cjs` for a quick check render (kept in `films/.renders/`, nothing published).
 
-For a new project, add its three screenshots to the project record, save a suitable client image as `plates/<project-id>.webp`, and record its origin in `plates/sources.json`. Add the crop settings under the same ID. The six detail values are the centre X, centre Y and crop width at the beginning and end of the shot, in pixels on the original detail screenshot. Check the storyboard and finished loop before publishing. Bump the media revision in `projectMotion()` when replacing published files.
+For a new project, add it to `films/projects.json` with its live URL, the address shown in the browser bar and an accent colour from its brand, then capture and render. Bump the revision in `projectMotion()` (`components/portfolio-projects.ts`) whenever published films change, so browsers fetch the new files.
 
-The earlier laptop-and-phone scroll renderer remains available as `make-video.cjs <project-id> <live-url> [scroll-fraction]`. It writes the same output paths. The editorial command above reproduces the current portfolio.
+To change the film itself, edit `films/index.html`, or open the folder in the HyperFrames desktop app. Run `hyperframes check` and `hyperframes snapshot --at 0,3.4,7.5,11.9` from `scripts/motion/films/` before rendering.
+
+## Earlier styles
+
+`editorial-film.py` (with `plates/` and `film-crops.json`) made the previous editorial films, and `make-video.cjs` the first laptop-and-phone films. Both write to the same output paths, so running either replaces the current films.

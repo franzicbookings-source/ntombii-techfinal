@@ -1,0 +1,232 @@
+<!doctype html>
+<html
+  lang="en"
+  data-composition-variables='[
+    {"id":"domain","type":"string","label":"Website address","default":"laraza.co.za"},
+    {"id":"accent","type":"color","label":"Accent","default":"#c8a35f"},
+    {"id":"desktop","type":"string","label":"Desktop capture","default":"assets/captures/la-raza-desktop.webp"},
+    {"id":"mobile","type":"string","label":"Phone capture","default":"assets/captures/la-raza-mobile.webp"},
+    {"id":"desktopHeight","type":"number","label":"Desktop capture height (px)","default":1351,"min":900},
+    {"id":"mobileHeight","type":"number","label":"Phone capture height (px)","default":1943,"min":1266}
+  ]'
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1200, height=960" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      :root {
+        --ground: #202c36;
+        --accent: #c8a35f;
+        --chrome: #111920;
+        --pill: #1b252d;
+        --line: rgba(255, 255, 255, 0.12);
+        --font-ui: "Inter", sans-serif;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1200px; height: 960px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--ground); font-family: var(--font-ui); }
+
+      /* Ground: navy to match the website section, a dot grid and a glow in the client's colour */
+      #bg { position: absolute; inset: 0; z-index: 1; }
+      #grid {
+        position: absolute; inset: -56px;
+        background-image: radial-gradient(rgba(255, 255, 255, 0.075) 1.1px, transparent 1.6px);
+        background-size: 28px 28px;
+        -webkit-mask-image: radial-gradient(ellipse 62% 58% at 50% 50%, #000 30%, transparent 100%);
+        mask-image: radial-gradient(ellipse 62% 58% at 50% 50%, #000 30%, transparent 100%);
+      }
+      #glow {
+        position: absolute; left: 150px; top: 130px; width: 900px; height: 700px; border-radius: 50%;
+        background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 46%, transparent), transparent);
+        opacity: 0.75;
+      }
+
+      /* The website as stacked layers */
+      #world { position: absolute; inset: 0; z-index: 3; perspective: 2300px; perspective-origin: 600px 499px; }
+      #cam { position: absolute; left: 150px; top: 218px; width: 900px; height: 562px; transform-style: preserve-3d; }
+      #spin { position: absolute; inset: 0; transform-style: preserve-3d; }
+      #floor {
+        position: absolute; left: -160px; top: -140px; width: 1220px; height: 842px; border-radius: 50%;
+        background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 44%, transparent), transparent 82%);
+      }
+      .layer {
+        position: absolute; inset: 0; overflow: hidden; border-radius: 10px; background: #0d141a;
+        box-shadow: 0 0 0 1px var(--line), 0 34px 70px rgba(4, 10, 15, 0.5);
+      }
+      .layer img, .sat img { position: absolute; left: 0; top: 0; display: block; }
+      .layer img { width: 900px; }
+      .sheen { position: absolute; inset: 0; background: linear-gradient(155deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0) 38%); }
+      .glint { position: absolute; top: -20%; left: 0; width: 34%; height: 140%; background: linear-gradient(100deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.16) 50%, rgba(255, 255, 255, 0)); }
+
+      /* Browser that becomes a phone */
+      #devices { position: absolute; inset: 0; z-index: 2; perspective: 2000px; perspective-origin: 600px 480px; }
+      #orbit { position: absolute; inset: 0; transform-style: preserve-3d; }
+      #device { position: absolute; left: 600px; top: 480px; width: 900px; height: 616px; }
+      #shadow { position: absolute; left: 0; top: 8px; width: 900px; height: 600px; border-radius: 14px; background: rgba(2, 6, 10, 0.62); filter: blur(38px); }
+      #shell { position: absolute; inset: 0; background: linear-gradient(160deg, #18222a, #0a0f13 46%); clip-path: inset(8px 0px 8px 0px round 12px 12px 12px 12px); }
+      #bar { position: absolute; left: 0; top: 8px; width: 900px; height: 38px; border-radius: 12px 12px 0 0; background: var(--chrome); box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.06); }
+      .dot { position: absolute; top: 14px; width: 10px; height: 10px; border-radius: 50%; background: rgba(255, 255, 255, 0.2); }
+      #pill {
+        position: absolute; left: 50%; top: 8px; width: 300px; height: 22px; margin-left: -150px; border-radius: 11px;
+        background: var(--pill); color: #a9b8c3; font-size: 12px; font-weight: 400; line-height: 22px; text-align: center; letter-spacing: 0.01em;
+      }
+      #pill svg { display: inline-block; width: 9px; height: 10px; margin-right: 6px; vertical-align: -1px; }
+      #screen { position: absolute; inset: 0; background: #0d141a; clip-path: inset(46px 0px 8px 0px round 0px 0px 12px 12px); }
+      #desk-wrap, #mob-wrap { position: absolute; left: 0; top: 0; }
+      #desk { width: 900px; display: block; }
+      #mob { width: 280px; display: block; }
+      #screen-glint { opacity: 0; }
+      #island { position: absolute; left: 408px; top: 21px; width: 84px; height: 24px; border-radius: 12px; background: #000; }
+      .sat {
+        position: absolute; width: 420px; height: 262px; overflow: hidden; border-radius: 9px; background: #0d141a;
+        box-shadow: 0 0 0 1px var(--line), 0 30px 70px rgba(3, 8, 12, 0.55);
+      }
+      .sat img { width: 420px; }
+      #sat-a { left: 52px; top: 168px; }
+      #sat-b { left: 728px; top: 530px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="12" data-width="1200" data-height="960">
+      <div id="bg" class="clip" data-start="0" data-duration="12" data-track-index="0" data-layout-ignore>
+        <div id="grid"></div>
+        <div id="glow"></div>
+      </div>
+
+      <div id="devices" class="clip" data-start="0" data-duration="12" data-track-index="1" data-layout-allow-overflow>
+        <div id="orbit">
+          <div id="sat-a" class="sat"><img id="sat-a-img" data-var-src="desktop" src="assets/captures/la-raza-desktop.webp" alt="" /><div class="sheen"></div></div>
+          <div id="sat-b" class="sat"><img id="sat-b-img" data-var-src="desktop" src="assets/captures/la-raza-desktop.webp" alt="" /><div class="sheen"></div></div>
+          <div id="device">
+            <div id="shadow"></div>
+            <div id="shell"></div>
+            <div id="screen">
+              <div id="desk-wrap"><img id="desk" data-var-src="desktop" src="assets/captures/la-raza-desktop.webp" alt="" /></div>
+              <div id="mob-wrap"><img id="mob" data-var-src="mobile" src="assets/captures/la-raza-mobile.webp" alt="" /></div>
+              <div class="glint" id="screen-glint"></div>
+            </div>
+            <div id="island"></div>
+            <div id="bar" data-layout-ignore>
+              <span class="dot" style="left: 16px"></span><span class="dot" style="left: 33px"></span><span class="dot" style="left: 50px"></span>
+              <div id="pill"><svg viewBox="0 0 9 10" aria-hidden="true"><rect x="0.5" y="4.2" width="8" height="5.3" rx="1.2" fill="#8193a0" /><path d="M2.3 4.4V3a2.2 2.2 0 0 1 4.4 0v1.4" fill="none" stroke="#8193a0" stroke-width="1.1" /></svg><span id="domain" data-var-text="domain">laraza.co.za</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="world" class="clip" data-start="0" data-duration="12" data-track-index="2" data-layout-allow-overflow>
+        <div id="cam">
+          <div id="spin">
+            <div id="floor"></div>
+            <div id="l3" class="layer"><img id="l3-img" data-var-src="desktop" src="assets/captures/la-raza-desktop.webp" alt="" /><div class="sheen"></div></div>
+            <div id="l2" class="layer"><img id="l2-img" data-var-src="desktop" src="assets/captures/la-raza-desktop.webp" alt="" /><div class="sheen"></div></div>
+            <div id="l1" class="layer"><img id="l1-img" data-var-src="desktop" src="assets/captures/la-raza-desktop.webp" alt="" /><div class="sheen"></div></div>
+            <div id="l0" class="layer"><img id="l0-img" data-var-src="desktop" src="assets/captures/la-raza-desktop.webp" alt="" /><div class="sheen" id="l0-sheen"></div><div class="glint" id="l0-glint"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const vars = (window.__hyperframes && window.__hyperframes.getVariables()) || {};
+      const desktopHeight = Number(vars.desktopHeight) || 1351;
+      const mobileHeight = Number(vars.mobileHeight) || 1943;
+      if (vars.accent) document.documentElement.style.setProperty("--accent", vars.accent);
+
+      // Geometry. Desktop captures are 1440 px wide and shown 900 px wide; phone captures are 585 px wide and shown 280 px wide.
+      const VIEW = 562, SCREEN = 596, DESK = 900 / 1440, MOB = 280 / 585;
+      const pageHeight = desktopHeight * DESK;
+      const phoneHeight = mobileHeight * MOB;
+      const step = Math.max(60, (Math.min(pageHeight, VIEW * 6) - VIEW) / 3);
+      const maxDesk = Math.max(0, pageHeight - VIEW), maxMob = Math.max(0, phoneHeight - SCREEN);
+      const d2 = Math.min(maxDesk, 1180), d1 = Math.min(500, d2 * 0.45);
+      const m2 = Math.min(maxMob, 1300), m1 = Math.min(620, m2 * 0.45);
+
+      const tl = gsap.timeline({ paused: true });
+      const G0 = 104, G1 = 132;
+      const layers = ["#l0", "#l1", "#l2", "#l3"];
+
+      // Each layer shows a different section of the page; the satellites reuse the second and third.
+      layers.forEach((id, k) => tl.fromTo(`${id}-img`, { y: -k * step }, { y: -k * step, duration: 0.01 }, 0));
+      tl.fromTo("#sat-a-img", { y: -step * (420 / 900) }, { y: -step * (420 / 900) - 70, duration: 5, ease: "none" }, 6.9);
+      tl.fromTo("#sat-b-img", { y: -2 * step * (420 / 900) }, { y: -2 * step * (420 / 900) - 70, duration: 5, ease: "none" }, 6.9);
+
+      // Ground: the grid drifts exactly one tile in 12 s, so the loop has no seam.
+      tl.fromTo("#grid", { x: 0, y: 0 }, { x: -28, y: -28, duration: 12, ease: "none" }, 0);
+      tl.fromTo("#glow", { x: -70, scale: 1 }, { x: 70, scale: 1.08, duration: 6, ease: "sine.inOut" }, 0);
+      tl.to("#glow", { x: -70, scale: 1, duration: 6, ease: "sine.inOut" }, 6);
+
+      // 0–3.4 s: the layers orbit, spread, then fold into one page and turn to face the camera.
+      tl.fromTo("#world", { opacity: 1 }, { opacity: 1, duration: 0.01 }, 0);
+      tl.fromTo("#spin", { rotation: -40 }, { rotation: -33, duration: 2.05, ease: "sine.in" }, 0);
+      tl.to("#spin", { rotation: 0, duration: 1.35, ease: "power2.inOut" }, 2.05);
+      tl.fromTo("#cam", { rotationX: 57, y: 64, scale: 0.8 }, { rotationX: 0, y: 0, scale: 1, duration: 1.3, ease: "power3.inOut" }, 2.1);
+      tl.fromTo("#floor", { z: -60, opacity: 1 }, { z: -60, opacity: 0, duration: 0.9, ease: "power2.in" }, 2.3);
+      layers.forEach((id, k) => {
+        const n = 3 - k;
+        tl.fromTo(id, { z: n * G0 }, { z: n * G1, duration: 2.05, ease: "sine.inOut" }, 0);
+        tl.to(id, { z: -36 * k, duration: 1.2, ease: "power3.inOut" }, 2.15 - n * 0.05);
+        // The lower layers merge into the homepage and fade as they meet, so it always lands on top.
+        if (k > 0) tl.fromTo(id, { opacity: 1 }, { opacity: 0, duration: 0.38, ease: "power1.in", immediateRender: false }, 2.62 - k * 0.07);
+      });
+      tl.fromTo("#l0-glint", { x: -340 }, { x: 1000, duration: 1.3, ease: "power2.inOut" }, 0.45);
+      tl.fromTo("#l0", { borderRadius: "10px 10px 10px 10px" }, { borderRadius: "0px 0px 12px 12px", duration: 0.4, ease: "power2.inOut" }, 3.0);
+      tl.fromTo("#l0-sheen", { opacity: 1 }, { opacity: 0, duration: 0.4 }, 3.0);
+
+      // Hand-off to the browser at 3.4 s: same rectangle, same picture.
+      tl.fromTo("#device", { xPercent: -50, yPercent: -50 }, { xPercent: -50, yPercent: -50, duration: 0.01 }, 0);
+      tl.fromTo("#desk-wrap", { x: 0, y: 46, scale: 1, opacity: 1, transformOrigin: "0 0" }, { x: 0, y: 46, scale: 1, opacity: 1, duration: 0.01 }, 0);
+      tl.fromTo("#bar", { opacity: 0, y: -14, scaleX: 1 }, { opacity: 1, y: 0, scaleX: 1, duration: 0.42, ease: "expo.out" }, 3.05);
+      tl.fromTo(["#shell", "#screen"], { opacity: 0 }, { opacity: 1, duration: 0.01 }, 3.39);
+      tl.fromTo("#shadow", { opacity: 0, y: 40, scaleX: 1, scaleY: 1 }, { opacity: 1, y: 40, duration: 0.5, ease: "power2.out" }, 3.2);
+      tl.set("#world", { opacity: 0 }, 3.4);
+
+      // 3.4–6.5 s: the real page scrolls in two flicks while the camera turns a few degrees.
+      tl.fromTo("#desk", { y: 0 }, { y: -d1, duration: 1.0, ease: "power2.inOut" }, 3.8);
+      tl.to("#desk", { y: -d2, duration: 1.05, ease: "power2.inOut" }, 5.0);
+      tl.fromTo("#orbit", { rotationY: 0, rotationX: 0, z: 0, opacity: 1 }, { rotationY: -7, rotationX: 3, duration: 3.1, ease: "power1.inOut" }, 3.42);
+
+      // 6.5–7.6 s: the browser narrows into a phone and the page reflows to the mobile layout.
+      const morph = { duration: 1.05, ease: "power3.inOut" };
+      tl.fromTo("#shell", { clipPath: "inset(8px 0px 8px 0px round 12px 12px 12px 12px)" }, { clipPath: "inset(0px 300px 0px 300px round 50px 50px 50px 50px)", ...morph, immediateRender: false }, 6.5);
+      tl.fromTo("#screen", { clipPath: "inset(46px 0px 8px 0px round 0px 0px 12px 12px)" }, { clipPath: "inset(10px 310px 10px 310px round 40px 40px 40px 40px)", ...morph, immediateRender: false }, 6.5);
+      tl.to("#shadow", { scaleX: 1 / 3, scaleY: 616 / 600, ...morph }, 6.5);
+      tl.to("#bar", { opacity: 0, scaleX: 0.36, duration: 0.5, ease: "power2.in" }, 6.5);
+      tl.to("#desk-wrap", { x: 310, y: 10, scale: 280 / 900, ...morph }, 6.5);
+      tl.to("#desk-wrap", { opacity: 0, duration: 0.3, ease: "power2.in" }, 6.62);
+      tl.fromTo("#mob-wrap", { x: 0, y: 46, scale: 900 / 280, transformOrigin: "0 0" }, { x: 310, y: 10, scale: 1, ...morph }, 6.5);
+      tl.fromTo("#mob-wrap", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 6.88);
+      tl.fromTo("#screen-glint", { x: 0, opacity: 1 }, { x: 620, opacity: 1, duration: 0.75, ease: "power2.inOut", immediateRender: false }, 7.45);
+      tl.fromTo("#island", { opacity: 0, scaleX: 0.4 }, { opacity: 1, scaleX: 1, duration: 0.45, ease: "expo.out" }, 7.25);
+      tl.to("#orbit", { rotationY: 10, rotationX: -2, duration: 4.1, ease: "power1.inOut" }, 6.52);
+
+      // Sections of the page fly out of the phone and hang either side of it.
+      tl.fromTo("#sat-a", { x: 330, y: 160, z: -160, rotationY: 20, scale: 0.5, opacity: 0 }, { x: 0, y: 0, z: -160, rotationY: 20, scale: 1, opacity: 1, duration: 1.0, ease: "expo.out" }, 7.0);
+      tl.fromTo("#sat-b", { x: -320, y: -150, z: -160, rotationY: -20, scale: 0.5, opacity: 0 }, { x: 0, y: 0, z: -160, rotationY: -20, scale: 1, opacity: 1, duration: 1.0, ease: "expo.out" }, 7.12);
+
+      // 7.6–10.6 s: the phone site scrolls.
+      tl.fromTo("#mob", { y: 0 }, { y: -m1, duration: 1.0, ease: "power2.inOut" }, 8.0);
+      tl.to("#mob", { y: -m2, duration: 1.05, ease: "power2.inOut" }, 9.2);
+
+      // 10.6–12 s: the phone falls back and the layers rise into the opening frame, so the film loops cleanly.
+      tl.to("#orbit", { z: -520, rotationX: 40, opacity: 0, duration: 0.75, ease: "power3.in" }, 10.62);
+      const REBUILD = 11.06;
+      tl.set("#world", { opacity: 1 }, REBUILD);
+      tl.set("#cam", { rotationX: 57, y: 64, scale: 0.8 }, REBUILD);
+      tl.set("#l0", { borderRadius: "10px 10px 10px 10px" }, REBUILD);
+      tl.set("#l0-sheen", { opacity: 1 }, REBUILD);
+      tl.set(layers, { opacity: 0 }, REBUILD);
+      tl.fromTo("#spin", { rotation: -50 }, { rotation: -40, duration: 0.93, ease: "power2.out", immediateRender: false }, REBUILD);
+      tl.fromTo("#floor", { opacity: 0 }, { opacity: 1, duration: 0.8, ease: "power2.out", immediateRender: false }, REBUILD);
+      // Bottom layer first, the homepage last; each lands on its opening position just before 12 s.
+      [3, 2, 1, 0].forEach((k, i) => {
+        const n = 3 - k;
+        tl.fromTo(`#l${k}`, { z: n * G0 - 760, opacity: 0 }, { z: n * G0, opacity: 1, duration: 0.82, ease: "expo.out", immediateRender: false }, REBUILD + i * 0.035);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

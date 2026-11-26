@@ -35,6 +35,9 @@ test("the homepage shows every project clip and keeps the refreshed structure", 
   assert.doesNotMatch(html, /id="home-articles-title"/);
   assert.match(html, /aria-label="Previous project"/);
   assert.match(html, /aria-label="Next project"/);
+  // The first film plays once and hands over to the next project; the others loop when a visitor picks them.
+  assert.match(html, /class="studio-progress"/);
+  assert.equal((html.match(/<video[^>]*\sloop=""/g) ?? []).length, ids.length - 1);
   for (const path of ["/work/friday-consulting", "/work/legend-black-jesus", "/services/websites", "/pricing"]) {
     const { html: other } = await page(path);
     assert.ok(clips(other).length >= 1, path);

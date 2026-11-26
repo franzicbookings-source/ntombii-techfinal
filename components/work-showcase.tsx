@@ -6,7 +6,7 @@ import { ProjectMotion } from "./project-motion";
 import "./work-showcase.css";
 
 const summaries: Record<string, string> = {
-  "la-raza": "Guests can sign up for opening news. Job seekers can apply straight from their phones.",
+  "la-raza": "A countdown to the grand opening, table bookings on WhatsApp and a sign-up for news and specials.",
   "moyandi-scents": "Pick a scent, build a gift box and check out in two steps at this Durban fragrance shop.",
   "keep-newcastle-alive": "A place for Newcastle residents to find support, volunteer or help fund local work.",
   "friday-consulting": "Six areas of expertise, past project work and a direct way to brief the consulting team.",
@@ -24,9 +24,18 @@ function Chevron({ previous = false }: { previous?: boolean }) {
 export function WorkShowcase() {
   const track = useRef<HTMLDivElement>(null);
   const position = useRef(0);
+  const bar = useRef<HTMLSpanElement>(null);
   const [active, setActive] = useState(0);
+  // Each film plays once, then the next project comes in. Any browsing by the visitor hands control back to them.
+  const [auto, setAuto] = useState(true);
   const project = portfolioProjects[active];
   const total = portfolioProjects.length;
+
+  function showProgress(fraction: number) {
+    if (bar.current) bar.current.style.transform = `scaleX(${fraction})`;
+  }
+
+  useEffect(() => showProgress(0), [active]);
 
   useEffect(() => {
     const element = track.current;
@@ -63,17 +72,24 @@ export function WorkShowcase() {
     element.scrollTo({ left: next * element.clientWidth, behavior: smooth ? "smooth" : "instant" });
   }
 
+  function choose(index: number, animate = false) {
+    setAuto(false);
+    select(index, animate);
+  }
+
   function navigate(event: KeyboardEvent<HTMLDivElement>) {
     if (event.target !== event.currentTarget) return;
     switch (event.key) {
-      case "ArrowLeft": select(active - 1, true); break;
-      case "ArrowRight": select(active + 1, true); break;
-      case "Home": select(0); break;
-      case "End": select(total - 1); break;
+      case "ArrowLeft": choose(active - 1, true); break;
+      case "ArrowRight": choose(active + 1, true); break;
+      case "Home": choose(0); break;
+      case "End": choose(total - 1); break;
       default: return;
     }
     event.preventDefault();
   }
+
+  const stopAuto = () => setAuto(false);
 
   return <section id="work" className="studio-showcase" aria-labelledby="work-title">
     <div className="wrap">
@@ -83,12 +99,21 @@ export function WorkShowcase() {
       </header>
       <div className="studio-showcase-body" role="region" aria-roledescription="carousel" aria-label="Website projects">
         <div className="studio-screen">
-          <div className="studio-reel-track" id="work-films" ref={track} role="group" tabIndex={0} onKeyDown={navigate} aria-label="Project films. Swipe or use the arrow keys to browse">
-            {portfolioProjects.map((item, index) =>
-              <div className="studio-reel-slide" key={item.id} role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${total}: ${item.previewName}`} aria-hidden={index !== active} inert={index !== active}>
-                <ProjectMotion project={item} active={index === active} />
-              </div>
-            )}
+          <div className="studio-reel">
+            <div className="studio-reel-track" id="work-films" ref={track} role="group" tabIndex={0} onKeyDown={navigate} onPointerDown={stopAuto} onWheel={stopAuto} aria-label="Project films. Swipe or use the arrow keys to browse">
+              {portfolioProjects.map((item, index) =>
+                <div className="studio-reel-slide" key={item.id} role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${total}: ${item.previewName}`} aria-hidden={index !== active} inert={index !== active}>
+                  <ProjectMotion
+                    project={item}
+                    active={index === active}
+                    loop={index !== active || !auto}
+                    onProgress={index === active ? showProgress : undefined}
+                    onEnded={index === active && auto ? () => select(active + 1, true) : undefined}
+                  />
+                </div>
+              )}
+            </div>
+            <div className="studio-progress" aria-hidden="true"><span ref={bar} /></div>
           </div>
           <div className="studio-film-caption" key={project.id}>
             <div>
@@ -101,14 +126,14 @@ export function WorkShowcase() {
             </div>
           </div>
           <div className="studio-mobile-controls" role="group" aria-label="Browse website projects">
-            <button type="button" onClick={() => select(active - 1, true)} aria-label="Previous project"><Chevron previous /></button>
+            <button type="button" onClick={() => choose(active - 1, true)} aria-label="Previous project"><Chevron previous /></button>
             <span aria-hidden="true">{active + 1} / {total}</span>
-            <button type="button" onClick={() => select(active + 1, true)} aria-label="Next project"><Chevron /></button>
+            <button type="button" onClick={() => choose(active + 1, true)} aria-label="Next project"><Chevron /></button>
           </div>
         </div>
         <div className="studio-project-index" role="group" aria-label="Choose a project">
           {portfolioProjects.map((item, index) =>
-            <button key={item.id} type="button" aria-pressed={index === active} aria-controls="work-films" onClick={() => select(index)}>
+            <button key={item.id} type="button" aria-pressed={index === active} aria-controls="work-films" onClick={() => choose(index)}>
               <img src={projectMotion(item.id).thumbnail} width="57" height="44" loading="lazy" decoding="async" alt="" />
               <span>{item.previewName}</span>
             </button>

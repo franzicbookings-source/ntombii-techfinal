@@ -1,0 +1,44 @@
+[
+  {
+    "id": "la-raza",
+    "url": "https://laraza.co.za/",
+    "domain": "laraza.co.za",
+    "accent": "#c8a35f"
+  },
+  {
+    "id": "moyandi-scents",
+    "url": "https://moyandiscents.co.za/",
+    "domain": "moyandiscents.co.za",
+    "accent": "#d29a5c"
+  },
+  {
+    "id": "keep-newcastle-alive",
+    "url": "https://www.keepnnalive.org.za/",
+    "domain": "keepnnalive.org.za",
+    "accent": "#f5a11c"
+  },
+  {
+    "id": "friday-consulting",
+    "url": "https://friday-consulting.vercel.app/",
+    "domain": "friday-consulting.vercel.app",
+    "accent": "#46a679"
+  },
+  {
+    "id": "fezile-security",
+    "url": "https://fezile-security-services.vercel.app/",
+    "domain": "fezile-security-services.vercel.app",
+    "accent": "#3d7fe0"
+  },
+  {
+    "id": "legend-black-jesus",
+    "url": "https://legendblackjesus.co.za/",
+    "domain": "legendblackjesus.co.za",
+    "accent": "#d8cdb8"
+  },
+  {
+    "id": "snesenzo-security",
+    "url": "https://www.snesenzosecuritygroup.co.za/",
+    "domain": "snesenzosecuritygroup.co.za",
+    "accent": "#e0393f"
+  }
+]
