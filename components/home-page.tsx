@@ -11,9 +11,9 @@ import { NewsletterSection, SocialLinks } from "./studio-sections";
 import { AdditionalServices } from "./service-chapters";
 import { WorkShowcase } from "./work-showcase";
 import { FounderIntro } from "./founder-intro";
-import { ProcessScene, type ProcessSceneKind } from "./process-scenes";
+import { ProcessShowcase } from "./process-showcase";
 import { StudioFooter } from "./studio-footer";
-import { useEffect, useState, type CSSProperties, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 const wa = (message = "Hi Ntombii Tech, I'd like to discuss a website project.") => `https://wa.me/27812360230?text=${encodeURIComponent(message)}`;
 const faqs = [
   ["How much does a website cost?", `${packagePriceSummary} You pay these once, for the design and setup. Your final quote depends on how many pages you need, your content and any extra features. Ongoing costs, such as hosting or a Shopify subscription, are separate and we confirm them in your quote.`],
@@ -25,11 +25,6 @@ const faqs = [
   ["Where are you based, and can we meet?", meetingInformation],
   ["Will my website work on phones and show up on Google?", "Yes. Every website we build works on phones. We also set up basic search engine optimisation (SEO), which helps Google understand what your business does. We offer local SEO in Newcastle, KZN, Pretoria and Centurion too. Nobody can guarantee a top position on Google, so we don’t promise one."],
   ["What happens after my website launches?", "Every package includes 14 days of support after your website goes live. After that, updates, new pages and ongoing maintenance are quoted separately."],
-];
-const processSteps: { scene: ProcessSceneKind; title: string; body: string }[] = [
-  { scene: "talk", title: "Tell us what you need", body: "Send a WhatsApp. We agree on the pages, price and timeline before we start." },
-  { scene: "build", title: "We design and build", body: "You review each stage, with two rounds of changes per stage." },
-  { scene: "launch", title: "We test and launch", body: "Checked on phones and computers, then published. 14 days of support included." },
 ];
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
   return <svg aria-hidden="true" className={`arrow ${diagonal ? "diagonal" : ""}`} viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>;
@@ -65,19 +60,6 @@ function ToolMarquee() {
         </div>)}</div>
       </div>)}
     </div>
-  </section>;
-}
-function ProcessSection() {
-  return <section className="process-section section wrap" aria-labelledby="process-title">
-    <div className="section-heading" data-reveal>
-      <h2 id="process-title">We build websites.</h2>
-      <div className="process-intro"><p>Business websites, e-commerce websites and ongoing maintenance.</p><a className="text-link" href="/pricing">Websites from {portfolioPackage.price} <Arrow diagonal /></a></div>
-    </div>
-    <ol className="process-steps" data-reveal>{processSteps.map((step, index) => <li key={step.title} style={{ "--i": index } as CSSProperties} data-reveal>
-      <ProcessScene kind={step.scene} />
-      <h3>{step.title}</h3>
-      <p>{step.body}</p>
-    </li>)}</ol>
   </section>;
 }
 // Discourage casual image saving without blocking scrolling or selecting reviews.
@@ -168,7 +150,7 @@ export function HomePage() {
       </section>
     </div>
       <ToolMarquee />
-      <ProcessSection />
+      <ProcessShowcase startingPrice={portfolioPackage.price} />
       <section id="about" className="about-section section wrap"><div className="about-copy" data-reveal><h2>Hi, I'm Sabelo.<br />I build websites.</h2><p>I'm a self-taught digital product developer and the founder of Ntombii Tech.</p><p>Before tech, I managed artists and bookings in the music industry. I started experimenting with AI tools, taught myself web development and began building websites for businesses.</p><p>You work directly with me, from planning the pages to checking the finished website. You can see some of those decisions in <a className="award-story-link" href={awardArticlePath}>the story behind our 2026 Web Design Award</a>.</p><a className="text-link" href={wa("Hi Sabelo, I'd like to talk about a project.")} target="_blank" rel="noreferrer">Tell me about your business <Arrow diagonal /></a><SocialLinks /></div><FounderIntro /></section>
       <WorkShowcase />
       <section id="pricing" className="pricing-section section"><div className="wrap"><div className="section-heading" data-reveal><h2>Website packages.</h2><a className="text-link" href="/pricing">Compare in detail <Arrow diagonal /></a></div><PricingComparison /></div></section>

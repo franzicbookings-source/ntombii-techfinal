@@ -1,0 +1,50 @@
+/* "We build websites.": steps on the left, one looping film on the right; on phones the film sits between the heading and the steps. */
+.process-showcase {
+  display: grid;
+  grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
+  grid-template-areas: "copy film" "list film" "link film";
+  grid-template-rows: auto auto 1fr;
+  column-gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: start;
+}
+.process-copy { grid-area: copy; }
+.process-copy p { margin-top: 16px; font-size: 16px; line-height: 1.65; max-width: 400px; }
+
+.process-film {
+  grid-area: film;
+  align-self: center;
+  position: relative;
+  aspect-ratio: 1200 / 750;
+  overflow: hidden;
+  border-radius: 22px;
+  background: #202c36;
+  box-shadow: 0 30px 70px #10202b2e;
+}
+.process-film video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.process-film-control { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.process-film-control:focus-visible { outline: 2px solid #c4e1f5; outline-offset: -5px; border-radius: inherit; }
+
+.process-list { grid-area: list; list-style: none; margin: 34px 0 0; padding: 0; display: grid; gap: 20px; }
+.process-list li { position: relative; padding-left: 22px; transition: opacity .35s ease; }
+.process-showcase[data-playing="true"] .process-list li:not([data-active="true"]) { opacity: .42; }
+.process-track { position: absolute; left: 0; top: 5px; bottom: 5px; width: 2px; overflow: hidden; border-radius: 2px; background: var(--line); }
+.process-track span { display: block; width: 100%; height: 100%; background: var(--blue); transform: scaleY(0); transform-origin: top; }
+.process-list h3 { margin: 0; font-size: 21px; line-height: 1.3; letter-spacing: -.02em; color: var(--ink); }
+.process-list h3 button { padding: 0; border: 0; background: none; font: inherit; color: inherit; letter-spacing: inherit; text-align: left; cursor: pointer; }
+.process-list h3 button:hover { color: var(--blue-dark); }
+.process-list p { margin-top: 4px; font-size: 15px; line-height: 1.6; max-width: 420px; }
+.process-link { grid-area: link; align-self: start; justify-self: start; margin-top: 30px; }
+
+@media (max-width: 900px) {
+  .process-showcase { grid-template-columns: 1fr; grid-template-areas: "copy" "film" "list" "link"; grid-template-rows: none; }
+  .process-copy p { margin-top: 12px; font-size: 15px; }
+  .process-film { margin-top: 26px; border-radius: 16px; }
+  .process-list { margin-top: 26px; gap: 16px; }
+  .process-list li { padding-left: 18px; }
+  .process-list h3 { font-size: 19px; }
+  .process-list p { font-size: 14.5px; margin-top: 2px; }
+  .process-link { margin-top: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .process-list li { transition: none; }
+}

@@ -34,9 +34,6 @@ html{scroll-padding-top:110px}
   .content-illustration.motion-in .illustration-wash{animation:wash-in .9s cubic-bezier(.16,1,.3,1) .35s backwards}
 
   /* Process: cards rise in turn, and a line fills across each one as you scroll through. */
-  .process-steps li{position:relative;overflow:hidden}
-  .process-steps li::before{content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:var(--blue);transform-origin:left;transform:scaleX(clamp(0,calc(var(--progress,0)*3 - var(--i,0)),1))}
-  .process-steps.visible li{animation:soft-rise .9s cubic-bezier(.16,1,.3,1) calc(var(--i,0)*120ms) backwards}
 
   /* Fine pointer feedback for supporting clips on service, region and pricing pages. */
   .project-motion.is-pointer{transform:perspective(1400px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg))}

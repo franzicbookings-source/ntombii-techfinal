@@ -24,6 +24,17 @@ For a new project, add it to `films/projects.json` with its live URL, the addres
 
 To change the film itself, edit `films/index.html`, or open the folder in the HyperFrames desktop app. Run `hyperframes check` and `hyperframes snapshot --at 0,3.4,7.5,11.9` from `scripts/motion/films/` before rendering.
 
+## Process film
+
+The "We build websites." film on the homepage is the HyperFrames composition in `process/`. To change it, edit `process/index.html` (the chapter times must stay in step with `components/process-showcase.tsx`), then from `scripts/motion/process/`:
+
+```sh
+hyperframes check
+hyperframes render --quality delivery -o .renders/process.mp4
+ffmpeg -i .renders/process.mp4 -an -c:v libx264 -preset veryslow -crf 26 -pix_fmt yuv420p -movflags +faststart ../../../public/videos/process.mp4
+ffmpeg -ss 5.9 -i .renders/process.mp4 -frames:v 1 -c:v libwebp -quality 82 ../../../public/videos/process-poster.webp
+```
+
 ## Earlier styles
 
 `editorial-film.py` (with `plates/` and `film-crops.json`) made the previous editorial films, and `make-video.cjs` the first laptop-and-phone films. Both write to the same output paths, so running either replaces the current films.
