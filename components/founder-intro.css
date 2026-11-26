@@ -1,4 +1,7 @@
-/* Sabelo's photo card with a short animated introduction on request. */
+.founder-photo.founder-intro {
+  aspect-ratio: 1 / 1.05;
+  background: #233643;
+}
 .founder-intro-video {
   position: absolute;
   inset: 0;
@@ -20,28 +23,30 @@
 .founder-intro-button {
   position: absolute;
   z-index: 3;
-  top: 22px;
-  left: 22px;
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  min-height: 44px;
-  padding: 10px 18px 10px 14px;
+  inset: 50% auto auto 50%;
+  translate: -50% -50%;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
   border: 0;
-  border-radius: 99px;
+  border-radius: 50%;
   background: #fff;
   color: #1e3441;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1;
-  box-shadow: 0 6px 22px #10202b29;
-  transition: transform .2s, box-shadow .2s;
 }
-.founder-intro-button:hover { transform: translateY(-2px); box-shadow: 0 10px 28px #10202b33; }
-.founder-intro-button svg { flex-shrink: 0; }
+.founder-intro[data-state="playing"] .founder-intro-button {
+  opacity: 0;
+}
+.founder-intro[data-state="playing"] .founder-intro-button:focus-visible {
+  opacity: 1;
+  background: #233643;
+  color: white;
+}
+.founder-intro[data-state="playing"] .founder-intro-button svg {
+  visibility: hidden;
+}
 
-/* While the intro plays, its words take the place of the name card. */
-.founder-intro figcaption { z-index: 2; transition: opacity .3s; }
 .founder-intro-line {
   position: absolute;
   z-index: 2;
@@ -62,14 +67,12 @@
   transition: opacity .25s;
 }
 .founder-intro-line:empty { display: none; }
-.founder-intro[data-state="playing"] figcaption, .founder-intro[data-state="paused"] figcaption { opacity: 0; }
 .founder-intro[data-state="playing"] .founder-intro-line, .founder-intro[data-state="paused"] .founder-intro-line { opacity: 1; }
 
 @media (max-width: 760px) {
-  .founder-intro-button { top: 14px; left: 14px; font-size: 13px; min-height: 42px; padding: 9px 16px 9px 12px; }
+  .founder-photo.founder-intro { aspect-ratio: 1.22; max-height: 320px; }
   .founder-intro-line { left: 12px; right: 12px; bottom: 12px; padding: 12px 14px; font-size: 15px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .founder-intro-video { transform: none; transition: opacity .2s; }
-  .founder-intro-button { transition: none; }
 }
