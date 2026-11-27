@@ -65,3 +65,11 @@ test("every case study links to the next project in portfolio order, including t
     assert.match(story.html, new RegExp(`<a[^>]*class="case-next"[^>]*href="/work/${nextId}"|<a[^>]*href="/work/${nextId}"[^>]*class="case-next"`), id);
   }
 });
+
+test("the floating WhatsApp launcher is absent across pages and the intro invite starts hidden", async () => {
+  for (const path of ["/", "/work", "/pricing", "/contact"]) {
+    const response = await page(path);
+    assert.equal(response.status, 200);
+    assert.doesNotMatch(response.html, /class="(?:floating-contact|founder-intro-whatsapp)"/);
+  }
+});

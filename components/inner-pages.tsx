@@ -1,6 +1,5 @@
 import { packagePriceSummary, shopifyCosts } from "./website-packages";
 import { studioLocation, meetingInformation, regionalWebsiteLinks } from "./locations";
-import { FloatingContact } from "./floating-contact";
 import { ContentIllustration, illustrationFor } from "./content-illustration";
 import Link from "next/link";
 import { PricingComparison } from "./pricing-comparison";
@@ -151,7 +150,6 @@ export function InnerPage({ children, enquiry }: { children: ReactNode; enquiry?
     <InnerNavigation />
     <main id="main">{children}</main>
     <StudioFooter enquiry={enquiry} />
-    <FloatingContact />
   </div>;
 }
 

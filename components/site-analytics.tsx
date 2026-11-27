@@ -24,7 +24,7 @@ export function SiteAnalytics() {
       const placement = anchor.closest("header") ? "header"
         : anchor.closest(".hero") ? "hero"
         : anchor.closest(".pricing-comparison, #pricing, .detail-price") ? "pricing"
-        : anchor.closest(".floating-contact") ? "floating"
+        : anchor.closest(".founder-intro") ? "founder_intro"
         : anchor.closest("#contact, .inner-contact") ? "contact" : "content";
       trackWhatsAppClick(placement);
     };

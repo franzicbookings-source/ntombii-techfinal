@@ -104,7 +104,7 @@ export function trackQuoteHandoff(form: HandoffForm) {
   if (!active || !allowed()) return;
   browser().gtag?.("event", "quote_form_handoff", { ...pageDetails(), form_type: form });
 }
-export function trackWhatsAppClick(placement: "header" | "hero" | "pricing" | "contact" | "floating" | "content") {
+export function trackWhatsAppClick(placement: "header" | "hero" | "pricing" | "contact" | "founder_intro" | "content") {
   if (!active || !allowed()) return;
   browser().gtag?.("event", "whatsapp_click", { ...pageDetails(), placement });
 }
