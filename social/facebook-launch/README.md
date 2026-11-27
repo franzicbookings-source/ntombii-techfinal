@@ -1,8 +1,23 @@
 # Facebook launch film
 
-`ntombii-facebook-launch.mp4`: 29.7 s, 1080 × 1350 (4:5, the format that takes the most room in a phone feed), with music and sound. Mixed to −14.4 LUFS, true peak −1.4 dBTP.
+29.7 s, 4:5 portrait, with music and sound, mixed to about −14.5 LUFS. Run `./export.sh` after rendering to make the upload files in `exports/`:
+
+| File | Use |
+| --- | --- |
+| `ntombii-launch-2160x2700.mp4` | Best quality. Upload from a computer at facebook.com or in Meta Business Suite. |
+| `ntombii-launch-1080x1350.mp4` | Upload from a phone, with HD upload switched on. |
 
 Cover images: `cover-building.jpg` ("Because we've been building.") or `cover-endcard.jpg` (logo and WhatsApp number).
+
+## Keeping the quality when you post
+
+Facebook and Instagram re-compress every video. The film is rendered at 2160 × 2700 from the full-quality project films, at a high bitrate, with faint grain so the navy gradients don't band, so the platform starts from a clean source. The rest is in how it's uploaded:
+
+1. **Get the file to your phone as a file.** Download it straight from here, Google Drive or email. Sending it through WhatsApp as a video compresses it heavily (send as a Document if you must).
+2. **Facebook app:** Menu → Settings & privacy → Settings → Media → Video quality → choose **Upload HD** (not Data saver or Optimised).
+3. **Instagram app:** Settings → Data usage and media quality → turn on **Upload at highest quality**, and turn off Data saver.
+4. **Best of all, post from a computer** (facebook.com or business.facebook.com) with the 2160 × 2700 file.
+5. **Give it time.** Right after posting, Facebook often plays a low-quality version while it finishes the HD one. Check again after 10–30 minutes before judging it.
 
 ## What happens
 
@@ -32,10 +47,16 @@ Post it as a native video (upload the MP4, not a link), pin it to the top of the
 
 ## Re-render
 
-Needs the HyperFrames CLI (`npm install -g hyperframes`) and FFmpeg. The project films and Sabelo's intro are linked from `public/videos/`. From this folder:
+Needs the HyperFrames CLI (`npm install -g hyperframes`) and FFmpeg. The film is designed at 1080 × 1350 and rendered at 2160 × 2700 (`#canvas` is zoomed 2×). It reads full-quality sources from `assets/hq/`, which is not committed because of its size:
+
+- the seven project films: run `node scripts/motion/films/render.cjs` from the repository root, then copy `scripts/motion/films/.renders/<id>.mp4` into `assets/hq/`;
+- `sabelo-intro.mp4`: the 1920 × 1072 talking-head master from the ElevenLabs flow "Ntombii Tech – Sabelo intro", cropped to a 1072 × 1072 square;
+- `award-2026@4x.png`: `assets/brand/award-2026.png` enlarged 4× with Lanczos.
+
+Then, from this folder:
 
 ```sh
 hyperframes check
-hyperframes render --quality delivery -o .renders/facebook-launch.mp4
-ffmpeg -i .renders/facebook-launch.mp4 -c:v copy -af "loudnorm=I=-14.5:TP=-2:LRA=11,alimiter=limit=0.84:level=false" -ar 48000 -c:a aac -b:a 192k -movflags +faststart ntombii-facebook-launch.mp4
+hyperframes render --quality delivery --crf 10 --video-frame-format png -o .renders/facebook-launch-2x-master.mp4
+./export.sh
 ```

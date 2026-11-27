@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=1080, height=1350" />
+    <meta name="viewport" content="width=2160, height=2700" />
     <script src="assets/vendor/gsap.min.js"></script>
     <style>
       @font-face { font-family: "Aeonik"; src: url("assets/fonts/aeonik-regular.woff") format("woff"); font-weight: 400; font-style: normal; }
@@ -12,7 +12,9 @@
         --display: "Aeonik", "Inter", sans-serif; --ui: "Inter", sans-serif;
       }
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      html, body { width: 1080px; height: 1350px; overflow: hidden; background: var(--navy); }
+      html, body { width: 2160px; height: 2700px; overflow: hidden; background: var(--navy); }
+      /* Designed at 1080 × 1350, rendered at twice the size so type and shapes stay sharp after Facebook re-encodes. */
+      #canvas { position: absolute; left: 0; top: 0; width: 1080px; height: 1350px; overflow: hidden; zoom: 2; }
       #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--navy); font-family: var(--display); color: #fff; }
       .scene { position: absolute; inset: 0; }
       .w { display: inline-block; }
@@ -86,7 +88,8 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="29.6" data-width="1080" data-height="1350">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="29.6" data-width="2160" data-height="2700">
+      <div id="canvas">
 
       <div id="bg" class="scene clip" data-start="0" data-duration="29.6" data-track-index="0" data-layout-ignore>
         <div id="grid"></div><div id="blob-a" class="blob"></div><div id="blob-b" class="blob"></div>
@@ -124,7 +127,7 @@
       <!-- 4. Award -->
       <div id="s4" class="scene clip" data-start="14" data-duration="2.05" data-track-index="1">
         <div id="s4-zoom" class="scene">
-          <div id="badge-glow"></div><div id="badge-wrap"><img id="badge" src="assets/brand/award-2026.png" alt="" /></div>
+          <div id="badge-glow"></div><div id="badge-wrap"><img id="badge" src="assets/hq/award-2026@4x.png" alt="" /></div>
           <div id="aw-1" class="center"><span class="w">Award-</span><span class="w">winning.</span></div>
           <div id="aw-2" class="center">2026 Web Design Award</div>
         </div>
@@ -133,13 +136,13 @@
       <!-- 5. Work, cut on the beat -->
       <div id="s5" class="scene">
         <div id="frame">
-          <div id="cw-0" class="clipw"><video id="v0" src="assets/work/la-raza.mp4" class="clip" data-start="16" data-duration="1" data-media-start="4.2" data-track-index="2" muted playsinline></video></div>
-          <div id="cw-1" class="clipw"><video id="v1" src="assets/work/moyandi-scents.mp4" class="clip" data-start="17" data-duration="1" data-media-start="8.8" data-track-index="2" muted playsinline></video></div>
-          <div id="cw-2" class="clipw"><video id="v2" src="assets/work/keep-newcastle-alive.mp4" class="clip" data-start="18" data-duration="1" data-media-start="4.2" data-track-index="2" muted playsinline></video></div>
-          <div id="cw-3" class="clipw"><video id="v3" src="assets/work/friday-consulting.mp4" class="clip" data-start="19" data-duration="1" data-media-start="8.8" data-track-index="2" muted playsinline></video></div>
-          <div id="cw-4" class="clipw"><video id="v4" src="assets/work/fezile-security.mp4" class="clip" data-start="20" data-duration="1" data-media-start="4.2" data-track-index="2" muted playsinline></video></div>
-          <div id="cw-5" class="clipw"><video id="v5" src="assets/work/legend-black-jesus.mp4" class="clip" data-start="21" data-duration="1" data-media-start="8.8" data-track-index="2" muted playsinline></video></div>
-          <div id="cw-6" class="clipw"><video id="v6" src="assets/work/snesenzo-security.mp4" class="clip" data-start="22" data-duration="0.6" data-media-start="4.2" data-track-index="2" muted playsinline></video></div>
+          <div id="cw-0" class="clipw"><video id="v0" src="assets/hq/la-raza.mp4" class="clip" data-start="16" data-duration="1" data-media-start="4.2" data-track-index="2" muted playsinline></video></div>
+          <div id="cw-1" class="clipw"><video id="v1" src="assets/hq/moyandi-scents.mp4" class="clip" data-start="17" data-duration="1" data-media-start="8.8" data-track-index="2" muted playsinline></video></div>
+          <div id="cw-2" class="clipw"><video id="v2" src="assets/hq/keep-newcastle-alive.mp4" class="clip" data-start="18" data-duration="1" data-media-start="4.2" data-track-index="2" muted playsinline></video></div>
+          <div id="cw-3" class="clipw"><video id="v3" src="assets/hq/friday-consulting.mp4" class="clip" data-start="19" data-duration="1" data-media-start="8.8" data-track-index="2" muted playsinline></video></div>
+          <div id="cw-4" class="clipw"><video id="v4" src="assets/hq/fezile-security.mp4" class="clip" data-start="20" data-duration="1" data-media-start="4.2" data-track-index="2" muted playsinline></video></div>
+          <div id="cw-5" class="clipw"><video id="v5" src="assets/hq/legend-black-jesus.mp4" class="clip" data-start="21" data-duration="1" data-media-start="8.8" data-track-index="2" muted playsinline></video></div>
+          <div id="cw-6" class="clipw"><video id="v6" src="assets/hq/snesenzo-security.mp4" class="clip" data-start="22" data-duration="0.6" data-media-start="4.2" data-track-index="2" muted playsinline></video></div>
         </div>
         <div id="n0" class="center mt-name">La Raza</div>
         <div id="n1" class="center mt-name">Moyandi Scents</div>
@@ -155,7 +158,7 @@
       <div id="s6" class="scene">
         <div id="face-group" class="scene">
           <div id="ring"></div>
-          <div id="face"><video id="sabelo" src="assets/sabelo-intro.mp4" class="clip" data-start="22.5" data-duration="3.15" data-media-start="0" data-has-audio="true" data-volume="1" data-track-index="3" playsinline></video></div>
+          <div id="face"><video id="sabelo" src="assets/hq/sabelo-intro.mp4" class="clip" data-start="22.5" data-duration="3.15" data-media-start="0" data-has-audio="true" data-volume="1" data-track-index="3" playsinline></video></div>
           <div id="cap" class="center"><span class="w">Sawubona!</span><br /><span class="w">I’m</span> <span class="w">Sabelo</span> <span class="w">from</span> <span class="w">Ntombii</span> <span class="w">Tech.</span></div>
         </div>
       </div>
@@ -170,6 +173,8 @@
       </div>
 
       <div id="flash" class="scene clip" data-start="15.9" data-duration="0.6" data-track-index="4" data-layout-ignore></div>
+
+      </div>
 
       <!-- Sound -->
       <audio id="music" src="assets/audio/music.mp3" data-start="0" data-duration="29.6" data-volume="0.8" data-fade-out="1.2" data-track-index="5"></audio>
