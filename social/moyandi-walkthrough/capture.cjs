@@ -14,12 +14,19 @@ const taps = {};
   const page = await ctx.newPage();
   const shot = async (name, opts = {}) => { await page.waitForTimeout(700); await page.screenshot({ path: path.join(out, `${name}.png`), ...opts }); console.log("captured", name); };
   const box = async (name, locator) => { const b = await locator.boundingBox(); taps[name] = b && { x: b.x + b.width / 2, y: b.y + b.height / 2, w: b.width, h: b.height }; };
+  // Scroll down the page so lazy-loaded product photos load, then wait for them and return to the top.
+  const loadAllImages = async () => {
+    for (let y = 0; y <= 2400; y += 300) { await page.evaluate(top => window.scrollTo(0, top), y); await page.waitForTimeout(250); }
+    await page.evaluate(() => Promise.all([...document.images].map(img => img.complete ? null : new Promise(r => { img.onload = img.onerror = r; }))));
+    await page.evaluate(() => window.scrollTo(0, 0)); await page.waitForTimeout(500);
+  };
   const hide = () => page.addStyleTag({ content: ".skip-link,[class*=skip]{display:none!important}*{caret-color:transparent!important}" });
 
   await page.goto(SITE + "/", { waitUntil: "networkidle" });
   const reject = page.getByRole("button", { name: "Reject optional" }); if (await reject.count()) await reject.first().click();
   await hide();
   await shot("home");
+  await loadAllImages();
   await shot("home-long", { fullPage: true, clip: { x: 0, y: 0, width: 390, height: 2400 } });
   await page.evaluate(() => document.querySelector("#collection")?.scrollIntoView({ block: "start" }));
   await shot("home-collection");
