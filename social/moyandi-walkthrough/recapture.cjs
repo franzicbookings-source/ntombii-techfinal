@@ -1,0 +1,32 @@
+// Before/after pairs at a fixed scroll position so the film can swap them without a jump. Non-GET requests stay blocked.
+const { chromium, devices } = require("playwright");
+const fs = require("node:fs");
+const path = require("node:path");
+const out = path.join(__dirname, "assets/ui");
+const taps = JSON.parse(fs.readFileSync(path.join(out, "taps.json"), "utf8"));
+(async () => {
+  const browser = await chromium.launch();
+  const ctx = await browser.newContext({ ...devices["iPhone 13"], deviceScaleFactor: 3.5, reducedMotion: "reduce" });
+  await ctx.route("**/*", r => ["GET", "HEAD"].includes(r.request().method()) ? r.continue() : r.abort());
+  const page = await ctx.newPage();
+  const shot = async n => { await page.waitForTimeout(600); await page.screenshot({ path: path.join(out, n + ".png") }); console.log("captured", n); };
+  const box = async (n, loc) => { const b = await loc.boundingBox(); taps[n] = { x: b.x + b.width / 2, y: b.y + b.height / 2, w: b.width, h: b.height }; };
+  const hold = async y => page.evaluate(y => window.scrollTo(0, y), y);
+  await page.goto("https://moyandiscents.co.za/products/double-wick-glass-jar-candle", { waitUntil: "networkidle" });
+  const reject = page.getByRole("button", { name: "Reject optional" }); if (await reject.count()) await reject.first().click();
+  await page.addStyleTag({ content: ".skip-link,[class*=skip]{display:none!important}" });
+  const y1 = await page.evaluate(() => { const el = [...document.querySelectorAll("*")].find(e => e.textContent.trim().startsWith("Scent:") && e.children.length < 3); return el ? Math.max(0, el.getBoundingClientRect().top + scrollY - 430) : 300; });
+  await hold(y1); await shot("product");
+  const rose = page.getByRole("radio", { name: "Rose & Peony" }).or(page.getByRole("button", { name: "Rose & Peony" })).first();
+  await box("scent-rose", rose); await rose.click(); await hold(y1); await shot("product-rose");
+  const add = page.getByRole("button", { name: "Add to cart" }); await box("add-to-cart", add);
+  await page.goto("https://moyandiscents.co.za/gifts", { waitUntil: "networkidle" });
+  await page.addStyleTag({ content: ".skip-link,[class*=skip]{display:none!important}" });
+  const y2 = await page.evaluate(() => { const h = [...document.querySelectorAll("h2,h3")].find(e => /make it their scent/i.test(e.textContent)); return h ? h.getBoundingClientRect().top + scrollY - 120 : 1200; });
+  await hold(y2); await shot("gifts-scents");
+  const sandal = page.getByRole("radio", { name: "Sandalwood" }).or(page.getByRole("button", { name: "Sandalwood" })).first();
+  await box("scent-sandalwood", sandal); await sandal.click(); await hold(y2); await shot("gifts-scents-picked");
+  fs.writeFileSync(path.join(out, "taps.json"), JSON.stringify(taps, null, 2));
+  console.log(JSON.stringify({ rose: taps["scent-rose"], add: taps["add-to-cart"], sandal: taps["scent-sandalwood"] }));
+  await browser.close();
+})();

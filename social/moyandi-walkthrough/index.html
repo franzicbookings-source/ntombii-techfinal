@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=2160, height=3840" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Aeonik"; src: url("assets/fonts/aeonik-regular.woff") format("woff"); font-weight: 400; font-style: normal; }
+      :root {
+        --espresso: #1a130f; --espresso-2: #2a1f18; --cream: #f6efe6; --sand: #d9c3a5; --amber: #e0a85c; --rose: #b3262b;
+        --navy: #202c36; --navy-deep: #151e26; --mark: #354f61; --dot: #aac3d4; --ice: #c4e1f5; --wa: #25d366;
+        --display: "Aeonik", "Inter", sans-serif; --ui: "Inter", sans-serif;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 2160px; height: 3840px; overflow: hidden; background: var(--espresso); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--espresso); }
+      /* Designed at 1080 x 1920, rendered at twice the size so the shop's text stays sharp after the platforms re-encode it. */
+      #canvas { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; zoom: 2; font-family: var(--display); color: var(--cream); }
+      .full { position: absolute; inset: 0; }
+      .center { position: absolute; left: 60px; right: 60px; text-align: center; }
+      .w { display: inline-block; }
+
+      /* Candlelit ground */
+      #bg { background: radial-gradient(ellipse 85% 60% at 50% 45%, #3a2a1f, var(--espresso-2) 45%, var(--espresso) 80%); }
+      .glow { position: absolute; border-radius: 50%; filter: blur(50px); }
+      #glow-a { left: -220px; top: 260px; width: 900px; height: 900px; background: radial-gradient(closest-side, rgba(224,168,92,.42), transparent); }
+      #glow-b { left: 460px; top: 1100px; width: 900px; height: 900px; background: radial-gradient(closest-side, rgba(179,38,43,.28), transparent); }
+      .ember { position: absolute; opacity: 0; width: 14px; height: 14px; border-radius: 50%; background: radial-gradient(closest-side, rgba(255,214,150,.95), rgba(255,214,150,0)); }
+
+      /* Captions */
+      .cap { top: 300px; font-size: 78px; line-height: 1.04; letter-spacing: -.045em; text-shadow: 0 6px 30px rgba(10,7,5,.75); z-index: 5; }
+      .cap .w { opacity: 0; }
+      .sub { top: 396px; font-family: var(--ui); font-size: 36px; color: var(--sand); opacity: 0; letter-spacing: .005em; text-shadow: 0 4px 20px rgba(10,7,5,.8); z-index: 5; }
+      #hook-1 { top: 470px; font-size: 116px; }
+      #hook-2 { top: 590px; font-size: 116px; }
+      #hook-3 { top: 710px; font-size: 116px; }
+      #credit { top: 862px; font-family: var(--ui); font-size: 34px; color: var(--sand); opacity: 0; letter-spacing: .02em; }
+
+      /* The phone */
+      #frame { position: absolute; inset: 0; z-index: 2; -webkit-mask-image: linear-gradient(to bottom, transparent 442px, #000 476px); mask-image: linear-gradient(to bottom, transparent 442px, #000 476px); }
+      #cam { position: absolute; inset: 0; }
+      #phone { position: absolute; left: 276px; top: 476px; width: 528px; height: 1110px; border-radius: 58px; background: #0d0a08; box-shadow: 0 0 0 2px rgba(246,239,230,.12), 0 60px 140px rgba(0,0,0,.6), 0 0 120px rgba(224,168,92,.16); opacity: 0; }
+      #screen { position: absolute; left: 14px; top: 14px; width: 500px; height: 1082px; border-radius: 45px; overflow: hidden; background: #f7f3ee; }
+      .scr { position: absolute; left: 0; top: 0; width: 500px; opacity: 0; }
+      #island { position: absolute; left: 198px; top: 26px; width: 104px; height: 30px; border-radius: 15px; background: #000; }
+      #dim { position: absolute; inset: 0; background: rgba(20,14,10,.62); opacity: 0; }
+
+      /* Taps */
+      .tap { position: absolute; left: 0; top: 0; width: 84px; height: 84px; margin: -42px 0 0 -42px; border-radius: 50%; background: rgba(255,255,255,.55); box-shadow: 0 0 0 3px rgba(255,255,255,.9), 0 8px 24px rgba(0,0,0,.25); opacity: 0; }
+      .ring { position: absolute; left: 0; top: 0; width: 84px; height: 84px; margin: -42px 0 0 -42px; border-radius: 50%; border: 4px solid rgba(255,255,255,.85); opacity: 0; }
+
+      /* Secure payment */
+      #pay-card { position: absolute; left: 230px; top: 470px; width: 620px; height: 470px; z-index: 3; border-radius: 44px; background: rgba(246,239,230,.97); color: #1a130f; box-shadow: 0 50px 120px rgba(0,0,0,.55); opacity: 0; text-align: center; }
+      #lock { position: absolute; left: 266px; top: 38px; width: 88px; height: 88px; border-radius: 26px; background: #1a130f; }
+      #lock svg { position: absolute; left: 19px; top: 14px; }
+      #pay-1 { position: absolute; left: 0; right: 0; top: 150px; font-size: 62px; letter-spacing: -.045em; }
+      #pay-2 { position: absolute; left: 0; right: 0; top: 228px; font-family: var(--ui); font-size: 34px; color: #6b5444; }
+      #logos { position: absolute; left: 70px; top: 296px; width: 480px; }
+
+      /* End card */
+      #flood { position: absolute; left: 540px; top: 1025px; z-index: 4; width: 200px; height: 200px; margin: -100px 0 0 -100px; border-radius: 50%; background: radial-gradient(circle, #2b3d4d, var(--navy) 60%, var(--navy-deep)); opacity: 0; }
+      #mark { position: absolute; left: 480px; top: 300px; width: 120px; height: 120px; border-radius: 29px; z-index: 6; background: var(--mark); opacity: 0; overflow: hidden; }
+      #mark-n { position: absolute; inset: 0; clip-path: inset(100% 0 0 0); }
+      #mark-dot { position: absolute; left: 79px; top: 22px; width: 11px; height: 11px; border-radius: 50%; background: var(--dot); opacity: 0; }
+      #wordmark { position: absolute; left: 330px; top: 440px; width: 420px; height: 80px; z-index: 6; clip-path: inset(0 100% 0 0); }
+      #end-1 { top: 560px; z-index: 6; font-size: 72px; line-height: 1.06; letter-spacing: -.045em; color: #fff; }
+      #end-1 .w { opacity: 0; }
+      #cta { position: absolute; left: 210px; top: 740px; width: 660px; height: 96px; border-radius: 48px; z-index: 6; background: var(--wa); color: #06281a; font-family: var(--ui); font-weight: 700; font-size: 42px; display: flex; align-items: center; justify-content: center; gap: 16px; opacity: 0; box-shadow: 0 20px 50px rgba(37,211,102,.35); }
+      #end-site { top: 866px; z-index: 6; font-family: var(--ui); font-size: 38px; color: var(--ice); opacity: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="30.0" data-width="2160" data-height="3840">
+      <div id="canvas">
+        <div id="bg" class="full clip" data-start="0" data-duration="30.0" data-track-index="0" data-layout-ignore>
+          <div id="glow-a" class="glow"></div><div id="glow-b" class="glow"></div>
+          <div id="embers"></div>
+        </div>
+
+        <div id="stage" class="full">
+          <!-- Phone -->
+          <div id="frame"><div id="cam">
+            <div id="phone">
+              <div id="screen">
+                <img id="s-home" class="scr" src="assets/ui/home-long.png" alt="" style="opacity: 1" />
+                <img id="s-coll" class="scr" src="assets/ui/home-collection.png" alt="" />
+                <img id="s-prod" class="scr" src="assets/ui/product.png" alt="" />
+                <img id="s-rose" class="scr" src="assets/ui/product-rose.png" alt="" />
+                <img id="s-cart" class="scr" src="assets/ui/cart.png" alt="" />
+                <img id="s-gift" class="scr" src="assets/ui/gifts.png" alt="" />
+                <img id="s-combo" class="scr" src="assets/ui/gifts-combos.png" alt="" />
+                <img id="s-gscent" class="scr" src="assets/ui/gifts-scents.png" alt="" />
+                <img id="s-gpick" class="scr" src="assets/ui/gifts-scents-picked.png" alt="" />
+                <img id="s-gtotal" class="scr" src="assets/ui/gifts-total.png" alt="" />
+                <img id="s-c1" class="scr" src="assets/ui/checkout-1.png" alt="" />
+                <img id="s-c1f" class="scr" src="assets/ui/checkout-1-filled.png" alt="" />
+                <img id="s-c2" class="scr" src="assets/ui/checkout-2.png" alt="" />
+                <img id="s-c2l" class="scr" src="assets/ui/checkout-2-locker.png" alt="" />
+                <img id="s-c2p" class="scr" src="assets/ui/checkout-2-pay.png" alt="" />
+                <div id="dim"></div>
+                <div id="island"></div>
+              </div>
+              <div id="taps"><div id="tap" class="tap"></div><div id="ring" class="ring"></div></div>
+            </div>
+          </div></div>
+
+          <!-- Captions -->
+          <div id="hook-1" class="center cap"><span class="w">How</span> <span class="w">an</span></div>
+          <div id="hook-2" class="center cap"><span class="w">online</span> <span class="w">shop</span></div>
+          <div id="hook-3" class="center cap"><span class="w">should</span> <span class="w">work.</span></div>
+          <div id="credit" class="center">moyandiscents.co.za</div>
+          <div id="cap-browse" class="center cap"><span class="w">Browse</span> <span class="w">the</span> <span class="w">collection</span></div>
+          <div id="cap-scent" class="center cap"><span class="w">Pick</span> <span class="w">a</span> <span class="w">scent</span></div>
+          <div id="cap-cart" class="center cap"><span class="w">Add</span> <span class="w">to</span> <span class="w">cart</span></div>
+          <div id="cap-gift" class="center cap"><span class="w">Build</span> <span class="w">a</span> <span class="w">gift</span> <span class="w">box</span></div>
+          <div id="sub-gift" class="center sub">Choose the pieces, then the scents</div>
+          <div id="cap-check" class="center cap"><span class="w">Guest</span> <span class="w">checkout</span></div>
+          <div id="sub-check" class="center sub">No account needed</div>
+          <div id="cap-pay" class="center cap"><span class="w">Pay</span> <span class="w">securely</span></div>
+
+          <!-- Secure payment -->
+          <div id="pay-card">
+            <div id="lock"><svg width="50" height="58" viewBox="0 0 28 32"><rect x="2" y="13" width="24" height="17" rx="4" fill="#f6efe6" /><path d="M7.5 13V9a6.5 6.5 0 0 1 13 0v4" fill="none" stroke="#f6efe6" stroke-width="3" /></svg></div>
+            <div id="pay-1">Secure payment</div>
+            <div id="pay-2">by Paystack</div>
+            <img id="logos" src="assets/ui/payment-logos.png" alt="" />
+          </div>
+
+          <!-- End card -->
+          <div id="flood"></div>
+          <div id="mark"><svg id="mark-n" viewBox="0 0 64 64" width="120" height="120"><path d="M19 46V24h6v3c3-4 6-5 10-5 8 0 11 5 11 13v11h-6V35c0-5-2-7-6-7s-9 3-9 8v10z" fill="#f6f8fa" /></svg><div id="mark-dot"></div></div>
+          <img id="wordmark" src="assets/brand/wordmark-white.png" alt="" />
+          <div id="end-1" class="center"><span class="w">Want</span> <span class="w">an</span> <span class="w">online</span> <span class="w">shop</span><br /><span class="w">like</span> <span class="w">this?</span></div>
+          <div id="cta"><svg width="54" height="54" viewBox="0 0 24 24"><path d="M12 2.5A9.5 9.5 0 0 0 3.8 16.8L2.5 21.5l4.8-1.3A9.5 9.5 0 1 0 12 2.5Z" fill="none" stroke="#06281a" stroke-width="2" stroke-linejoin="round" /><path d="M8.6 7.9c.3-.6.6-.6.9-.6h.6c.2 0 .4 0 .6.5l.8 1.9c.1.3 0 .5-.1.7l-.5.6c-.2.2-.2.4 0 .7.6 1 1.7 2.1 2.8 2.6.3.1.5.1.7-.1l.7-.8c.2-.3.4-.3.7-.2l1.8.9c.3.1.5.3.5.5 0 .6-.2 1.3-.7 1.6-.5.4-1.4.7-2.6.4-1.6-.4-3.8-1.7-5.2-3.6-1.2-1.6-1.5-3.1-1.2-4.1Z" fill="#06281a" /></svg>WhatsApp 081 236 0230</div>
+          <div id="end-site" class="center">ntombii.tech</div>
+        </div>
+      </div>
+
+      <!-- Sound -->
+      <audio id="music" src="assets/audio/bed-1.mp3" data-start="0" data-duration="30.0" data-volume="0.85" data-fade-out="1.0" data-track-index="5"></audio>
+      <audio id="fx-whoosh-a" src="assets/sfx/whoosh-1.mp3" data-start="1.95" data-duration="0.8" data-volume="0.7" data-track-index="6"></audio>
+      <audio id="fx-tap-1" src="assets/sfx/click-1.mp3" data-start="6.38" data-duration="0.5" data-volume="0.9" data-track-index="6"></audio>
+      <audio id="fx-tap-2" src="assets/sfx/click-2.mp3" data-start="8.42" data-duration="0.5" data-volume="0.9" data-track-index="7"></audio>
+      <audio id="fx-tap-3" src="assets/sfx/click-1.mp3" data-start="10.15" data-duration="0.5" data-volume="0.9" data-track-index="6"></audio>
+      <audio id="fx-pop-a" src="assets/sfx/pop-1.mp3" data-start="10.75" data-duration="0.5" data-volume="0.9" data-track-index="7"></audio>
+      <audio id="fx-whoosh-b" src="assets/sfx/whoosh-3.mp3" data-start="12.0" data-duration="0.8" data-volume="0.7" data-track-index="6"></audio>
+      <audio id="fx-tap-4" src="assets/sfx/click-2.mp3" data-start="14.0" data-duration="0.5" data-volume="0.9" data-track-index="7"></audio>
+      <audio id="fx-tap-5" src="assets/sfx/click-1.mp3" data-start="15.52" data-duration="0.5" data-volume="0.9" data-track-index="6"></audio>
+      <audio id="fx-pop-b" src="assets/sfx/pop-2.mp3" data-start="17.2" data-duration="0.5" data-volume="0.85" data-track-index="7"></audio>
+      <audio id="fx-whoosh-c" src="assets/sfx/whoosh-4.mp3" data-start="18.15" data-duration="0.8" data-volume="0.7" data-track-index="6"></audio>
+      <audio id="fx-tap-6" src="assets/sfx/click-2.mp3" data-start="19.58" data-duration="0.5" data-volume="0.9" data-track-index="7"></audio>
+      <audio id="fx-tap-7" src="assets/sfx/click-1.mp3" data-start="21.12" data-duration="0.5" data-volume="0.9" data-track-index="6"></audio>
+      <audio id="fx-tap-8" src="assets/sfx/click-2.mp3" data-start="23.18" data-duration="0.5" data-volume="0.9" data-track-index="7"></audio>
+      <audio id="fx-pop-c" src="assets/sfx/pop-4.mp3" data-start="23.75" data-duration="0.5" data-volume="0.9" data-track-index="6"></audio>
+      <audio id="fx-whoosh-d" src="assets/sfx/whoosh-2.mp3" data-start="26.2" data-duration="0.8" data-volume="0.8" data-track-index="7"></audio>
+      <audio id="fx-pop-d" src="assets/sfx/pop-3.mp3" data-start="26.75" data-duration="0.5" data-volume="0.85" data-track-index="6"></audio>
+      <audio id="fx-pop-e" src="assets/sfx/pop-1.mp3" data-start="27.35" data-duration="0.5" data-volume="0.85" data-track-index="7"></audio>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const T = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const K = 500 / 390;                 // phone-capture CSS px -> screen px
+      const SX = 290, SY = 490;            // screen's top-left on the 1080 x 1920 canvas
+      const PHONE_X = 276, PHONE_Y = 476;  // phone's top-left (taps live inside the phone)
+
+      // Embers rising, deterministic
+      const embers = document.getElementById("embers");
+      for (let i = 0; i < 16; i++) {
+        const e = document.createElement("div"); e.className = "ember"; e.id = `ember-${i}`;
+        e.style.left = `${(i * 137) % 1040 + 20}px`; e.style.top = `${1700 + (i * 89) % 200}px`;
+        embers.appendChild(e);
+        const s = 0.6 + ((i * 37) % 10) / 10;
+        const start = (i * 1.7) % 18, life = 9 + (i % 4);
+        tl.fromTo(e, { y: 0, x: 0, scale: s }, { y: -(1200 + (i * 53) % 500), x: ((i % 5) - 2) * 40, scale: s, duration: life, ease: "none", immediateRender: false }, start);
+        tl.fromTo(e, { opacity: 0 }, { opacity: 0.85, duration: life * 0.25, ease: "sine.out", immediateRender: false }, start);
+        tl.to(e, { opacity: 0, duration: life * 0.4, ease: "sine.in" }, start + life * 0.6);
+      }
+      tl.fromTo("#glow-a", { x: 0, y: 0 }, { x: 300, y: 400, duration: 15, ease: "sine.inOut" }, 0);
+      tl.to("#glow-a", { x: 80, y: 900, duration: 15, ease: "sine.inOut" }, 15);
+      tl.fromTo("#glow-b", { x: 0, y: 0 }, { x: -380, y: -500, duration: 16, ease: "sine.inOut" }, 0);
+      tl.to("#glow-b", { x: -60, y: -200, duration: 14, ease: "sine.inOut" }, 16);
+
+      const words = (sel, at, gap = 0.08, from = { opacity: 0, y: 50, filter: "blur(8px)" }) =>
+        gsap.utils.toArray(`${sel} .w`).forEach((el, i) => T(el, from, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, at + i * gap));
+      const out = (sel, at) => tl.to(`${sel} .w`, { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.2, stagger: 0.03, ease: "power2.in" }, at);
+      const fadeIn = (sel, at) => T(sel, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, ease: "expo.out" }, at);
+      const fadeOut = (sel, at) => tl.to(sel, { opacity: 0, duration: 0.2 }, at);
+
+      // A tap: the finger lands, a ring spreads, and on that frame the next screen state is shown.
+      const tap = (name, x, y, at) => {
+        const px = 14 + x * K, py = 14 + y * K;
+        T("#tap", { opacity: 0, scale: 1.6, x: px, y: py }, { opacity: 1, scale: 1, x: px, y: py, duration: 0.16, ease: "power2.out" }, at - 0.16);
+        tl.to("#tap", { opacity: 0, scale: 0.8, duration: 0.22, ease: "power2.in" }, at + 0.12);
+        T("#ring", { opacity: 0.9, scale: 0.8, x: px, y: py }, { opacity: 0, scale: 2.6, x: px, y: py, duration: 0.5, ease: "power2.out" }, at);
+      };
+      // Show one screen instantly (state change) or with a transition.
+      const swap = (from, to, at) => { tl.set(to, { opacity: 1 }, at); tl.set(from, { opacity: 0 }, at + 0.02); };
+      const push = (from, to, at, dir = 1) => {   // a new page slides in, like navigating
+        T(to, { opacity: 1, x: 500 * dir }, { opacity: 1, x: 0, duration: 0.45, ease: "expo.out" }, at);
+        tl.to(from, { x: -180 * dir, opacity: 0.4, duration: 0.45, ease: "expo.out" }, at);
+        tl.set(from, { opacity: 0 }, at + 0.46);
+      };
+      const scrollTo = (from, to, at) => {        // the page scrolls to the next part
+        T(to, { opacity: 0, y: 220 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, at);
+        tl.to(from, { y: -220, opacity: 0, duration: 0.4, ease: "power2.in" }, at);
+      };
+      // Camera push-in on a point of the screen (screen px), then back out.
+      const punch = (y, scale, at, hold) => {
+        const oy = SY + y;
+        tl.fromTo("#cam", { scale: 1, transformOrigin: `540px ${oy}px` }, { scale, transformOrigin: `540px ${oy}px`, duration: 0.55, ease: "power3.inOut", immediateRender: false }, at);
+        tl.to("#cam", { scale: 1, duration: 0.5, ease: "power3.inOut" }, at + 0.55 + hold);
+      };
+
+      // ---------- Hook 0 – 4.07 ----------
+      words("#hook-1", 0.08, 0.1, { opacity: 0, y: 60, scale: 1.15 });
+      words("#hook-2", 0.36, 0.1, { opacity: 0, y: 60, scale: 1.15 });
+      words("#hook-3", 0.66, 0.12, { opacity: 0, y: 60, scale: 1.15 });
+      fadeIn("#credit", 1.0);
+      tl.to(["#hook-1 .w", "#hook-2 .w", "#hook-3 .w"], { opacity: 0, y: -90, filter: "blur(10px)", duration: 0.3, stagger: 0.03, ease: "power2.in" }, 1.9);
+      tl.to("#credit", { y: -526, scale: 1.3, color: "#f6efe6", duration: 0.7, ease: "power3.inOut" }, 1.98);
+      T("#phone", { opacity: 0, y: 900, rotationX: 38, rotationZ: -6, transformPerspective: 1600 }, { opacity: 1, y: 0, rotationX: 0, rotationZ: 0, transformPerspective: 1600, duration: 1.2, ease: "expo.out" }, 2.03);
+      tl.to("#credit", { opacity: 0, y: -566, filter: "blur(8px)", duration: 0.25, ease: "power2.in" }, 3.78);
+
+      // ---------- Browse 4.07 – 7.12 ----------
+      words("#cap-browse", 4.07);
+      tl.fromTo("#s-home", { y: 0 }, { y: -676 * K, duration: 1.8, ease: "power2.inOut", immediateRender: false }, 4.2);
+      swap("#s-home", "#s-coll", 6.02);
+      tap("candle", 103.5, 342.1, 6.4);
+      out("#cap-browse", 6.85);
+
+      // ---------- Pick a scent 7.12 – 10.17 ----------
+      T("#s-prod", { opacity: 0, scale: 0.86, transformOrigin: `${103.5 * K}px ${342.1 * K}px` }, { opacity: 1, scale: 1, duration: 0.5, ease: "expo.out" }, 6.5);
+      tl.set("#s-coll", { opacity: 0 }, 7.0);
+      words("#cap-scent", 7.12);
+      punch(480 * K, 1.42, 7.55, 1.15);
+      tap("rose", 163.7, 480.5, 8.44);
+      swap("#s-prod", "#s-rose", 8.44);
+      out("#cap-scent", 9.9);
+
+      // ---------- Add to cart 10.17 – 12.2 ----------
+      words("#cap-cart", 10.12);
+      tap("add", 195, 709.5, 10.17);
+      T("#s-cart", { opacity: 1, x: 500 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out" }, 10.25);
+      tl.set("#s-rose", { opacity: 0 }, 10.8);
+      tl.fromTo("#phone", { scale: 1 }, { scale: 1.035, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, 10.75);
+      out("#cap-cart", 11.9);
+
+      // ---------- Gift box 12.2 – 18.3 ----------
+      words("#cap-gift", 12.2); fadeIn("#sub-gift", 12.5);
+      push("#s-cart", "#s-gift", 12.05);
+      scrollTo("#s-gift", "#s-combo", 13.25);
+      tap("combo", 171, 472.2, 14.02);
+      scrollTo("#s-combo", "#s-gscent", 14.75);
+      tap("sandalwood", 268.6, 230.2, 15.55);
+      swap("#s-gscent", "#s-gpick", 15.55);
+      scrollTo("#s-gpick", "#s-gtotal", 16.3);
+      punch(650 * K, 1.32, 16.85, 0.8);
+      out("#cap-gift", 18.0); fadeOut("#sub-gift", 18.0);
+
+      // ---------- Guest checkout 18.3 – 23.9 ----------
+      words("#cap-check", 18.3); fadeIn("#sub-check", 18.6);
+      push("#s-gtotal", "#s-c1", 18.2);
+      T("#s-c1f", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power1.inOut" }, 18.75);
+      tl.set("#s-c1", { opacity: 0 }, 19.4);
+      tap("continue", 195, 670, 19.6);
+      push("#s-c1f", "#s-c2", 19.65);
+      tap("locker", 189.5, 529, 21.15);
+      swap("#s-c2", "#s-c2l", 21.15);
+      punch(529 * K, 1.3, 21.3, 0.55);
+      scrollTo("#s-c2l", "#s-c2p", 22.45);
+      tap("pay", 195, 476, 23.2);
+      out("#cap-check", 23.4); fadeOut("#sub-check", 23.4);
+
+      // ---------- Secure payment 23.9 – 26.4 ----------
+      words("#cap-pay", 23.55, 0.12, { opacity: 0, y: 60, scale: 1.2 });
+      T("#dim", { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power2.out" }, 23.35);
+      tl.to("#phone", { scale: 0.9, y: 60, duration: 0.6, ease: "power3.out" }, 23.4);
+      T("#pay-card", { opacity: 0, y: 120, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: "back.out(1.6)" }, 23.75);
+      T("#logos", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: "expo.out" }, 24.15);
+      out("#cap-pay", 26.0);
+
+      // ---------- End card 26.4 – 29.6 ----------
+      tl.to(["#phone", "#pay-card"], { scale: 0.4, opacity: 0, duration: 0.35, ease: "power3.in", transformOrigin: "50% 50%" }, 26.1);
+      T("#flood", { opacity: 1, scale: 0.2 }, { opacity: 1, scale: 26, duration: 0.6, ease: "power3.in" }, 26.15);
+      T("#mark", { opacity: 0, scale: 0.4, rotation: -20 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.5, ease: "back.out(1.8)" }, 26.7);
+      T("#mark-n", { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 26.85);
+      T("#mark-dot", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(3)" }, 27.15);
+      T("#wordmark", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.55, ease: "power3.inOut" }, 27.0);
+      gsap.utils.toArray("#end-1 .w").forEach((el, i) => T(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.4, ease: "expo.out" }, 27.2 + i * 0.07));
+      T("#cta", { opacity: 0, scale: 0.5, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "back.out(1.8)" }, 27.35);
+      fadeIn("#end-site", 27.5);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
