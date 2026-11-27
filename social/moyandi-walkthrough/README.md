@@ -7,6 +7,8 @@
 | `moyandi-walkthrough-2160x3840.mp4` | Best quality (4K vertical). Upload from a computer, or to YouTube Shorts. |
 | `moyandi-walkthrough-1080x1920.mp4` | Upload from a phone to TikTok, Instagram or Facebook. |
 
+Cover image: `cover.jpg` (the opening line and the shop's address).
+
 The posting-quality steps in `../facebook-launch/README.md` apply here too: send the file to your phone as a file (not as a WhatsApp video), switch on HD upload in each app, and give Facebook 10–30 minutes to finish the HD version.
 
 ## What happens
