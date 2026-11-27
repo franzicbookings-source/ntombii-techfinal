@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1350" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Aeonik"; src: url("assets/fonts/aeonik-regular.woff") format("woff"); font-weight: 400; font-style: normal; }
+      :root {
+        --navy: #202c36; --navy-deep: #151e26; --slate: #506f82; --mark: #354f61; --dot: #aac3d4;
+        --ice: #c4e1f5; --paper: #f4f7f9; --ink: #1c2731; --wa: #25d366;
+        --display: "Aeonik", "Inter", sans-serif; --ui: "Inter", sans-serif;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1350px; overflow: hidden; background: var(--navy); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--navy); font-family: var(--display); color: #fff; }
+      .scene { position: absolute; inset: 0; }
+      .w { display: inline-block; }
+      .center { position: absolute; left: 0; right: 0; text-align: center; }
+
+      /* Ground */
+      #bg { background: radial-gradient(ellipse 80% 65% at 50% 42%, #2b3d4d, var(--navy) 62%, var(--navy-deep)); }
+      #grid { position: absolute; inset: -60px; background-image: radial-gradient(rgba(255,255,255,.07) 1.3px, transparent 1.8px); background-size: 36px 36px; -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, #000 30%, transparent 100%); mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, #000 30%, transparent 100%); }
+      .blob { position: absolute; width: 760px; height: 760px; border-radius: 50%; filter: blur(40px); }
+      #blob-a { left: -180px; top: 80px; background: radial-gradient(closest-side, rgba(80,111,130,.55), transparent); }
+      #blob-b { left: 520px; top: 640px; background: radial-gradient(closest-side, rgba(196,225,245,.18), transparent); }
+
+      /* 1. Chat */
+      .bubble { position: absolute; border-radius: 40px; font-size: 58px; line-height: 1.16; letter-spacing: -.02em; padding: 34px 44px; }
+      #typing { left: 110px; top: 470px; width: 170px; height: 104px; background: #fff; border-bottom-left-radius: 12px; }
+      .tdot { position: absolute; top: 44px; width: 18px; height: 18px; border-radius: 50%; background: #9fb2bf; }
+      #b1 { left: 110px; top: 470px; width: 720px; background: #fff; color: var(--ink); border-bottom-left-radius: 12px; opacity: 0; }
+      #b2 { right: 110px; top: 720px; background: var(--ice); color: var(--ink); border-bottom-right-radius: 12px; padding-right: 110px; opacity: 0; }
+      #b2 svg { position: absolute; right: 36px; bottom: 30px; }
+      #flood { position: absolute; left: 0; top: 0; width: 120px; height: 120px; border-radius: 50%; background: var(--ice); opacity: 0; }
+
+      /* 2. Type */
+      #s2-bg { position: absolute; inset: 0; background: var(--ice); }
+      #l1 { top: 520px; font-size: 128px; line-height: 1; letter-spacing: -.05em; color: var(--ink); }
+      #quiet { color: var(--slate); }
+      #l2 { top: 430px; font-size: 92px; line-height: 1; letter-spacing: -.045em; color: var(--ink); }
+      #l3 { top: 570px; font-size: 196px; line-height: 1; letter-spacing: -.06em; color: var(--navy); }
+      #l1 .w, #l2 .w, #l3 .w { opacity: 0; }
+      #wipe { position: absolute; left: 0; top: 0; width: 1080px; height: 1350px; background: radial-gradient(ellipse 80% 65% at 50% 42%, #2b3d4d, var(--navy) 62%, var(--navy-deep)); }
+
+      /* 3. Services */
+      #tile { position: absolute; left: 390px; top: 300px; width: 300px; height: 300px; border-radius: 72px; background: #fff; box-shadow: 0 40px 90px rgba(5,12,18,.45); opacity: 0; }
+      .icon { position: absolute; inset: 0; opacity: 0; }
+      .svc { top: 700px; font-size: 104px; line-height: 1.06; letter-spacing: -.05em; }
+      .svc .w { opacity: 0; }
+
+      /* 4. Award */
+      #badge-wrap { position: absolute; left: 270px; top: 250px; width: 540px; height: 327px; opacity: 0; overflow: hidden; border-radius: 18px; }
+      #badge { width: 540px; height: 327px; display: block; }
+      #badge-glow { position: absolute; left: 190px; top: 150px; width: 700px; height: 520px; border-radius: 50%; background: radial-gradient(closest-side, rgba(196,225,245,.5), transparent); opacity: 0; }
+      #aw-1 { top: 690px; font-size: 128px; line-height: 1; letter-spacing: -.05em; }
+      #aw-1 .w { opacity: 0; }
+      #aw-2 { top: 860px; font-family: var(--ui); font-size: 34px; color: var(--ice); letter-spacing: .01em; opacity: 0; }
+      #flash { position: absolute; inset: 0; background: #fff; opacity: 0; }
+
+      /* 5. Work */
+      #s5, #s6 { opacity: 0; }
+      #frame { position: absolute; left: 40px; top: 300px; width: 1000px; height: 800px; border-radius: 40px; overflow: hidden; background: var(--navy); box-shadow: 0 0 0 2px rgba(196,225,245,.16), 0 40px 100px rgba(4,10,15,.5); }
+      .clipw { position: absolute; inset: 0; }
+      .clipw video { width: 1000px; height: 800px; display: block; object-fit: cover; }
+      .mt-name { top: 130px; font-size: 92px; line-height: 1; letter-spacing: -.05em; opacity: 0; }
+      .mt-cat { top: 1150px; letter-spacing: .01em; font-family: var(--ui); font-size: 34px; color: var(--ice); opacity: 0; }
+
+      /* 6. Founder */
+      #face { position: absolute; left: 0; top: 0; width: 1080px; height: 1350px; clip-path: circle(0px at 540px 560px); }
+      #face video { position: absolute; left: 220px; top: 240px; width: 640px; height: 640px; }
+      #ring { position: absolute; left: 214px; top: 234px; width: 652px; height: 652px; border-radius: 50%; border: 4px solid var(--ice); opacity: 0; }
+      #cap { top: 960px; font-size: 76px; line-height: 1.12; letter-spacing: -.04em; }
+      #cap .w { opacity: 0; }
+
+      /* 7. End card */
+      #mark { position: absolute; left: 440px; top: 300px; width: 200px; height: 200px; border-radius: 47px; background: var(--mark); opacity: 0; overflow: hidden; }
+      #mark-n { position: absolute; inset: 0; clip-path: inset(100% 0 0 0); }
+      #mark-dot { position: absolute; left: 131px; top: 38px; width: 19px; height: 19px; border-radius: 50%; background: var(--dot); opacity: 0; }
+      #wordmark { position: absolute; left: 230px; top: 560px; width: 620px; height: 118px; clip-path: inset(0 100% 0 0); }
+      #tag { top: 740px; font-size: 92px; line-height: 1; letter-spacing: -.05em; }
+      #tag .w { opacity: 0; }
+      #cta { position: absolute; left: 185px; top: 900px; width: 710px; height: 120px; border-radius: 60px; background: var(--wa); color: #06281a; font-family: var(--ui); font-weight: 700; font-size: 46px; display: flex; align-items: center; justify-content: center; gap: 20px; opacity: 0; box-shadow: 0 20px 50px rgba(37,211,102,.35); }
+      #cta svg { flex-shrink: 0; }
+      #sub { top: 1080px; font-family: var(--ui); font-size: 36px; color: var(--ice); opacity: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="29.6" data-width="1080" data-height="1350">
+
+      <div id="bg" class="scene clip" data-start="0" data-duration="29.6" data-track-index="0" data-layout-ignore>
+        <div id="grid"></div><div id="blob-a" class="blob"></div><div id="blob-b" class="blob"></div>
+      </div>
+
+      <!-- 1. Hook: a WhatsApp chat -->
+      <div id="s1" class="scene clip" data-start="0" data-duration="4.1" data-track-index="1">
+        <div id="typing" class="bubble"><span class="tdot" style="left: 44px"></span><span class="tdot" style="left: 76px"></span><span class="tdot" style="left: 108px"></span></div>
+        <div id="b1" class="bubble">Do you still build websites?</div>
+        <div id="b2" class="bubble">We never stopped.<svg width="56" height="30" viewBox="0 0 56 30"><path d="M4 16l8 8 16-18M22 24l2 0 16-18" fill="none" stroke="#2f8fd8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+        <div id="flood"></div>
+      </div>
+
+      <!-- 2. Kinetic type -->
+      <div id="s2" class="scene clip" data-start="3.98" data-duration="4.22" data-track-index="1">
+        <div id="s2-bg"></div>
+        <div id="l1" class="center"><span class="w">We’ve</span> <span class="w">been</span> <span class="w" id="quiet">quiet.</span></div>
+        <div id="l2" class="center"><span class="w">Because</span> <span class="w">we’ve</span> <span class="w">been</span></div>
+        <div id="l3" class="center"><span class="w">b</span><span class="w">u</span><span class="w">i</span><span class="w">l</span><span class="w">d</span><span class="w">i</span><span class="w">n</span><span class="w">g</span><span class="w">.</span></div>
+        <div id="wipe"></div>
+      </div>
+
+      <!-- 3. Services -->
+      <div id="s3" class="scene clip" data-start="8" data-duration="6.1" data-track-index="1">
+        <div id="tile">
+          <svg id="ic-1" class="icon" viewBox="0 0 300 300"><rect x="62" y="80" width="176" height="140" rx="18" fill="none" stroke="#202c36" stroke-width="14" /><path d="M62 118h176" stroke="#202c36" stroke-width="14" /><circle cx="88" cy="99" r="6" fill="#202c36" /><circle cx="108" cy="99" r="6" fill="#202c36" /><path d="M92 152h64M92 182h40" stroke="#506f82" stroke-width="14" stroke-linecap="round" /></svg>
+          <svg id="ic-2" class="icon" viewBox="0 0 300 300"><path d="M78 112h144l-12 112H90Z" fill="none" stroke="#202c36" stroke-width="14" stroke-linejoin="round" /><path d="M116 124V100a34 34 0 0 1 68 0v24" fill="none" stroke="#202c36" stroke-width="14" stroke-linecap="round" /><path d="M124 170l18 18 34-38" fill="none" stroke="#506f82" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          <svg id="ic-3" class="icon" viewBox="0 0 300 300"><path d="M150 72l16 18 24-6 6 24 18 16-18 16-6 24-24-6-16 18-16-18-24 6-6-24-18-16 18-16 6-24 24 6Z" fill="none" stroke="#202c36" stroke-width="14" stroke-linejoin="round" /><circle cx="150" cy="150" r="26" fill="none" stroke="#506f82" stroke-width="14" /></svg>
+        </div>
+        <div id="svc-1" class="center svc"><span class="w">Business</span> <span class="w">websites</span></div>
+        <div id="svc-2" class="center svc"><span class="w">Online</span> <span class="w">shops</span></div>
+        <div id="svc-3" class="center svc"><span class="w">Maintenance</span><br /><span class="w">&amp;</span> <span class="w">support</span></div>
+      </div>
+
+      <!-- 4. Award -->
+      <div id="s4" class="scene clip" data-start="14" data-duration="2.05" data-track-index="1">
+        <div id="s4-zoom" class="scene">
+          <div id="badge-glow"></div><div id="badge-wrap"><img id="badge" src="assets/brand/award-2026.png" alt="" /></div>
+          <div id="aw-1" class="center"><span class="w">Award-</span><span class="w">winning.</span></div>
+          <div id="aw-2" class="center">2026 Web Design Award</div>
+        </div>
+      </div>
+
+      <!-- 5. Work, cut on the beat -->
+      <div id="s5" class="scene">
+        <div id="frame">
+          <div id="cw-0" class="clipw"><video id="v0" src="assets/work/la-raza.mp4" class="clip" data-start="16" data-duration="1" data-media-start="4.2" data-track-index="2" muted playsinline></video></div>
+          <div id="cw-1" class="clipw"><video id="v1" src="assets/work/moyandi-scents.mp4" class="clip" data-start="17" data-duration="1" data-media-start="8.8" data-track-index="2" muted playsinline></video></div>
+          <div id="cw-2" class="clipw"><video id="v2" src="assets/work/keep-newcastle-alive.mp4" class="clip" data-start="18" data-duration="1" data-media-start="4.2" data-track-index="2" muted playsinline></video></div>
+          <div id="cw-3" class="clipw"><video id="v3" src="assets/work/friday-consulting.mp4" class="clip" data-start="19" data-duration="1" data-media-start="8.8" data-track-index="2" muted playsinline></video></div>
+          <div id="cw-4" class="clipw"><video id="v4" src="assets/work/fezile-security.mp4" class="clip" data-start="20" data-duration="1" data-media-start="4.2" data-track-index="2" muted playsinline></video></div>
+          <div id="cw-5" class="clipw"><video id="v5" src="assets/work/legend-black-jesus.mp4" class="clip" data-start="21" data-duration="1" data-media-start="8.8" data-track-index="2" muted playsinline></video></div>
+          <div id="cw-6" class="clipw"><video id="v6" src="assets/work/snesenzo-security.mp4" class="clip" data-start="22" data-duration="0.6" data-media-start="4.2" data-track-index="2" muted playsinline></video></div>
+        </div>
+        <div id="n0" class="center mt-name">La Raza</div>
+        <div id="n1" class="center mt-name">Moyandi Scents</div>
+        <div id="n2" class="center mt-name">Keep Newcastle Alive</div>
+        <div id="n3" class="center mt-name">Friday Consulting</div>
+        <div id="n4" class="center mt-name">Fezile Security</div>
+        <div id="n5" class="center mt-name">Legend Black Jesus</div>
+        <div id="n6" class="center mt-name">Snesenzo Security</div>
+        <div id="mt-cats" class="center mt-cat"><span class="w">Restaurants.</span> <span class="w">Shops.</span> <span class="w">Security.</span> <span class="w">Community.</span></div>
+      </div>
+
+      <!-- 6. Sabelo says hi -->
+      <div id="s6" class="scene">
+        <div id="face-group" class="scene">
+          <div id="ring"></div>
+          <div id="face"><video id="sabelo" src="assets/sabelo-intro.mp4" class="clip" data-start="22.5" data-duration="3.15" data-media-start="0" data-has-audio="true" data-volume="1" data-track-index="3" playsinline></video></div>
+          <div id="cap" class="center"><span class="w">Sawubona!</span><br /><span class="w">I’m</span> <span class="w">Sabelo</span> <span class="w">from</span> <span class="w">Ntombii</span> <span class="w">Tech.</span></div>
+        </div>
+      </div>
+
+      <!-- 7. End card -->
+      <div id="s7" class="scene clip" data-start="25.6" data-duration="4.0" data-track-index="1">
+        <div id="mark"><svg id="mark-n" viewBox="0 0 64 64" width="200" height="200"><path d="M19 46V24h6v3c3-4 6-5 10-5 8 0 11 5 11 13v11h-6V35c0-5-2-7-6-7s-9 3-9 8v10z" fill="#f6f8fa" /></svg><div id="mark-dot"></div></div>
+        <img id="wordmark" src="assets/brand/wordmark-white.png" alt="" />
+        <div id="tag" class="center"><span class="w">Websites</span> <span class="w">that</span> <span class="w">work.</span></div>
+        <div id="cta"><svg width="60" height="60" viewBox="0 0 24 24"><path d="M12 2.5A9.5 9.5 0 0 0 3.8 16.8L2.5 21.5l4.8-1.3A9.5 9.5 0 1 0 12 2.5Z" fill="none" stroke="#06281a" stroke-width="2" stroke-linejoin="round" /><path d="M8.6 7.9c.3-.6.6-.6.9-.6h.6c.2 0 .4 0 .6.5l.8 1.9c.1.3 0 .5-.1.7l-.5.6c-.2.2-.2.4 0 .7.6 1 1.7 2.1 2.8 2.6.3.1.5.1.7-.1l.7-.8c.2-.3.4-.3.7-.2l1.8.9c.3.1.5.3.5.5 0 .6-.2 1.3-.7 1.6-.5.4-1.4.7-2.6.4-1.6-.4-3.8-1.7-5.2-3.6-1.2-1.6-1.5-3.1-1.2-4.1Z" fill="#06281a" /></svg>WhatsApp 081 236 0230</div>
+        <div id="sub" class="center">ntombii.tech · Websites from R2,500</div>
+      </div>
+
+      <div id="flash" class="scene clip" data-start="15.9" data-duration="0.6" data-track-index="4" data-layout-ignore></div>
+
+      <!-- Sound -->
+      <audio id="music" src="assets/audio/music.mp3" data-start="0" data-duration="29.6" data-volume="0.8" data-fade-out="1.2" data-track-index="5"></audio>
+      <audio id="sfx-pop-a" src="assets/audio/raw/pop-1.mp3" data-start="0.5" data-duration="0.5" data-volume="0.9" data-track-index="6"></audio>
+      <audio id="sfx-pop-b" src="assets/audio/raw/pop-2.mp3" data-start="2.0" data-duration="0.5" data-volume="0.9" data-track-index="6"></audio>
+      <audio id="sfx-whoosh-a" src="assets/audio/raw/whoosh-1.mp3" data-start="3.44" data-duration="0.8" data-volume="0.85" data-track-index="6"></audio>
+      <audio id="sfx-whoosh-b" src="assets/audio/raw/whoosh-2.mp3" data-start="7.33" data-duration="0.8" data-volume="0.85" data-track-index="8"></audio>
+      <audio id="sfx-pop-c" src="assets/audio/raw/pop-3.mp3" data-start="8.0" data-duration="0.5" data-volume="0.85" data-track-index="6"></audio>
+      <audio id="sfx-whoosh-c" src="assets/audio/raw/whoosh-3.mp3" data-start="9.82" data-duration="0.8" data-volume="0.75" data-track-index="6"></audio>
+      <audio id="sfx-whoosh-d" src="assets/audio/raw/whoosh-4.mp3" data-start="11.84" data-duration="0.8" data-volume="0.75" data-track-index="6"></audio>
+      <audio id="sfx-pop-d" src="assets/audio/raw/pop-4.mp3" data-start="14.0" data-duration="0.5" data-volume="0.9" data-track-index="6"></audio>
+      <audio id="sfx-riser" src="assets/audio/raw/riser-1.mp3" data-start="14.17" data-duration="2.5" data-volume="0.95" data-track-index="7"></audio>
+      <audio id="sfx-whoosh-e" src="assets/audio/raw/whoosh-3.mp3" data-start="22.2" data-duration="0.8" data-volume="0.6" data-track-index="6"></audio>
+      <audio id="sfx-whoosh-f" src="assets/audio/raw/whoosh-1.mp3" data-start="25.44" data-duration="0.8" data-volume="0.8" data-track-index="6"></audio>
+      <audio id="sfx-pop-e" src="assets/audio/raw/pop-1.mp3" data-start="25.8" data-duration="0.5" data-volume="0.9" data-track-index="8"></audio>
+      <audio id="sfx-pop-f" src="assets/audio/raw/pop-2.mp3" data-start="26.25" data-duration="0.5" data-volume="0.8" data-track-index="6"></audio>
+      <audio id="sfx-pop-g" src="assets/audio/raw/pop-3.mp3" data-start="26.75" data-duration="0.5" data-volume="0.9" data-track-index="6"></audio>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const T = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const words = (sel, at, gap, from = { opacity: 0, y: 60 }, dur = 0.45, ease = "expo.out") =>
+        gsap.utils.toArray(sel).forEach((el, i) => T(el, from, { opacity: 1, y: 0, x: 0, scale: 1, rotation: 0, filter: "blur(0px)", duration: dur, ease }, at + i * gap));
+
+      // ---------- Ground: always moving ----------
+      tl.fromTo("#grid", { x: 0, y: 0 }, { x: -72, y: -36, duration: 29.6, ease: "none" }, 0);
+      tl.fromTo("#blob-a", { x: 0, y: 0 }, { x: 260, y: 180, duration: 14, ease: "sine.inOut" }, 0);
+      tl.to("#blob-a", { x: 60, y: 420, duration: 15.6, ease: "sine.inOut" }, 14);
+      tl.fromTo("#blob-b", { x: 0, y: 0 }, { x: -340, y: -260, duration: 16, ease: "sine.inOut" }, 0);
+      tl.to("#blob-b", { x: -80, y: -520, duration: 13.6, ease: "sine.inOut" }, 16);
+
+      // ---------- 1. Chat: 0 – 4 s ----------
+      tl.fromTo(".tdot", { y: 0 }, { y: -10, duration: 0.11, yoyo: true, repeat: 1, stagger: 0.06, ease: "sine.inOut", immediateRender: false }, 0.02);
+      tl.to("#typing", { opacity: 0, scale: 0.8, duration: 0.08 }, 0.48);
+      T("#b1", { opacity: 0, scale: 0.4, y: 30, transformOrigin: "0% 100%" }, { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "back.out(1.7)" }, 0.5);
+      T("#b2", { opacity: 0, scale: 0.4, y: 30, transformOrigin: "100% 100%" }, { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "back.out(1.7)" }, 2.0);
+      tl.to("#b1", { y: -40, opacity: 0.35, duration: 0.5, ease: "power2.inOut" }, 2.1);
+      // Our reply floods the screen and becomes the next world
+      T("#flood", { opacity: 1, x: 760, y: 790, scale: 0.4 }, { opacity: 1, x: 760, y: 790, scale: 0.4, duration: 0.01 }, 3.42);
+      tl.to("#flood", { scale: 30, duration: 0.55, ease: "power3.in" }, 3.43);
+      tl.to("#b2", { scale: 1.08, duration: 0.25, ease: "power2.out" }, 3.3);
+
+      // ---------- 2. "We've been quiet. Because we've been building." 4 – 8 s ----------
+      words("#l1 .w:not(#quiet)", 4.0, 0.25, { opacity: 0, y: 80, scale: 1.25 }, 0.4, "expo.out");
+      T("#quiet", { opacity: 0, filter: "blur(10px)", letterSpacing: "0.12em" }, { opacity: 0.55, filter: "blur(0px)", letterSpacing: "-0.05em", duration: 0.9, ease: "power2.out" }, 4.5);
+      tl.to("#l1", { y: -120, opacity: 0, duration: 0.3, ease: "power3.in" }, 5.7);
+      words("#l2 .w", 6.0, 0.22, { opacity: 0, y: 70 }, 0.4, "expo.out");
+      gsap.utils.toArray("#l3 .w").forEach((el, i) => T(el, { opacity: 0, y: -520, rotation: (i % 2 ? 8 : -8) }, { opacity: 1, y: 0, rotation: 0, duration: 0.55, ease: "back.out(1.9)" }, 6.6 + i * 0.05));
+      tl.fromTo("#l3", { scale: 1 }, { scale: 1.06, duration: 1.0, ease: "power1.out", immediateRender: false }, 6.9);
+      T("#wipe", { y: 1350 }, { y: 0, duration: 0.5, ease: "power3.inOut" }, 7.55);
+      tl.to(["#l2", "#l3"], { y: -260, duration: 0.5, ease: "power3.in" }, 7.55);
+      tl.set("#wipe", { y: 1350 }, 0);
+
+      // ---------- 3. What we build: one tile, a flip per bar. 8 – 14 s ----------
+      T("#tile", { opacity: 0, scale: 0, rotation: -25 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.55, ease: "back.out(1.8)" }, 8.0);
+      T("#ic-1", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 8.0);
+      words("#svc-1 .w", 8.15, 0.12, { opacity: 0, y: 70, filter: "blur(12px)" });
+      tl.to("#svc-1 .w", { opacity: 0, y: -50, filter: "blur(10px)", duration: 0.2, stagger: 0.04, ease: "power2.in" }, 9.72);
+      const flip = (at, from, to) => {
+        tl.to("#tile", { rotationY: 90, transformPerspective: 900, duration: 0.17, ease: "power2.in" }, at - 0.17);
+        tl.set(from, { opacity: 0 }, at);
+        tl.set(to, { opacity: 1 }, at);
+        tl.fromTo("#tile", { rotationY: -90, transformPerspective: 900 }, { rotationY: 0, transformPerspective: 900, duration: 0.42, ease: "back.out(1.6)", immediateRender: false }, at);
+      };
+      flip(10.0, "#ic-1", "#ic-2");
+      words("#svc-2 .w", 10.1, 0.12, { opacity: 0, y: 70, filter: "blur(12px)" });
+      tl.to("#svc-2 .w", { opacity: 0, y: -50, filter: "blur(10px)", duration: 0.2, stagger: 0.04, ease: "power2.in" }, 11.72);
+      flip(12.0, "#ic-2", "#ic-3");
+      words("#svc-3 .w", 12.1, 0.12, { opacity: 0, y: 70, filter: "blur(12px)" });
+      tl.fromTo("#ic-3", { rotation: 0 }, { rotation: 90, duration: 1.6, ease: "power1.inOut", transformOrigin: "50% 50%", immediateRender: false }, 12.2);
+      tl.to("#svc-3 .w", { opacity: 0, y: -50, filter: "blur(10px)", duration: 0.2, stagger: 0.03, ease: "power2.in" }, 13.72);
+      tl.to("#tile", { scale: 0, rotation: 30, opacity: 0, duration: 0.25, ease: "power3.in" }, 13.75);
+
+      // ---------- 4. Award, then dive through it into the drop. 14 – 16 s ----------
+      T("#badge-wrap", { opacity: 0, scale: 1.8, rotation: -6 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.6)" }, 14.0);
+      T("#badge-glow", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1.1, duration: 0.35, ease: "power2.out" }, 14.05);
+      tl.to("#badge-glow", { opacity: 0.35, scale: 1, duration: 0.8, ease: "power2.inOut" }, 14.4);
+      words("#aw-1 .w", 14.2, 0.15, { opacity: 0, y: 70, scale: 1.2 }, 0.4);
+      T("#aw-2", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "expo.out" }, 14.3);
+      tl.fromTo("#s4-zoom", { scale: 1, opacity: 1, transformOrigin: "540px 413px" }, { scale: 6, opacity: 0, duration: 0.55, ease: "power3.in", immediateRender: false }, 15.45);
+      T("#flash", { opacity: 0 }, { opacity: 0.95, duration: 0.1, ease: "power1.in" }, 15.9);
+      tl.to("#flash", { opacity: 0, duration: 0.45, ease: "power2.out" }, 16.0);
+
+      // ---------- 5. The work, one project per two beats. 16 – 22.5 s ----------
+      tl.set("#s5", { opacity: 1 }, 16.0);
+      tl.set("#s5", { opacity: 0 }, 22.62);
+      T("#frame", { scale: 1.2, y: 30 }, { scale: 1, y: 0, duration: 0.6, ease: "expo.out" }, 16.0);
+      T("#mt-cats", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 16.2);
+      words("#mt-cats .w", 16.2, 0.12, { opacity: 0, y: 24 }, 0.35);
+      tl.to("#mt-cats", { opacity: 0, duration: 0.2 }, 22.3);
+      for (let i = 0; i < 7; i++) {
+        const at = 16 + i;
+        const len = i === 6 ? 0.6 : 1;
+        T(`#cw-${i}`, { scale: 1.5 }, { scale: 1.32, duration: 0.9, ease: "expo.out" }, at);
+        T(`#n${i}`, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.3, ease: "expo.out" }, at);
+        tl.set(`#n${i}`, { opacity: 0 }, at + len);
+      }
+      tl.to("#frame", { scale: 0.6, opacity: 0, duration: 0.3, ease: "power3.in" }, 22.3);
+
+      // ---------- 6. Sabelo: an iris opens on him. 22.5 – 25.6 s ----------
+      tl.set("#s6", { opacity: 1 }, 22.5);
+      tl.set("#s6", { opacity: 0 }, 25.8);
+      tl.fromTo("#face", { clipPath: "circle(0px at 540px 560px)" }, { clipPath: "circle(320px at 540px 560px)", duration: 0.5, ease: "expo.out", immediateRender: false }, 22.5);
+      T("#ring", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.55, ease: "expo.out" }, 22.55);
+      T("#cap .w:nth-child(1)", { opacity: 0, y: 40, scale: 1.2 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(2)" }, 22.55);
+      [[3, 23.9], [4, 24.08], [5, 24.42], [6, 24.6], [7, 24.95]].forEach(([n, at]) =>
+        T(`#cap .w:nth-of-type(${n - 1})`, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.25, ease: "expo.out" }, at));
+
+      // ---------- 7. The circle becomes the mark. 25.6 – 28.5 s ----------
+      tl.to("#face-group", { scale: 0.32, y: -170, opacity: 0, duration: 0.32, ease: "power3.in", transformOrigin: "540px 560px" }, 25.45);
+      T("#mark", { opacity: 0, scale: 0.4, rotation: -20 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.5, ease: "back.out(1.8)" }, 25.78);
+      T("#mark-n", { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 25.92);
+      T("#mark-dot", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(3)" }, 26.25);
+      T("#wordmark", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.55, ease: "power3.inOut" }, 26.1);
+      words("#tag .w", 26.45, 0.12, { opacity: 0, y: 50 }, 0.4);
+      T("#cta", { opacity: 0, scale: 0.5, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "back.out(1.8)" }, 26.75);
+      T("#sub", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, ease: "expo.out" }, 26.95);
+      tl.fromTo("#cta", { scale: 1 }, { scale: 1.04, duration: 0.35, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, 27.7);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
