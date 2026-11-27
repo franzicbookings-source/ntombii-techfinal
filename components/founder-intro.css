@@ -127,3 +127,25 @@
     to { opacity: 0; transform: scale(1.2); }
   }
 }
+
+.about-section.section {
+  display: grid;
+  grid-template-areas: ". portrait" "heading portrait" "story portrait" ". portrait";
+  grid-template-rows: 1fr auto auto 1fr;
+  row-gap: 0;
+}
+.about-heading { grid-area: heading; }
+.about-story { grid-area: story; }
+.about-section > .founder-intro { grid-area: portrait; width: 100%; }
+
+@media (max-width: 767px) {
+  .about-section.section {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "heading" "portrait" "story";
+    gap: 20px;
+    padding-top: 0;
+  }
+  .about-heading h2 { margin: 0; }
+  .about-section > .founder-intro { justify-self: start; }
+}

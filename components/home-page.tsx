@@ -150,7 +150,17 @@ export function HomePage() {
     </div>
       <ToolMarquee />
       <ProcessShowcase startingPrice={portfolioPackage.price} />
-      <section id="about" className="about-section section wrap"><div className="about-copy" data-reveal><h2>Hi, I'm Sabelo.<br />I build websites.</h2><p>I'm a self-taught digital product developer and the founder of Ntombii Tech.</p><p>Before tech, I managed artists and bookings in the music industry. I started experimenting with AI tools, taught myself web development and began building websites for businesses.</p><p>You work directly with me, from planning the pages to checking the finished website. You can see some of those decisions in <a className="award-story-link" href={awardArticlePath}>the story behind our 2026 Web Design Award</a>.</p><a className="text-link" href={wa("Hi Sabelo, I'd like to talk about a project.")} target="_blank" rel="noreferrer">Tell me about your business <Arrow diagonal /></a><SocialLinks /></div><FounderIntro whatsappHref={wa("Hi Sabelo, I saw your intro and I’d like to talk about a website.")} /></section>
+      <section id="about" className="about-section section wrap" aria-labelledby="about-title">
+        <div className="about-heading about-copy"><h2 id="about-title">Hi, I'm Sabelo.<br />I build websites.</h2></div>
+        <FounderIntro whatsappHref={wa("Hi Sabelo, I saw your intro and I’d like to talk about a website.")} />
+        <div className="about-story about-copy" data-reveal>
+          <p>I'm a self-taught digital product developer and the founder of Ntombii Tech.</p>
+          <p>Before tech, I managed artists and bookings in the music industry. I started experimenting with AI tools, taught myself web development and began building websites for businesses.</p>
+          <p>You work directly with me, from planning the pages to checking the finished website. You can see some of those decisions in <a className="award-story-link" href={awardArticlePath}>the story behind our 2026 Web Design Award</a>.</p>
+          <a className="text-link" href={wa("Hi Sabelo, I'd like to talk about a project.")} target="_blank" rel="noreferrer">Tell me about your business <Arrow diagonal /></a>
+          <SocialLinks />
+        </div>
+      </section>
       <WorkShowcase />
       <section id="pricing" className="pricing-section section"><div className="wrap"><div className="section-heading" data-reveal><h2>Website packages.</h2><a className="text-link" href="/pricing">Compare in detail <Arrow diagonal /></a></div><PricingComparison /></div></section>
       <Testimonials />
