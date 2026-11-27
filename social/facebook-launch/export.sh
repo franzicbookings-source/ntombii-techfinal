@@ -17,7 +17,7 @@ common=(
 grain="noise=c0s=3:c0f=t:all_seed=20261127"
 
 # 1. Best quality: full 2160 x 2700. Upload from a computer (facebook.com or Meta Business Suite).
-ffmpeg -y -loglevel error -i "$master" -vf "$grain" "${common[@]}" -crf 13 -maxrate 45M -bufsize 90M -level 5.1 \
+ffmpeg -y -loglevel error -i "$master" -vf "$grain" "${common[@]}" -crf 14 -maxrate 28M -bufsize 56M -level 5.1 \
   exports/ntombii-launch-2160x2700.mp4
 
 # 2. Phone upload: 1080 x 1350, scaled down from the 2x master so it stays sharper than a native 1080 render.
